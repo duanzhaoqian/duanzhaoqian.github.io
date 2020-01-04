@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="linux 命令">
+<meta name="keywords" content="linux,shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux nat">
+<meta property="og:url" content="https://duanzhaoqian.site/2016/08/15/Linux-NAT.html">
+<meta property="og:site_name" content="Duan Blog">
+<meta property="og:description" content="linux 命令">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-04T12:09:11.244Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux nat">
+<meta name="twitter:description" content="linux 命令">
+
+
+
+
+
+
+  <link rel="canonical" href="https://duanzhaoqian.site/2016/08/15/Linux-NAT.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+
+</script>
+  <title>linux nat | Duan Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Duan Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/08/15/Linux-NAT.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Duan Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux nat
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-08-15 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-15T00:00:00+08:00">2016-08-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            <div class="post-description">linux 命令</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="2016-08-15-Linux-NAT"><a href="#2016-08-15-Linux-NAT" class="headerlink" title="2016-08-15-Linux-NAT"></a>2016-08-15-Linux-NAT</h1><!--
+create time: 2016-08-15 13:16:09
+Author: <TODO: 请写上你的名字>
+
+This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
+本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
+-->
+<h2 id="设置-IPv4-转发"><a href="#设置-IPv4-转发" class="headerlink" title="设置 IPv4 转发"></a>设置 IPv4 转发</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line">设置</span><br><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line">生效</span><br><span class="line">sysctl -p</span><br><span class="line">显示所有系统参数</span><br><span class="line">sysctl -a</span><br></pre></td></tr></table></figure>
+<h2 id="sysctl"><a href="#sysctl" class="headerlink" title="sysctl"></a>sysctl</h2><p>sysctl 配置与显示在/proc/sys 目录中的内核参数．可以用 sysctl 来设置或重新设置联网功能，如 IP 转发、IP 碎片去除以及源路由检查等。用户只需要编辑/etc/sysctl.conf 文件，即可手工或自动执行由 sysctl 控制的功能。</p>
+<p>命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sysctl [-n] [-e] -w variable=value</span><br><span class="line"></span><br><span class="line">    sysctl [-n] [-e] -p &lt;filename&gt; (default /etc/sysctl.conf)</span><br><span class="line"></span><br><span class="line">    sysctl [-n] [-e] -a</span><br><span class="line"></span><br><span class="line">    常用参数的意义：</span><br><span class="line"></span><br><span class="line">    -w   临时改变某个指定参数的值，如</span><br><span class="line"></span><br><span class="line">         sysctl -w net.ipv4.ip_forward=1</span><br><span class="line"></span><br><span class="line">    -a   显示所有的系统参数</span><br><span class="line"></span><br><span class="line">    -p   从指定的文件加载系统参数，如不指定即从/etc/sysctl.conf中加载</span><br></pre></td></tr></table></figure>
+<p>如果仅仅是想临时改变某个系统参数的值，可以用两种方法来实现,例如想启用 IP 路由转发功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line"></span><br><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br></pre></td></tr></table></figure>
+<p>以上两种方法都可能立即开启路由功能，但如果系统重启，或执行了<code>service network restart</code>命令，所设置的值即会丢失，如果想永久保留配置，可以修改/etc/sysctl.conf 文件</p>
+<p>将 net.ipv4.ip_forward=0 改为 net.ipv4.ip_forward=1</p>
+<h2 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h2><p>详细链接：<a href="./iptables.html">iptables.html</a></p>
+<h3 id="查看-iptables-规则内容"><a href="#查看-iptables-规则内容" class="headerlink" title="查看 iptables 规则内容"></a>查看 iptables 规则内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service iptables status</span><br><span class="line">或者</span><br><span class="line">iptables -L</span><br><span class="line">更详细的信息</span><br><span class="line">iptables -L -v</span><br></pre></td></tr></table></figure>
+<h3 id="清空-iptables-规则"><a href="#清空-iptables-规则" class="headerlink" title="清空 iptables 规则"></a>清空 iptables 规则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
+<h3 id="允许-192-168-10-0-0-16-连接-ssh"><a href="#允许-192-168-10-0-0-16-连接-ssh" class="headerlink" title="允许 192.168.10.0.0/16 连接 ssh"></a>允许 192.168.10.0.0/16 连接 ssh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t filter -A INPUT -s 192.168.0.0/16 -p tcp --dport 22 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<h3 id="INPUT-默认策略改为-DROP"><a href="#INPUT-默认策略改为-DROP" class="headerlink" title="INPUT 默认策略改为 DROP"></a>INPUT 默认策略改为 DROP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -P INPUT DROP</span><br></pre></td></tr></table></figure>
+<h3 id="OUTPUT-默认策略改为-ACCEPT"><a href="#OUTPUT-默认策略改为-ACCEPT" class="headerlink" title="OUTPUT 默认策略改为 ACCEPT"></a>OUTPUT 默认策略改为 ACCEPT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -P OUTPUT ACCEPT</span><br></pre></td></tr></table></figure>
+<h3 id="添加-SNAT"><a href="#添加-SNAT" class="headerlink" title="添加 SNAT"></a>添加 SNAT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -s 192.168.0.0/16 -o em1 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+<p>不需要下面这条</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -R POSTROUTING 2 -d 192.168.10.2 -p tcp --dport 8081 -j SNAT --to 172.10.2.201:80</span><br></pre></td></tr></table></figure>
+<h3 id="添加-DNAT"><a href="#添加-DNAT" class="headerlink" title="添加 DNAT"></a>添加 DNAT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -d 172.10.2.201 -p tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80</span><br></pre></td></tr></table></figure>
+<h3 id="添加-INPUT-允许"><a href="#添加-INPUT-允许" class="headerlink" title="添加 INPUT 允许"></a>添加 INPUT 允许</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t filter -A INPUT -s 172.10.2.201/32 -p tcp --dport 80 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<h3 id="允许-PING"><a href="#允许-PING" class="headerlink" title="允许 PING"></a>允许 PING</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p icmp -j ACCEPT</span><br></pre></td></tr></table></figure>
+<h3 id="临时添加多个公网-IP"><a href="#临时添加多个公网-IP" class="headerlink" title="临时添加多个公网 IP"></a>临时添加多个公网 IP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip address add 172.10.2.203/24 dev em1</span><br></pre></td></tr></table></figure>
+<h3 id="永久添加多个公网-IP"><a href="#永久添加多个公网-IP" class="headerlink" title="永久添加多个公网 IP"></a>永久添加多个公网 IP</h3><p>仿照/etc/sysconfig/network-scripts/ifcfg-em1 增加一文件根据网络虚拟接口的名字进行命名</p>
+<p>/etc/sysconfig/network-scripts 目录下复制 ifcfg-em1 到 ifcfg-em1:0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ifcfg-em1 ifcfg-em1:0</span><br></pre></td></tr></table></figure>
+<p>修改 ifcfg-em1:0 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=em1:0</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">ONBOOT=yes</span><br><span class="line">NM_CONTROLLED=yes</span><br><span class="line">BOOTPROTO=static</span><br><span class="line">IPADDR=172.10.2.201</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=172.10.2.1</span><br></pre></td></tr></table></figure>
+<h4 id="ifconfig-em1-0-down"><a href="#ifconfig-em1-0-down" class="headerlink" title="ifconfig em1:0 down"></a>ifconfig em1:0 down</h4><p>关闭虚拟接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth*[:x] down(*代表的是网卡编号，x代表虚拟接口号0－255)</span><br></pre></td></tr></table></figure>
+<h4 id="ifconfig-em1-0-up"><a href="#ifconfig-em1-0-up" class="headerlink" title="ifconfig em1:0 up"></a>ifconfig em1:0 up</h4><p>启动虚拟网口出现错误</p>
+<p>SIOCSIFFLAGS: Cannot assign requested address</p>
+<p>出现以上错误的原因是把 em1:1 的信息写在了 ifcfg-em1:1 的配置文件里，本意是想，开机启动的时候自动加载，实现一块网卡双 IP。</p>
+<p>但当手动把 em1:1 设备 down（执行了：“ifconfig em1:1 down”），然后再启用的时候会报以上错误，主要是 mac 地址重复了</p>
+<p>解决办法：</p>
+<p>1、手动分配一个 mac 地址（不建议）</p>
+<p>2、手动执行添加 IP 的命令，把写在 ifcfg-eth0:1 里的信息配置上，如</p>
+<p>ifconfig eth0:1 192.168.1.2/24</p>
+<p>route add default gw 192.168.1.1 dev eth0:1</p>
+<h3 id="查看-IP"><a href="#查看-IP" class="headerlink" title="查看 IP"></a>查看 IP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<h3 id="添加默认网关"><a href="#添加默认网关" class="headerlink" title="添加默认网关"></a>添加默认网关</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add default gw 172.10.2.1</span><br></pre></td></tr></table></figure>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>iptables -P INPUT DROP 后无法 ping 通 <a href="http://www.baidu.com（无法进行域名解析）" target="_blank" rel="noopener">www.baidu.com（无法进行域名解析）</a></p>
+<p>使用 iptables -P INPUT ACCEPT 允许所有通过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A INPUT -m state --state INVALID -j DROP</span><br></pre></td></tr></table></figure>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>配置后内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@mysql ~]# vim /etc/sysconfig/iptables</span><br><span class="line"></span><br><span class="line"># Generated by iptables-save v1.4.7 on Mon Aug 15 17:30:49 2016</span><br><span class="line">*nat</span><br><span class="line">:PREROUTING ACCEPT [20:3272]</span><br><span class="line">:POSTROUTING ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">-A PREROUTING -d 172.10.2.201/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80</span><br><span class="line">-A POSTROUTING -s 192.168.0.0/16 -o em1 -j MASQUERADE</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Aug 15 17:30:49 2016</span><br><span class="line"># Generated by iptables-save v1.4.7 on Mon Aug 15 17:30:49 2016</span><br><span class="line">*filter</span><br><span class="line">:INPUT ACCEPT [1368:118485]</span><br><span class="line">:FORWARD ACCEPT [21251:9829802]</span><br><span class="line">:OUTPUT ACCEPT [425:52772]</span><br><span class="line">-A INPUT -s 192.168.0.0/16 -p tcp -m tcp --dport 22 -j ACCEPT</span><br><span class="line">-A INPUT -p icmp -j ACCEPT</span><br><span class="line">-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">-A INPUT -m state --state INVALID -j DROP</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Aug 15 17:30:49 2016</span><br></pre></td></tr></table></figure>
+<h1 id="IP-命令"><a href="#IP-命令" class="headerlink" title="IP 命令"></a>IP 命令</h1><p>链接：<a href="https://www.cnblogs.com/bamboo-talking/archive/2013/01/10/2855306.html" target="_blank" rel="noopener">https://www.cnblogs.com/bamboo-talking/archive/2013/01/10/2855306.html</a></p>
+<h4 id="ip-link-set–改变设备的属性-缩写：set、s"><a href="#ip-link-set–改变设备的属性-缩写：set、s" class="headerlink" title="ip link set–改变设备的属性. 缩写：set、s"></a>ip link set–改变设备的属性. 缩写：set、s</h4><p>示例 1：up/down 起动／关闭设备。</p>
+<p>ip link set dev eth0 up</p>
+<p>这个等于传统的 ifconfig eth0 up(down)</p>
+<h4 id="ip-link-show–显示设备属性-缩写：show、list、lst、sh、ls、l"><a href="#ip-link-show–显示设备属性-缩写：show、list、lst、sh、ls、l" class="headerlink" title="ip link show–显示设备属性. 缩写：show、list、lst、sh、ls、l"></a>ip link show–显示设备属性. 缩写：show、list、lst、sh、ls、l</h4><p>-s 选项出现两次或者更多次，ip 会输出更为详细的错误信息统计。</p>
+<p>示例:</p>
+<p>ip -s -s link ls eth0</p>
+<p>eth0: mtu 1500 qdisc cbq qlen 100</p>
+<p>link/ether 00:a0:cc:66:18:78 brd ff:ff:ff:ff:ff:ff</p>
+<p>RX: bytes packets errors dropped overrun mcast</p>
+<p>2449949362 2786187 0 0 0 0</p>
+<p>RX errors: length crc frame fifo missed</p>
+<p>0 0 0 0 0</p>
+<p>TX: bytes packets errors dropped carrier collsns</p>
+<p>178558497 1783946 332 0 332 35172</p>
+<p>TX errors: aborted fifo window heartbeat</p>
+<p>0 0 0 332</p>
+<p>这个命令等于传统的 ifconfig eth0</p>
+<h4 id="ip-address-add–添加一个新的协议地址-缩写：add、a"><a href="#ip-address-add–添加一个新的协议地址-缩写：add、a" class="headerlink" title="ip address add–添加一个新的协议地址. 缩写：add、a"></a>ip address add–添加一个新的协议地址. 缩写：add、a</h4><p>示例 1：为每个地址设置一个字符串作为标签。为了和 Linux-2.0 的网络别名兼容，这个字符串必须以设备名开头，接着一个冒号，</p>
+<p>ip addr add local 192.168.4.1/28 brd + label eth0:1 dev eth0</p>
+<p>示例 2: 在以太网接口 eth0 上增加一个地址 192.168.20.0，掩码长度为 24 位(155.155.155.0)，标准广播地址，标签为 eth0:Alias：</p>
+<p>ip addr add 192.168.4.2/24 brd + dev eth1 label eth1:1</p>
+<p>这个命令等于传统的: ifconfig eth1:1 192.168.4.2</p>
+<h4 id="ip-address-delete–删除一个协议地址-缩写：delete、del、d"><a href="#ip-address-delete–删除一个协议地址-缩写：delete、del、d" class="headerlink" title="ip address delete–删除一个协议地址. 缩写：delete、del、d"></a>ip address delete–删除一个协议地址. 缩写：delete、del、d</h4><p>ip addr del 192.168.4.1/24 brd + dev eth0 label eth0:Alias1</p>
+<h4 id="ip-address-show–显示协议地址-缩写：show、list、lst、sh、ls、l"><a href="#ip-address-show–显示协议地址-缩写：show、list、lst、sh、ls、l" class="headerlink" title="ip address show–显示协议地址. 缩写：show、list、lst、sh、ls、l"></a>ip address show–显示协议地址. 缩写：show、list、lst、sh、ls、l</h4><p>ip addr ls eth0</p>
+<h4 id="ip-address-flush–清除协议地址-缩写：flush、f"><a href="#ip-address-flush–清除协议地址-缩写：flush、f" class="headerlink" title="ip address flush–清除协议地址. 缩写：flush、f"></a>ip address flush–清除协议地址. 缩写：flush、f</h4><p>示例 1 : 删除属于私网 10.0.0.0/8 的所有地址：</p>
+<p>ip -s -s a f to 10/8</p>
+<p>示例 2 : 取消所有以太网卡的 IP 地址</p>
+<p>ip -4 addr flush label “eth0”</p>
+<h4 id="ip-neighbour–neighbour-arp-表管理命令"><a href="#ip-neighbour–neighbour-arp-表管理命令" class="headerlink" title="ip neighbour–neighbour/arp 表管理命令"></a>ip neighbour–neighbour/arp 表管理命令</h4><p>缩写 neighbour、neighbor、neigh、n</p>
+<p>命令 add、change、replace、delete、fulsh、show(或者 list)</p>
+<h4 id="ip-neighbour-add-–-添加一个新的邻接条目"><a href="#ip-neighbour-add-–-添加一个新的邻接条目" class="headerlink" title="ip neighbour add – 添加一个新的邻接条目"></a>ip neighbour add – 添加一个新的邻接条目</h4><p>ip neighbour change–修改一个现有的条目</p>
+<p>ip neighbour replace–替换一个已有的条目</p>
+<p>缩写：add、a；change、chg；replace、repl</p>
+<p>示例 1: 在设备 eth0 上，为地址 10.0.0.3 添加一个 permanent ARP 条目：</p>
+<p>ip neigh add 10.0.0.3 lladdr 0:0:0:0:0:1 dev eth0 nud perm</p>
+<p>示例 2:把状态改为 reachable</p>
+<p>ip neigh chg 10.0.0.3 dev eth0 nud reachable</p>
+<h4 id="ip-neighbour-delete–删除一个邻接条目"><a href="#ip-neighbour-delete–删除一个邻接条目" class="headerlink" title="ip neighbour delete–删除一个邻接条目"></a>ip neighbour delete–删除一个邻接条目</h4><p>示例 1:删除设备 eth0 上的一个 ARP 条目 10.0.0.3</p>
+<p>ip neigh del 10.0.0.3 dev eth0</p>
+<h4 id="ip-neighbour-show–显示网络邻居的信息-缩写：show、list、sh、ls"><a href="#ip-neighbour-show–显示网络邻居的信息-缩写：show、list、sh、ls" class="headerlink" title="ip neighbour show–显示网络邻居的信息. 缩写：show、list、sh、ls"></a>ip neighbour show–显示网络邻居的信息. 缩写：show、list、sh、ls</h4><p>示例 1: ip -s n ls 193.233.7.254</p>
+<p>193.233.7.254. dev eth0 lladdr 00:00:0c:76:3f:85 ref 5 used 12/13/20 nud reachable</p>
+<h5 id="ip-neighbour-flush–清除邻接条目-缩写：flush、f"><a href="#ip-neighbour-flush–清除邻接条目-缩写：flush、f" class="headerlink" title="ip neighbour flush–清除邻接条目. 缩写：flush、f"></a>ip neighbour flush–清除邻接条目. 缩写：flush、f</h5><p>示例 1: (-s 可以显示详细信息)</p>
+<p>ip -s -s n f 193.233.7.254</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/nat/" rel="tag"># nat</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/15/iptables.html" rel="next" title="linux iptables">
+                <i class="fa fa-chevron-left"></i> linux iptables
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/05/mysql-5.6.27rpm.html" rel="prev" title="MySQL5.6 rpm安装">
+                MySQL5.6 rpm安装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-08-15-Linux-NAT"><span class="nav-number">1.</span> <span class="nav-text">2016-08-15-Linux-NAT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-IPv4-转发"><span class="nav-number">1.1.</span> <span class="nav-text">设置 IPv4 转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sysctl"><span class="nav-number">1.2.</span> <span class="nav-text">sysctl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iptables"><span class="nav-number">1.3.</span> <span class="nav-text">iptables</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-iptables-规则内容"><span class="nav-number">1.3.1.</span> <span class="nav-text">查看 iptables 规则内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清空-iptables-规则"><span class="nav-number">1.3.2.</span> <span class="nav-text">清空 iptables 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#允许-192-168-10-0-0-16-连接-ssh"><span class="nav-number">1.3.3.</span> <span class="nav-text">允许 192.168.10.0.0/16 连接 ssh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#INPUT-默认策略改为-DROP"><span class="nav-number">1.3.4.</span> <span class="nav-text">INPUT 默认策略改为 DROP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OUTPUT-默认策略改为-ACCEPT"><span class="nav-number">1.3.5.</span> <span class="nav-text">OUTPUT 默认策略改为 ACCEPT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-SNAT"><span class="nav-number">1.3.6.</span> <span class="nav-text">添加 SNAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-DNAT"><span class="nav-number">1.3.7.</span> <span class="nav-text">添加 DNAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-INPUT-允许"><span class="nav-number">1.3.8.</span> <span class="nav-text">添加 INPUT 允许</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#允许-PING"><span class="nav-number">1.3.9.</span> <span class="nav-text">允许 PING</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#临时添加多个公网-IP"><span class="nav-number">1.3.10.</span> <span class="nav-text">临时添加多个公网 IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久添加多个公网-IP"><span class="nav-number">1.3.11.</span> <span class="nav-text">永久添加多个公网 IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ifconfig-em1-0-down"><span class="nav-number">1.3.11.1.</span> <span class="nav-text">ifconfig em1:0 down</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ifconfig-em1-0-up"><span class="nav-number">1.3.11.2.</span> <span class="nav-text">ifconfig em1:0 up</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-IP"><span class="nav-number">1.3.12.</span> <span class="nav-text">查看 IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加默认网关"><span class="nav-number">1.3.13.</span> <span class="nav-text">添加默认网关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.4.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo"><span class="nav-number">1.5.</span> <span class="nav-text">demo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP-命令"><span class="nav-number">2.</span> <span class="nav-text">IP 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-link-set–改变设备的属性-缩写：set、s"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">ip link set–改变设备的属性. 缩写：set、s</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-link-show–显示设备属性-缩写：show、list、lst、sh、ls、l"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">ip link show–显示设备属性. 缩写：show、list、lst、sh、ls、l</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-address-add–添加一个新的协议地址-缩写：add、a"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">ip address add–添加一个新的协议地址. 缩写：add、a</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-address-delete–删除一个协议地址-缩写：delete、del、d"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">ip address delete–删除一个协议地址. 缩写：delete、del、d</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-address-show–显示协议地址-缩写：show、list、lst、sh、ls、l"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">ip address show–显示协议地址. 缩写：show、list、lst、sh、ls、l</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-address-flush–清除协议地址-缩写：flush、f"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">ip address flush–清除协议地址. 缩写：flush、f</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-neighbour–neighbour-arp-表管理命令"><span class="nav-number">2.0.0.7.</span> <span class="nav-text">ip neighbour–neighbour/arp 表管理命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-neighbour-add-–-添加一个新的邻接条目"><span class="nav-number">2.0.0.8.</span> <span class="nav-text">ip neighbour add – 添加一个新的邻接条目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-neighbour-delete–删除一个邻接条目"><span class="nav-number">2.0.0.9.</span> <span class="nav-text">ip neighbour delete–删除一个邻接条目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip-neighbour-show–显示网络邻居的信息-缩写：show、list、sh、ls"><span class="nav-number">2.0.0.10.</span> <span class="nav-text">ip neighbour show–显示网络邻居的信息. 缩写：show、list、sh、ls</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ip-neighbour-flush–清除邻接条目-缩写：flush、f"><span class="nav-number">2.0.0.10.1.</span> <span class="nav-text">ip neighbour flush–清除邻接条目. 缩写：flush、f</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

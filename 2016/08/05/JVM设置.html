@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="JVM设置">
+<meta name="keywords" content="JVM设置 优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM设置">
+<meta property="og:url" content="https://duanzhaoqian.site/2016/08/05/JVM设置.html">
+<meta property="og:site_name" content="Duan Blog">
+<meta property="og:description" content="JVM设置">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-04T12:09:11.239Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JVM设置">
+<meta name="twitter:description" content="JVM设置">
+
+
+
+
+
+
+  <link rel="canonical" href="https://duanzhaoqian.site/2016/08/05/JVM设置.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+
+</script>
+  <title>JVM设置 | Duan Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Duan Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/08/05/JVM设置.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Duan Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JVM设置
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-08-05 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-05T00:00:00+08:00">2016-08-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            <div class="post-description">JVM设置</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JVM-设置"><a href="#JVM-设置" class="headerlink" title="JVM 设置"></a>JVM 设置</h1><!--
+create time: 2016-05-06 18:00:57
+Author: <段朝骞>
+
+This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
+本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
+-->
+<h2 id="查看-JVM-相关命令"><a href="#查看-JVM-相关命令" class="headerlink" title="查看 JVM 相关命令"></a>查看 JVM 相关命令</h2><h3 id="查看整个-JVM-内存状态"><a href="#查看整个-JVM-内存状态" class="headerlink" title="查看整个 JVM 内存状态"></a>查看整个 JVM 内存状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmap -heap [pid]</span><br></pre></td></tr></table></figure>
+<p>要注意的是在使用 CMS GC 情况下，jmap -heap 的执行有可能会导致 JAVA 进程挂起</p>
+<h3 id="查看-JVM-堆中对象详细占用情况"><a href="#查看-JVM-堆中对象详细占用情况" class="headerlink" title="查看 JVM 堆中对象详细占用情况"></a>查看 JVM 堆中对象详细占用情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmap -histo [pid]</span><br></pre></td></tr></table></figure>
+<h3 id="导出整个-JVM-中内存信息"><a href="#导出整个-JVM-中内存信息" class="headerlink" title="导出整个 JVM 中内存信息"></a>导出整个 JVM 中内存信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmap -dump:format=b,file=文件名 [pid]</span><br></pre></td></tr></table></figure>
+<h3 id="jhat"><a href="#jhat" class="headerlink" title="jhat"></a>jhat</h3><p>jhat 是 sun 1.6 及以上版本中自带的一个用于分析 JVM 堆 DUMP 文件的工具，基于此工具可分析 JVM HEAP 中对象的内存占用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jhat -J-Xmx1024M [file]</span><br></pre></td></tr></table></figure>
+<p>执行后等待 console 中输出 start HTTP server on port 7000 即可使用浏览器访问 IP：7000</p>
+<h3 id="eclipse-Memory-Analyzer"><a href="#eclipse-Memory-Analyzer" class="headerlink" title="eclipse Memory Analyzer"></a>eclipse Memory Analyzer</h3><p>Eclipse 提供的一个用于分析 JVM 堆 Dump 文件的插件。借助这个插件可查看对象的内存占用状况，引用关系，分析内存泄露等。<br><a href="https://www.eclipse.org/mat/" target="_blank" rel="noopener">https://www.eclipse.org/mat/</a></p>
+<h3 id="kill-3-pid"><a href="#kill-3-pid" class="headerlink" title="kill -3 [pid]"></a>kill -3 [pid]</h3><p>在 Linux 上找到 Java 所在的进程号，然后执行以上命令，线程的相关信息就输出到 console</p>
+<h3 id="jstack"><a href="#jstack" class="headerlink" title="jstack"></a>jstack</h3><p>jstack 是 sun JDK 自带的工具，通过该工具可以看到 JVM 中线程的运行状况，包括锁等待，线程是否在运行<br>执行 jstack [pid] ,线程的所有堆栈信息</p>
+<p>“http-8080-10” daemon prio=10 tid=x0a949bb60 nid=0x884 waiting for monitor entry […]</p>
+<p>“http-8080-10” 这个线程处于等待状态。 waiting for monitor entry 如果在连续几次输出线程堆栈信息都存在于同一个或多个线程上时，则说明系统中有锁竞争激烈，死锁，或锁饿死的想象。</p>
+<p>“http-8080-11” daemon prio=10 tix=xxx nid=xxx in object.wait() […]<br>java.lang.Thread.State:waiting (on object monitor)<br>该表示 http-8080-11 的线程处于对象的 Wait 上，等待其他线程的唤醒，这也是线程池的常见用法。</p>
+<p>“Low Memory Detector”daemon prio=10 tix=xx nid=xxx runnable […] java.lang.Thread.State:runnable<br>表示“Low Memory Detector” 的线程处于 Runable 状态，等待获取ＣＰＵ的使用权.</p>
+<h3 id="jps"><a href="#jps" class="headerlink" title="jps"></a>jps</h3><p>jps(Java Virtual Machine Process Status Tool)是 JDK 1.5 提供的一个显示当前所有 java 进程 pid 的命令，简单实用，非常适合在 linux/unix 平台上简单察看当前 java 进程的一些简单情况。</p>
+<p>jps 存放在 JAVA_HOME/bin/jps，使用时为了方便请将 JAVA_HOME/bin/加入到 Path.</p>
+<h3 id="jstat"><a href="#jstat" class="headerlink" title="jstat"></a>jstat</h3><pre><code>1. jstat -gc pid
+        可以显示gc的信息，查看gc的次数，及时间。
+        其中最后五项，分别是young gc的次数，young gc的时间，full gc的次数，full gc的时间，gc的总时间。
+2.jstat -gccapacity pid
+        可以显示，VM内存中三代（young,old,perm）对象的使用和占用大小，
+        如：PGCMN显示的是最小perm的内存使用量，PGCMX显示的是perm的内存最大使用量，
+        PGC是当前新生成的perm内存占用量，PC是但前perm内存占用量。
+        其他的可以根据这个类推， OC是old内纯的占用量。
+3.jstat -gcutil pid
+        统计gc信息统计。
+4.jstat -gcnew pid
+       年轻代对象的信息。
+5.jstat -gcnewcapacity pid
+       年轻代对象的信息及其占用量。
+6.jstat -gcold pid
+      old代对象的信息。
+7.stat -gcoldcapacity pid
+      old代对象的信息及其占用量。
+8.jstat -gcpermcapacity pid
+      perm对象的信息及其占用量。
+9.jstat -class pid
+      显示加载class的数量，及所占空间等信息。
+10.jstat -compiler pid
+      显示VM实时编译的数量等信息。
+11.stat -printcompilation pid
+      当前VM执行的信息。
+    一些术语的中文解释：
+     S0C：年轻代中第一个survivor（幸存区）的容量 (字节)
+     S1C：年轻代中第二个survivor（幸存区）的容量 (字节)
+     S0U：年轻代中第一个survivor（幸存区）目前已使用空间 (字节)
+     S1U：年轻代中第二个survivor（幸存区）目前已使用空间 (字节)
+     EC：年轻代中Eden（伊甸园）的容量 (字节)
+     EU：年轻代中Eden（伊甸园）目前已使用空间 (字节)
+     OC：Old代的容量 (字节)
+     OU：Old代目前已使用空间 (字节)
+     PC：Perm(持久代)的容量 (字节)
+     PU：Perm(持久代)目前已使用空间 (字节)
+     YGC：从应用程序启动到采样时年轻代中gc次数
+     YGCT：从应用程序启动到采样时年轻代中gc所用时间(s)
+     FGC：从应用程序启动到采样时old代(全gc)gc次数
+     FGCT：从应用程序启动到采样时old代(全gc)gc所用时间(s)
+     GCT：从应用程序启动到采样时gc用的总时间(s)
+     NGCMN：年轻代(young)中初始化(最小)的大小 (字节)
+     NGCMX：年轻代(young)的最大容量 (字节)
+     NGC：年轻代(young)中当前的容量 (字节)
+     OGCMN：old代中初始化(最小)的大小 (字节)
+     OGCMX：old代的最大容量 (字节)
+     OGC：old代当前新生成的容量 (字节)
+     PGCMN：perm代中初始化(最小)的大小 (字节)
+     PGCMX：perm代的最大容量 (字节)
+     PGC：perm代当前新生成的容量 (字节)
+     S0：年轻代中第一个survivor（幸存区）已使用的占当前容量百分比
+     S1：年轻代中第二个survivor（幸存区）已使用的占当前容量百分比
+     E：年轻代中Eden（伊甸园）已使用的占当前容量百分比
+     O：old代已使用的占当前容量百分比
+     P：perm代已使用的占当前容量百分比
+     S0CMX：年轻代中第一个survivor（幸存区）的最大容量 (字节)
+     S1CMX ：年轻代中第二个survivor（幸存区）的最大容量 (字节)
+     ECMX：年轻代中Eden（伊甸园）的最大容量 (字节)
+     DSS：当前需要survivor（幸存区）的容量 (字节)（Eden区已满）
+     TT： 持有次数限制
+     MTT ： 最大持有次数限制
+</code></pre><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>JVM 堆内存分为 2 块：Permanent Space 和 Heap Space。</p>
+<ul>
+<li>Permanent 即   持久代（Permanent Generation），主要存放的是 Java 类定义信息，与垃圾收集器要收集的 Java 对象关系不大。</li>
+<li>Heap = { Old + NEW = {Eden, from, to} }，Old 即 年老代（Old Generation），New 即   年轻代（Young Generation）。年老代和年轻代的划分对垃圾收集影响比较大。</li>
+</ul>
+<h3 id="年轻代"><a href="#年轻代" class="headerlink" title="年轻代"></a>年轻代</h3><p>所有新生成的对象首先都是放在年轻代。年轻代的目标就是尽可能快速的收集掉那些生命周期短的对象。年轻代一般分 3 个区，1 个 Eden 区，2 个 Survivor 区（from 和 to）。<br>大 部分对象在 Eden 区中生成。当 Eden 区满时，还存活的对象将被复制到 Survivor 区（两个中的一个），当一个 Survivor 区满时，此区的存活 对象将被复制到另外一个 Survivor 区，当另一个 Survivor 区也满了的时候，从前一个 Survivor 区复制过来的并且此时还存活的对象，将可 能被复制到年老代。<br>2 个 Survivor 区是对称的，没有先后关系，所以同一个 Survivor 区中可能同时存在从 Eden 区复制过来对象，和从另一个 Survivor 区复制过来的对象；而复制到年老区的只有从另一个 Survivor 区过来的对象。而且，因为需要交换的原因，Survivor 区至少有一个是空的。特殊的情况下，根据程序需要，Survivor 区是可以配置为多个的（多于 2 个），这样可以增加对象在年轻代中的存在时间，减少被放到年老代的可能。<br>针对年轻代的垃圾回收即 Young GC。</p>
+<h3 id="年老代"><a href="#年老代" class="headerlink" title="年老代"></a>年老代</h3><p>在年轻代中经历了 N 次（可配置）垃圾回收后仍然存活的对象，就会被复制到年老代中。因此，可以认为年老代中存放的都是一些生命周期较长的对象。<br>针对年老代的垃圾回收即 Full GC。</p>
+<h3 id="持久代"><a href="#持久代" class="headerlink" title="持久代"></a>持久代</h3><p>用 于存放静态类型数据，如 Java Class, Method 等。持久代对垃圾回收没有显著影响。但是有些应用可能动态生成或调用一些 Class，例如 Hibernate CGLib 等，在这种时候往往需要设置一个比较大的持久代空间来存放这些运行过程中动态增加的类型。</p>
+<p>所以，当一组对象生成时，内存申请过程如下：</p>
+<ol>
+<li>JVM 会试图为相关 Java 对象在年轻代的 Eden 区中初始化一块内存区域。</li>
+<li>当 Eden 区空间足够时，内存申请结束。否则执行下一步。</li>
+<li>JVM 试图释放在 Eden 区中所有不活跃的对象（Young GC）。释放后若 Eden 空间仍然不足以放入新对象，JVM 则试图将部分 Eden 区中活跃对象放入 Survivor 区。</li>
+<li>Survivor 区被用来作为 Eden 区及年老代的中间交换区域。当年老代空间足够时，Survivor 区中存活了一定次数的对象会被移到年老代。</li>
+<li>当年老代空间不够时，JVM 会在年老代进行完全的垃圾回收（Full GC）。</li>
+<li>Full GC 后，若 Survivor 区及年老代仍然无法存放从 Eden 区复制过来的对象，则会导致 JVM 无法在 Eden 区为新生成的对象申请内存，即出现“Out of Memory”。</li>
+</ol>
+<h3 id="OOM（“Out-of-Memory”）异常一般主要有如下-2-种原因："><a href="#OOM（“Out-of-Memory”）异常一般主要有如下-2-种原因：" class="headerlink" title="OOM（“Out of Memory”）异常一般主要有如下 2 种原因："></a>OOM（“Out of Memory”）异常一般主要有如下 2 种原因：</h3><ol>
+<li><p>年老代溢出，表现为：java.lang.OutOfMemoryError:Javaheapspace<br>这是最常见的情况，产生的原因可能是：设置的内存参数 Xmx 过小或程序的内存泄露及使用不当问题。<br>例如循环上万次的字符串处理、创建上千万个对象、在一段代码内申请上百 M 甚至上 G 的内存。还有的时候虽然不会报内存溢出，却会使系统不间断的垃圾回收，也无法处理其它请求。这种情况下除了检查程序、打印堆内存等方法排查，还可以借助一些内存分析工具，比如 MAT 就很不错。</p>
+</li>
+<li><p>持久代溢出，表现为：java.lang.OutOfMemoryError:PermGenspace<br>通<br>常由于持久代设置过小，动态加载了大量 Java 类而导致溢出，解决办法唯有将参数 -XX:MaxPermSize<br>调大（一般 256m 能满足绝大多数应用程序需求）。将部分 Java 类放到容器共享区（例如 Tomcat share<br>lib）去加载的办法也是一个思路，但前提是容器里部署了多个应用，且这些应用有大量的共享类库。</p>
+</li>
+</ol>
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><ul>
+<li>-Xmx3550m：设置 JVM 最大堆内存为 3550M。</li>
+<li>-Xms3550m：设置 JVM 初始堆内存为 3550M。此值可以设置与-Xmx 相同，以避免每次垃圾回收完成后 JVM 重新分配内存。</li>
+<li>-Xss128k： 设置每个线程的栈大小。JDK5.0 以后每个线程栈大小为 1M，之前每个线程栈大小为 256K。应当根据应用的线程所需内存大小进行调整。在相同物理内存 下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在 3000~5000 左右。需要注意的是：当这个 值被设置的较大（例如&gt;2MB）时将会在很大程度上降低系统的性能。</li>
+<li>-Xmn2g：设置年轻代大小为 2G。在整个堆内存大小确定的情况下，增大年轻代将会减小年老代，反之亦然。此值关系到 JVM 垃圾回收，对系统性能影响较大，官方推荐配置为整个堆大小的 3/8。</li>
+<li>-XX:NewSize=1024m：设置年轻代初始值为 1024M。</li>
+<li>-XX:MaxNewSize=1024m：设置年轻代最大值为 1024M。</li>
+<li>-XX:PermSize=256m：设置持久代初始值为 256M。</li>
+<li>-XX:MaxPermSize=256m：设置持久代最大值为 256M。</li>
+<li>-XX:NewRatio=4：设置年轻代（包括 1 个 Eden 和 2 个 Survivor 区）与年老代的比值。表示年轻代比年老代为 1:4。</li>
+<li>-XX:SurvivorRatio=4：设置年轻代中 Eden 区与 Survivor 区的比值。表示 2 个 Survivor 区（JVM 堆内存年轻代中默认有 2 个大小相等的 Survivor 区）与 1 个 Eden 区的比值为 2:4，即 1 个 Survivor 区占整个年轻代大小的 1/6。</li>
+<li>-XX:MaxTenuringThreshold=7： 表示一个对象如果在 Survivor 区（救助空间）移动了 7 次还没有被垃圾回收就进入年老代。如果设置为 0 的话，则年轻代对象不经过 Survivor 区， 直接进入年老代，对于需要大量常驻内存的应用，这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在 Survivor 区进行多次复制，这样 可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率，减少 Full GC 的频率，这样做可以在某种程度上提高服务稳定性。</li>
+</ul>
+<h2 id="疑问解答"><a href="#疑问解答" class="headerlink" title="疑问解答"></a>疑问解答</h2><p>-Xmn，-XX:NewSize/-XX:MaxNewSize，-XX:NewRatio 3 组参数都可以影响年轻代的大小，混合使用的情况下，优先级是什么？<br>如下：</p>
+<ol>
+<li>高优先级：-XX:NewSize/-XX:MaxNewSize</li>
+<li>中优先级：-Xmn（默认等效  -Xmn=-XX:NewSize=-XX:MaxNewSize=?）</li>
+<li>低优先级：-XX:NewRatio</li>
+<li>推荐使用-Xmn 参数，原因是这个参数简洁，相当于一次设定 NewSize/MaxNewSIze，而且两者相等，适用于生产环境。-Xmn 配合 -Xms/-Xmx，即可将堆内存布局完成。<br>-Xmn 参数是在 JDK 1.4 开始支持。</li>
+</ol>
+<h2 id="垃圾回收器选择"><a href="#垃圾回收器选择" class="headerlink" title="垃圾回收器选择"></a>垃圾回收器选择</h2><p>JVM 给出了 3 种选择：串行收集器、并行收集器、并发收集器。串行收集器只适用于小数据量的情况，所以生产环境的选择主要是并行收集器和并发收集器。<br>默认情况下 JDK5.0 以前都是使用串行收集器，如果想使用其他收集器需要在启动时加入相应参数。JDK5.0 以后，JVM 会根据当前系统配置进行智能判断。</p>
+<h3 id="串行收集器"><a href="#串行收集器" class="headerlink" title="串行收集器"></a>串行收集器</h3><ul>
+<li>-XX:+UseSerialGC：设置串行收集器。</li>
+</ul>
+<h3 id="并行收集器（吞吐量优先）"><a href="#并行收集器（吞吐量优先）" class="headerlink" title="并行收集器（吞吐量优先）"></a>并行收集器（吞吐量优先）</h3><ul>
+<li>-XX:+UseParallelGC：设置为并行收集器。此配置仅对年轻代有效。即年轻代使用并行收集，而年老代仍使用串行收集。</li>
+<li>-XX:ParallelGCThreads=20：配置并行收集器的线程数，即：同时有多少个线程一起进行垃圾回收。此值建议配置与 CPU 数目相等。</li>
+<li>-XX:+UseParallelOldGC：配置年老代垃圾收集方式为并行收集。JDK6.0 开始支持对年老代并行收集。</li>
+<li>-XX:MaxGCPauseMillis=100：设置每次年轻代垃圾回收的最长时间（单位毫秒）。如果无法满足此时间，JVM 会自动调整年轻代大小，以满足此时间。</li>
+<li>-XX:+UseAdaptiveSizePolicy：设置此选项后，并行收集器会自动调整年轻代 Eden 区大小和 Survivor 区大小的比例，以达成目标系统规定的最低响应时间或者收集频率等指标。此参数建议在使用并行收集器时，一直打开。</li>
+</ul>
+<h3 id="并发收集器（响应时间优先）"><a href="#并发收集器（响应时间优先）" class="headerlink" title="并发收集器（响应时间优先）"></a>并发收集器（响应时间优先）</h3><ul>
+<li>-XX:+UseConcMarkSweepGC： 即 CMS 收集，设置年老代为并发收集。CMS 收集是 JDK1.4 后期版本开始引入的新 GC 算法。它的主要适合场景是对响应时间的重要性需求大于对吞吐量的 需求，能够承受垃圾回收线程和应用线程共享 CPU 资源，并且应用中存在比较多的长生命周期对象。CMS 收集的目标是尽量减少应用的暂停时间，减少 Full GC 发生的几率，利用和应用程序线程并发的垃圾回收线程来标记清除年老代内存。</li>
+<li>-XX:+UseParNewGC：设置年轻代为并发收集。可与 CMS 收集同时使用。JDK5.0 以上，JVM 会根据系统配置自行设置，所以无需再设置此参数。</li>
+<li>-XX:CMSFullGCsBeforeCompaction=0： 由于并发收集器不对内存空间进行压缩和整理，所以运行一段时间并行收集以后会产生内存碎片，内存使用效率降低。此参数设置运行 0 次 Full GC 后对内存空间进行压缩和整理，即每次 Full GC 后立刻开始压缩和整理内存。</li>
+<li>-XX:+UseCMSCompactAtFullCollection：打开内存空间的压缩和整理，在 Full GC 后执行。可能会影响性能，但可以消除内存碎片。</li>
+<li>-XX:+CMSIncrementalMode：设置为增量收集模式。一般适用于单 CPU 情况。</li>
+<li>-XX:CMSInitiatingOccupancyFraction=70：表示年老代内存空间使用到 70%时就开始执行 CMS 收集，以确保年老代有足够的空间接纳来自年轻代的对象，避免 Full GC 的发生。</li>
+</ul>
+<h3 id="其它垃圾回收参数"><a href="#其它垃圾回收参数" class="headerlink" title="其它垃圾回收参数"></a>其它垃圾回收参数</h3><ul>
+<li>-XX:+ScavengeBeforeFullGC：年轻代 GC 优于 Full GC 执行。</li>
+<li>-XX:-DisableExplicitGC：不响应 System.gc() 代码。</li>
+<li>-XX:+UseThreadPriorities：启用本地线程优先级 API。即使  java.lang.Thread.setPriority()  生效，不启用则无效。</li>
+<li>-XX:SoftRefLRUPolicyMSPerMB=0：软引用对象在最后一次被访问后能存活 0 毫秒（JVM 默认为 1000 毫秒）。</li>
+<li>-XX:TargetSurvivorRatio=90：允许 90%的 Survivor 区被占用（JVM 默认为 50%）。提高对于 Survivor 区的使用率。</li>
+</ul>
+<h3 id="辅助信息参数设置"><a href="#辅助信息参数设置" class="headerlink" title="辅助信息参数设置"></a>辅助信息参数设置</h3><ul>
+<li>-XX:-CITime：打印消耗在 JIT 编译的时间。</li>
+<li>-XX:ErrorFile=./hs_err_pid.log：保存错误日志或数据到指定文件中。</li>
+<li>-XX:HeapDumpPath=./java_pid.hprof：指定 Dump 堆内存时的路径。</li>
+<li>-XX:-HeapDumpOnOutOfMemoryError：当首次遭遇内存溢出时 Dump 出此时的堆内存。</li>
+<li>-XX:OnError=”;”：出现致命 ERROR 后运行自定义命令。</li>
+<li>-XX:OnOutOfMemoryError=”;”：当首次遭遇内存溢出时执行自定义命令。</li>
+<li>-XX:-PrintClassHistogram：按下 Ctrl+Break 后打印堆内存中类实例的柱状信息，同 JDK 的 jmap -histo 命令。</li>
+<li>-XX:-PrintConcurrentLocks：按下 Ctrl+Break 后打印线程栈中并发锁的相关信息，同 JDK 的 jstack -l 命令。</li>
+<li>-XX:-PrintCompilation：当一个方法被编译时打印相关信息。</li>
+<li>-XX:-PrintGC：每次 GC 时打印相关信息。</li>
+<li>-XX:-PrintGCDetails：每次 GC 时打印详细信息。</li>
+<li>-XX:-PrintGCTimeStamps：打印每次 GC 的时间戳。</li>
+<li>-XX:-TraceClassLoading：跟踪类的加载信息。</li>
+<li>-XX:-TraceClassLoadingPreorder：跟踪被引用到的所有类的加载信息。</li>
+<li>-XX:-TraceClassResolution：跟踪常量池。</li>
+<li>-XX:-TraceClassUnloading：跟踪类的卸载信息。</li>
+</ul>
+<h3 id="关于参数名称等"><a href="#关于参数名称等" class="headerlink" title="关于参数名称等"></a>关于参数名称等</h3><ul>
+<li>标准参数（-），所有 JVM 都必须支持这些参数的功能，而且向后兼容；例如：</li>
+<li>-client——设置 JVM 使用 Client 模式，特点是启动速度比较快，但运行时性能和内存管理效率不高，通常用于客户端应用程序或开发调试；在 32 位环境下直接运行 Java 程序默认启用该模式。</li>
+<li>-server——设置 JVM 使 Server 模式，特点是启动速度比较慢，但运行时性能和内存管理效率很高，适用于生产环境。在具有 64 位能力的 JDK 环境下默认启用该模式。</li>
+<li>非标准参数（-X），默认 JVM 实现这些参数的功能，但是并不保证所有 JVM 实现都满足，且不保证向后兼容；</li>
+<li>非稳定参数（-XX），此类参数各个 JVM 实现会有所不同，将来可能会不被支持，需要慎重使用；</li>
+</ul>
+<h2 id="JVM-服务参数调优实战"><a href="#JVM-服务参数调优实战" class="headerlink" title="JVM 服务参数调优实战"></a>JVM 服务参数调优实战</h2><h3 id="大型网站服务器案例"><a href="#大型网站服务器案例" class="headerlink" title="大型网站服务器案例"></a>大型网站服务器案例</h3><p>承受海量访问的动态 Web 应用<br>服务器配置：8 CPU, 8G MEM, JDK 1.6.X</p>
+<p>参数方案：<br>-server -Xmx3550m -Xms3550m -Xmn1256m -Xss128k -XX:SurvivorRatio=6 -XX:MaxPermSize=256m -XX:ParallelGCThreads=8 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC</p>
+<p>调优说明：</p>
+<ul>
+<li>-Xmx 与 -Xms 相同以避免 JVM 反复重新申请内存。-Xmx 的大小约等于系统内存大小的一半，即充分利用系统资源，又给予系统安全运行的空间。</li>
+<li>-Xmn1256m 设置年轻代大小为 1256MB。此值对系统性能影响较大，Sun 官方推荐配置年轻代大小为整个堆的 3/8。</li>
+<li>-Xss128k 设置较小的线程栈以支持创建更多的线程，支持海量访问，并提升系统性能。</li>
+<li>-XX:SurvivorRatio=6 设置年轻代中 Eden 区与 Survivor 区的比值。系统默认是 8，根据经验设置为 6，则 2 个 Survivor 区与 1 个 Eden 区的比值为 2:6，一个 Survivor 区占整个年轻代的 1/8。</li>
+<li>-XX:ParallelGCThreads=8 配置并行收集器的线程数，即同时 8 个线程一起进行垃圾回收。此值一般配置为与 CPU 数目相等。</li>
+<li>-XX:MaxTenuringThreshold=0 设置垃圾最大年龄（在年轻代的存活次数）。如果设置为 0 的话，则年轻代对象不经过 Survivor 区直接进入年老代。对于年老代比较多的应用，可以提高效 率；如果将此值设置为一个较大值，则年轻代对象会在 Survivor 区进行多次复制，这样可以增加对象再年轻代的存活时间，增加在年轻代即被回收的概率。 根据被海量访问的动态 Web 应用之特点，其内存要么被缓存起来以减少直接访问 DB，要么被快速回收以支持高并发海量请求，因此其内存对象在年轻代存活多次 意义不大，可以直接进入年老代，根据实际应用效果，在这里设置此值为 0。</li>
+<li>-XX:+UseConcMarkSweepGC 设置年老代为并发收集。CMS（ConcMarkSweepGC）收集的目标是尽量减少应用的暂停时间，减少 Full GC 发生的几率，利用和应用程序线程并发的垃圾回收线程来标记清除年老代内存，适用于应用中存在比较多的长生命周期对象的情况。</li>
+</ul>
+<h3 id="内部集成构建服务器案例"><a href="#内部集成构建服务器案例" class="headerlink" title="内部集成构建服务器案例"></a>内部集成构建服务器案例</h3><p>高性能数据处理的工具应用<br>服务器配置：1 CPU, 4G MEM, JDK 1.6.X</p>
+<p>参数方案：<br>-server -XX:PermSize=196m -XX:MaxPermSize=196m -Xmn320m -Xms768m -Xmx1024m</p>
+<p>调优说明：</p>
+<ul>
+<li>-XX:PermSize=196m -XX:MaxPermSize=196m 根据集成构建的特点，大规模的系统编译可能需要加载大量的 Java 类到内存中，所以预先分配好大量的持久代内存是高效和必要的。</li>
+<li>-Xmn320m 遵循年轻代大小为整个堆的 3/8 原则。</li>
+<li>-Xms768m -Xmx1024m 根据系统大致能够承受的堆内存大小设置即可。<br>在 64 位服务器上运行应用程序，构建执行时，用 jmap -heap 11540 命令观察 JVM 堆内存状况如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">Attaching to process ID 11540, please wait...</span><br><span class="line">Debugger attached successfully.</span><br><span class="line">Server compiler detected.</span><br><span class="line">JVM version is 20.12-b01</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">using thread-local object allocation.</span><br><span class="line">Parallel GC with 4 thread(s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Heap Configuration:</span><br><span class="line">   MinHeapFreeRatio = 40</span><br><span class="line">   MaxHeapFreeRatio = 70</span><br><span class="line">   MaxHeapSize      = 1073741824 (1024.0MB)</span><br><span class="line">   NewSize          = 335544320 (320.0MB)</span><br><span class="line">   MaxNewSize       = 335544320 (320.0MB)</span><br><span class="line">   OldSize          = 5439488 (5.1875MB)</span><br><span class="line">   NewRatio         = 2</span><br><span class="line">   SurvivorRatio    = 8</span><br><span class="line">   PermSize         = 205520896 (196.0MB)</span><br><span class="line">   MaxPermSize      = 205520896 (196.0MB)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Heap Usage:</span><br><span class="line">PS Young Generation</span><br><span class="line">Eden Space:</span><br><span class="line">   capacity = 255852544 (244.0MB)</span><br><span class="line">   used     = 101395504 (96.69828796386719MB)</span><br><span class="line">   free     = 154457040 (147.3017120361328MB)</span><br><span class="line">   39.63044588683081% used</span><br><span class="line">From Space:</span><br><span class="line">   capacity = 34144256 (32.5625MB)</span><br><span class="line">   used     = 33993968 (32.41917419433594MB)</span><br><span class="line">   free     = 150288 (0.1433258056640625MB)</span><br><span class="line">   99.55984397492803% used</span><br><span class="line">To Space:</span><br><span class="line">   capacity = 39845888 (38.0MB)</span><br><span class="line">   used     = 0 (0.0MB)</span><br><span class="line">   free     = 39845888 (38.0MB)</span><br><span class="line">   0.0% used</span><br><span class="line">PS Old Generation</span><br><span class="line">   capacity = 469762048 (448.0MB)</span><br><span class="line">   used     = 44347696 (42.29325866699219MB)</span><br><span class="line">   free     = 425414352 (405.7067413330078MB)</span><br><span class="line">   9.440459523882184% used</span><br><span class="line">PS Perm Generation</span><br><span class="line">   capacity = 205520896 (196.0MB)</span><br><span class="line">   used     = 85169496 (81.22396087646484MB)</span><br><span class="line">   free     = 120351400 (114.77603912353516MB)</span><br><span class="line">   41.440796365543285% used</span><br></pre></td></tr></table></figure>
+<p>结果是比较健康的。</p>
+<h2 id="JVM-Server-与-Client-运行模式"><a href="#JVM-Server-与-Client-运行模式" class="headerlink" title="JVM Server 与 Client 运行模式"></a>JVM Server 与 Client 运行模式</h2><p>JVM Server 模式与 client 模式启动，最主要的差别在于：-Server 模式启动时，速度较慢，但是一旦运行起来后，性能将会有很大的提升.原因是:</p>
+<p>当虚拟机运行在-client 模式的时候,使用的是一个代号为 C1 的轻量级编译器, 而-server 模式启动的虚拟机采用相对重量级,代号为 C2 的编译器. C2 比 C1 编译器编译的相对彻底,,服务起来之后,性能更高.</p>
+<p><code>Java -version</code> 可以直接查看出你使用的是 client 还是 server</p>
+<p>Jvm client 代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Documents and Settings\Administrator&gt;java -version</span><br><span class="line">java version <span class="string">"1.6.0_21"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.6.0_21-b06)</span><br><span class="line">Java HotSpot(TM) Client VM (build 17.0-b16, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
+<p>Jvm server 代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@kaifa02 ~]<span class="comment"># java -version</span></span><br><span class="line">java version <span class="string">"1.6.0_06"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.6.0_06-b02)</span><br><span class="line">Java HotSpot(TM) Server VM (build 10.0-b22, mixed mode)</span><br></pre></td></tr></table></figure>
+<p>两种模式的切换可以通过更改配置(jvm.cfg 配置文件)来实现:<br>32 位的虚拟机在目录 JAVA_HOME/jre/lib/i386/jvm.cfg,</p>
+<p>64 位的在 JAVA_HOME/jre/lib/amd64/jvm.cfg, 目前 64 位只支持 server 模式, 配置内容大致如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-server KNOWN</span><br><span class="line">-client KNOWN</span><br><span class="line">-hotspot ALIASED_TO -client</span><br><span class="line">-classic WARN</span><br><span class="line">-native ERROR</span><br><span class="line">-green ERROR</span><br></pre></td></tr></table></figure>
+<p>一般只要变更 -server KNOWN 与 -client KNOWN 两个配置位置先后顺序即可,前提是 JAVA_HOME/jre/bin 目录下同时存在 server 与 client 两个文件夹,分别对应着各自的 jvm.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/05/nginx.html" rel="next" title="编译安装nginx-1.10.1">
+                <i class="fa fa-chevron-left"></i> 编译安装nginx-1.10.1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/15/iptables.html" rel="prev" title="linux iptables">
+                linux iptables <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM-设置"><span class="nav-number">1.</span> <span class="nav-text">JVM 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看-JVM-相关命令"><span class="nav-number">1.1.</span> <span class="nav-text">查看 JVM 相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看整个-JVM-内存状态"><span class="nav-number">1.1.1.</span> <span class="nav-text">查看整个 JVM 内存状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-JVM-堆中对象详细占用情况"><span class="nav-number">1.1.2.</span> <span class="nav-text">查看 JVM 堆中对象详细占用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出整个-JVM-中内存信息"><span class="nav-number">1.1.3.</span> <span class="nav-text">导出整个 JVM 中内存信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jhat"><span class="nav-number">1.1.4.</span> <span class="nav-text">jhat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eclipse-Memory-Analyzer"><span class="nav-number">1.1.5.</span> <span class="nav-text">eclipse Memory Analyzer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kill-3-pid"><span class="nav-number">1.1.6.</span> <span class="nav-text">kill -3 [pid]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jstack"><span class="nav-number">1.1.7.</span> <span class="nav-text">jstack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jps"><span class="nav-number">1.1.8.</span> <span class="nav-text">jps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jstat"><span class="nav-number">1.1.9.</span> <span class="nav-text">jstat</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.2.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#年轻代"><span class="nav-number">1.2.1.</span> <span class="nav-text">年轻代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年老代"><span class="nav-number">1.2.2.</span> <span class="nav-text">年老代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久代"><span class="nav-number">1.2.3.</span> <span class="nav-text">持久代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OOM（“Out-of-Memory”）异常一般主要有如下-2-种原因："><span class="nav-number">1.2.4.</span> <span class="nav-text">OOM（“Out of Memory”）异常一般主要有如下 2 种原因：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数说明"><span class="nav-number">1.2.5.</span> <span class="nav-text">参数说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#疑问解答"><span class="nav-number">1.3.</span> <span class="nav-text">疑问解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收器选择"><span class="nav-number">1.4.</span> <span class="nav-text">垃圾回收器选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#串行收集器"><span class="nav-number">1.4.1.</span> <span class="nav-text">串行收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并行收集器（吞吐量优先）"><span class="nav-number">1.4.2.</span> <span class="nav-text">并行收集器（吞吐量优先）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发收集器（响应时间优先）"><span class="nav-number">1.4.3.</span> <span class="nav-text">并发收集器（响应时间优先）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它垃圾回收参数"><span class="nav-number">1.4.4.</span> <span class="nav-text">其它垃圾回收参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助信息参数设置"><span class="nav-number">1.4.5.</span> <span class="nav-text">辅助信息参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于参数名称等"><span class="nav-number">1.4.6.</span> <span class="nav-text">关于参数名称等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM-服务参数调优实战"><span class="nav-number">1.5.</span> <span class="nav-text">JVM 服务参数调优实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大型网站服务器案例"><span class="nav-number">1.5.1.</span> <span class="nav-text">大型网站服务器案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部集成构建服务器案例"><span class="nav-number">1.5.2.</span> <span class="nav-text">内部集成构建服务器案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM-Server-与-Client-运行模式"><span class="nav-number">1.6.</span> <span class="nav-text">JVM Server 与 Client 运行模式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="JavaScript记录">
+<meta name="keywords" content="JavaScript,json,array,call">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 记录">
+<meta property="og:url" content="https://duanzhaoqian.site/2016/05/27/js.html">
+<meta property="og:site_name" content="Duan Blog">
+<meta property="og:description" content="JavaScript记录">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-04T12:09:11.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 记录">
+<meta name="twitter:description" content="JavaScript记录">
+
+
+
+
+
+
+  <link rel="canonical" href="https://duanzhaoqian.site/2016/05/27/js.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+
+</script>
+  <title>JavaScript 记录 | Duan Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Duan Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/05/27/js.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Duan Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript 记录
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2016-05-27T00:00:00+08:00">2016-05-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            <div class="post-description">JavaScript记录</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h1><p>##算法</p>
+<p><strong>循环数组的数组</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function loop(arr) &#123;</span><br><span class="line">        if (arr &amp;&amp; arr.length &lt;= 1) return arr[0];</span><br><span class="line">        var temA = [];</span><br><span class="line">        for (var i = 0, len1 = arr[0].length; i &lt; len1; i++) &#123;</span><br><span class="line">            for (var j = 0, len2 = arr[1].length; j &lt; len2; j++) &#123;</span><br><span class="line">                temA.push(arr[0][i] + &apos;&amp;&apos; + arr[1][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        arr = [temA].concat(arr.splice(2));</span><br><span class="line">        return arguments.callee(arr);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var arr=[];</span><br><span class="line">var arr1=[1,2,3];</span><br><span class="line">var arr2=[4,5,6];</span><br><span class="line">arr.push(arr1);</span><br><span class="line">arr.push(arr2);</span><br><span class="line"></span><br><span class="line">loop(arr);</span><br><span class="line"></span><br><span class="line">结果:[&quot;1&amp;4&quot;, &quot;1&amp;5&quot;, &quot;1&amp;6&quot;, &quot;2&amp;4&quot;, &quot;2&amp;5&quot;, &quot;2&amp;6&quot;, &quot;3&amp;4&quot;, &quot;3&amp;5&quot;, &quot;3&amp;6&quot;]</span><br><span class="line"></span><br><span class="line">var arr3=[7,8,9];</span><br><span class="line">arr.push(arr3);</span><br><span class="line">loop(arr);</span><br><span class="line"></span><br><span class="line">结果:[&quot;1&amp;4&amp;7&quot;, &quot;1&amp;4&amp;8&quot;, &quot;1&amp;4&amp;9&quot;, &quot;1&amp;5&amp;7&quot;, &quot;1&amp;5&amp;8&quot;, &quot;1&amp;5&amp;9&quot;, &quot;1&amp;6&amp;7&quot;, &quot;1&amp;6&amp;8&quot;, &quot;1&amp;6&amp;9&quot;, &quot;2&amp;4&amp;7&quot;, &quot;2&amp;4&amp;8&quot;, &quot;2&amp;4&amp;9&quot;, &quot;2&amp;5&amp;7&quot;, &quot;2&amp;5&amp;8&quot;, &quot;2&amp;5&amp;9&quot;, &quot;2&amp;6&amp;7&quot;, &quot;2&amp;6&amp;8&quot;, &quot;2&amp;6&amp;9&quot;, &quot;3&amp;4&amp;7&quot;, &quot;3&amp;4&amp;8&quot;, &quot;3&amp;4&amp;9&quot;, &quot;3&amp;5&amp;7&quot;, &quot;3&amp;5&amp;8&quot;, &quot;3&amp;5&amp;9&quot;, &quot;3&amp;6&amp;7&quot;, &quot;3&amp;6&amp;8&quot;, &quot;3&amp;6&amp;9&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>两个数组比较</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var arr1=[1,2,3];</span><br><span class="line">var arr2=[1,3,5];</span><br><span class="line">var end = arr1.length;</span><br><span class="line">var swap = false;</span><br><span class="line">for (var i = 0; i &lt; end;) &#123;</span><br><span class="line">  swap = false;</span><br><span class="line">  for (var j = i; j &lt; arr2.length; j++) &#123;</span><br><span class="line">      if (arr1[i] == arr2[j]) &#123;</span><br><span class="line">          var tmp = arr2[i];</span><br><span class="line">          arr2[i] = arr2[j];</span><br><span class="line">          arr2[j] = tmp;</span><br><span class="line">          swap = true;</span><br><span class="line">          break;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (swap != true) &#123;</span><br><span class="line">      var tmp = arr1[i];</span><br><span class="line">      arr1[i] = arr1[--end];</span><br><span class="line">      arr1[end] = tmp;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">      i++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果: end 之前是相同的元素，end 之后是不同的元素<br>如果 end == arr1.length &amp;&amp; end == arr2.length,两个数组的值一样</p>
+<h1 id="JS-call-方法"><a href="#JS-call-方法" class="headerlink" title="JS call 方法"></a>JS call 方法</h1><p>call 主要改变了 this 的指向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = function()&#123;</span><br><span class="line">      console.log(this);    // &apos;littledu&apos;</span><br><span class="line">     console.log(typeof this);      //  Object</span><br><span class="line">     console.log(this instanceof String);    // true</span><br><span class="line">&#125;</span><br><span class="line">a.call(&apos;littledu&apos;);</span><br></pre></td></tr></table></figure>
+<p>call 了后，就把当前函数推入所传参数的作用域中去了，不知道这样说对不对，但反正 this 就指向了所传进去的对象就肯定的了。</p>
+<h1 id="Array-prototype-slice-call-arguments"><a href="#Array-prototype-slice-call-arguments" class="headerlink" title="Array.prototype.slice.call(arguments)"></a>Array.prototype.slice.call(arguments)</h1><p>Array.prototype.slice.call(arguments)能将具有 length 属性的对象转成数组，除了 IE 下的节点集合（因为 ie 下的 dom 对象是以 com 对象的形式实现的，js 对象与 com 对象不能进行转换）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=&#123;length:2,0:&apos;first&apos;,1:&apos;second&apos;&#125;;</span><br><span class="line">Array.prototype.slice.call(a);//  [&quot;first&quot;, &quot;second&quot;]</span><br><span class="line"></span><br><span class="line">var a=&#123;length:2&#125;;</span><br><span class="line">Array.prototype.slice.call(a);//  [undefined, undefined]</span><br></pre></td></tr></table></figure>
+<h2 id="Jquery"><a href="#Jquery" class="headerlink" title="Jquery"></a>Jquery</h2><h3 id="attr-和-prop"><a href="#attr-和-prop" class="headerlink" title="attr()和 prop()"></a>attr()和 prop()</h3><p><a href="https://segmentfault.com/a/1190000002680303" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002680303</a></p>
+<blockquote>
+<p>取数据的时候用到了以前都没用过的<code>$(this).data(&#39;xxx&#39;)</code>的这种形式，后来看了手册才知道在 HTML5 中可以对元素进行自定义属性。格式类似于<code>data-xxx=&quot;value&quot;</code>,然后可以用 JQ 中的<code>.data()</code>方法进行存取数据。</p>
+</blockquote>
+<h4 id="操作对象不同"><a href="#操作对象不同" class="headerlink" title="操作对象不同"></a>操作对象不同</h4><p>在 jQuery 中 attr 表示 HTML 文档节点属性，而 prop 则表示 JS 对象属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这里的id、class、data_id均是该元素文档节点的attribute --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"message"</span> <span class="attr">class</span>=<span class="string">"test"</span> <span class="attr">data_id</span>=<span class="string">"123"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">  // 这里的name、age、url均是obj的property</span><br><span class="line">  var obj = &#123; name: 'CodePlayer', age: 18, url: 'https://www.365mini.com/' &#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 jQuery 中，<code>prop()</code>函数的设计目标是用于设置或获取指定 DOM 元素(指的是 JS 对象，Element 类型)上的属性(property)；<code>attr()</code>函数的设计目标是用于设置或获取指定 DOM 元素所对应的文档节点上的属性(attribute)。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- attr()函数针对的是该文档节点的attribute --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"message"</span> <span class="attr">class</span>=<span class="string">"test"</span> <span class="attr">data_id</span>=<span class="string">"123"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">  // prop()函数针对的是该DOM元素(msg)自身的property</span><br><span class="line">  var msg = document.getElementById('message');</span><br><span class="line">  var $msg = $(msg);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当然，在 jQuery 的底层实现中，函数<code>attr()</code>和<code>prop()</code>的功能都是通过 JS 原生的 Element 对象(如上述代码中的 msg)实现的。<code>attr()</code>函数主要依赖的是 Element 对象的 getAttribute()和 setAttribute()两个方法。<code>prop()</code>函数主要依赖的则是 JS 中原生的对象属性获取和设置方式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"message"</span> <span class="attr">class</span>=<span class="string">"test"</span> <span class="attr">data_id</span>=<span class="string">"123"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">  var msg = document.getElementById('message');</span><br><span class="line">  var $msg = $(msg);</span><br><span class="line"></span><br><span class="line">  /* *** attr()依赖的是Element对象的element.getAttribute( attribute ) 和 element.setAttribute( attribute, value ) *** */</span><br><span class="line"></span><br><span class="line">  // 相当于 msg.setAttribute("data_id", 145);</span><br><span class="line">  $msg.attr('data_id', 145);</span><br><span class="line"></span><br><span class="line">  // 相当于 msg.getAttribute("data_id");</span><br><span class="line">  var dataId = $msg.attr('data_id'); // 145</span><br><span class="line"></span><br><span class="line">  /* *** prop()依赖的是JS原生的 element[property] 和 element[property] = value; *** */</span><br><span class="line"></span><br><span class="line">  // 相当于 msg["pid"] = "pid值";</span><br><span class="line">  $msg.prop('pid', 'pid值');</span><br><span class="line"></span><br><span class="line">  // 相当于 msg["pid"];</span><br><span class="line">  var testProp = $msg.prop('pid'); // pid值</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当然，jQuery 对这些操作方式进行了封装，使我们操作起来更加方便(比如以对象形式同时设置多个属性)，并且实现了跨浏览器兼容。</p>
+<p>此外，虽然<code>prop()</code>针对的是 DOM 元素的<strong>property</strong>，而不是元素节点的<strong>attribute</strong>。不过 DOM 元素某些属性的更改也会影响到元素节点上对应的属性。例如，property 的 id 对应 attribute 的 id，property 的 className 对应 attribute 的 class。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"message"</span> <span class="attr">class</span>=<span class="string">"test"</span> <span class="attr">data_id</span>=<span class="string">"123"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">  var msg = document.getElementById('message');</span><br><span class="line">  var $msg = $(msg);</span><br><span class="line"></span><br><span class="line">  document.writeln($msg.attr('class')); // test</span><br><span class="line">  $msg.prop('className', 'newTest');</span><br><span class="line">  // 修改className(property)导致class(attitude)也随之更改</span><br><span class="line">  document.writeln($msg.attr('class')); // newTest</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="应用版本不同"><a href="#应用版本不同" class="headerlink" title="应用版本不同"></a>应用版本不同</h4><p><code>attr()</code>是 jQuery 1.0 版本就有的函数，<code>prop()</code>是<strong>jQuery 1.6</strong>版本新增的函数。毫无疑问，在 1.6 之前，你只能使用<code>attr()</code>函数；1.6 及以后版本，你可以根据实际需要选择对应的函数。</p>
+<h4 id="设置属性值类型不同"><a href="#设置属性值类型不同" class="headerlink" title="设置属性值类型不同"></a>设置属性值类型不同</h4><p>由于 attr()函数操作的是文档节点的属性，因此设置的属性值只能是字符串类型，如果不是字符串类型，也会调用其 toString()方法，将其转为字符串类型。<br>prop()函数操作的是 JS 对象的属性，因此设置的属性值可以为包括数组和对象在内的任意类型。</p>
+<h4 id="其他的细节问题"><a href="#其他的细节问题" class="headerlink" title="其他的细节问题"></a>其他的细节问题</h4><p>在 jQuery 1.6 之前，只有<code>attr()</code>函数可用，该函数不仅承担了<em>attribute</em>的设置和获取工作，还同时承担了<em>property</em>的设置和获取工作。例如：在 jQuery 1.6 之前，<code>attr()</code>也可以设置或获取<strong>tagName</strong>、<strong>className</strong>、<strong>nodeName</strong>、<strong>nodeType</strong>等 DOM 元素的 property。</p>
+<p>直到 jQuery 1.6 新增<code>prop()</code>函数，并用来承担 property 的设置或获取工作之后，<code>attr()</code>才只用来负责<strong>attribute</strong>的设置和获取工作。</p>
+<p>★★★★★<br>此外，对于表单元素的<code>checked</code>、<code>selected</code>、<code>disabled</code>等属性，在 jQuery 1.6 之前，<code>attr()</code>获取这些属性的返回值为 Boolean 类型：如果被选中(或禁用)就返回<strong>true</strong>，否则返回<strong>false</strong>。</p>
+<p>★★★★★<br>但是从 1.6 开始，使用<code>attr()</code>获取这些属性的返回值为<strong>String</strong>类型，如果被选中(或禁用)就返回<code>checked</code>、<code>selected</code>或<code>disabled</code>，否则(即元素节点没有该属性)返回<code>undefined</code>。并且，在某些版本中，这些属性值表示文档加载时的初始状态值，即使之后更改了这些元素的选中(或禁用)状态，对应的属性值也不会发生改变。因为 jQuery 认为：<strong>attribute</strong>的<strong>checked</strong>、<strong>selected</strong>、<strong>disabled</strong>就是表示该属性初始状态的值，<strong>property</strong>的<strong>checked</strong>、<strong>selected</strong>、<strong>disabled</strong>才表示该属性实时状态的值(值为 true 或 false)。</p>
+<p>因此，在 jQuery 1.6 及以后版本中，请使用<code>prop()</code>函数来设置或获取<strong>checked</strong>、<strong>selected</strong>、<strong>disabled</strong>等属性。对于其它能够用<code>prop()</code>实现的操作，也尽量使用<code>prop()</code>函数。</p>
+<h2 id="a-标签-href"><a href="#a-标签-href" class="headerlink" title="a 标签 href"></a>a 标签 href</h2><h4 id="href-属性和-onclick-属性触发事件-event-对象-this-不是同一个对象"><a href="#href-属性和-onclick-属性触发事件-event-对象-this-不是同一个对象" class="headerlink" title="href 属性和 onclick 属性触发事件 event 对象 this 不是同一个对象"></a>href 属性和 onclick 属性触发事件 event 对象 this 不是同一个对象</h4><h4 id="href-：触发事件的-this-是-window-对象"><a href="#href-：触发事件的-this-是-window-对象" class="headerlink" title="href ：触发事件的 this 是 window 对象"></a>href ：触发事件的 this 是 window 对象</h4><h4 id="onclick-：触发的事件-this-是控件"><a href="#onclick-：触发的事件-this-是控件" class="headerlink" title="onclick ：触发的事件 this 是控件"></a>onclick ：触发的事件 this 是控件<a></a></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    href的event对象是window,因此这个this就是指的window</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:href_function(this,'href_function')"</span>&gt;</span></span><br><span class="line">      href="javascript:href_function(this,'href_function')"</span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    onclick的对象是当前控件a,因此可以获取控件a（链接）相关的信息</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0)"</span> <span class="attr">onclick</span>=<span class="string">"_click(this,'_click')"</span>&gt;</span></span><br><span class="line">      onclick="_click(this,'_click')"</span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">  var ss = '我是window对象的属性';</span><br><span class="line">  function href_function(obj, param) &#123;</span><br><span class="line">    alert(param);</span><br><span class="line">    alert(obj.outerHTML); //undefined</span><br><span class="line">    alert(obj.ss); //我是window对象的属性</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function _click(obj, param) &#123;</span><br><span class="line">    alert(param);</span><br><span class="line"><span class="xml">    alert(obj.outerHTML); //<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0)"</span> <span class="attr">onclick</span>=<span class="string">"_click(this,'_click')"</span>&gt;</span>onclick="_click(this,'_click')"<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">    alert(obj.ss); //undefined</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/json/" rel="tag"># json</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/25/Linux相关操作.html" rel="next" title="linux 命令">
+                <i class="fa fa-chevron-left"></i> linux 命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/29/Z-Modem-integration-for-iTerm2.html" rel="prev" title="使用iTerm2上传下载文件">
+                使用iTerm2上传下载文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Js"><span class="nav-number">1.</span> <span class="nav-text">Js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS-call-方法"><span class="nav-number">2.</span> <span class="nav-text">JS call 方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Array-prototype-slice-call-arguments"><span class="nav-number">3.</span> <span class="nav-text">Array.prototype.slice.call(arguments)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jquery"><span class="nav-number">3.1.</span> <span class="nav-text">Jquery</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#attr-和-prop"><span class="nav-number">3.1.1.</span> <span class="nav-text">attr()和 prop()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作对象不同"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">操作对象不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用版本不同"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">应用版本不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置属性值类型不同"><span class="nav-number">3.1.1.3.</span> <span class="nav-text">设置属性值类型不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他的细节问题"><span class="nav-number">3.1.1.4.</span> <span class="nav-text">其他的细节问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-标签-href"><span class="nav-number">3.2.</span> <span class="nav-text">a 标签 href</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#href-属性和-onclick-属性触发事件-event-对象-this-不是同一个对象"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">href 属性和 onclick 属性触发事件 event 对象 this 不是同一个对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#href-：触发事件的-this-是-window-对象"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">href ：触发事件的 this 是 window 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onclick-：触发的事件-this-是控件"><span class="nav-number">3.2.0.3.</span> <span class="nav-text">onclick ：触发的事件 this 是控件</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

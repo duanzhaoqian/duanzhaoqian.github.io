@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="linux syslog">
+<meta name="keywords" content="linux syslog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux syslog">
+<meta property="og:url" content="https://duanzhaoqian.site/2016/09/11/linux-syslog.html">
+<meta property="og:site_name" content="Duan Blog">
+<meta property="og:description" content="linux syslog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-04T12:09:11.246Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux syslog">
+<meta name="twitter:description" content="linux syslog">
+
+
+
+
+
+
+  <link rel="canonical" href="https://duanzhaoqian.site/2016/09/11/linux-syslog.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+
+</script>
+  <title>linux syslog | Duan Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Duan Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/09/11/linux-syslog.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Duan Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux syslog
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-09-11 00:00:00" itemprop="dateCreated datePublished" datetime="2016-09-11T00:00:00+08:00">2016-09-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            <div class="post-description">linux syslog</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="2016-09-11-linux-syslog"><a href="#2016-09-11-linux-syslog" class="headerlink" title="2016-09-11-linux-syslog"></a>2016-09-11-linux-syslog</h1><!--
+create time: 2016-09-11 09:54:44
+Author: 段朝骞
+Email: duanzhaoqian@outlook.com
+
+categories:[Linux] [Database]  [Java] [HTML]  [Mac] [Life]
+icon:fa-linux fa-database icon-java fa-apple
+
+icon https:///fizzed.com/oss/font-mfizz
+icon https:///fontawesome.io/icons/
+-->
+<p>[https:///ant595.blog.51cto.com/5074217/1080922]https:////ant595.blog.51cto.com/5074217/1080922)</p>
+<h2 id="syslog-简介"><a href="#syslog-简介" class="headerlink" title="syslog 简介"></a>syslog 简介</h2><p>syslog 系统日志,记录 linux 系统启动及运行的过程中产生的信息,rhel5.x 系统上默认自带了 syslog 其配置文件是/etc/syslog.conf</p>
+<p>syslog 默认有两个守护进程,klogd,syslogd,</p>
+<p>klogd 进程是记录系统运行的过程中内核生成的日志,而在系统启动的过程中内核初始化过程中 生成的信息记录到控制台(/dev/console）当系统启动完成之后会把此信息存放到/var/log/dmesg 文件中,我可以通过 cat /var/log/dmesg 查看这个文件,也可以通过 dmesg 命令来查看</p>
+<p>syslogd 进程是记录非内核以外的信息<br>而为什么需要两个守护进程呢?是因为内核跟其他信息需要记录的详细程度及格式的不同<br>我们使用 ps 命令可以看到 syslog 的两个守护进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep klogd | grep -v grep</span><br><span class="line">root      3308     1  0 Nov26 ?        00:00:00 klogd -x</span><br><span class="line"></span><br><span class="line">ps -ef | grep syslogd | grep -v grep</span><br><span class="line">root      3288     1  0 Nov26 ?        00:00:00 syslogd -m 0</span><br></pre></td></tr></table></figure>
+<p>上面通过 ps 命令可以看到 syslog 的两个守护进程,而这两个守护进程是共用一个配置文件/etc/syslog.conf,下面介绍下其配置文件</p>
+<h2 id="syslog-配置文件详解"><a href="#syslog-配置文件详解" class="headerlink" title="syslog 配置文件详解"></a>syslog 配置文件详解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">配置文件定义格式为 facility.priority   action</span><br><span class="line"> facility,可以理解为日志的来源或设备目前常用的facility有以下及中</span><br><span class="line">    1,auth      # 认证相关的</span><br><span class="line">    2,authpriv  # 权限,授权相关的</span><br><span class="line">    3,cron      # 任务计划相关的</span><br><span class="line">    4,daemon    # 守护进程相关的</span><br><span class="line">    5,kern      # 内核相关的</span><br><span class="line">    6,lpr       # 打印相关的</span><br><span class="line">    7,mail      # 邮件相关的</span><br><span class="line">    8,mark      # 标记相关的</span><br><span class="line">    9,news      # 新闻相关的</span><br><span class="line">    10,security # 安全相关的,与auth 类似</span><br><span class="line">    11,syslog   # syslog自己的</span><br><span class="line">    12,user     # 用户相关的</span><br><span class="line">    13,uucp     # unix to unix cp 相关的</span><br><span class="line">    14,local0 到 local7 # 用户自定义使用</span><br><span class="line">    15,*        # *表示所有的facility</span><br><span class="line">    等.....</span><br><span class="line"></span><br><span class="line"> priority(log level)日志的级别,一般有以下几种级别(从低到高)</span><br><span class="line">    debug           # 程序或系统的调试信息</span><br><span class="line">    info            # 一般信息,</span><br><span class="line">    notice          # 不影响正常功能,需要注意的消息</span><br><span class="line">    warning/warn    # 可能影响系统功能,需要提醒用户的重要事件</span><br><span class="line">    err/error       # 错误信息</span><br><span class="line">    crit            # 比较严重的</span><br><span class="line">    alert           # 必须马上处理的</span><br><span class="line">    emerg/oanic     # 会导致系统不可用的</span><br><span class="line">    *               # 表示所有的日志级别</span><br><span class="line">    none            # 跟* 相反,表示啥也没有</span><br><span class="line"></span><br><span class="line"> action(动作)日志记录的位置</span><br><span class="line">    系统上的绝对路径    # 普通文件 如： /var/log/xxx</span><br><span class="line">    |                   # 管道  通过管道送给其他的命令处理</span><br><span class="line">    终端              # 终端   如：/dev/console</span><br><span class="line">    @HOST               # 远程主机 如： @10.0.0.1</span><br><span class="line">    用户              # 系统用户 如： root</span><br><span class="line">    *                   # 登录到系统上的所有用户，一般emerg级别的日志是这样定义的</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">定义格式例子：</span><br><span class="line">mail.info   /var/log/mail.log # 表示将mail相关的,级别为info及</span><br><span class="line">                              # info以上级别的信息记录到/var/log/mail.log文件中</span><br><span class="line">auth.=info  @10.0.0.1         # 表示将auth相关的,基本为info的信息记录到10.0.0.1主机上去</span><br><span class="line">                              # 前提是10.0.0.1要能接收其他主机发来的日志信息</span><br><span class="line">user.!=error                  # 表示记录user相关的,不包括error级别的信息</span><br><span class="line">user.!error                   # 与user.error相反</span><br><span class="line">*.info                        # 表示记录所有的日志信息的info级别</span><br><span class="line">mail.*                        # 表示记录mail相关的所有级别的信息</span><br><span class="line">*.*                           # 你懂的.</span><br><span class="line">cron.info;mail.info           # 多个日志来源可以用&quot;;&quot; 隔开</span><br><span class="line">cron,mail.info                # 与cron.info;mail.info 是一个意思</span><br><span class="line">mail.*;mail.!=info            # 表示记录mail相关的所有级别的信息,但是不包括info级别的</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">接下来去翻译下rhel5.x系统上自带的syslog的配置文件/etc/syslog.conf</span><br><span class="line"># 表示将所有facility的info级别,但不包括mail,authpriv,cron相关的信息,记录到 /var/log/messages文件</span><br><span class="line">*.info;mail.none;authpriv.none;cron.none                /var/log/messages</span><br><span class="line"></span><br><span class="line"># 表示将权限,授权相关的所有基本的信息,记录到/var/log/secure文件中.这个文件的权限是600</span><br><span class="line">authpriv.*                                              /var/log/secure</span><br><span class="line"></span><br><span class="line"># 表示将mail相关的所有基本的信息记录到/var/log/maillog文件中,可以看到路径前面有一个&quot;-&quot;</span><br><span class="line"># &quot;-&quot; 表示异步写入磁盘,</span><br><span class="line">mail.*                                                  -/var/log/maillog</span><br><span class="line"></span><br><span class="line"># 表示将任务计划相关的所有级别的信息记录到/var/log/cron文件中</span><br><span class="line">cron.*                                                  /var/log/cron</span><br><span class="line"></span><br><span class="line"># 表示将所有facility的emerg级别的信息,发送给登录到系统上的所有用户</span><br><span class="line">*.emerg                                                 *</span><br><span class="line"></span><br><span class="line"># 表示将uucp及news的crit级别的信息记录到/var/log/spooler文件中</span><br><span class="line">uucp,news.crit                                          /var/log/spooler</span><br><span class="line"></span><br><span class="line"># 表示将local7的所有级别的信息记录到/var/log/boot.log文件中,</span><br><span class="line"># 上面说过local0 到local7这8个是用户自定义使用的,这里的local7记录的是系统启动相关的信息</span><br><span class="line">local7.*                                                /var/log/boot.log</span><br></pre></td></tr></table></figure>
+<p>syslog 默认记录的日志格式有四个字段,时间标签 主机 子系统名称 消息</p>
+<p>可以使用 tail /var/log/messages 看下</p>
+<h2 id="syslog-ng-简介"><a href="#syslog-ng-简介" class="headerlink" title="syslog-ng 简介"></a>syslog-ng 简介</h2><p>syslog-ng (syslog-Next generation) 是 syslog 的升级版,syslog-ng 有两个版本,一个是收费的,一个是开源的，那么作为 syslog 的下一代产品,功能是可想而知,肯定比 syslog 的功能强大的多,如</p>
+<blockquote>
+<p>高性能</p>
+<p>可靠的传输</p>
+<p>支持多平台</p>
+<p>高可靠性</p>
+<p>众多的用户群体</p>
+<p>强大的日志过滤及排序</p>
+<p>事件标签和关联性</p>
+<p>支持最新的 IETF 标准</p>
+<p>等….</p>
+</blockquote>
+<p>开源版本的主页 https:///<a href="http://www.balabit.com/network-security/syslog-ng/opensource-logging-system/overview" target="_blank" rel="noopener">www.balabit.com/network-security/syslog-ng/opensource-logging-system/overview</a></p>
+<h2 id="syslog-ng-的安装"><a href="#syslog-ng-的安装" class="headerlink" title="syslog-ng 的安装"></a>syslog-ng 的安装</h2><p>rhel5.x 的系统上默认没有使用 syslog-ng 来记录日志的,需要使用的话,需要自己编译安装,安装方法如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc*</span><br><span class="line">cd /usr/src</span><br><span class="line">wget https:///www.balabit.com/downloads/files/syslog-ng/sources/3.2.4/source/eventlog_0.2.12.tar.gz</span><br><span class="line">wget https:///www.balabit.com/downloads/files/syslog-ng/open-source-edition/3.3.5/source/syslog-ng_3.3.5.tar.gz</span><br><span class="line">tar xvf eventlog_0.2.12.tar.gz</span><br><span class="line">cd eventlog-0.2.12</span><br><span class="line">./configure --prefix=/usr/local/eventlog</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">cd /usr/src</span><br><span class="line">tar xvf syslog-ng_3.3.5.tar.gz</span><br><span class="line">cd syslog-ng-3.3.5</span><br><span class="line">export PKG_CONFIG_PATH=/usr/local/eventlog/lib/pkgconfig</span><br><span class="line">./configure --prefix=/usr/local/syslog-ng</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">将syslog-ng添加为系统服务,</span><br><span class="line">vim /etc/init.d/syslog-ng  #内容如下</span><br><span class="line">#!/bin/bash</span><br><span class="line">#</span><br><span class="line"># chkconfig: -  60 27</span><br><span class="line"># description: syslog-ng SysV script.</span><br><span class="line">. /etc/rc.d/init.d/functions</span><br><span class="line"></span><br><span class="line">syslog_ng=/usr/local/syslog-ng/sbin/syslog-ng</span><br><span class="line">prog=syslog-ng</span><br><span class="line">pidfile=/usr/local/syslog-ng/var/syslog-ng.pid</span><br><span class="line">lockfile=/usr/local/syslog-ng/var/syslog-ng.lock</span><br><span class="line">RETVAL=0</span><br><span class="line">STOP_TIMEOUT=$&#123;STOP_TIMEOUT-10&#125;</span><br><span class="line"></span><br><span class="line">start() &#123;</span><br><span class="line">        echo -n $&quot;Starting $prog: &quot;</span><br><span class="line">        daemon --pidfile=$pidfile $syslog_ng $OPTIONS</span><br><span class="line">        RETVAL=$?</span><br><span class="line">        echo</span><br><span class="line">        [ $RETVAL = 0 ] &amp;&amp; touch $&#123;lockfile&#125;</span><br><span class="line">        return $RETVAL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">stop() &#123;</span><br><span class="line">    echo -n $&quot;Stopping $prog: &quot;</span><br><span class="line">    killproc -p $pidfile -d $STOP_TIMEOUT $syslog_ng</span><br><span class="line">    RETVAL=$?</span><br><span class="line">    echo</span><br><span class="line">    [ $RETVAL = 0 ] &amp;&amp; rm -f $lockfile $pidfile</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">  start)</span><br><span class="line">    start</span><br><span class="line">    ;;</span><br><span class="line">  stop)</span><br><span class="line">    stop</span><br><span class="line">    ;;</span><br><span class="line">  status)</span><br><span class="line">        status -p $pidfile $syslog_ng</span><br><span class="line">    RETVAL=$?</span><br><span class="line">    ;;</span><br><span class="line">  restart)</span><br><span class="line">    stop</span><br><span class="line">    start</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    echo $&quot;Usage: $prog &#123;start|stop|restart|status&#125;&quot;</span><br><span class="line">    RETVAL=2</span><br><span class="line">esac</span><br><span class="line">exit $RETVAL</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">chmod a+x /etc/init.d/syslog-ng</span><br><span class="line">killall syslogd</span><br><span class="line">chkconfig --add syslog-ng</span><br><span class="line">chkconfig syslog-ng on</span><br><span class="line">service syslog-ng start</span><br></pre></td></tr></table></figure>
+<h2 id="syslog-ng-配置文件详解"><a href="#syslog-ng-配置文件详解" class="headerlink" title="syslog-ng 配置文件详解"></a>syslog-ng 配置文件详解</h2><p>此时 syslog-ng 服务已经启动起来了,配置文件的位置在安装目录下的 etc/syslog-ng.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">syslog-ng.conf文件里的内容有以下几个部分组成,</span><br><span class="line"># 全局选项,多个选项时用分好&quot;;&quot;隔开</span><br><span class="line">options &#123; .... &#125;;</span><br><span class="line"># 定义日志源,</span><br><span class="line">source s_name &#123; ... &#125;;</span><br><span class="line"># 定义过滤规则，规则可以使用正则表达式来定义,这里是可选的,不定义也没关系</span><br><span class="line">filter f_name &#123; ... &#125;;</span><br><span class="line"># 定义目标</span><br><span class="line">destination d_name &#123; ... &#125;;</span><br><span class="line"># 定义消息链可以将多个源,多个过滤规则及多个目标定义为一条链</span><br><span class="line">log &#123; ... &#125;;</span><br><span class="line">详解如下</span><br><span class="line">----------------------------------------------------------------</span><br><span class="line">options &#123; long_hostnames(off); sync(0); perm(0640); stats(3600); &#125;;</span><br><span class="line">    更多选项如下</span><br><span class="line">    chain_hostnames(yes|no)     # 是否打开主机名链功能，打开后可在多网络段转发日志时有效</span><br><span class="line">    long_hostnames(yes|no)      # 是chain_hostnames的别名，已不建议使用</span><br><span class="line">    keep_hostname(yes|no)       # 是否保留日志消息中保存的主机名称</span><br><span class="line">    use_dns(yes|no)             # 是否打开DNS查询功能，</span><br><span class="line">    use_fqdn(yes|no)            # 是否使用完整的域名</span><br><span class="line">    check_hostname(yes|no)      # 是否检查主机名有没有包含不合法的字符</span><br><span class="line">    bad_hostname(regexp)        # 可通过正规表达式指定某主机的信息不被接受</span><br><span class="line">    dns_cache(yes|no)           # 是否打开DNS缓存功能</span><br><span class="line">    dns_cache_expire(n)         # DNS缓存功能打开时，一个成功缓存的过期时间</span><br><span class="line">    dns_cache_expire_failed(n)  # DNS缓存功能打开时，一个失败缓存的过期时间</span><br><span class="line">    dns_cache_size(n)           # DNS缓存保留的主机名数量</span><br><span class="line">    create_dirs(yes|no)         # 当指定的目标目录不存在时，是否创建该目录</span><br><span class="line">    dir_owner(uid)              # 目录的UID</span><br><span class="line">    dir_group(gid)              # 目录的GID</span><br><span class="line">    dir_perm(perm)              # 目录的权限，使用八进制方式标注，例如0644</span><br><span class="line">    owner(uid)                  # 文件的UID</span><br><span class="line">    group(gid)                  # 文件的GID</span><br><span class="line">    perm(perm)                  # 文件的权限，同样，使用八进制方式标注</span><br><span class="line">    gc_busy_threshold(n)        # 当syslog-ng忙时，其进入垃圾信息收集状态的时间一旦分派的对象达到这个数字，syslog-ng就启动垃圾信息收集状态。默认值是：3000。</span><br><span class="line">    gc_idle_threshold(n)        # 当syslog-ng空闲时，其进入垃圾信息收集状态的时间一旦被分派的对象到达这个数字，syslog-ng就会启动垃圾信息收集状态，默认值是：100</span><br><span class="line">    log_fifo_size(n)            # 输出队列的行数</span><br><span class="line">    log_msg_size(n)             # 消息日志的最大值（bytes）</span><br><span class="line">    mark(n)                     # 多少时间（秒）写入两行MARK信息供参考，目前没有实现</span><br><span class="line">    stats(n)                    # 多少时间（秒）写入两行STATUS信息,默认值是：600</span><br><span class="line">    sync(n)                     # 缓存多少行的信息再写入文件中，0为不缓存，局部参数可以覆盖该值。</span><br><span class="line">    time_reap(n)                # 在没有消息前，到达多少秒，即关闭该文件的连接</span><br><span class="line">    time_reopen(n)              # 对于死连接，到达多少秒，会重新连接</span><br><span class="line">    use_time_recvd(yes|no)      # 宏产生的时间是使用接受到的时间，还是日志中记录的时间；建议使用R_的宏代替接收时间，S_的宏代替日志记录的时间，而不要依靠该值定义。</span><br><span class="line"></span><br><span class="line">source s_name &#123; internal(); unix-dgram(&quot;/dev/log&quot;); udp(ip(&quot;0.0.0.0&quot;) port(514)); &#125;;</span><br><span class="line"></span><br><span class="line">    file (filename)                 # 从指定的文件读取日志信息</span><br><span class="line">    unix-dgram  (filename)          # 打开指定的SOCK_DGRAM模式的unix套接字，接收日志消息</span><br><span class="line">    unix-stream (filename)          # 打开指定的SOCK_STREAM模式的unix套接字，接收日志消息</span><br><span class="line">    udp ( (ip),(port) )             # 在指定的UDP端口接收日志消息</span><br><span class="line">    tcp ( (ip),(port) )             # 在指定的TCP端口接收日志消息</span><br><span class="line">    sun-streams (filename)          # 在solaris系统中，打开一个（多个）指定的STREAM设备，从其中读取日志消息</span><br><span class="line">    internal()                      # syslog-ng内部产生的消息</span><br><span class="line">    pipe(filename),fifo(filename)   # 从指定的管道或者FIFO设备，读取日志信息</span><br><span class="line"></span><br><span class="line">filter f_name   &#123; not facility(news, mail) and not filter(f_iptables); &#125;;</span><br><span class="line">    更多规则函数如下</span><br><span class="line">    facility(..)    # 根据facility（设备）选择日志消息，使用逗号分割多个facility</span><br><span class="line">    level(..)       # 根据level（优先级）选择日志消息，使用逗号分割多个level，或使用“..”表示一个范围</span><br><span class="line">    program(表达式)    # 日志消息的程序名是否匹配一个正则表达式</span><br><span class="line">    host(表达式)   # 日志消息的主机名是否和一个正则表达式匹配</span><br><span class="line">    match(表达式)  # 对日志消息的内容进行正则匹配</span><br><span class="line">    filter()        # 调用另一条过滤规则并判断它的值</span><br><span class="line">    定义规则的时候也可以使用逻辑运算符and or not</span><br><span class="line"></span><br><span class="line">destination d_name &#123; file(&quot;/var/log/messages&quot;); &#125;;</span><br><span class="line">    更多动作如下</span><br><span class="line">    file (filename)                 # 把日志消息写入指定的文件</span><br><span class="line">    unix-dgram  (filename)          # 把日志消息写入指定的SOCK_DGRAM模式的unix套接字</span><br><span class="line">    unix-stream (filename)          # 把日志消息写入指定的SOCK_STREAM模式的unix套接字</span><br><span class="line">    udp (ip),(port)                 # 把日志消息发送到指定的UDP端口</span><br><span class="line">    tcp (ip),(port)                 # 把日志消息发送到指定的TCP端口</span><br><span class="line">    usertty(username)               # 把日志消息发送到已经登陆的指定用户终端窗口</span><br><span class="line">    pipe(filename),fifo(filename)   # 把日志消息发送到指定的管道或者FIFO设备</span><br><span class="line">    program(parm)                   # 启动指定的程序，并把日志消息发送到该进程的标准输入</span><br><span class="line"></span><br><span class="line">log &#123; source(s_name); filter(f_name); destination(d_name) &#125;;</span><br></pre></td></tr></table></figure>
+<p>一条日志的处理流程大概是这样的,如下</p>
+<p>首先是 “日志的来源 source s_name { … };”</p>
+<p>然后是 “过滤规则 filter f_name { … };”</p>
+<p>再然后是 “消息链 log { source(s_name); filter(f_name);<br>destination(d_name) };”</p>
+<p>最后是 “目标动作 destination d_name { … };”</p>
+<p>这样以来一条日志就根据你的意思来处理了,需要注意的是一条日志消息过了之后,会匹配定义的所有配置,并不是匹配到以后就不再往下匹配了.</p>
+<h2 id="syslog-ng-配置文件例子"><a href="#syslog-ng-配置文件例子" class="headerlink" title="syslog-ng 配置文件例子"></a>syslog-ng 配置文件例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">$syslog-ng_path/etc/syslog-ng.conf 内容如下</span><br><span class="line"></span><br><span class="line">options &#123; long_hostnames(off); sync(0); perm(0640); stats(3600); &#125;;</span><br><span class="line"></span><br><span class="line">source src &#123;</span><br><span class="line">            internal();</span><br><span class="line">            unix-dgram(&quot;/dev/log&quot;);</span><br><span class="line">            # 表示日志来源为本机udp的514端口,</span><br><span class="line">            udp(ip(&quot;0.0.0.0&quot;) port(514));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">filter f_iptables   &#123; facility(kern) and match(&quot;IN=&quot;) and match(&quot;OUT=&quot;); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_console    &#123; level(warn) and facility(kern) and not filter(f_iptables)</span><br><span class="line">                      or level(err) and not facility(authpriv); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_newsnotice &#123; level(notice) and facility(news); &#125;;</span><br><span class="line">filter f_newscrit   &#123; level(crit)   and facility(news); &#125;;</span><br><span class="line">filter f_newserr    &#123; level(err)    and facility(news); &#125;;</span><br><span class="line">filter f_news       &#123; facility(news); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_mailinfo   &#123; level(info)      and facility(mail); &#125;;</span><br><span class="line">filter f_mailwarn   &#123; level(warn)      and facility(mail); &#125;;</span><br><span class="line">filter f_mailerr    &#123; level(err, crit) and facility(mail); &#125;;</span><br><span class="line">filter f_mail       &#123; facility(mail); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_cron       &#123; facility(cron); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_local      &#123; facility(local0, local1, local2, local3,</span><br><span class="line">                               local4,  local6, local7); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_acpid_full &#123; match(&apos;^acpid:&apos;); &#125;;</span><br><span class="line">filter f_acpid      &#123; level(emerg..notice) and match(&apos;^acpid:&apos;); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_acpid_old  &#123; match(&apos;^\[acpid\]:&apos;); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_netmgm     &#123; match(&apos;^NetworkManager:&apos;); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_messages   &#123; not facility(news, mail) and not filter(f_iptables); &#125;;</span><br><span class="line">filter f_warn       &#123; level(warn, err, crit) and not filter(f_iptables); &#125;;</span><br><span class="line">filter f_alert      &#123; level(alert); &#125;;</span><br><span class="line"></span><br><span class="line">destination console  &#123; pipe(&quot;/dev/tty10&quot;    owner(-1) group(-1) perm(-1)); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_console); destination(console); &#125;;</span><br><span class="line"></span><br><span class="line">destination xconsole &#123; pipe(&quot;/dev/xconsole&quot; owner(-1) group(-1) perm(-1)); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_console); destination(xconsole); &#125;;</span><br><span class="line"></span><br><span class="line">destination newscrit   &#123; file(&quot;/var/log/news/news.crit&quot;</span><br><span class="line">                              owner(news) group(news)); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_newscrit); destination(newscrit); &#125;;</span><br><span class="line"></span><br><span class="line">destination newserr    &#123; file(&quot;/var/log/news/news.err&quot;</span><br><span class="line">                              owner(news) group(news)); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_newserr); destination(newserr); &#125;;</span><br><span class="line"></span><br><span class="line">destination newsnotice &#123; file(&quot;/var/log/news/news.notice&quot;</span><br><span class="line">                              owner(news) group(news)); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_newsnotice); destination(newsnotice); &#125;;</span><br><span class="line"></span><br><span class="line">destination mailinfo &#123; file(&quot;/var/log/mail.info&quot;); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_mailinfo); destination(mailinfo); &#125;;</span><br><span class="line"></span><br><span class="line">destination mailwarn &#123; file(&quot;/var/log/mail.warn&quot;); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_mailwarn); destination(mailwarn); &#125;;</span><br><span class="line"></span><br><span class="line">destination mailerr  &#123; file(&quot;/var/log/mail.err&quot; fsync(yes)); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_mailerr);  destination(mailerr); &#125;;</span><br><span class="line"></span><br><span class="line">destination mail &#123; file(&quot;/var/log/mail&quot;); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_mail); destination(mail); &#125;;</span><br><span class="line"></span><br><span class="line">destination acpid &#123; file(&quot;/var/log/acpid&quot;); &#125;;</span><br><span class="line">destination null &#123; &#125;;</span><br><span class="line">log &#123; source(src); filter(f_acpid); destination(acpid); flags(final); &#125;;</span><br><span class="line"></span><br><span class="line">log &#123; source(src); filter(f_acpid_full); destination(null); flags(final); &#125;;</span><br><span class="line"></span><br><span class="line">log &#123; source(src); filter(f_acpid_old); destination(acpid); flags(final); &#125;;</span><br><span class="line"></span><br><span class="line">destination netmgm &#123; file(&quot;/var/log/NetworkManager&quot;); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_netmgm); destination(netmgm); flags(final); &#125;;</span><br><span class="line"></span><br><span class="line">destination localmessages &#123; file(&quot;/var/log/localmessages&quot;); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_local); destination(localmessages); &#125;;</span><br><span class="line"></span><br><span class="line">destination messages &#123; file(&quot;/var/log/messages&quot;); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_messages); destination(messages); &#125;;</span><br><span class="line"></span><br><span class="line">destination firewall &#123; file(&quot;/var/log/firewall&quot;); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_iptables); destination(firewall); &#125;;</span><br><span class="line"></span><br><span class="line">destination warn &#123; file(&quot;/var/log/warn&quot; fsync(yes)); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_warn); destination(warn); &#125;;</span><br><span class="line"></span><br><span class="line">filter f_ha         &#123; facility(local5); &#125;;</span><br><span class="line">destination hamessages &#123; file(/var/log/ha); &#125;;</span><br><span class="line">log &#123; source(src); filter(f_ha); destination(hamessages); &#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/syslog/" rel="tag"># syslog</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/05/mysql-5.6.27rpm.html" rel="next" title="MySQL5.6 rpm安装">
+                <i class="fa fa-chevron-left"></i> MySQL5.6 rpm安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/11/marboo-default.html" rel="prev" title="marboo md default模版">
+                marboo md default模版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-09-11-linux-syslog"><span class="nav-number">1.</span> <span class="nav-text">2016-09-11-linux-syslog</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#syslog-简介"><span class="nav-number">1.1.</span> <span class="nav-text">syslog 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#syslog-配置文件详解"><span class="nav-number">1.2.</span> <span class="nav-text">syslog 配置文件详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#syslog-ng-简介"><span class="nav-number">1.3.</span> <span class="nav-text">syslog-ng 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#syslog-ng-的安装"><span class="nav-number">1.4.</span> <span class="nav-text">syslog-ng 的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#syslog-ng-配置文件详解"><span class="nav-number">1.5.</span> <span class="nav-text">syslog-ng 配置文件详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#syslog-ng-配置文件例子"><span class="nav-number">1.6.</span> <span class="nav-text">syslog-ng 配置文件例子</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

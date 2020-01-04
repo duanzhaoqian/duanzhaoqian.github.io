@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="lts分布式任务文档">
+<meta name="keywords" content="lts分布式任务文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lts分布式任务文档">
+<meta property="og:url" content="https://duanzhaoqian.site/2016/05/09/LTS分布式任务调度文档.html">
+<meta property="og:site_name" content="Duan Blog">
+<meta property="og:description" content="lts分布式任务文档">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://git.oschina.net/hugui/light-task-scheduler/raw/master/docs/LTS_architecture.png?dir=0&filepath=docs%2FLTS_architecture.png&oid=262a5234534e2d9fa8862f3e632c5551ebd95e21&sha=d01be5d59e8d768f49bbdc66c8334c37af8f7af5">
+<meta property="og:image" content="https://img1.tuicool.com/mInIZj.png!web">
+<meta property="og:image" content="https://git.oschina.net/hugui/light-task-scheduler/raw/master/docs/LTS-Admin/LTS-Admin-cron-job-queue.png?dir=0&filepath=docs%2FLTS-Admin%2FLTS-Admin-cron-job-queue.png&oid=aecaf01bca5270a53b144891baaa3d7e56d47706&sha=9a38205065553f6e02fb27a01cb06eeb0e643486">
+<meta property="og:updated_time" content="2020-01-04T12:09:11.234Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lts分布式任务文档">
+<meta name="twitter:description" content="lts分布式任务文档">
+<meta name="twitter:image" content="https://git.oschina.net/hugui/light-task-scheduler/raw/master/docs/LTS_architecture.png?dir=0&filepath=docs%2FLTS_architecture.png&oid=262a5234534e2d9fa8862f3e632c5551ebd95e21&sha=d01be5d59e8d768f49bbdc66c8334c37af8f7af5">
+
+
+
+
+
+
+  <link rel="canonical" href="https://duanzhaoqian.site/2016/05/09/LTS分布式任务调度文档.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+
+</script>
+  <title>lts分布式任务文档 | Duan Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Duan Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/05/09/LTS分布式任务调度文档.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Duan Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">lts分布式任务文档
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-05-09 00:00:00" itemprop="dateCreated datePublished" datetime="2016-05-09T00:00:00+08:00">2016-05-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            <div class="post-description">lts分布式任务文档</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="LTS-分布式任务调度文档"><a href="#LTS-分布式任务调度文档" class="headerlink" title="LTS 分布式任务调度文档"></a>LTS 分布式任务调度文档</h1><h2 id="LTS-介绍"><a href="#LTS-介绍" class="headerlink" title="LTS 介绍"></a>LTS 介绍</h2><blockquote>
+<p>LTS(light-task-scheduler)主要用于解决分布式任务调度问题，支持实时任务，定时任务，Cron 任务，Repeat 任务。有较好的伸缩性，扩展性，健壮稳定性而被多家公司使用，同时也希望开源爱好者一起贡献。</p>
+</blockquote>
+<h4 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h4><ul>
+<li><ol>
+<li>支持分布式，解决多点故障，支持动态扩容，容错重试等</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Spring 扩展支持，SpringBoot 支持，Spring Quartz Cron 任务的无缝接入支持</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>节点监控支持，任务执行监控支持，JVM 监控支持</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>后台运维操作支持, 可以动态提交，更改，停止 任务</li>
+</ol>
+</li>
+</ul>
+<h4 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h4><ul>
+<li>github 地址:<a href="https://github.com/ltsopensource/light-task-scheduler" target="_blank" rel="noopener">https://github.com/ltsopensource/light-task-scheduler</a></li>
+<li>oschina 地址:<a href="https://git.oschina.net/hugui/light-task-scheduler" target="_blank" rel="noopener">https://git.oschina.net/hugui/light-task-scheduler</a></li>
+<li>例子: <a href="https://github.com/ltsopensource/lts-examples" target="_blank" rel="noopener">https://github.com/ltsopensource/lts-examples</a></li>
+<li>文档地址(正在更新中): <a href="https://www.gitbook.com/book/qq254963746/lts/details" target="_blank" rel="noopener">https://www.gitbook.com/book/qq254963746/lts/details</a></li>
+</ul>
+<h2 id="LTS-技术架构"><a href="#LTS-技术架构" class="headerlink" title="LTS 技术架构"></a>LTS 技术架构</h2><blockquote>
+<p>LTS 着力于解决分布式任务调度问题，将任务的提交者和执行者解耦，解决任务执行的单点故障，支持动态扩容，出错重试等机制。代码程序设计上，参考了优秀开源项目 Dubbo，Hadoop 的部分思想。</p>
+</blockquote>
+<h4 id="LTS-目前支持四种任务"><a href="#LTS-目前支持四种任务" class="headerlink" title="LTS 目前支持四种任务"></a>LTS 目前支持四种任务</h4><ul>
+<li>实时任务：提交了之后立即就要执行的任务。</li>
+<li>定时任务：在指定时间点执行的任务，譬如 今天 3 点执行（单次）。</li>
+<li>Cron 任务：CronExpression，和 quartz 类似（但是不是使用 quartz 实现的）譬如 0 0/1 * ?</li>
+<li>Repeat 任务：譬如每隔 5 分钟执行一次，重复 50 次就停止。</li>
+</ul>
+<h4 id="架构设计上，LTS-框架中包含以下五种类型的节点"><a href="#架构设计上，LTS-框架中包含以下五种类型的节点" class="headerlink" title="架构设计上，LTS 框架中包含以下五种类型的节点"></a>架构设计上，LTS 框架中包含以下五种类型的节点</h4><ul>
+<li>JobClient :主要负责提交任务, 并接收任务执行反馈结果。</li>
+<li>JobTracker :负责任务调度，接收并分配任务。</li>
+<li>TaskTracker :负责执行任务，执行完反馈给 JobTracker。</li>
+<li>LTS-Monitor :主要负责收集各个节点的监控信息，包括任务监控信息，节点 JVM 监控信息</li>
+<li>LTS-Admin :管理后台）主要负责节点管理，任务队列管理，监控管理等。</li>
+</ul>
+<h4 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h4><p><img src="https://git.oschina.net/hugui/light-task-scheduler/raw/master/docs/LTS_architecture.png?dir=0&amp;filepath=docs%2FLTS_architecture.png&amp;oid=262a5234534e2d9fa8862f3e632c5551ebd95e21&amp;sha=d01be5d59e8d768f49bbdc66c8334c37af8f7af5" alt></p>
+<ul>
+<li><strong>Registry:</strong> 注册中心，LTS 提供多种实现，目前支持 zookeeper（推荐）和 redis, 主要用于 LTS 的节点信息暴露和 master 节点选举。</li>
+<li><strong>FailStore：</strong> 失败存储，主要用于在部分场景远程 RPC 调用失败的情况，采取现存储本地 KV 文件系统，待远程通信恢复的时候再进行数据补偿。目前 FailStore 场景，主要有 RetryJobClient 提交**任务失败的时候，存储 FailStore；TaskTracker 返回任务执行结果给 JobTracker 的失败 时候，FailStore；TaskTracker 提交 BizLogger 的失败的时候，存储 FailStore. 目前 FailStore 有四种实现：leveldb，rocksdb，berkeleydb，mapdb（当然用户也可以实现扩展接口实现自己的 FailStore）</li>
+<li><strong>QueueManager：</strong> 任务队列，目前提供 mysql（推荐）和 mongodb 两种实现（同样的用户可以自己扩容展示其他的，譬如 oracle 等），主要存储任务数据和任务执行日志等。</li>
+<li><strong>RPC：</strong> 远程 RPC 通信框架，目前也支持多种实现，LTS 自带有 netty 和 mina，用户可以自行选择，或者自己 SPI 扩展实现其他的。</li>
+<li><strong>NodeGroup：</strong> 节点组，同一个节点组中的任何节点都是对等的，等效的，对外提供相同的服务。譬如 TaskTracker 中有 10 个 nodeGroup 都是 send_msg 的节点组，专门执行发送短信的任务。每个节点组中都有一个 master 节点，这个 master 节点是由 LTS 动态选出来的，当一个 master 节点挂掉之后，LTS 会立马选出另外一个 master 节点，框架提供 API 监听接口给用户。</li>
+<li><strong>ClusterName：</strong> LTS 集群，就如上图所示，整个图就是一个集群，包含 LTS 的五种节点。</li>
+</ul>
+<h4 id="节点图"><a href="#节点图" class="headerlink" title="节点图"></a>节点图</h4><p><img src="https://img1.tuicool.com/mInIZj.png!web" alt></p>
+<ul>
+<li><ol>
+<li>一个节点组等同于一个集群，同一个节点组中的各个节点是对等的，外界无论连接节点组中的任务一个节点都是可以的。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>每个节点组中都有一个 master 节点，采用 zookeeper 进行 master 选举(master 宕机，会自动选举出新的 master 节点)，框架会提供接口 API 来监听 master 节点的变化，用户可以自己使用 master 节点做自己想做的事情。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>JobClient 和 TaskTracker 都可以存在多个节点组。譬如 JobClient 可以存在多个节点组。 譬如：JobClient 节点组为 ‘lts_WEB’ 中的一个节点提交提交一个 只有节点组为’lts_TRADE’的 TaskTracker 才能执行的任务。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>(每个集群中)JobTacker 只有一个节点组。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>多个 JobClient 节点组和多个 TaskTracker 节点组再加上一个 JobTacker 节点组, 组成一个大的集群。</li>
+</ol>
+</li>
+</ul>
+<h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><ul>
+<li><ol>
+<li>JobClient 提交一个 任务 给 JobTracker, 这里我提供了两种客户端 API, 一种是如果 JobTracker 不存在或者提交失败，直接返回提交失败。另一种客户端是重试客户端, 如果提交失败，先存储到本地 leveldb(可以使用 NFS 来达到同个节点组共享 leveldb 文件的目的,多线程访问，做了文件锁处理)，返回给客户端提交成功的信息，待 JobTracker 可用的时候，再将任务提交。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>JobTracker 收到 JobClient 提交来的任务，先生成一个唯一的 JobID。然后将任务储存在 Mongo 集群中。JobTracker 发现有（任务执行的）可用的 TaskTracker 节点(组) 之后，将优先级最大，最先提交的任务分发给 TaskTracker。这里 JobTracker 会优先分配给比较空闲的 TaskTracker 节点，达到负载均衡。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>TaskTracker 收到 JobTracker 分发来的任务之后，执行。执行完毕之后，再反馈任务执行结果给 JobTracker（成功 or 失败[失败有失败错误信息]），如果发现 JobTacker 不可用，那么存储本地 leveldb，等待 TaskTracker 可用的时候再反馈。反馈结果的同时，询问 JobTacker 有没有新的任务要执行。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>JobTacker 收到 TaskTracker 节点的任务结果信息，生成并插入(mongo)任务执行日志。根据任务信息决定要不要反馈给客户端。不需要反馈的直接删除, 需要反馈的（同样 JobClient 不可用存储文件，等待可用重发）。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>JobClient 收到任务执行结果，进行自己想要的逻辑处理。</li>
+</ol>
+</li>
+</ul>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li><h6 id="Spring-Spring-Boot-支持"><a href="#Spring-Spring-Boot-支持" class="headerlink" title="Spring/Spring Boot 支持"></a>Spring/Spring Boot 支持</h6></li>
+</ul>
+<blockquote>
+<p>LTS 可以完全不用 Spring 框架，但是考虑到很用用户项目中都是用了 Spring 框架，所以 LTS 也提供了对 Spring 的支持，包括 Xml 和注解，引入 lts-spring.jar 即可。</p>
+</blockquote>
+<ul>
+<li><h6 id="业务日志记录器"><a href="#业务日志记录器" class="headerlink" title="业务日志记录器"></a>业务日志记录器</h6></li>
+</ul>
+<blockquote>
+<p>在 TaskTracker 端提供了业务日志记录器，供应用程序使用，通过这个业务日志器，可以将业务日志提交到 JobTracker，这些业务日志可以通过任务 ID 串联起来，可以在 LTS-Admin 中实时查看任务的执行进度。</p>
+</blockquote>
+<ul>
+<li><h6 id="SPI-扩展支持"><a href="#SPI-扩展支持" class="headerlink" title="SPI 扩展支持"></a>SPI 扩展支持</h6></li>
+</ul>
+<blockquote>
+<p>SPI 扩展可以达到零侵入，只需要实现相应的接口，并实现即可被 LTS 使用，目前开放出来的扩展接口有<br>对任务队列的扩展，用户可以不选择使用 mysql 或者 mongo 作为队列存储，也可以自己实现。<br>对业务日志记录器的扩展，目前主要支持 console，mysql，mongo，用户也可以通过扩展选择往其他地方输送日志。</p>
+</blockquote>
+<ul>
+<li><h6 id="节点监控"><a href="#节点监控" class="headerlink" title="节点监控"></a>节点监控</h6></li>
+</ul>
+<blockquote>
+<p>可以对 JobTracker，TaskTracker 节点进行资源监控，任务监控等，可以实时的在 LTS-Admin 管理后台查看，进而进行合理的资源调配。</p>
+</blockquote>
+<ul>
+<li><h6 id="多样化任务执行结果支持"><a href="#多样化任务执行结果支持" class="headerlink" title="多样化任务执行结果支持"></a>多样化任务执行结果支持</h6></li>
+</ul>
+<blockquote>
+<p>LTS 框架提供四种执行结果支持，EXECUTE_SUCCESS，EXECUTE_FAILED，EXECUTE_LATER，EXECUTE_EXCEPTION，并对每种结果采取相应的处理机制，譬如重试。<br>EXECUTE_SUCCESS: 执行成功,这种情况，直接反馈客户端（如果任务被设置了要反馈给客户端）。<br>EXECUTE_FAILED：执行失败，这种情况，直接反馈给客户端，不进行重试。<br>EXECUTE_LATER：稍后执行（需要重试），这种情况，不反馈客户端，重试策略采用 30s 的策略，默认最大重试次数为 10 次，用户可以通过参数设置修改这些参数。<br>EXECUTE_EXCEPTION：执行异常, 这中情况也会重试(重试策略，同上)</p>
+</blockquote>
+<ul>
+<li><h6 id="FailStore-容错"><a href="#FailStore-容错" class="headerlink" title="FailStore 容错"></a>FailStore 容错</h6></li>
+</ul>
+<blockquote>
+<p>采用 FailStore 机制来进行节点容错，Fail And Store，不会因为远程通信的不稳定性而影响当前应用的运行。</p>
+</blockquote>
+<ul>
+<li><h6 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h6><blockquote>
+<p>JobClient 和 TaskTracker 会随机连接 JobTracker 节点组中的一个节点，实现 JobTracker 负载均衡。当连接上后，将一直保持连接这个节点,保持连接通道，知道这个节点不可用，减少每次都重新连接一个节点带来的性能开销。<br>JobTracker 分发任务时，是优先分配给最空闲的一个 TaskTracker 节点，实现 TaskTracker 节点的负载均衡。</p>
+</blockquote>
+</li>
+<li><h6 id="健壮性-故障转移"><a href="#健壮性-故障转移" class="headerlink" title="健壮性(故障转移)"></a>健壮性(故障转移)</h6><blockquote>
+<p>当节点组中的一个节点当机之后，自动转到其他节点工作。当整个节点组当机之后，将会采用存储文件的方式，待节点组可用的时候进行重发。<br>当执行任务的 TaskTracker 节点当机之后，JobTracker 会将这个 TaskTracker 上的未完成的任务(死任务)，重新分配给节点组中其他节点执行。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><h6 id="动态扩容"><a href="#动态扩容" class="headerlink" title="动态扩容"></a>动态扩容</h6></li>
+</ul>
+<blockquote>
+<p>因为 LTS 各个节点都是无状态的，所以支持动态增加删除节点，达到负载均衡的目的</p>
+</blockquote>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li><p><strong>1. Java JDK</strong></p>
+<blockquote>
+<p>因为 LTS 是使用 Java 语言编写的，所以必须要有个 Java 编译运行环境，目前 LTS 支持 JDK1.6 及以上版本。</p>
+</blockquote>
+</li>
+<li><p><strong>2. Maven</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>LTS 项目是基于 Maven 做项目依赖管理的，所以用户机器上需要配置 Maven 环境</p>
+</blockquote>
+<ul>
+<li><strong>3. Zookeeper/Redis</strong></li>
+</ul>
+<blockquote>
+<p>因 LTS 目前支持 Zookeeper 和 Redis 作为注册中心，主要用于节点信息暴露、监听、master 节点选举。用于选择其一即可，建议 zookeeper。</p>
+</blockquote>
+<ul>
+<li><strong>4. Mysql/Mongodb</strong></li>
+</ul>
+<blockquote>
+<p>LTS 目前支持 Mysql 和 mongodb 作为任务队列的存储引擎。用户同样的选择其中一个即可。</p>
+</blockquote>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><blockquote>
+<p><strong>部署建议</strong></p>
+</blockquote>
+<blockquote>
+<ol>
+<li>Admin 后台: 建议 Admin 后台单独部署，默认会嵌入一个 Monitor</li>
+<li>Monitor：默认在 Admin 后台进程中有一个，如果一个不够，也可以单独启动多个</li>
+<li>JobTracker: 建议单独部署</li>
+<li>JobClient:,这个是提交任务的工程,一般是和业务相关的,所以会放在业 务工程中, 当然也要看业务场景</li>
+<li>TaskTracker,这个因为是跑任务的,具体看业务场景, 一般情况下也可以是独立部署</li>
+</ol>
+</blockquote>
+<h4 id="1-JobTracker-和-LTS-Admin-部署"><a href="#1-JobTracker-和-LTS-Admin-部署" class="headerlink" title="1. JobTracker 和 LTS-Admin 部署"></a>1. JobTracker 和 LTS-Admin 部署</h4><blockquote>
+<p>提供(cmd)windows 和(shell)linux 两种版本脚本来进行编译和部署:</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>运行根目录下的 sh build.sh 或 build.cmd 脚本，会在 dist 目录下生成 lts-{version}-bin 文件夹</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>下面是其目录结构，其中 bin 目录主要是 JobTracker 和 LTS-Admin 的启动脚本。jobtracker 中是 JobTracker 的配置文件和需要使用到的 jar 包，lts-admin 是 LTS-Admin 相关的 war 包和配置文件。 lts-{version}-bin 的文件结构</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">-- lts-$&#123;version&#125;-bin</span><br><span class="line">    |-- bin</span><br><span class="line">    |   |-- jobtracker.cmd</span><br><span class="line">    |   |-- jobtracker.sh</span><br><span class="line">    |   |-- lts-admin.cmd</span><br><span class="line">    |   |-- lts-admin.sh</span><br><span class="line">    |   |-- lts-monitor.cmd</span><br><span class="line">    |   |-- lts-monitor.sh</span><br><span class="line">    |   |-- tasktracker.sh</span><br><span class="line">    |-- conf</span><br><span class="line">    |   |-- log4j.properties</span><br><span class="line">    |   |-- lts-admin.cfg</span><br><span class="line">    |   |-- lts-monitor.cfg</span><br><span class="line">    |   |-- readme.txt</span><br><span class="line">    |   |-- tasktracker.cfg</span><br><span class="line">    |   |-- zoo</span><br><span class="line">    |       |-- jobtracker.cfg</span><br><span class="line">    |       |-- log4j.properties</span><br><span class="line">    |       |-- lts-monitor.cfg</span><br><span class="line">    |-- lib</span><br><span class="line">    |   |-- *.jar</span><br><span class="line">    |-- war</span><br><span class="line">        |-- jetty</span><br><span class="line">        |   |-- lib</span><br><span class="line">        |       |-- *.jar</span><br><span class="line">        |-- lts-admin.war</span><br></pre></td></tr></table></figure>
+<p><strong>JobTracker 启动</strong></p>
+<blockquote>
+<p>如果你想启动一个节点，直接修改下 conf/zoo 下的配置文件，然后运行 sh jobtracker.sh zoo start 即可，如果你想启动两个 JobTracker 节点，那么你需要拷贝一份 zoo,譬如命名为 zoo2,修改下 zoo2 下的配置文件，然后运行 sh jobtracker.sh zoo2 start 即可。logs 文件夹下生成 jobtracker-zoo.out 日志。</p>
+</blockquote>
+<p><strong>LTS-Admin 启动</strong></p>
+<blockquote>
+<p>修改 conf/lts-monitor.cfg 和 conf/lts-admin.cfg 下的配置，然后运行 bin 下的 sh lts-admin.sh 或 lts-admin.cmd 脚本即可。logs 文件夹下会生成 lts-admin.out 日志，启动成功在日志中会打印出访问地址，用户可以通过这个访问地址访问了。</p>
+</blockquote>
+<p><img src="https://git.oschina.net/hugui/light-task-scheduler/raw/master/docs/LTS-Admin/LTS-Admin-cron-job-queue.png?dir=0&amp;filepath=docs%2FLTS-Admin%2FLTS-Admin-cron-job-queue.png&amp;oid=aecaf01bca5270a53b144891baaa3d7e56d47706&amp;sha=9a38205065553f6e02fb27a01cb06eeb0e643486" alt></p>
+<h4 id="2-JobClient（部署）使用"><a href="#2-JobClient（部署）使用" class="headerlink" title="2. JobClient（部署）使用"></a>2. JobClient（部署）使用</h4><blockquote>
+<p>需要引入 lts 的 jar 包有 lts-jobclient-{version}.jar，lts-core-{version}.jar 及其它第三方依赖 jar。</p>
+</blockquote>
+<p><strong>API 方式启动</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">JobClient jobClient = new RetryJobClient();</span><br><span class="line">jobClient.setNodeGroup(&quot;test_jobClient&quot;);</span><br><span class="line">jobClient.setClusterName(&quot;test_cluster&quot;);</span><br><span class="line">jobClient.setRegistryAddress(&quot;zookeeper://127.0.0.1:2181&quot;);</span><br><span class="line">jobClient.start();</span><br><span class="line"></span><br><span class="line">// 提交任务</span><br><span class="line">Job job = new Job();</span><br><span class="line">job.setTaskId(&quot;3213213123&quot;);</span><br><span class="line">job.setParam(&quot;shopId&quot;, &quot;11111&quot;);</span><br><span class="line">job.setTaskTrackerNodeGroup(&quot;test_trade_TaskTracker&quot;);</span><br><span class="line">// job.setCronExpression(&quot;0 0/1 * * * ?&quot;);  // 支持 cronExpression表达式</span><br><span class="line">// job.setTriggerTime(new Date()); // 支持指定时间执行</span><br><span class="line">Response response = jobClient.submitJob(job);</span><br></pre></td></tr></table></figure>
+<p><strong>Spring XML 方式启动</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;jobClient&quot; class=&quot;com.github.ltsopensource.spring.JobClientFactoryBean&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;clusterName&quot; value=&quot;test_cluster&quot;/&gt;</span><br><span class="line">    &lt;property name=&quot;registryAddress&quot; value=&quot;zookeeper://127.0.0.1:2181&quot;/&gt;</span><br><span class="line">    &lt;property name=&quot;nodeGroup&quot; value=&quot;test_jobClient&quot;/&gt;</span><br><span class="line">    &lt;property name=&quot;masterChangeListeners&quot;&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;bean class=&quot;com.github.ltsopensource.example.support.MasterChangeListenerImpl&quot;/&gt;</span><br><span class="line">        &lt;/list&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property name=&quot;jobFinishedHandler&quot;&gt;</span><br><span class="line">        &lt;bean class=&quot;com.github.ltsopensource.example.support.JobFinishedHandlerImpl&quot;/&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property name=&quot;configs&quot;&gt;</span><br><span class="line">        &lt;props&gt;</span><br><span class="line">            &lt;!-- 参数 --&gt;</span><br><span class="line">            &lt;prop key=&quot;job.fail.store&quot;&gt;leveldb&lt;/prop&gt;</span><br><span class="line">        &lt;/props&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>Spring 全注解方式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class LTSSpringConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean(name = &quot;jobClient&quot;)</span><br><span class="line">    public JobClient getJobClient() throws Exception &#123;</span><br><span class="line">        JobClientFactoryBean factoryBean = new JobClientFactoryBean();</span><br><span class="line">        factoryBean.setClusterName(&quot;test_cluster&quot;);</span><br><span class="line">        factoryBean.setRegistryAddress(&quot;zookeeper://127.0.0.1:2181&quot;);</span><br><span class="line">        factoryBean.setNodeGroup(&quot;test_jobClient&quot;);</span><br><span class="line">        factoryBean.setMasterChangeListeners(new MasterChangeListener[]&#123;</span><br><span class="line">                new MasterChangeListenerImpl()</span><br><span class="line">        &#125;);</span><br><span class="line">        Properties configs = new Properties();</span><br><span class="line">        configs.setProperty(&quot;job.fail.store&quot;, &quot;leveldb&quot;);</span><br><span class="line">        factoryBean.setConfigs(configs);</span><br><span class="line">        factoryBean.afterPropertiesSet();</span><br><span class="line">        return factoryBean.getObject();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-TaskTracker-部署使用"><a href="#3-TaskTracker-部署使用" class="headerlink" title="3. TaskTracker(部署使用)"></a>3. TaskTracker(部署使用)</h4><blockquote>
+<p>需要引入 lts 的 jar 包有 lts-tasktracker-{version}.jar，lts-core-{version}.jar 及其它第三方依赖 jar。</p>
+</blockquote>
+<p><strong>定义自己的任务执行类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyJobRunner</span> <span class="keyword">implements</span> <span class="title">JobRunner</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> BizLogger bizLogger = LtsLoggerFactory.getBizLogger();</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">run</span><span class="params">(Job job)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// TODO 业务逻辑</span></span><br><span class="line">            <span class="comment">// 会发送到 LTS (JobTracker上)</span></span><br><span class="line">            bizLogger.info(<span class="string">"测试，业务日志啊啊啊啊啊"</span>);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Result(Action.EXECUTE_FAILED, e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Result(Action.EXECUTE_SUCCESS, <span class="string">"执行成功了，哈哈"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>API 方式启动</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TaskTracker taskTracker = <span class="keyword">new</span> TaskTracker();</span><br><span class="line">taskTracker.setJobRunnerClass(MyJobRunner<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">taskTracker.setRegistryAddress(<span class="string">"zookeeper://127.0.0.1:2181"</span>);</span><br><span class="line">taskTracker.setNodeGroup(<span class="string">"test_trade_TaskTracker"</span>);</span><br><span class="line">taskTracker.setClusterName(<span class="string">"test_cluster"</span>);</span><br><span class="line">taskTracker.setWorkThreads(<span class="number">20</span>);</span><br><span class="line">taskTracker.start();</span><br></pre></td></tr></table></figure>
+<p><strong>Spring XML 方式启动</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"taskTracker"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.github.ltsopensource.spring.TaskTrackerAnnotationFactoryBean"</span> init-method=<span class="string">"start"</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">"jobRunnerClass"</span> value=<span class="string">"com.github.ltsopensource.example.support.MyJobRunner"</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">"bizLoggerLevel"</span> value=<span class="string">"INFO"</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">"clusterName"</span> value=<span class="string">"test_cluster"</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">"registryAddress"</span> value=<span class="string">"zookeeper://127.0.0.1:2181"</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">"nodeGroup"</span> value=<span class="string">"test_trade_TaskTracker"</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">"workThreads"</span> value=<span class="string">"20"</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">"masterChangeListeners"</span>&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;bean <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.github.ltsopensource.example.support.MasterChangeListenerImpl"</span>/&gt;</span><br><span class="line">        &lt;/list&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property name=<span class="string">"configs"</span>&gt;</span><br><span class="line">        &lt;props&gt;</span><br><span class="line">            &lt;prop key="job.fail.store"&gt;leveldb&lt;/prop&gt;</span><br><span class="line">        &lt;/props&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>Spring 注解方式启动</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LTSSpringConfig</span> <span class="keyword">implements</span> <span class="title">ApplicationContextAware</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ApplicationContext applicationContext;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext applicationContext)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.applicationContext = applicationContext;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span>(name = <span class="string">"taskTracker"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TaskTracker <span class="title">getTaskTracker</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        TaskTrackerAnnotationFactoryBean factoryBean = <span class="keyword">new</span> TaskTrackerAnnotationFactoryBean();</span><br><span class="line">        factoryBean.setApplicationContext(applicationContext);</span><br><span class="line">        factoryBean.setClusterName(<span class="string">"test_cluster"</span>);</span><br><span class="line">        factoryBean.setJobRunnerClass(MyJobRunner<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        factoryBean.setNodeGroup(<span class="string">"test_trade_TaskTracker"</span>);</span><br><span class="line">        factoryBean.setBizLoggerLevel(<span class="string">"INFO"</span>);</span><br><span class="line">        factoryBean.setRegistryAddress(<span class="string">"zookeeper://127.0.0.1:2181"</span>);</span><br><span class="line">        factoryBean.setMasterChangeListeners(<span class="keyword">new</span> MasterChangeListener[]&#123;</span><br><span class="line">                <span class="keyword">new</span> MasterChangeListenerImpl()</span><br><span class="line">        &#125;);</span><br><span class="line">        factoryBean.setWorkThreads(<span class="number">20</span>);</span><br><span class="line">        Properties configs = <span class="keyword">new</span> Properties();</span><br><span class="line">        configs.setProperty(<span class="string">"job.fail.store"</span>, <span class="string">"leveldb"</span>);</span><br><span class="line">        factoryBean.setConfigs(configs);</span><br><span class="line"></span><br><span class="line">        factoryBean.afterPropertiesSet();</span><br><span class="line"><span class="comment">//        factoryBean.start();</span></span><br><span class="line">        <span class="keyword">return</span> factoryBean.getObject();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="包引入说明"><a href="#包引入说明" class="headerlink" title="包引入说明"></a>包引入说明</h2><h3 id="1-JobTracker-JobClient-TaskTracker-都需要引入的包"><a href="#1-JobTracker-JobClient-TaskTracker-都需要引入的包" class="headerlink" title="1. JobTracker,JobClient,TaskTracker 都需要引入的包"></a>1. JobTracker,JobClient,TaskTracker 都需要引入的包</h3><h5 id="1-1-lts-core"><a href="#1-1-lts-core" class="headerlink" title="1.1 lts-core"></a>1.1 lts-core</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.ltsopensource<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lts-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;lts版本号&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-2-zk-客户端包"><a href="#1-2-zk-客户端包" class="headerlink" title="1.2 zk 客户端包"></a>1.2 zk 客户端包</h5><blockquote>
+<p>二选一, 通过 addConfig(“zk.client”, “可选值: curator, zkclient, lts”) 设置, 如果用 lts,可以不用引入包</p>
+</blockquote>
+<p>zkclient</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.sgroschupf&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;zkclient&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>curator</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-recipes<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>zookeeper 包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.zookeeper&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;zookeeper&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;zk.version&#125;&lt;/version&gt;</span><br><span class="line">    &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">            &lt;groupId&gt;org.jboss.netty&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;netty&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">            &lt;groupId&gt;log4j&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;log4j&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">    &lt;/exclusions&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-3-通讯包"><a href="#1-3-通讯包" class="headerlink" title="1.3 通讯包"></a>1.3 通讯包</h5><blockquote>
+<p>netty 或者 mina, 二选一, 通过 addConfig(“lts.remoting”, “可选值: netty, mina”) 设置</p>
+</blockquote>
+<p>netty</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.netty&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;netty-all&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.0.20.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>mina</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.mina&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mina-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.9&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-json-包"><a href="#1-4-json-包" class="headerlink" title="1.4 json 包"></a>1.4 json 包</h5><blockquote>
+<p>fastjson 或者 jackson, 二选一, 通过 addConfig(“lts.json”, “可选值: fastjson, jackson”) 设置</p>
+</blockquote>
+<p>fastjson</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.2.7&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>jackson</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.6.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.6.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-5-日志包"><a href="#1-5-日志包" class="headerlink" title="1.5 日志包"></a>1.5 日志包</h5><blockquote>
+<p>可以选用 slf4j, jcl, log4j, 或者使用 jdk 原生 logger<br>LoggerFactory.setLoggerAdapter(“可选值: slf4j, jcl, log4j, jdk”), 不手动设置, 默认按这个顺序加载</p>
+</blockquote>
+<p>log4j</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;log4j&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;log4j&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.2.16&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>slf4j</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.7.5&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.7.5&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>jcl</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-logging&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-logging-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-6"><a href="#1-6" class="headerlink" title="1.6"></a>1.6</h5><blockquote>
+<p>如果需要 spring 的话,需要引入 lts-spring 及 spring 的相关包</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.ltsopensource&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;lts-spring&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;lts版本号&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-对于-JobTracker-端"><a href="#2-对于-JobTracker-端" class="headerlink" title="2. 对于 JobTracker 端"></a>2. 对于 JobTracker 端</h3><h5 id="2-1-必须引入的包"><a href="#2-1-必须引入的包" class="headerlink" title="2.1 必须引入的包:"></a>2.1 必须引入的包:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.ltsopensource&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;lts-jobtracker&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;lts版本号&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-除了基础包之外还需要引入任务队列的包-可以是-mongo-或者-mysql"><a href="#2-2-除了基础包之外还需要引入任务队列的包-可以是-mongo-或者-mysql" class="headerlink" title="2.2 除了基础包之外还需要引入任务队列的包(可以是 mongo 或者 mysql)"></a>2.2 除了基础包之外还需要引入任务队列的包(可以是 mongo 或者 mysql)</h5><p>mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.1.26&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;druid&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0.14&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>mongo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mongodb.morphia&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;morphia&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0.0-rc1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mongodb&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mongo-java-driver&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-JobClient-需要引入的包"><a href="#3-JobClient-需要引入的包" class="headerlink" title="3. JobClient 需要引入的包"></a>3. JobClient 需要引入的包</h3><h5 id="必须引入的包"><a href="#必须引入的包" class="headerlink" title="必须引入的包"></a>必须引入的包</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.ltsopensource&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;lts-jobclient&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;project.version&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="FailStore-存储包-四选一"><a href="#FailStore-存储包-四选一" class="headerlink" title="FailStore 存储包(四选一)"></a>FailStore 存储包(四选一)</h4><blockquote>
+<p>通过 jobClient.addConfig(“job.fail.store”, “可选值: leveldb, mapdb, berkeleydb, rocksdb”) 设置</p>
+</blockquote>
+<p>mapdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mapdb&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapdb&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0-beta10&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>leveldb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.fusesource.leveldbjni&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;leveldbjni-all&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.2.7&lt;version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>berkeleydb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.sleepycat&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;je&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.0.73&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>rocksdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.rocksdb&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;rocksdbjni&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.10.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-TaskTracker-需要引入的包"><a href="#3-TaskTracker-需要引入的包" class="headerlink" title="3. TaskTracker 需要引入的包"></a>3. TaskTracker 需要引入的包</h3><h5 id="必须引入的包-1"><a href="#必须引入的包-1" class="headerlink" title="必须引入的包"></a>必须引入的包</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.ltsopensource&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;lts-tasktracker&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;project.version&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="FailStore-存储包-四选一-1"><a href="#FailStore-存储包-四选一-1" class="headerlink" title="FailStore 存储包(四选一)"></a>FailStore 存储包(四选一)</h5><blockquote>
+<p>通过 taskTracker.addConfig(“job.fail.store”, “可选值: leveldb, mapdb, berkeleydb, rocksdb”) 设置</p>
+</blockquote>
+<p>mapdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mapdb&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapdb&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0-beta10&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>leveldb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.fusesource.leveldbjni&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;leveldbjni-all&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.2.7&lt;version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>berkeleydb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.sleepycat&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;je&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.0.73&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>rocksdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.rocksdb&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;rocksdbjni&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.10.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/lts/" rel="tag"># lts</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/09/git.html" rel="next" title="Git 使用 命令">
+                <i class="fa fa-chevron-left"></i> Git 使用 命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/13/gitflow.html" rel="prev" title="gitflow 使用 流程">
+                gitflow 使用 流程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LTS-分布式任务调度文档"><span class="nav-number">1.</span> <span class="nav-text">LTS 分布式任务调度文档</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LTS-介绍"><span class="nav-number">1.1.</span> <span class="nav-text">LTS 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主要功能"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">主要功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">项目地址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LTS-技术架构"><span class="nav-number">1.2.</span> <span class="nav-text">LTS 技术架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LTS-目前支持四种任务"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">LTS 目前支持四种任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#架构设计上，LTS-框架中包含以下五种类型的节点"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">架构设计上，LTS 框架中包含以下五种类型的节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#架构图"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">架构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点图"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">节点图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工作流程"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">1.2.0.6.</span> <span class="nav-text">特性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Spring-Spring-Boot-支持"><span class="nav-number">1.2.0.6.0.1.</span> <span class="nav-text">Spring/Spring Boot 支持</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#业务日志记录器"><span class="nav-number">1.2.0.6.0.2.</span> <span class="nav-text">业务日志记录器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#SPI-扩展支持"><span class="nav-number">1.2.0.6.0.3.</span> <span class="nav-text">SPI 扩展支持</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#节点监控"><span class="nav-number">1.2.0.6.0.4.</span> <span class="nav-text">节点监控</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#多样化任务执行结果支持"><span class="nav-number">1.2.0.6.0.5.</span> <span class="nav-text">多样化任务执行结果支持</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#FailStore-容错"><span class="nav-number">1.2.0.6.0.6.</span> <span class="nav-text">FailStore 容错</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#负载均衡"><span class="nav-number">1.2.0.6.0.7.</span> <span class="nav-text">负载均衡</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#健壮性-故障转移"><span class="nav-number">1.2.0.6.0.8.</span> <span class="nav-text">健壮性(故障转移)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#动态扩容"><span class="nav-number">1.2.0.6.0.9.</span> <span class="nav-text">动态扩容</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.3.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">1.4.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-JobTracker-和-LTS-Admin-部署"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1. JobTracker 和 LTS-Admin 部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-JobClient（部署）使用"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2. JobClient（部署）使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-TaskTracker-部署使用"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">3. TaskTracker(部署使用)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包引入说明"><span class="nav-number">1.5.</span> <span class="nav-text">包引入说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JobTracker-JobClient-TaskTracker-都需要引入的包"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. JobTracker,JobClient,TaskTracker 都需要引入的包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-lts-core"><span class="nav-number">1.5.1.0.1.</span> <span class="nav-text">1.1 lts-core</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-zk-客户端包"><span class="nav-number">1.5.1.0.2.</span> <span class="nav-text">1.2 zk 客户端包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-通讯包"><span class="nav-number">1.5.1.0.3.</span> <span class="nav-text">1.3 通讯包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-json-包"><span class="nav-number">1.5.1.0.4.</span> <span class="nav-text">1.4 json 包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5-日志包"><span class="nav-number">1.5.1.0.5.</span> <span class="nav-text">1.5 日志包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6"><span class="nav-number">1.5.1.0.6.</span> <span class="nav-text">1.6</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-对于-JobTracker-端"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 对于 JobTracker 端</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-必须引入的包"><span class="nav-number">1.5.2.0.1.</span> <span class="nav-text">2.1 必须引入的包:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-除了基础包之外还需要引入任务队列的包-可以是-mongo-或者-mysql"><span class="nav-number">1.5.2.0.2.</span> <span class="nav-text">2.2 除了基础包之外还需要引入任务队列的包(可以是 mongo 或者 mysql)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-JobClient-需要引入的包"><span class="nav-number">1.5.3.</span> <span class="nav-text">3. JobClient 需要引入的包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#必须引入的包"><span class="nav-number">1.5.3.0.1.</span> <span class="nav-text">必须引入的包</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FailStore-存储包-四选一"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">FailStore 存储包(四选一)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-TaskTracker-需要引入的包"><span class="nav-number">1.5.4.</span> <span class="nav-text">3. TaskTracker 需要引入的包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#必须引入的包-1"><span class="nav-number">1.5.4.0.1.</span> <span class="nav-text">必须引入的包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#FailStore-存储包-四选一-1"><span class="nav-number">1.5.4.0.2.</span> <span class="nav-text">FailStore 存储包(四选一)</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

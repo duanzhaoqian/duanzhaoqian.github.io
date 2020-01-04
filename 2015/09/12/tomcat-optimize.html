@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="tomcat配置优化参数">
+<meta name="keywords" content="linux,tomcat,optimize,优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tomcat配置优化参数">
+<meta property="og:url" content="https://duanzhaoqian.site/2015/09/12/tomcat-optimize.html">
+<meta property="og:site_name" content="Duan Blog">
+<meta property="og:description" content="tomcat配置优化参数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://duanzhaoqian.site/images/tomcat-optimize/1.jpg">
+<meta property="og:image" content="https://duanzhaoqian.site/images/tomcat-optimize/2.jpg">
+<meta property="og:image" content="https://duanzhaoqian.site/images/tomcat-optimize/3.jpg">
+<meta property="og:image" content="https://duanzhaoqian.site/images/tomcat-optimize/4.jpg">
+<meta property="og:updated_time" content="2020-01-04T12:09:11.229Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tomcat配置优化参数">
+<meta name="twitter:description" content="tomcat配置优化参数">
+<meta name="twitter:image" content="https://duanzhaoqian.site/images/tomcat-optimize/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://duanzhaoqian.site/2015/09/12/tomcat-optimize.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+
+</script>
+  <title>tomcat配置优化参数 | Duan Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Duan Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2015/09/12/tomcat-optimize.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Duan Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">tomcat配置优化参数
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2015-09-12T00:00:00+08:00">2015-09-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            <div class="post-description">tomcat配置优化参数</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/home/opt/tools/apr/lib</span><br><span class="line">JAVA_OPTS=&quot;-server -XX:PermSize=128M -XX:MaxPermSize=256m -Xms1g -Xmx1g -Xmn500m -XX:SurvivorRatio=65536 -XX:MaxTenuringThreshold=0 -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:CMSFullGCsBeforeCompaction=0 -Duser.timezone=Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="Tomcat-启动行参数的优化"><a href="#Tomcat-启动行参数的优化" class="headerlink" title="Tomcat 启动行参数的优化"></a>Tomcat 启动行参数的优化</h4><p>Tomcat 的启动参数位于 tomcat 的安装目录\bin 目录下，如果你是 Linux 操作系统就是 catalina.sh 文件，如果你是 Windows 操作系统那么你需要改动的就是 catalina.bat 文件。打开该文件，一般该文件头部是一堆的由##包裹着的注释文字，找到注释文字的最后一段如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># $Id: catalina.sh 522797 2007-03-27 07:10:29Z fhanik $</span><br><span class="line"># -----------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># OS specific support.  $var _must_ be set to either true or false.</span><br></pre></td></tr></table></figure>
+<p>敲入一个回车，加入如下的参数</p>
+<ul>
+<li>Linux 系统中 tomcat 的启动参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;-server -Xms1400M -Xmx1400M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC  -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m  -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true &quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Windows 系统中 tomcat 的启动参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set JAVA_OPTS=-server -Xms1400M -Xmx1400M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC  -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m  -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true</span><br></pre></td></tr></table></figure>
+<p>上面参数好多啊，可能有人写到现在都没见一个 tomcat 的启动命令里加了这么多参数，当然，这些参数只是我机器上的，不一定适合你，尤其是参数后的 value（值）是需要根据你自己的实际情况来设置的。</p>
+<p>参数解释：</p>
+<ul>
+<li>-server</li>
+</ul>
+<p>我不管你什么理由，只要你的 tomcat 是运行在生产环境中的，这个参数必须给我加上</p>
+<p>因为 tomcat 默认是以一种叫 java –client 的模式来运行的，server 即意味着你的 tomcat 是以真实的 production 的模式在运行的，这也就意味着你的 tomcat 以 server 模式运行时将拥有：更大、更高的并发处理能力，更快更强捷的 JVM 垃圾回收机制，可以获得更多的负载与吞吐量。。。更。。。还有更。。。</p>
+<p>Y 给我记住啊，要不然这个-server 都不加，那是要打屁股了。</p>
+<ul>
+<li>-Xms–Xmx</li>
+</ul>
+<p>即 JVM 内存设置了，把 Xms 与 Xmx 两个值设成一样是最优的做法，有人说 Xms 为最小值，Xmx 为最大值不是挺好的，这样设置还比较人性化，科学化。人性？科学？你个头啊。</p>
+<p>大家想一下这样的场景：</p>
+<p>一个系统随着并发数越来越高，它的内存使用情况逐步上升，上升到最高点不能上升了，开始回落，你们不要认为这个回落就是好事情，由其是大起大落，在内存回落时它付出的代价是 CPU 高速开始运转进行垃圾回收，此时严重的甚至会造成你的系统出现“卡壳”就是你在好好的操作，突然网页像死在那边一样几秒甚至十几秒时间，因为 JVM 正在进行垃圾回收。</p>
+<p>因此一开始我们就把这两个设成一样，使得 Tomcat 在启动时就为最大化参数充分利用系统的效率，这个道理和 jdbcconnection pool 里的 minpool size 与 maxpool size 的需要设成一个数量是一样的原理。</p>
+<p>如何知道我的 JVM 能够使用最大值啊？拍脑袋？不行！</p>
+<p>在设这个最大内存即 Xmx 值时请先打开一个命令行，键入如下的命令：</p>
+<p><img src="/images/tomcat-optimize/1.jpg" alt="tomcat"></p>
+<p>看，能够正常显示 JDK 的版本信息，说明，这个值你能够用。不是说 32 位系统下最高能够使用 2GB 内存吗？即：2048m，我们不防来试试</p>
+<p><img src="/images/tomcat-optimize/2.jpg" alt="tomcat"></p>
+<p>可以吗？不可以！不要说 2048m 呢，我们小一点，试试 1700m 如何</p>
+<p><img src="/images/tomcat-optimize/3.jpg" alt="tomcat"></p>
+<p>嘿嘿，连 1700m 都不可以，更不要说 2048m 了呢，2048m 只是一个理论数值，这样说吧我这边有几台机器，有的机器-Xmx1800 都没问题，有的机器最高只能到-Xmx1500m。</p>
+<p>因此在设这个-Xms 与-Xmx 值时一定一定记得先这样测试一下，要不然直接加在 tomcat 启动命令行中你的 tomcat 就再也起不来了，要飞是飞不了，直接成了一只瘟猫了。</p>
+<ul>
+<li>–Xmn</li>
+</ul>
+<p>设置年轻代大小为 512m。整个堆大小=年轻代大小 + 年老代大小 + 持久代大小。持久代一般固定大小为 64m，所以增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，Sun 官方推荐配置为整个堆的 3/8。</p>
+<ul>
+<li>-Xss</li>
+</ul>
+<p>是指设定每个线程的堆栈大小。这个就要依据你的程序，看一个线程 大约需要占用多少内存，可能会有多少线程同时运行等。一般不易设置超过 1M，要不然容易出现 out ofmemory。</p>
+<ul>
+<li>-XX:+AggressiveOpts</li>
+</ul>
+<p>作用如其名（aggressive），启用这个参数，则每当 JDK 版本升级时，你的 JVM 都会使用最新加入的优化技术（如果有的话）</p>
+<ul>
+<li>-XX:+UseBiasedLocking</li>
+</ul>
+<p>启用一个优化了的线程锁，我们知道在我们的 appserver，每个 http 请求就是一个线程，有的请求短有的请求长，就会有请求排队的现象，甚至还会出现线程阻塞，这个优化了的线程锁使得你的 appserver 内对线程处理自动进行最优调配。</p>
+<ul>
+<li>-XX:PermSize=128M-XX:MaxPermSize=256M</li>
+</ul>
+<p>JVM 使用-XX:PermSize 设置非堆内存初始值，默认是物理内存的 1/64；</p>
+<p>在数据量的很大的文件导出时，一定要把这两个值设置上，否则会出现内存溢出的错误。</p>
+<p>由 XX:MaxPermSize 设置最大非堆内存的大小，默认是物理内存的 1/4。</p>
+<p>那么，如果是物理内存 4GB，那么 64 分之一就是 64MB，这就是 PermSize 默认值，也就是永生代内存初始大小；</p>
+<p>四分之一是 1024MB，这就是 MaxPermSize 默认大小。</p>
+<ul>
+<li>-XX:+DisableExplicitGC</li>
+</ul>
+<p>在程序代码中不允许有显示的调用”System.gc()”。看到过有两个极品工程中每次在 DAO 操作结束时手动调用 System.gc()一下，觉得这样做好像能够解决它们的 out ofmemory 问题一样，付出的代价就是系统响应时间严重降低，就和我在关于 Xms,Xmx 里的解释的原理一样，这样去调用 GC 导致系统的 JVM 大起大落，性能不到什么地方去哟！</p>
+<ul>
+<li>-XX:+UseParNewGC</li>
+</ul>
+<p>对年轻代采用多线程并行回收，这样收得快。</p>
+<ul>
+<li>-XX:+UseConcMarkSweepGC</li>
+</ul>
+<p>即 CMS gc，这一特性只有 jdk1.5 即后续版本才具有的功能，它使用的是 gc 估算触发和 heap 占用触发。</p>
+<p>我们知道频频繁的 GC 会造面 JVM 的大起大落从而影响到系统的效率，因此使用了 CMS GC 后可以在 GC 次数增多的情况下，每次 GC 的响应时间却很短，比如说使用了 CMS GC 后经过 jprofiler 的观察，GC 被触发次数非常多，而每次 GC 耗时仅为几毫秒。</p>
+<ul>
+<li>-XX:MaxTenuringThreshold</li>
+</ul>
+<p>设置垃圾最大年龄。如果设置为 0 的话，则年轻代对象不经过 Survivor 区，直接进入年老代。对于年老代比较多的应用，可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在 Survivor 区进行多次复制，这样可以增加对象再年轻代的存活时间，增加在年轻代即被回收的概率。</p>
+<p>这个值的设置是根据本地的 jprofiler 监控后得到的一个理想的值，不能一概而论原搬照抄。</p>
+<ul>
+<li>-XX:+CMSParallelRemarkEnabled</li>
+</ul>
+<p>在使用 UseParNewGC 的情况下, 尽量减少 mark 的时间</p>
+<ul>
+<li>-XX:+UseCMSCompactAtFullCollection</li>
+</ul>
+<p>在使用 concurrent gc 的情况下, 防止 memoryfragmention, 对 live object 进行整理, 使 memory 碎片减少。</p>
+<ul>
+<li>-XX:LargePageSizeInBytes</li>
+</ul>
+<p>指定 Java heap 的分页页面大小</p>
+<ul>
+<li>-XX:+UseFastAccessorMethods</li>
+</ul>
+<p>get,set 方法转成本地代码</p>
+<ul>
+<li>-XX:+UseCMSInitiatingOccupancyOnly</li>
+</ul>
+<p>指示只有在 oldgeneration 在使用了初始化的比例后 concurrent collector 启动收集</p>
+<ul>
+<li>-XX:CMSInitiatingOccupancyFraction=70</li>
+</ul>
+<p>CMSInitiatingOccupancyFraction，这个参数设置有很大技巧，基本上满足(Xmx-Xmn)*(100- CMSInitiatingOccupancyFraction)/100&gt;=Xmn 就不会出现 promotion failed。在我的应用中 Xmx 是 6000，Xmn 是 512，那么 Xmx-Xmn 是 5488 兆，也就是年老代有 5488 兆，CMSInitiatingOccupancyFraction=90 说明年老代到 90%满的时候开始执行对年老代的并发垃圾回收（CMS），这时还 剩 10%的空间是 5488*10%=548 兆，所以即使 Xmn（也就是年轻代共 512 兆）里所有对象都搬到年老代里，548 兆的空间也足够了，所以只要满 足上面的公式，就不会出现垃圾回收时的 promotion failed；</p>
+<p>因此这个参数的设置必须与 Xmn 关联在一起。</p>
+<ul>
+<li>-Djava.awt.headless=true</li>
+</ul>
+<p>这个参数一般我们都是放在最后使用的，这全参数的作用是这样的，有时我们会在我们的 J2EE 工程中使用一些图表工具如：jfreechart，用于在 web 网页输出 GIF/JPG 等流，在 winodws 环境下，一般我们的 app server 在输出图形时不会碰到什么问题，但是在 linux/unix 环境下经常会碰到一个 exception 导致你在 winodws 开发环境下图片显示的好好可是在 linux/unix 下却显示不出来，因此加上这个参数以免避这样的情况出现。</p>
+<p>上述这样的配置，基本上可以达到：</p>
+<ul>
+<li><p>系统响应时间增快</p>
+</li>
+<li><p>JVM 回收速度增快同时又不影响系统的响应率</p>
+</li>
+<li><p>JVM 内存最大化利用</p>
+</li>
+<li><p>线程阻塞情况最小化</p>
+</li>
+</ul>
+<h4 id="Tomcat-容器内的优化"><a href="#Tomcat-容器内的优化" class="headerlink" title="Tomcat 容器内的优化"></a>Tomcat 容器内的优化</h4><p>前面我们对 Tomcat 启动时的命令进行了优化，增加了系统的 JVM 可使用数、垃圾回收效率与线程阻塞情况、增加了系统响应效率等还有一个很重要的指标，我们没有去做优化，就是吞吐量。</p>
+<p>还记得我们在第三天的学习中说的，这个系统本身可以处理 1000，你没有优化和配置导致它默认只能处理 25。因此下面我们来看 Tomcat 容器内的优化。</p>
+<p>打开 tomcat 安装目录\conf\server.xml 文件，定位到这一行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;</span><br></pre></td></tr></table></figure>
+<p>这一行就是我们的 tomcat 容器性能参数设置的地方，它一般都会有一个默认值，这些默认值是远远不够我们的使用的，我们来看经过更改后的这一段的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">          URIEncoding=&quot;UTF-8&quot;  minSpareThreads=&quot;25&quot; maxSpareThreads=&quot;75&quot;</span><br><span class="line">          enableLookups=&quot;false&quot; disableUploadTimeout=&quot;true&quot; connectionTimeout=&quot;20000&quot;</span><br><span class="line">          acceptCount=&quot;300&quot;  maxThreads=&quot;300&quot; maxProcessors=&quot;1000&quot; minProcessors=&quot;5&quot;</span><br><span class="line">          useURIValidationHack=&quot;false&quot;</span><br><span class="line">                                               compression=&quot;on&quot; compressionMinSize=&quot;2048&quot;</span><br><span class="line">                                               compressableMimeType=&quot;text/html,text/xml,text/javascript,text/css,text/plain&quot;</span><br><span class="line">               redirectPort=&quot;8443&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>好大一陀唉。。。。。。</p>
+<p>没关系，一个个来解释</p>
+<ul>
+<li>URIEncoding=”UTF-8”</li>
+</ul>
+<p>使得 tomcat 可以解析含有中文名的文件的 url，真方便，不像 apache 里还有搞个 mod_encoding，还要手工编译</p>
+<ul>
+<li>maxSpareThreads</li>
+</ul>
+<p>maxSpareThreads 的意思就是如果空闲状态的线程数多于设置的数目，则将这些线程中止，减少这个池中的线程总数。</p>
+<ul>
+<li>minSpareThreads</li>
+</ul>
+<p>最小备用线程数，tomcat 启动时的初始化的线程数。</p>
+<ul>
+<li>enableLookups</li>
+</ul>
+<p>这个功效和 Apache 中的 HostnameLookups 一样，设为关闭。</p>
+<ul>
+<li>connectionTimeout</li>
+</ul>
+<p>connectionTimeout 为网络连接超时时间毫秒数。</p>
+<ul>
+<li>maxThreads</li>
+</ul>
+<p>maxThreads Tomcat 使用线程来处理接收的每个请求。这个值表示 Tomcat 可创建的最大的线程数，即最大并发数。</p>
+<p>*acceptCount</p>
+<p>acceptCount 是当线程数达到 maxThreads 后，后续请求会被放入一个等待队列，这个 acceptCount 是这个队列的大小，如果这个队列也满了，就直接 refuse connection</p>
+<ul>
+<li>maxProcessors 与 minProcessors</li>
+</ul>
+<p>在 Java 中线程是程序运行时的路径，是在一个程序中与其它控制线程无关的、能够独立运行的代码段。它们共享相同的地址空间。多线程帮助程序员写出 CPU 最 大利用率的高效程序，使空闲时间保持最低，从而接受更多的请求。</p>
+<p>通常 Windows 是 1000 个左右，Linux 是 2000 个左右。</p>
+<ul>
+<li>useURIValidationHack</li>
+</ul>
+<p>我们来看一下 tomcat 中的一段源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">security</span><br><span class="line">        if (connector.getUseURIValidationHack()) &#123;</span><br><span class="line">            String uri = validate(request.getRequestURI());</span><br><span class="line">            if (uri == null) &#123;</span><br><span class="line">                res.setStatus(400);</span><br><span class="line">                res.setMessage(&quot;Invalid URI&quot;);</span><br><span class="line">                throw new IOException(&quot;Invalid URI&quot;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                req.requestURI().setString(uri);</span><br><span class="line">                // Redoing the URI decoding</span><br><span class="line">                req.decodedURI().duplicate(req.requestURI());</span><br><span class="line">                req.getURLDecoder().convert(req.decodedURI(), true);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到如果把 useURIValidationHack 设成”false”，可以减少它对一些 url 的不必要的检查从而减省开销。</p>
+<ul>
+<li>enableLookups=”false”</li>
+</ul>
+<p>为了消除 DNS 查询对性能的影响我们可以关闭 DNS 查询，方式是修改 server.xml 文件中的 enableLookups 参数值。</p>
+<ul>
+<li>disableUploadTimeout</li>
+</ul>
+<p>类似于 Apache 中的 keeyalive 一样</p>
+<ul>
+<li>给 Tomcat 配置 gzip 压缩(HTTP 压缩)功能</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">compression=&quot;on&quot; compressionMinSize=&quot;2048&quot;</span><br><span class="line">compressableMimeType=&quot;text/html,text/xml,text/javascript,text/css,text/plain&quot;</span><br></pre></td></tr></table></figure>
+<p>HTTP 压缩可以大大提高浏览网站的速度，它的原理是，在客户端请求网页后，从服务器端将网页文件压缩，再下载到客户端，由客户端的浏览器负责解压缩并浏览。相对于普通的浏览过程 HTML,CSS,Javascript , Text ，它可以节省 40%左右的流量。更为重要的是，它可以对动态生成的，包括 CGI、PHP , JSP , ASP , Servlet,SHTML 等输出的网页也能进行压缩，压缩效率惊人。</p>
+<ol>
+<li><p>compression=”on” 打开压缩功能</p>
+</li>
+<li><p>compressionMinSize=”2048” 启用压缩的输出内容大小，这里面默认为 2KB</p>
+</li>
+<li><p>noCompressionUserAgents=”gozilla, traviata” 对于以下的浏览器，不启用压缩</p>
+</li>
+<li><p>compressableMimeType=”text/html,text/xml”　压缩类型</p>
+</li>
+</ol>
+<p>最后不要忘了把 8443 端口的地方也加上同样的配置，因为如果我们走 https 协议的话，我们将会用到 8443 端口这个段的配置，对吧？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--enable tomcat ssl--&gt;</span><br><span class="line">    &lt;Connector port=&quot;8443&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">               URIEncoding=&quot;UTF-8&quot;  minSpareThreads=&quot;25&quot; maxSpareThreads=&quot;75&quot;</span><br><span class="line">          enableLookups=&quot;false&quot; disableUploadTimeout=&quot;true&quot; connectionTimeout=&quot;20000&quot;</span><br><span class="line">          acceptCount=&quot;300&quot;  maxThreads=&quot;300&quot; maxProcessors=&quot;1000&quot; minProcessors=&quot;5&quot;</span><br><span class="line">          useURIValidationHack=&quot;false&quot;</span><br><span class="line">                    compression=&quot;on&quot; compressionMinSize=&quot;2048&quot;</span><br><span class="line">                    compressableMimeType=&quot;text/html,text/xml,text/javascript,text/css,text/plain&quot;</span><br><span class="line">                SSLEnabled=&quot;true&quot;</span><br><span class="line">           scheme=&quot;https&quot; secure=&quot;true&quot;</span><br><span class="line">           clientAuth=&quot;false&quot; sslProtocol=&quot;TLS&quot;</span><br><span class="line">           keystoreFile=&quot;d:/tomcat2/conf/shnlap93.jks&quot; keystorePass=&quot;aaaaaa&quot;</span><br><span class="line">      /&gt;</span><br></pre></td></tr></table></figure>
+<p>好了，所有的 Tomcat 优化的地方都加上了。结合第三天中的 Apache 的性能优化，我们这个架构可以“飞奔”起来了，当然这边把有提及任何关于数据库优化的步骤，但仅凭这两步，我们的系统已经有了很大的提升。</p>
+<p>举个真实的例子：上一个项目，经过 4 轮 performance testing，第一轮进行了问题的定位，第二轮就是进行了 apache+tomcat/weblogic 的优化，第三轮是做集群优化，第四轮是 sql 与 codes 的优化。</p>
+<p>在到达第二轮时，我们的性能已经提升了多少倍呢？我们来看一个 loaderrunner 的截图吧：</p>
+<p><img src="/images/tomcat-optimize/4.jpg" alt="tomcat"></p>
+<p>左边第一列是第一轮没有经过任何调优的压力测试报告。</p>
+<p>右边这一列是经过了 apache 优化，tomcat 优化后得到的压力测试报告。</p>
+<p>大家看看，这就提高了多少倍？这还只是在没有改动代码的情况下得到的改善，现在明白了好好的调优一个 apache 和 tomcat 其实是多么的重要了？如果加上后面的代码、SQL 的调优、数据库的调优。。。。。。所以我在上一个工程中有单笔交易性能（无论是吞吐量、响应时间）提高了 80 倍这样的极端例子的存在。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tomcat/" rel="tag"># tomcat</a>
+          
+            <a href="/tags/优化/" rel="tag"># 优化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/11/tomcat-nginx-memcached-session.html" rel="next" title="tomcat + memcached + nginx 实现session共享">
+                <i class="fa fa-chevron-left"></i> tomcat + memcached + nginx 实现session共享
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/30/rsync.html" rel="prev" title="rsync简单使用">
+                rsync简单使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat-启动行参数的优化"><span class="nav-number">1.</span> <span class="nav-text">Tomcat 启动行参数的优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat-容器内的优化"><span class="nav-number">2.</span> <span class="nav-text">Tomcat 容器内的优化</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
