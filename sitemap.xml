@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://duanzhaoqian.site/2020/01/05/mac-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7.html</loc>
+    
+    <lastmod>2020-01-05T12:45:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2020/01/05/JAMStack.html</loc>
+    
+    <lastmod>2020-01-05T07:34:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://duanzhaoqian.site/2020/01/04/hexo%E9%97%AE%E9%A2%98.html</loc>
     
     <lastmod>2020-01-04T14:13:07.000Z</lastmod>
@@ -51,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/10/20/flume.html</loc>
+    <loc>https://duanzhaoqian.site/2016/10/22/xenserver.html</loc>
     
     <lastmod>2020-01-04T12:09:11.247Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/10/22/xenserver.html</loc>
+    <loc>https://duanzhaoqian.site/2016/10/20/flume.html</loc>
     
     <lastmod>2020-01-04T12:09:11.247Z</lastmod>
     
@@ -72,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/09/11/marboo-default.html</loc>
+    <loc>https://duanzhaoqian.site/2016/09/11/linux-syslog.html</loc>
     
     <lastmod>2020-01-04T12:09:11.246Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/09/11/linux-syslog.html</loc>
+    <loc>https://duanzhaoqian.site/2016/09/11/marboo-default.html</loc>
     
     <lastmod>2020-01-04T12:09:11.246Z</lastmod>
     
@@ -184,13 +198,6 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/19/gitLab.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.240Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://duanzhaoqian.site/2016/06/26/JavaScript-if-statement.html</loc>
     
     <lastmod>2020-01-04T12:09:11.240Z</lastmod>
@@ -198,14 +205,21 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/08/05/JVM%E8%AE%BE%E7%BD%AE.html</loc>
+    <loc>https://duanzhaoqian.site/2016/05/19/gitLab.html</loc>
+    
+    <lastmod>2020-01-04T12:09:11.240Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2016/06/19/clean-git-repo.html</loc>
     
     <lastmod>2020-01-04T12:09:11.239Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/06/19/clean-git-repo.html</loc>
+    <loc>https://duanzhaoqian.site/2016/08/05/JVM%E8%AE%BE%E7%BD%AE.html</loc>
     
     <lastmod>2020-01-04T12:09:11.239Z</lastmod>
     
@@ -247,14 +261,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/23/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.html</loc>
+    <loc>https://duanzhaoqian.site/2016/05/24/Linux%E7%A1%AC%E7%9B%98%E6%93%8D%E4%BD%9C.html</loc>
     
     <lastmod>2020-01-04T12:09:11.236Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/24/Linux%E7%A1%AC%E7%9B%98%E6%93%8D%E4%BD%9C.html</loc>
+    <loc>https://duanzhaoqian.site/2016/05/23/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.html</loc>
     
     <lastmod>2020-01-04T12:09:11.236Z</lastmod>
     
@@ -275,13 +289,6 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/09/LTS%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E6%96%87%E6%A1%A3.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.234Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://duanzhaoqian.site/2016/05/13/gitflow.html</loc>
     
     <lastmod>2020-01-04T12:09:11.234Z</lastmod>
@@ -289,14 +296,21 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/07/hadoop%202.7.1.html</loc>
+    <loc>https://duanzhaoqian.site/2016/05/09/LTS%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E6%96%87%E6%A1%A3.html</loc>
+    
+    <lastmod>2020-01-04T12:09:11.234Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2016/05/06/redis3.0%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.html</loc>
     
     <lastmod>2020-01-04T12:09:11.233Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/06/redis3.0%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.html</loc>
+    <loc>https://duanzhaoqian.site/2016/05/07/hadoop%202.7.1.html</loc>
     
     <lastmod>2020-01-04T12:09:11.233Z</lastmod>
     
@@ -352,14 +366,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/01/03/git-ssh-key.html</loc>
+    <loc>https://duanzhaoqian.site/2016/02/04/supervisord-celery.html</loc>
     
     <lastmod>2020-01-04T12:09:11.230Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/02/04/supervisord-celery.html</loc>
+    <loc>https://duanzhaoqian.site/2016/01/03/git-ssh-key.html</loc>
     
     <lastmod>2020-01-04T12:09:11.230Z</lastmod>
     
@@ -373,7 +387,7 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2015/10/15/mysql-n-r.html</loc>
+    <loc>https://duanzhaoqian.site/2015/09/12/tomcat-optimize.html</loc>
     
     <lastmod>2020-01-04T12:09:11.229Z</lastmod>
     
@@ -387,6 +401,13 @@
   </url>
   
   <url>
+    <loc>https://duanzhaoqian.site/2015/11/01/mysql-table-size.html</loc>
+    
+    <lastmod>2020-01-04T12:09:11.229Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://duanzhaoqian.site/2015/10/16/hadoop-ambari.html</loc>
     
     <lastmod>2020-01-04T12:09:11.229Z</lastmod>
@@ -394,14 +415,7 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2015/09/12/tomcat-optimize.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.229Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://duanzhaoqian.site/2015/11/01/mysql-table-size.html</loc>
+    <loc>https://duanzhaoqian.site/2015/10/15/mysql-n-r.html</loc>
     
     <lastmod>2020-01-04T12:09:11.229Z</lastmod>
     
@@ -450,13 +464,6 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2015/03/02/shell.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.226Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://duanzhaoqian.site/2015/02/02/ssh-key.html</loc>
     
     <lastmod>2020-01-04T12:09:11.226Z</lastmod>
@@ -464,14 +471,21 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2015/03/03/nginx.html</loc>
+    <loc>https://duanzhaoqian.site/2015/02/02/Top_command-VIRT-RES-SHR-DATA.html</loc>
     
     <lastmod>2020-01-04T12:09:11.226Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2015/02/02/Top_command-VIRT-RES-SHR-DATA.html</loc>
+    <loc>https://duanzhaoqian.site/2015/03/02/shell.html</loc>
+    
+    <lastmod>2020-01-04T12:09:11.226Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2015/03/03/nginx.html</loc>
     
     <lastmod>2020-01-04T12:09:11.226Z</lastmod>
     
