@@ -1,129 +1,77 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-CN,en,default">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="zh-CN,en,default">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://duanzhaoqian.site').hostname,
     root: '/',
     scheme: 'Mist',
-    version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false,"dimmer":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
-
-
-  
-
-
-
 
   <meta name="description" content="linux 命令">
-<meta name="keywords" content="linux,shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 命令">
-<meta property="og:url" content="https://duanzhaoqian.site/2016/05/25/Linux相关操作.html">
+<meta property="og:url" content="https://duanzhaoqian.site/2016/05/25/Linux%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C.html">
 <meta property="og:site_name" content="Duan Blog">
 <meta property="og:description" content="linux 命令">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-04T12:09:11.237Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-05-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-04T12:09:11.237Z">
+<meta property="article:author" content="Duan Zhao Qian">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux 命令">
-<meta name="twitter:description" content="linux 命令">
+
+<link rel="canonical" href="https://duanzhaoqian.site/2016/05/25/Linux%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C.html">
 
 
-
-
-
-
-  <link rel="canonical" href="https://duanzhaoqian.site/2016/05/25/Linux相关操作.html">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: false,
+    isPost: true
   };
-
 </script>
+
   <title>linux 命令 | Duan Blog</title>
   
 
@@ -132,15 +80,8 @@
 
 
 
-
-
-
-
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -149,9 +90,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -165,314 +105,175 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Duan Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
+        <li class="menu-item menu-item-sitemap">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
 
-
-  
-
-
-
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/05/25/Linux相关操作.html">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/05/25/Linux%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Duan Zhao Qian">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Duan Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">linux 命令
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          linux 命令
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2016-05-25T00:00:00+08:00">2016-05-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
             </span>
-          
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>17k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>15 分钟</span>
+            </span>
             <div class="post-description">linux 命令</div>
-          
 
         </div>
       </header>
-    
 
     
     
@@ -480,504 +281,284 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+        <h1 id="Linux-相关操作"><a href="#Linux-相关操作" class="headerlink" title="Linux 相关操作"></a>Linux 相关操作</h1><h2 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="查看系统信息"></a>查看系统信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;proc&#x2F;version 查看系统版本</span><br><span class="line">uname -a</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo</span><br><span class="line">cat &#x2F;etc&#x2F;redhat-release</span><br><span class="line">getconf -a 查看系统所有变量</span><br><span class="line">getconf LONG_BIT 查看系统位数</span><br></pre></td></tr></table></figure>
 
-      
-        <h1 id="Linux-相关操作"><a href="#Linux-相关操作" class="headerlink" title="Linux 相关操作"></a>Linux 相关操作</h1><h2 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="查看系统信息"></a>查看系统信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/version 查看系统版本</span><br><span class="line">uname -a</span><br><span class="line">cat /proc/cpuinfo</span><br><span class="line">cat /etc/redhat-release</span><br><span class="line">getconf -a 查看系统所有变量</span><br><span class="line">getconf LONG_BIT 查看系统位数</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"># uname -a # 查看内核/操作系统/CPU信息</span><br><span class="line"># head -n 1 /etc/issue # 查看操作系统版本</span><br><span class="line"># cat /proc/cpuinfo # 查看CPU信息</span><br><span class="line"># hostname # 查看计算机名</span><br><span class="line"># lspci -tv # 列出所有PCI设备</span><br><span class="line"># lsusb -tv # 列出所有USB设备</span><br><span class="line"># lsmod # 列出加载的内核模块</span><br><span class="line"># env # 查看环境变量资源</span><br><span class="line"># free -m # 查看内存使用量和交换区使用量</span><br><span class="line"># df -h # 查看各分区使用情况</span><br><span class="line"># du -sh &lt;目录名&gt; # 查看指定目录的大小</span><br><span class="line"># grep MemTotal /proc/meminfo # 查看内存总量</span><br><span class="line"># grep MemFree /proc/meminfo # 查看空闲内存量</span><br><span class="line"># uptime # 查看系统运行时间、用户数、负载</span><br><span class="line"># cat /proc/loadavg # 查看系统负载磁盘和分区</span><br><span class="line"># mount | column -t # 查看挂接的分区状态</span><br><span class="line"># fdisk -l # 查看所有分区</span><br><span class="line"># swapon -s # 查看所有交换分区</span><br><span class="line"># hdparm -i /dev/hda # 查看磁盘参数(仅适用于IDE设备)</span><br><span class="line"># dmesg | grep IDE # 查看启动时IDE设备检测状况网络</span><br><span class="line"># ifconfig # 查看所有网络接口的属性</span><br><span class="line"># iptables -L # 查看防火墙设置</span><br><span class="line"># route -n # 查看路由表</span><br><span class="line"># netstat -lntp # 查看所有监听端口</span><br><span class="line"># netstat -antp # 查看所有已经建立的连接</span><br><span class="line"># netstat -s # 查看网络统计信息进程</span><br><span class="line"># ps -ef # 查看所有进程</span><br><span class="line"># top # 实时显示进程状态用户</span><br><span class="line"># w # 查看活动用户</span><br><span class="line"># id &lt;用户名&gt; # 查看指定用户信息</span><br><span class="line"># last # 查看用户登录日志</span><br><span class="line"># cut -d: -f1 /etc/passwd # 查看系统所有用户</span><br><span class="line"># cut -d: -f1 /etc/group # 查看系统所有组</span><br><span class="line"># crontab -l # 查看当前用户的计划任务服务</span><br><span class="line"># chkconfig –list # 列出所有系统服务</span><br><span class="line"># chkconfig –list | grep on # 列出所有启动的系统服务程序</span><br><span class="line"># rpm -qa # 查看所有安装的软件包</span><br><span class="line">iostat 显示存储细节</span><br><span class="line">cat /proc/meminfo 显示内存使用</span><br><span class="line">mpstat -P ALL 显示每个CPU状态</span><br><span class="line">pmap 显示进程占用内存量</span><br><span class="line">pstree -p 显示进程父子关系</span><br></pre></td></tr></table></figure>
-<p>16 个 Linux 服务器监控命令<br><a href="https://roclinux.cn/?p=2549" target="_blank" rel="noopener">https://roclinux.cn/?p=2549</a></p>
-<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f catalina.out|grep --color -B 20 &apos;com.ync365.seed.service.user.impl&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"># uname -a # 查看内核&#x2F;操作系统&#x2F;CPU信息</span><br><span class="line"># head -n 1 &#x2F;etc&#x2F;issue # 查看操作系统版本</span><br><span class="line"># cat &#x2F;proc&#x2F;cpuinfo # 查看CPU信息</span><br><span class="line"># hostname # 查看计算机名</span><br><span class="line"># lspci -tv # 列出所有PCI设备</span><br><span class="line"># lsusb -tv # 列出所有USB设备</span><br><span class="line"># lsmod # 列出加载的内核模块</span><br><span class="line"># env # 查看环境变量资源</span><br><span class="line"># free -m # 查看内存使用量和交换区使用量</span><br><span class="line"># df -h # 查看各分区使用情况</span><br><span class="line"># du -sh &lt;目录名&gt; # 查看指定目录的大小</span><br><span class="line"># grep MemTotal &#x2F;proc&#x2F;meminfo # 查看内存总量</span><br><span class="line"># grep MemFree &#x2F;proc&#x2F;meminfo # 查看空闲内存量</span><br><span class="line"># uptime # 查看系统运行时间、用户数、负载</span><br><span class="line"># cat &#x2F;proc&#x2F;loadavg # 查看系统负载磁盘和分区</span><br><span class="line"># mount | column -t # 查看挂接的分区状态</span><br><span class="line"># fdisk -l # 查看所有分区</span><br><span class="line"># swapon -s # 查看所有交换分区</span><br><span class="line"># hdparm -i &#x2F;dev&#x2F;hda # 查看磁盘参数(仅适用于IDE设备)</span><br><span class="line"># dmesg | grep IDE # 查看启动时IDE设备检测状况网络</span><br><span class="line"># ifconfig # 查看所有网络接口的属性</span><br><span class="line"># iptables -L # 查看防火墙设置</span><br><span class="line"># route -n # 查看路由表</span><br><span class="line"># netstat -lntp # 查看所有监听端口</span><br><span class="line"># netstat -antp # 查看所有已经建立的连接</span><br><span class="line"># netstat -s # 查看网络统计信息进程</span><br><span class="line"># ps -ef # 查看所有进程</span><br><span class="line"># top # 实时显示进程状态用户</span><br><span class="line"># w # 查看活动用户</span><br><span class="line"># id &lt;用户名&gt; # 查看指定用户信息</span><br><span class="line"># last # 查看用户登录日志</span><br><span class="line"># cut -d: -f1 &#x2F;etc&#x2F;passwd # 查看系统所有用户</span><br><span class="line"># cut -d: -f1 &#x2F;etc&#x2F;group # 查看系统所有组</span><br><span class="line"># crontab -l # 查看当前用户的计划任务服务</span><br><span class="line"># chkconfig –list # 列出所有系统服务</span><br><span class="line"># chkconfig –list | grep on # 列出所有启动的系统服务程序</span><br><span class="line"># rpm -qa # 查看所有安装的软件包</span><br><span class="line">iostat 显示存储细节</span><br><span class="line">cat &#x2F;proc&#x2F;meminfo 显示内存使用</span><br><span class="line">mpstat -P ALL 显示每个CPU状态</span><br><span class="line">pmap 显示进程占用内存量</span><br><span class="line">pstree -p 显示进程父子关系</span><br></pre></td></tr></table></figure>
+
+<p>16 个 Linux 服务器监控命令<br><a href="https://roclinux.cn/?p=2549">https://roclinux.cn/?p=2549</a></p>
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f catalina.out|grep --color -B 20 &#39;com.ync365.seed.service.user.impl&#39;</span><br></pre></td></tr></table></figure>
+
 <h2 id="关闭-selinux"><a href="#关闭-selinux" class="headerlink" title="关闭 selinux"></a>关闭 selinux</h2><p>打开<code>/etc/selinux/config</code>，把<code>SELINUX=enforcing</code>改为<code>SELINUX=disabled</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/selinux/config</span><br></pre></td></tr></table></figure>
-<h2 id="epel-源"><a href="#epel-源" class="headerlink" title="epel 源"></a>epel 源</h2><p><a href="https://dl.fedoraproject.org/pub/epel/6/x86_64/" target="_blank" rel="noopener">https://dl.fedoraproject.org/pub/epel/6/x86_64/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;selinux&#x2F;config</span><br></pre></td></tr></table></figure>
+
+<h2 id="epel-源"><a href="#epel-源" class="headerlink" title="epel 源"></a>epel 源</h2><p><a href="https://dl.fedoraproject.org/pub/epel/6/x86_64/">https://dl.fedoraproject.org/pub/epel/6/x86_64/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh https:&#x2F;&#x2F;dl.fedoraproject.org&#x2F;pub&#x2F;epel&#x2F;6&#x2F;x86_64&#x2F;epel-release-6-8.noarch.rpm</span><br></pre></td></tr></table></figure>
+
 <h2 id="pushd-popd-切换目录"><a href="#pushd-popd-切换目录" class="headerlink" title="pushd popd 切换目录"></a>pushd popd 切换目录</h2><p>让切换目录更方便: pushd,popd,dirs,cd -</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line">一，为何要使用这几个命令?</span><br><span class="line">   可能大家会有疑问，为何要使用这几个命令，</span><br><span class="line">   难道用cd不就可以切换目录了吗？</span><br><span class="line">   没错，使用cd就可以切换到需要访问的目录，</span><br><span class="line">   但是有时会是一个路径很长，层次很多的目录，进到此目录下后，这时我们不小心运行了 cd命令，</span><br><span class="line">   理所当然，我们回到了自己的home目录，这时如果想回去怎么办？</span><br><span class="line"></span><br><span class="line">   还有：因为工作的需要，我们需要不停在几个很深层的目录之间切换，不止一个，</span><br><span class="line">   那么即使有tab键帮忙，我们也会因为一个cd命令花费很多时间,如何在多个目录之间切换时能更方便些</span><br><span class="line">   pushd,popd是我们的好帮手</span><br><span class="line"></span><br><span class="line">   说明:  pushd,popd，dirs这几个我们讲到的命令是bash内建的命令，</span><br><span class="line">         所以只要登录到了bash,这几个命令就可以使用了</span><br><span class="line"></span><br><span class="line">二,如何在两个目录之间切换?</span><br><span class="line">如果只是在两个目录之间切换，那么还不必使用pushd,</span><br><span class="line">  这时只需使用 cd -就可以了</span><br><span class="line"></span><br><span class="line">  cd -的作用是可以回到前一个目录，</span><br><span class="line">  看例子:</span><br><span class="line"></span><br><span class="line">  [root@localhost ~]# cd /usr/share/kde4/apps/kget/pics/</span><br><span class="line">  [root@localhost pics]# cd -</span><br><span class="line">   /root</span><br><span class="line">  [root@localhost ~]# cd -</span><br><span class="line">   /usr/share/kde4/apps/kget/pics</span><br><span class="line">  [root@localhost pics]#</span><br><span class="line"></span><br><span class="line">  怎么样？在两个目录之间切换非常方便，无需再输入很长的路径</span><br><span class="line"></span><br><span class="line">  说明:</span><br><span class="line">  为何cd -能够回到前一个目录?</span><br><span class="line">  这是因为 -在此处等同于 $OLDPWD变量,</span><br><span class="line">  此问题可以参见bash的info信息,</span><br><span class="line">  cd 一项有相关的说明: An argument of - is equivalent to $OLDPWD.</span><br><span class="line">$OLDPWD变量就是bash所记录的前一个目录</span><br><span class="line">  也就是说:$OLDPWD和-相等</span><br><span class="line"></span><br><span class="line">  下面我们再看一个例子:</span><br><span class="line">  [root@localhost ~]# cd /usr/share/kde4/apps/kget/pics/</span><br><span class="line">  [root@localhost pics]# echo $OLDPWD;</span><br><span class="line">  /root</span><br><span class="line">  [root@localhost pics]# cd $OLDPWD</span><br><span class="line">  [root@localhost ~]# echo $OLDPWD;</span><br><span class="line">  /usr/share/kde4/apps/kget/pics</span><br><span class="line">  [root@localhost ~]# cd $OLDPWD;</span><br><span class="line">  [root@localhost pics]# echo $OLDPWD;</span><br><span class="line">  /root</span><br><span class="line"></span><br><span class="line">   我们可以得到结构:  用cd -和cd $OLDPWD都可以在最近所操作的两个目录之间进行切换</span><br><span class="line"></span><br><span class="line">三,如何在多个目录之间切换?</span><br><span class="line">  因为 cd -和 cd $OLDPWD都是只支持最近操作的两个目录，所以要在多个目录之间操作时，</span><br><span class="line">  我们需要使用 pushd</span><br><span class="line"></span><br><span class="line">  1,</span><br><span class="line">  先来介绍我们会用到的3条命令</span><br><span class="line"></span><br><span class="line">  pushd：切换到作为参数的目录，并把原目录和当前目录压入到一个虚拟的堆栈中</span><br><span class="line">         如果不指定参数，则会回到前一个目录，并把堆栈中最近的两个目录作交换</span><br><span class="line"></span><br><span class="line">  popd： 弹出堆栈中最近的目录</span><br><span class="line">  dirs: 列出当前堆栈中保存的目录列表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  看例子:</span><br><span class="line">  [root@localhost ~]# pushd /usr/local/sbin/</span><br><span class="line">  /usr/local/sbin ~</span><br><span class="line">  [root@localhost sbin]# dirs</span><br><span class="line">  /usr/local/sbin ~</span><br><span class="line">  [root@localhost sbin]# dirs -p -v</span><br><span class="line">   0  /usr/local/sbin</span><br><span class="line">   1  ~</span><br><span class="line">	[root@localhost sbin]# pushd /usr/share/kde4/apps/kget/</span><br><span class="line">  /usr/share/kde4/apps/kget /usr/local/sbin ~</span><br><span class="line">  [root@localhost kget]# dirs -p -v</span><br><span class="line">   0  /usr/share/kde4/apps/kget</span><br><span class="line">   1  /usr/local/sbin</span><br><span class="line">   2  ~</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  说明: dirs的 -p参数可以每行一个目录的形式显示堆栈中的目录列表</span><br><span class="line">              -v参数可以在目录前加上编号</span><br><span class="line">              注意:有 -v时，不添加 -p也可以每行一个目录的形式显示</span><br><span class="line">  说明之二:我们可以看到:最近压入堆栈的目录位于最上面</span><br><span class="line"></span><br><span class="line">  2,如何在最近的两个目录之间切换?</span><br><span class="line"></span><br><span class="line">   在最近的两个目录之间切换:用pushd不加参数即可</span><br><span class="line"></span><br><span class="line">   [root@localhost kget]# pushd /boot/grub/</span><br><span class="line">   /boot/grub /usr/share/kde4/apps/kget /usr/local/sbin ~</span><br><span class="line"> 	[root@localhost grub]# dirs -v</span><br><span class="line">   0  /boot/grub</span><br><span class="line">   1  /usr/share/kde4/apps/kget</span><br><span class="line">   2  /usr/local/sbin</span><br><span class="line">   3  ~</span><br><span class="line">   [root@localhost grub]# pushd</span><br><span class="line">   /usr/share/kde4/apps/kget /boot/grub /usr/local/sbin ~</span><br><span class="line">   [root@localhost kget]# dirs -v</span><br><span class="line">   0  /usr/share/kde4/apps/kget</span><br><span class="line">   1  /boot/grub</span><br><span class="line">   2  /usr/local/sbin</span><br><span class="line">   3  ~</span><br><span class="line">   [root@localhost kget]# pushd</span><br><span class="line">   /boot/grub /usr/share/kde4/apps/kget /usr/local/sbin ~</span><br><span class="line">   [root@localhost grub]# dirs -v</span><br><span class="line">   0  /boot/grub</span><br><span class="line">   1  /usr/share/kde4/apps/kget</span><br><span class="line">   2  /usr/local/sbin</span><br><span class="line">   3  ~</span><br><span class="line"> 说明：可以看到，用pushd不加参数在最近的两个目录之间切换时，</span><br><span class="line">        当前目录总是位于堆栈的最上面</span><br><span class="line"></span><br><span class="line">  3,如何在多个目录之间切换？</span><br><span class="line"></span><br><span class="line">   用 pushd +n即可</span><br><span class="line">   说明:</span><br><span class="line">   n是一个数字,有此参数时，是切换到堆栈中的第n个目录,并把此目录以堆栈循环的方式推到堆栈的顶部</span><br><span class="line">   需要注意: 堆栈从第0个开始数起</span><br><span class="line"></span><br><span class="line">   看例子:</span><br><span class="line"></span><br><span class="line">   [root@localhost grub]# dirs -v</span><br><span class="line">   0  /boot/grub</span><br><span class="line">   1  /usr/share/kde4/apps/kget</span><br><span class="line">   2  /usr/local/sbin</span><br><span class="line">   3  ~</span><br><span class="line">   [root@localhost grub]# pushd +2</span><br><span class="line">   /usr/local/sbin ~ /boot/grub /usr/share/kde4/apps/kget</span><br><span class="line">   [root@localhost sbin]# dirs -v</span><br><span class="line">   0  /usr/local/sbin</span><br><span class="line">   1  ~</span><br><span class="line">	2  /boot/grub</span><br><span class="line">   3  /usr/share/kde4/apps/kget</span><br><span class="line"></span><br><span class="line">   4,如何把目录从堆栈中删除?</span><br><span class="line">   用popd即可</span><br><span class="line"></span><br><span class="line">   看例子:</span><br><span class="line">   [root@localhost sbin]# dirs -v</span><br><span class="line">   0  /usr/local/sbin</span><br><span class="line">   1  ~</span><br><span class="line">   2  /boot/grub</span><br><span class="line">   3  /usr/share/kde4/apps/kget</span><br><span class="line">   [root@localhost sbin]# popd</span><br><span class="line">   ~ /boot/grub /usr/share/kde4/apps/kget</span><br><span class="line">   [root@localhost ~]# dirs -v</span><br><span class="line">   0  ~</span><br><span class="line">   1  /boot/grub</span><br><span class="line">   2  /usr/share/kde4/apps/kget</span><br><span class="line">	[root@localhost ~]# popd +1</span><br><span class="line">    ~ /usr/share/kde4/apps/kget</span><br><span class="line">   [root@localhost ~]# dirs -v</span><br><span class="line">   0  ~</span><br><span class="line">   1  /usr/share/kde4/apps/kget</span><br><span class="line"></span><br><span class="line">   说明：可以看到popd不加参数的运行情况:</span><br><span class="line">        popd把堆栈顶端的目录从堆栈中删除，并切换于位于新的顶端的目录</span><br><span class="line">   说明之二: popd 加有参数 +n时，</span><br><span class="line">   n是堆栈中的第n个目录，表示把堆栈中第n个目录从堆栈中删除</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">四，多学一点知识</span><br><span class="line"></span><br><span class="line">   1,pushd和popd都可以只影响堆栈而不切换目录</span><br><span class="line">     用 -n参数即可</span><br><span class="line"> 看例子:</span><br><span class="line">    [root@localhost ~]# dirs -v</span><br><span class="line">    0  ~</span><br><span class="line">    1  /usr/share/kde4/apps/kget</span><br><span class="line">    [root@localhost ~]# pushd -n /boot/grub</span><br><span class="line">    ~ /boot/grub /usr/share/kde4/apps/kget</span><br><span class="line">    [root@localhost ~]# dirs -v</span><br><span class="line">     0  ~</span><br><span class="line">     1  /boot/grub</span><br><span class="line">     2  /usr/share/kde4/apps/kget</span><br><span class="line"></span><br><span class="line">    2, dirs可以清空目录堆栈</span><br><span class="line">      用 -c参数即可</span><br><span class="line"></span><br><span class="line">     看例子:</span><br><span class="line">     [root@localhost ~]# dirs -v</span><br><span class="line">     0  ~</span><br><span class="line">     1  /boot/grub</span><br><span class="line">     2  /usr/share/kde4/apps/kget</span><br><span class="line">     [root@localhost ~]# dirs -c</span><br><span class="line"> 	[root@localhost ~]# dirs -v</span><br><span class="line">     0  ~</span><br><span class="line"></span><br><span class="line">     说明:  位于堆栈顶部的目录是当前目录，它不能被pop出去的</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line">一，为何要使用这几个命令?</span><br><span class="line">   可能大家会有疑问，为何要使用这几个命令，</span><br><span class="line">   难道用cd不就可以切换目录了吗？</span><br><span class="line">   没错，使用cd就可以切换到需要访问的目录，</span><br><span class="line">   但是有时会是一个路径很长，层次很多的目录，进到此目录下后，这时我们不小心运行了 cd命令，</span><br><span class="line">   理所当然，我们回到了自己的home目录，这时如果想回去怎么办？</span><br><span class="line"></span><br><span class="line">   还有：因为工作的需要，我们需要不停在几个很深层的目录之间切换，不止一个，</span><br><span class="line">   那么即使有tab键帮忙，我们也会因为一个cd命令花费很多时间,如何在多个目录之间切换时能更方便些</span><br><span class="line">   pushd,popd是我们的好帮手</span><br><span class="line"></span><br><span class="line">   说明:  pushd,popd，dirs这几个我们讲到的命令是bash内建的命令，</span><br><span class="line">         所以只要登录到了bash,这几个命令就可以使用了</span><br><span class="line"></span><br><span class="line">二,如何在两个目录之间切换?</span><br><span class="line">如果只是在两个目录之间切换，那么还不必使用pushd,</span><br><span class="line">  这时只需使用 cd -就可以了</span><br><span class="line"></span><br><span class="line">  cd -的作用是可以回到前一个目录，</span><br><span class="line">  看例子:</span><br><span class="line"></span><br><span class="line">  [root@localhost ~]# cd &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget&#x2F;pics&#x2F;</span><br><span class="line">  [root@localhost pics]# cd -</span><br><span class="line">   &#x2F;root</span><br><span class="line">  [root@localhost ~]# cd -</span><br><span class="line">   &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget&#x2F;pics</span><br><span class="line">  [root@localhost pics]#</span><br><span class="line"></span><br><span class="line">  怎么样？在两个目录之间切换非常方便，无需再输入很长的路径</span><br><span class="line"></span><br><span class="line">  说明:</span><br><span class="line">  为何cd -能够回到前一个目录?</span><br><span class="line">  这是因为 -在此处等同于 $OLDPWD变量,</span><br><span class="line">  此问题可以参见bash的info信息,</span><br><span class="line">  cd 一项有相关的说明: An argument of - is equivalent to $OLDPWD.</span><br><span class="line">$OLDPWD变量就是bash所记录的前一个目录</span><br><span class="line">  也就是说:$OLDPWD和-相等</span><br><span class="line"></span><br><span class="line">  下面我们再看一个例子:</span><br><span class="line">  [root@localhost ~]# cd &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget&#x2F;pics&#x2F;</span><br><span class="line">  [root@localhost pics]# echo $OLDPWD;</span><br><span class="line">  &#x2F;root</span><br><span class="line">  [root@localhost pics]# cd $OLDPWD</span><br><span class="line">  [root@localhost ~]# echo $OLDPWD;</span><br><span class="line">  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget&#x2F;pics</span><br><span class="line">  [root@localhost ~]# cd $OLDPWD;</span><br><span class="line">  [root@localhost pics]# echo $OLDPWD;</span><br><span class="line">  &#x2F;root</span><br><span class="line"></span><br><span class="line">   我们可以得到结构:  用cd -和cd $OLDPWD都可以在最近所操作的两个目录之间进行切换</span><br><span class="line"></span><br><span class="line">三,如何在多个目录之间切换?</span><br><span class="line">  因为 cd -和 cd $OLDPWD都是只支持最近操作的两个目录，所以要在多个目录之间操作时，</span><br><span class="line">  我们需要使用 pushd</span><br><span class="line"></span><br><span class="line">  1,</span><br><span class="line">  先来介绍我们会用到的3条命令</span><br><span class="line"></span><br><span class="line">  pushd：切换到作为参数的目录，并把原目录和当前目录压入到一个虚拟的堆栈中</span><br><span class="line">         如果不指定参数，则会回到前一个目录，并把堆栈中最近的两个目录作交换</span><br><span class="line"></span><br><span class="line">  popd： 弹出堆栈中最近的目录</span><br><span class="line">  dirs: 列出当前堆栈中保存的目录列表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  看例子:</span><br><span class="line">  [root@localhost ~]# pushd &#x2F;usr&#x2F;local&#x2F;sbin&#x2F;</span><br><span class="line">  &#x2F;usr&#x2F;local&#x2F;sbin ~</span><br><span class="line">  [root@localhost sbin]# dirs</span><br><span class="line">  &#x2F;usr&#x2F;local&#x2F;sbin ~</span><br><span class="line">  [root@localhost sbin]# dirs -p -v</span><br><span class="line">   0  &#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">   1  ~</span><br><span class="line">	[root@localhost sbin]# pushd &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget&#x2F;</span><br><span class="line">  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget &#x2F;usr&#x2F;local&#x2F;sbin ~</span><br><span class="line">  [root@localhost kget]# dirs -p -v</span><br><span class="line">   0  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   1  &#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">   2  ~</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  说明: dirs的 -p参数可以每行一个目录的形式显示堆栈中的目录列表</span><br><span class="line">              -v参数可以在目录前加上编号</span><br><span class="line">              注意:有 -v时，不添加 -p也可以每行一个目录的形式显示</span><br><span class="line">  说明之二:我们可以看到:最近压入堆栈的目录位于最上面</span><br><span class="line"></span><br><span class="line">  2,如何在最近的两个目录之间切换?</span><br><span class="line"></span><br><span class="line">   在最近的两个目录之间切换:用pushd不加参数即可</span><br><span class="line"></span><br><span class="line">   [root@localhost kget]# pushd &#x2F;boot&#x2F;grub&#x2F;</span><br><span class="line">   &#x2F;boot&#x2F;grub &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget &#x2F;usr&#x2F;local&#x2F;sbin ~</span><br><span class="line"> 	[root@localhost grub]# dirs -v</span><br><span class="line">   0  &#x2F;boot&#x2F;grub</span><br><span class="line">   1  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   2  &#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">   3  ~</span><br><span class="line">   [root@localhost grub]# pushd</span><br><span class="line">   &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget &#x2F;boot&#x2F;grub &#x2F;usr&#x2F;local&#x2F;sbin ~</span><br><span class="line">   [root@localhost kget]# dirs -v</span><br><span class="line">   0  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   1  &#x2F;boot&#x2F;grub</span><br><span class="line">   2  &#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">   3  ~</span><br><span class="line">   [root@localhost kget]# pushd</span><br><span class="line">   &#x2F;boot&#x2F;grub &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget &#x2F;usr&#x2F;local&#x2F;sbin ~</span><br><span class="line">   [root@localhost grub]# dirs -v</span><br><span class="line">   0  &#x2F;boot&#x2F;grub</span><br><span class="line">   1  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   2  &#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">   3  ~</span><br><span class="line"> 说明：可以看到，用pushd不加参数在最近的两个目录之间切换时，</span><br><span class="line">        当前目录总是位于堆栈的最上面</span><br><span class="line"></span><br><span class="line">  3,如何在多个目录之间切换？</span><br><span class="line"></span><br><span class="line">   用 pushd +n即可</span><br><span class="line">   说明:</span><br><span class="line">   n是一个数字,有此参数时，是切换到堆栈中的第n个目录,并把此目录以堆栈循环的方式推到堆栈的顶部</span><br><span class="line">   需要注意: 堆栈从第0个开始数起</span><br><span class="line"></span><br><span class="line">   看例子:</span><br><span class="line"></span><br><span class="line">   [root@localhost grub]# dirs -v</span><br><span class="line">   0  &#x2F;boot&#x2F;grub</span><br><span class="line">   1  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   2  &#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">   3  ~</span><br><span class="line">   [root@localhost grub]# pushd +2</span><br><span class="line">   &#x2F;usr&#x2F;local&#x2F;sbin ~ &#x2F;boot&#x2F;grub &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   [root@localhost sbin]# dirs -v</span><br><span class="line">   0  &#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">   1  ~</span><br><span class="line">	2  &#x2F;boot&#x2F;grub</span><br><span class="line">   3  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line"></span><br><span class="line">   4,如何把目录从堆栈中删除?</span><br><span class="line">   用popd即可</span><br><span class="line"></span><br><span class="line">   看例子:</span><br><span class="line">   [root@localhost sbin]# dirs -v</span><br><span class="line">   0  &#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">   1  ~</span><br><span class="line">   2  &#x2F;boot&#x2F;grub</span><br><span class="line">   3  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   [root@localhost sbin]# popd</span><br><span class="line">   ~ &#x2F;boot&#x2F;grub &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   [root@localhost ~]# dirs -v</span><br><span class="line">   0  ~</span><br><span class="line">   1  &#x2F;boot&#x2F;grub</span><br><span class="line">   2  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">	[root@localhost ~]# popd +1</span><br><span class="line">    ~ &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">   [root@localhost ~]# dirs -v</span><br><span class="line">   0  ~</span><br><span class="line">   1  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line"></span><br><span class="line">   说明：可以看到popd不加参数的运行情况:</span><br><span class="line">        popd把堆栈顶端的目录从堆栈中删除，并切换于位于新的顶端的目录</span><br><span class="line">   说明之二: popd 加有参数 +n时，</span><br><span class="line">   n是堆栈中的第n个目录，表示把堆栈中第n个目录从堆栈中删除</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">四，多学一点知识</span><br><span class="line"></span><br><span class="line">   1,pushd和popd都可以只影响堆栈而不切换目录</span><br><span class="line">     用 -n参数即可</span><br><span class="line"> 看例子:</span><br><span class="line">    [root@localhost ~]# dirs -v</span><br><span class="line">    0  ~</span><br><span class="line">    1  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">    [root@localhost ~]# pushd -n &#x2F;boot&#x2F;grub</span><br><span class="line">    ~ &#x2F;boot&#x2F;grub &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">    [root@localhost ~]# dirs -v</span><br><span class="line">     0  ~</span><br><span class="line">     1  &#x2F;boot&#x2F;grub</span><br><span class="line">     2  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line"></span><br><span class="line">    2, dirs可以清空目录堆栈</span><br><span class="line">      用 -c参数即可</span><br><span class="line"></span><br><span class="line">     看例子:</span><br><span class="line">     [root@localhost ~]# dirs -v</span><br><span class="line">     0  ~</span><br><span class="line">     1  &#x2F;boot&#x2F;grub</span><br><span class="line">     2  &#x2F;usr&#x2F;share&#x2F;kde4&#x2F;apps&#x2F;kget</span><br><span class="line">     [root@localhost ~]# dirs -c</span><br><span class="line"> 	[root@localhost ~]# dirs -v</span><br><span class="line">     0  ~</span><br><span class="line"></span><br><span class="line">     说明:  位于堆栈顶部的目录是当前目录，它不能被pop出去的</span><br></pre></td></tr></table></figure>
+
 <h2 id="cp-实现强行覆盖"><a href="#cp-实现强行覆盖" class="headerlink" title="cp 实现强行覆盖"></a>cp 实现强行覆盖</h2><p><code>alias</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost storage]<span class="comment"># alias</span></span><br><span class="line"><span class="built_in">alias</span> cp=<span class="string">'cp -i'</span></span><br><span class="line"><span class="built_in">alias</span> l.=<span class="string">'ls -d .* --color=auto'</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -l --color=auto'</span></span><br><span class="line"><span class="built_in">alias</span> ls=<span class="string">'ls --color=auto'</span></span><br><span class="line"><span class="built_in">alias</span> mv=<span class="string">'mv -i'</span></span><br><span class="line"><span class="built_in">alias</span> rm=<span class="string">'rm -i'</span></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">which</span>=<span class="string">'alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'</span></span><br><span class="line">[root@localhost storage]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
 <p>方法一</p>
 <p><code>unaslias cp</code>（这只是临时取消 cp 的别名，不是永久的）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#unaslias cp</span></span><br></pre></td></tr></table></figure>
+
 <p>方法二</p>
 <p>输入\cp 命令，作用也是取消 cp 的别名。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#\cp -fr src dest</span></span><br></pre></td></tr></table></figure>
+
 <p>方法三</p>
 <p>输入<code>yes|cp -fr src dest</code>，使用管道自动输入 yes。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#yes | cp cp -fr src dest</span></span><br></pre></td></tr></table></figure>
+
 <p>让管道自动输入一大堆得 yes，就可以完成了强行复制了。<br>那有人会问 dos 的 copy 命令怎么实现强行复制的呢？答案是<br>用来 <code>xcopy /y src dest</code> 来实现强行复制。</p>
-<h2 id="pkill-命令"><a href="#pkill-命令" class="headerlink" title="pkill 命令"></a>pkill 命令</h2><p>来自: <a href="https://man.linuxde.net/pkill" target="_blank" rel="noopener">https://man.linuxde.net/pkill</a></p>
+<h2 id="pkill-命令"><a href="#pkill-命令" class="headerlink" title="pkill 命令"></a>pkill 命令</h2><p>来自: <a href="https://man.linuxde.net/pkill">https://man.linuxde.net/pkill</a></p>
 <p>pkill 命令可以按照进程名杀死进程。pkill 和 killall 应用方法差不多，也是直接杀死运行中的程序；如果您想杀掉单个进程，请用 kill 来杀掉。</p>
 <p>语法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill(选项)(参数)</span><br></pre></td></tr></table></figure>
+
 <p>选项</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-o：仅向找到的最小（起始）进程号发送信号；</span><br><span class="line">-n：仅向找到的最大（结束）进程号发送信号；</span><br><span class="line">-P：指定父进程号发送信号；</span><br><span class="line">-g：指定进程组；</span><br><span class="line">-t：指定开启进程的终端。</span><br></pre></td></tr></table></figure>
+
 <p>参数</p>
 <p>进程名称：指定要查找的进程名称，同时也支持类似 grep 指令中的匹配模式。</p>
 <p>实例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pgrep -l gaim</span><br><span class="line">2979 gaim</span><br><span class="line"></span><br><span class="line">pkill gaim</span><br></pre></td></tr></table></figure>
+
 <p>也就是说：kill 对应的是 PID，pkill 对应的是 command。</p>
 <h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>nohup 的用途就是让提交的命令忽略 hangup 信号。</p>
 <p>在要处理的命令前加上 nohup 即可，标准输出和标准错误缺省会被重定向到 nohup.out 文件中。一般我们可在结尾加上”&amp;”来将命令同时放入后台运行，也可用”&gt;filename 2&gt;&amp;1”来更改缺省的重定向文件名。</p>
 <p>nohup 示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@xx ~]# nohup ping www.ibm.com &amp;</span><br><span class="line">[1] 3059</span><br><span class="line">nohup: appending output to `nohup.out&apos;</span><br><span class="line">[root@pvcent107 ~]# ps -ef |grep 3059</span><br><span class="line">root      3059   984  0 21:06 pts/3    00:00:00 ping www.ibm.com</span><br><span class="line">root      3067   984  0 21:06 pts/3    00:00:00 grep 3059</span><br><span class="line">[root@xx ~]#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@xx ~]# nohup ping www.ibm.com &amp;</span><br><span class="line">[1] 3059</span><br><span class="line">nohup: appending output to &#96;nohup.out&#39;</span><br><span class="line">[root@pvcent107 ~]# ps -ef |grep 3059</span><br><span class="line">root      3059   984  0 21:06 pts&#x2F;3    00:00:00 ping www.ibm.com</span><br><span class="line">root      3067   984  0 21:06 pts&#x2F;3    00:00:00 grep 3059</span><br><span class="line">[root@xx ~]#</span><br></pre></td></tr></table></figure>
+
 <h2 id="时间设置"><a href="#时间设置" class="headerlink" title="时间设置"></a>时间设置</h2><h3 id="linux-时间快-8-小时解决办法"><a href="#linux-时间快-8-小时解决办法" class="headerlink" title="linux 时间快 8 小时解决办法"></a>linux 时间快 8 小时解决办法</h3><p>要解决这个问题，首先要确认当前 CMOS 显示的时间是否是当前的时间，如果是则你的 CMOS 是非 UTC 时间（即 CST 当地时间），要修改<code>/etc/sysconfig/clock</code>文件，将里面的 UTC=true 改为 UTC=false （告诉 Linux 硬件设置的是当地时间）</p>
 <p>这个是多数快 8 小时的原因，因为安装 Linux 时默认选项是使用 UTC 时间（可能国外电脑的 CMOS 都是设置的 UTC 时间），系统误认为你的 CMOS 是 UTC 时间，而你又选择了＋ 8 的时区，所以 Linux 在 CMOS 时间上加了 8 小时作为系统的时间</p>
 <p>更改时区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm /etc/localtime</span><br><span class="line"></span><br><span class="line">ln -s /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm &#x2F;etc&#x2F;localtime</span><br><span class="line"></span><br><span class="line">ln -s &#x2F;usr&#x2F;share&#x2F;zoneinfo&#x2F;Asia&#x2F;Shanghai  &#x2F;etc&#x2F;localtime</span><br></pre></td></tr></table></figure>
+
 <p>读取硬件时间到系统</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clock --hctosys</span><br></pre></td></tr></table></figure>
+
 <p>输入 Date 查看当前是否为 CST 时间（CST 表示当地时间，如我们设置的 Shanghai ），如果时间不正确用以下方式修改时间</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -s 2010-02-03 12:00:00</span><br></pre></td></tr></table></figure>
+
 <p>将系统时间写入硬件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clock --systohc</span><br></pre></td></tr></table></figure>
+
 <h3 id="ntp-安装"><a href="#ntp-安装" class="headerlink" title="ntp 安装"></a>ntp 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y ntp</span><br></pre></td></tr></table></figure>
+
 <p>设置 ntp 服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ntp.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;ntp.conf</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Hosts on local network are less restricted.</span><br><span class="line">#restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap</span><br><span class="line">restrict 192.168.0.0 mask 255.255.0.0 nomodify notrap</span><br></pre></td></tr></table></figure>
+
 <p>启动 ntp 服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ntpd start</span><br></pre></td></tr></table></figure>
+
 <p>设置客户端</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ntp.conf</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Use public servers from the pool.ntp.org project.</span><br><span class="line"># Please consider joining the pool (https://www.pool.ntp.org/join.html).</span><br><span class="line">#server 0.centos.pool.ntp.org iburst</span><br><span class="line">#server 1.centos.pool.ntp.org iburst</span><br><span class="line">#server 2.centos.pool.ntp.org iburst</span><br><span class="line">#server 3.centos.pool.ntp.org iburst</span><br><span class="line">server 192.168.100.10</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;ntp.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Use public servers from the pool.ntp.org project.</span><br><span class="line"># Please consider joining the pool (https:&#x2F;&#x2F;www.pool.ntp.org&#x2F;join.html).</span><br><span class="line">#server 0.centos.pool.ntp.org iburst</span><br><span class="line">#server 1.centos.pool.ntp.org iburst</span><br><span class="line">#server 2.centos.pool.ntp.org iburst</span><br><span class="line">#server 3.centos.pool.ntp.org iburst</span><br><span class="line">server 192.168.100.10</span><br></pre></td></tr></table></figure>
+
 <p>设置 ntpd 随机启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig ntpd on</span><br><span class="line">chkconfig ntpd --list</span><br></pre></td></tr></table></figure>
+
 <p>检查 ntp 状态</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ntpstat</span><br><span class="line">[root@localhost ~]# ntpstat</span><br><span class="line">synchronised to NTP server (192.168.100.10) at stratum 4</span><br><span class="line">   time correct to within 7968 ms</span><br><span class="line">   polling server every 64 s</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch ntpq -p</span><br></pre></td></tr></table></figure>
-<h2 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h2><h2 id="centos-mini-安装桌面环境"><a href="#centos-mini-安装桌面环境" class="headerlink" title="centos mini 安装桌面环境"></a>centos mini 安装桌面环境</h2><p><a href="https://cnzhx.net/blog/centos-yum-install-desktop/" target="_blank" rel="noopener">https://cnzhx.net/blog/centos-yum-install-desktop/</a></p>
+
+<h2 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h2><h2 id="centos-mini-安装桌面环境"><a href="#centos-mini-安装桌面环境" class="headerlink" title="centos mini 安装桌面环境"></a>centos mini 安装桌面环境</h2><p><a href="https://cnzhx.net/blog/centos-yum-install-desktop/">https://cnzhx.net/blog/centos-yum-install-desktop/</a></p>
 <h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -rn 路由表</span><br></pre></td></tr></table></figure>
+
 <h2 id="查看文件占用"><a href="#查看文件占用" class="headerlink" title="查看文件占用"></a>查看文件占用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">du -sh 文件大小</span><br><span class="line">df 磁盘信息</span><br></pre></td></tr></table></figure>
+
 <h2 id="查看内存使用"><a href="#查看内存使用" class="headerlink" title="查看内存使用"></a>查看内存使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free 内存信息  -m 以M为单位</span><br></pre></td></tr></table></figure>
-<h2 id="查看操作系统"><a href="#查看操作系统" class="headerlink" title="查看操作系统"></a>查看操作系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconfig LONG_BIT  64/32位</span><br></pre></td></tr></table></figure>
-<h2 id="xargs-命令"><a href="#xargs-命令" class="headerlink" title="xargs 命令"></a>xargs 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xargs 	find /sbin -perm +700 |ls -l       这个命令是错误的</span><br><span class="line">find /sbin -perm +700 |xargs ls -l   这样才是正确的</span><br><span class="line">xargs 可以读入 stdin 的资料，并且以空白字元或断行字元作为分辨</span><br></pre></td></tr></table></figure>
-<h2 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &apos;.project&apos; -print -exec rm -rf &#123;&#125; \; 递归删除</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看操作系统"><a href="#查看操作系统" class="headerlink" title="查看操作系统"></a>查看操作系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconfig LONG_BIT  64&#x2F;32位</span><br></pre></td></tr></table></figure>
+
+<h2 id="xargs-命令"><a href="#xargs-命令" class="headerlink" title="xargs 命令"></a>xargs 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xargs 	find &#x2F;sbin -perm +700 |ls -l       这个命令是错误的</span><br><span class="line">find &#x2F;sbin -perm +700 |xargs ls -l   这样才是正确的</span><br><span class="line">xargs 可以读入 stdin 的资料，并且以空白字元或断行字元作为分辨</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &#39;.project&#39; -print -exec rm -rf &#123;&#125; \; 递归删除</span><br></pre></td></tr></table></figure>
+
 <h2 id="查看路由信息（经过网关）"><a href="#查看路由信息（经过网关）" class="headerlink" title="查看路由信息（经过网关）"></a>查看路由信息（经过网关）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">route -n get default</span><br><span class="line">route -n get www.google.com</span><br></pre></td></tr></table></figure>
+
 <h2 id="追踪路由"><a href="#追踪路由" class="headerlink" title="追踪路由"></a>追踪路由</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute www.google.com</span><br></pre></td></tr></table></figure>
-<h2 id="linux-serf"><a href="#linux-serf" class="headerlink" title="linux serf"></a>linux serf</h2><p>Serf is a tool for cluster membership, failure detection, and orchestration that is decentralized, fault-tolerant and highly available. Serf runs on every major platform: Linux, Mac OS X, and Windows. It is extremely lightweight: it uses 5 to 10 MB of resident memory and primarily communicates using infrequent UDP messages.<br><a href="https://www.serfdom.io/intro/index.html" target="_blank" rel="noopener">https://www.serfdom.io/intro/index.html</a></p>
-<h2 id="lsof-文件相关信息-pid-端口"><a href="#lsof-文件相关信息-pid-端口" class="headerlink" title="lsof 文件相关信息 pid 端口"></a>lsof 文件相关信息 pid 端口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lsof `which httpd` //那个进程在使用apache的可执行文件</span><br><span class="line">lsof /etc/passwd //那个进程在占用/etc/passwd</span><br><span class="line">lsof /dev/hda6 //那个进程在占用hda6</span><br><span class="line">lsof /dev/cdrom //那个进程在占用光驱</span><br><span class="line">lsof -c sendmail //查看sendmail进程的文件使用情况</span><br><span class="line">lsof -c courier -u ^zahn //显示出那些文件被以courier打头的进程打开，但是并不属于用户zahn</span><br><span class="line">lsof -p 30297 //显示那些文件被pid为30297的进程打开</span><br><span class="line">lsof -D /tmp 显示所有在/tmp文件夹中打开的instance和文件的进程。但是symbol文件并不在列</span><br><span class="line">lsof -u1000 //查看uid是100的用户的进程的文件使用情况</span><br><span class="line">lsof -utony //查看用户tony的进程的文件使用情况</span><br><span class="line">lsof -u^tony //查看不是用户tony的进程的文件使用情况(^是取反的意思)</span><br><span class="line">lsof -i //显示所有打开的端口</span><br><span class="line">lsof -i:80 //显示所有打开80端口的进程</span><br><span class="line">lsof -i -U //显示所有打开的端口和UNIX domain文件</span><br><span class="line">lsof -i UDP@[url]www.akadia.com:123 //显示那些进程打开了到www.akadia.com的UDP的123(ntp)端口的链接</span><br><span class="line">lsof -i tcp@ohaha.ks.edu.tw:ftp -r //不断查看目前ftp连接的情况(-r，lsof会永远不断的执行，直到收到中断信号,+r，lsof会一直执行，直到没有档案被显示,缺省是15s刷新)</span><br><span class="line">lsof -i tcp@ohaha.ks.edu.tw:ftp -n //lsof -n 不将IP转换为hostname，缺省是不加上-n参数</span><br></pre></td></tr></table></figure>
-<h2 id="SystemPerformance-sh"><a href="#SystemPerformance-sh" class="headerlink" title="SystemPerformance.sh"></a>SystemPerformance.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line"># add System paramter to /etc/sysctl.conf</span><br><span class="line">fileDesc=`grep &quot;fs.file-max&quot; /etc/sysctl.conf | awk &apos;&#123;print $1&#125;&apos;`</span><br><span class="line">if [ &quot;fs.file-max&quot; != &quot;$&#123;fileDesc&#125;&quot; ];then</span><br><span class="line">    echo &quot;file.max not added&quot;</span><br><span class="line">    cat &lt;&lt; EOF &gt;&gt; /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">#enhance system performance ,add by ChinaEdustar</span><br><span class="line">net.ipv4.tcp_timestamps = 0</span><br><span class="line">net.core.somaxconn = 2048</span><br><span class="line">net.core.netdev_max_backlog = 4096</span><br><span class="line">net.core.dev_weight = 64</span><br><span class="line">net.ipv4.tcp_keepalive_intvl = 15</span><br><span class="line">net.ipv4.tcp_keepalive_probes = 5</span><br><span class="line">net.core.rmem_default = 110592</span><br><span class="line">net.core.rmem_max = 262141</span><br><span class="line">net.ipv4.tcp_rmem = 4096 98304 349520</span><br><span class="line">net.core.wmem_default = 262141</span><br><span class="line">net.core.wmem_max = 8388608</span><br><span class="line">net.ipv4.tcp_wmem = 4096 65535 8388608</span><br><span class="line">net.ipv4.tcp_mem = 8388608 8388608 8388608</span><br><span class="line">net.core.optmem_max = 20480</span><br><span class="line">fs.file-max = 209708</span><br><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">net.ipv4.tcp_tw_recycle = 1</span><br><span class="line">kernel.panic = 1</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line">else</span><br><span class="line">    echo &quot;added&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo 209708 &gt;/proc/sys/fs/file-max</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fileDesc=`grep &quot;nofile&quot; /etc/security/limits.conf | awk &apos;&#123;print $1&#125;&apos;`</span><br><span class="line">if [ &quot;*&quot; != &quot;$&#123;fileDesc&#125;&quot; ];then</span><br><span class="line">    echo &quot;*                -       nofile          209708&quot; &gt;&gt; /etc/security/limits.conf</span><br><span class="line">else</span><br><span class="line">    echo &quot;limits.conf has added&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -f /etc/security/limits.d/90-nproc.conf ]; then</span><br><span class="line">  sed -i &apos;s/nproc.*1024/nproc   209708/g&apos; /etc/security/limits.d/90-nproc.conf</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ &quot;`rpm -qa | grep crontabs`&quot; == &quot;&quot; ]; then</span><br><span class="line">       yum install -y crontabs</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">chkconfig crond --level 345 on</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ &quot;`rpm -qa | grep ntpdate`&quot; == &quot;&quot; ]; then</span><br><span class="line">       yum install -y ntpdate</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ &quot;`grep &quot;ntpdate&quot; /etc/crontab`&quot; == &quot;&quot; ]; then</span><br><span class="line">        echo ntpdate not added</span><br><span class="line">        echo &quot;15 5 * * * root ntpdate -u time.ustc.edu.cn&quot; &gt;&gt; /etc/crontab</span><br><span class="line">        echo &quot;16 5 * * * root ntpdate -u 192.43.244.18 210.72.145.44  210.0.235.14  59.124.196.84&quot; &gt;&gt; /etc/crontab</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel wget lrzsz openssh-clients  ntpdate apr-devel  telnet</span><br></pre></td></tr></table></figure>
+
+<h2 id="linux-serf"><a href="#linux-serf" class="headerlink" title="linux serf"></a>linux serf</h2><p>Serf is a tool for cluster membership, failure detection, and orchestration that is decentralized, fault-tolerant and highly available. Serf runs on every major platform: Linux, Mac OS X, and Windows. It is extremely lightweight: it uses 5 to 10 MB of resident memory and primarily communicates using infrequent UDP messages.<br><a href="https://www.serfdom.io/intro/index.html">https://www.serfdom.io/intro/index.html</a></p>
+<h2 id="lsof-文件相关信息-pid-端口"><a href="#lsof-文件相关信息-pid-端口" class="headerlink" title="lsof 文件相关信息 pid 端口"></a>lsof 文件相关信息 pid 端口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lsof &#96;which httpd&#96; &#x2F;&#x2F;那个进程在使用apache的可执行文件</span><br><span class="line">lsof &#x2F;etc&#x2F;passwd &#x2F;&#x2F;那个进程在占用&#x2F;etc&#x2F;passwd</span><br><span class="line">lsof &#x2F;dev&#x2F;hda6 &#x2F;&#x2F;那个进程在占用hda6</span><br><span class="line">lsof &#x2F;dev&#x2F;cdrom &#x2F;&#x2F;那个进程在占用光驱</span><br><span class="line">lsof -c sendmail &#x2F;&#x2F;查看sendmail进程的文件使用情况</span><br><span class="line">lsof -c courier -u ^zahn &#x2F;&#x2F;显示出那些文件被以courier打头的进程打开，但是并不属于用户zahn</span><br><span class="line">lsof -p 30297 &#x2F;&#x2F;显示那些文件被pid为30297的进程打开</span><br><span class="line">lsof -D &#x2F;tmp 显示所有在&#x2F;tmp文件夹中打开的instance和文件的进程。但是symbol文件并不在列</span><br><span class="line">lsof -u1000 &#x2F;&#x2F;查看uid是100的用户的进程的文件使用情况</span><br><span class="line">lsof -utony &#x2F;&#x2F;查看用户tony的进程的文件使用情况</span><br><span class="line">lsof -u^tony &#x2F;&#x2F;查看不是用户tony的进程的文件使用情况(^是取反的意思)</span><br><span class="line">lsof -i &#x2F;&#x2F;显示所有打开的端口</span><br><span class="line">lsof -i:80 &#x2F;&#x2F;显示所有打开80端口的进程</span><br><span class="line">lsof -i -U &#x2F;&#x2F;显示所有打开的端口和UNIX domain文件</span><br><span class="line">lsof -i UDP@[url]www.akadia.com:123 &#x2F;&#x2F;显示那些进程打开了到www.akadia.com的UDP的123(ntp)端口的链接</span><br><span class="line">lsof -i tcp@ohaha.ks.edu.tw:ftp -r &#x2F;&#x2F;不断查看目前ftp连接的情况(-r，lsof会永远不断的执行，直到收到中断信号,+r，lsof会一直执行，直到没有档案被显示,缺省是15s刷新)</span><br><span class="line">lsof -i tcp@ohaha.ks.edu.tw:ftp -n &#x2F;&#x2F;lsof -n 不将IP转换为hostname，缺省是不加上-n参数</span><br></pre></td></tr></table></figure>
+
+<h2 id="SystemPerformance-sh"><a href="#SystemPerformance-sh" class="headerlink" title="SystemPerformance.sh"></a>SystemPerformance.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line"># add System paramter to &#x2F;etc&#x2F;sysctl.conf</span><br><span class="line">fileDesc&#x3D;&#96;grep &quot;fs.file-max&quot; &#x2F;etc&#x2F;sysctl.conf | awk &#39;&#123;print $1&#125;&#39;&#96;</span><br><span class="line">if [ &quot;fs.file-max&quot; !&#x3D; &quot;$&#123;fileDesc&#125;&quot; ];then</span><br><span class="line">    echo &quot;file.max not added&quot;</span><br><span class="line">    cat &lt;&lt; EOF &gt;&gt; &#x2F;etc&#x2F;sysctl.conf</span><br><span class="line"></span><br><span class="line">#enhance system performance ,add by ChinaEdustar</span><br><span class="line">net.ipv4.tcp_timestamps &#x3D; 0</span><br><span class="line">net.core.somaxconn &#x3D; 2048</span><br><span class="line">net.core.netdev_max_backlog &#x3D; 4096</span><br><span class="line">net.core.dev_weight &#x3D; 64</span><br><span class="line">net.ipv4.tcp_keepalive_intvl &#x3D; 15</span><br><span class="line">net.ipv4.tcp_keepalive_probes &#x3D; 5</span><br><span class="line">net.core.rmem_default &#x3D; 110592</span><br><span class="line">net.core.rmem_max &#x3D; 262141</span><br><span class="line">net.ipv4.tcp_rmem &#x3D; 4096 98304 349520</span><br><span class="line">net.core.wmem_default &#x3D; 262141</span><br><span class="line">net.core.wmem_max &#x3D; 8388608</span><br><span class="line">net.ipv4.tcp_wmem &#x3D; 4096 65535 8388608</span><br><span class="line">net.ipv4.tcp_mem &#x3D; 8388608 8388608 8388608</span><br><span class="line">net.core.optmem_max &#x3D; 20480</span><br><span class="line">fs.file-max &#x3D; 209708</span><br><span class="line">net.ipv4.tcp_tw_reuse &#x3D; 1</span><br><span class="line">net.ipv4.tcp_tw_recycle &#x3D; 1</span><br><span class="line">kernel.panic &#x3D; 1</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line">else</span><br><span class="line">    echo &quot;added&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo 209708 &gt;&#x2F;proc&#x2F;sys&#x2F;fs&#x2F;file-max</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fileDesc&#x3D;&#96;grep &quot;nofile&quot; &#x2F;etc&#x2F;security&#x2F;limits.conf | awk &#39;&#123;print $1&#125;&#39;&#96;</span><br><span class="line">if [ &quot;*&quot; !&#x3D; &quot;$&#123;fileDesc&#125;&quot; ];then</span><br><span class="line">    echo &quot;*                -       nofile          209708&quot; &gt;&gt; &#x2F;etc&#x2F;security&#x2F;limits.conf</span><br><span class="line">else</span><br><span class="line">    echo &quot;limits.conf has added&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -f &#x2F;etc&#x2F;security&#x2F;limits.d&#x2F;90-nproc.conf ]; then</span><br><span class="line">  sed -i &#39;s&#x2F;nproc.*1024&#x2F;nproc   209708&#x2F;g&#39; &#x2F;etc&#x2F;security&#x2F;limits.d&#x2F;90-nproc.conf</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ &quot;&#96;rpm -qa | grep crontabs&#96;&quot; &#x3D;&#x3D; &quot;&quot; ]; then</span><br><span class="line">       yum install -y crontabs</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">chkconfig crond --level 345 on</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ &quot;&#96;rpm -qa | grep ntpdate&#96;&quot; &#x3D;&#x3D; &quot;&quot; ]; then</span><br><span class="line">       yum install -y ntpdate</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ &quot;&#96;grep &quot;ntpdate&quot; &#x2F;etc&#x2F;crontab&#96;&quot; &#x3D;&#x3D; &quot;&quot; ]; then</span><br><span class="line">        echo ntpdate not added</span><br><span class="line">        echo &quot;15 5 * * * root ntpdate -u time.ustc.edu.cn&quot; &gt;&gt; &#x2F;etc&#x2F;crontab</span><br><span class="line">        echo &quot;16 5 * * * root ntpdate -u 192.43.244.18 210.72.145.44  210.0.235.14  59.124.196.84&quot; &gt;&gt; &#x2F;etc&#x2F;crontab</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel wget lrzsz openssh-clients  ntpdate apr-devel  telnet</span><br></pre></td></tr></table></figure>
+
 <h2 id="Jenkins-重启-dubbo-服务脚本"><a href="#Jenkins-重启-dubbo-服务脚本" class="headerlink" title="Jenkins 重启 dubbo 服务脚本"></a>Jenkins 重启 dubbo 服务脚本</h2><p>service-restart.sh</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## java env</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/jdk1.7.0_75</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> != 3 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"USAGE: <span class="variable">$0</span> SERVICE_DIR SERVICE_NAME_PRE DISCONF_ENV"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">" e.g.: <span class="variable">$0</span> /opt/ync-goods ync-goods rd"</span></span><br><span class="line"><span class="built_in">exit</span> 1;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">SERVICE_DIR=<span class="variable">$1</span></span><br><span class="line">SERVICE_NAME_PRE=<span class="variable">$2</span></span><br><span class="line"></span><br><span class="line">DISCONF_ENV=<span class="variable">$3</span></span><br><span class="line">DISCONF_HOST=192.168.88.30:8080</span><br><span class="line">DISCONF_APP=cwang</span><br><span class="line">DISCONF_VERSION=1.0.0</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$SERVICE_DIR</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#        P_ID=`ps -ef | grep -w "$SERVICE_NAME_PRE" | grep -v "grep" | awk '&#123;print $2&#125;'`</span></span><br><span class="line">        P_ID=`jps -ml|grep <span class="string">"<span class="variable">$SERVICE_NAME_PRE</span>"</span>|awk <span class="string">'&#123;print $1&#125;'</span>`</span><br><span class="line">        <span class="keyword">if</span> [ <span class="string">"<span class="variable">$P_ID</span>"</span> == <span class="string">""</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"=== <span class="variable">$SERVICE_NAME</span> process not exists or stop success"</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"=== begin kill <span class="variable">$SERVICE_NAME</span> process, pid is:<span class="variable">$P_ID</span>"</span></span><br><span class="line">            <span class="built_in">kill</span> -9 <span class="variable">$P_ID</span></span><br><span class="line">       <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">        sleep 3</span><br><span class="line"></span><br><span class="line">        JAR_NAME=`ls -rt *.jar|grep -v <span class="string">'sources'</span>|tail -1`</span><br><span class="line"></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"START JAR_NAME "</span><span class="variable">$JAR_NAME</span></span><br><span class="line">        nohup <span class="variable">$JRE_HOME</span>/bin/java -Xms256m -Xmx512m -jar   -Ddisconf.env=<span class="variable">$DISCONF_ENV</span> -Ddisconf.conf_server_host=<span class="variable">$DISCONF_HOST</span> -Ddisconf.app=<span class="variable">$DISCONF_APP</span> -Ddisconf.version=<span class="variable">$DISCONF_VERSION</span> -Ddisconf.user_define_download_dir=.classes -Ddisconf.enable.remote.conf=<span class="literal">true</span>          <span class="variable">$JAR_NAME</span> &gt;<span class="variable">$SERVICE_NAME_PRE</span>.<span class="built_in">log</span> 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line">        ls *.jar|grep -v <span class="variable">$JAR_NAME</span>|xargs rm -rf</span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+
 <p>service-region.sh</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## java env</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/jdk1.7.0_75</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre</span><br><span class="line"></span><br><span class="line"><span class="comment">## service name</span></span><br><span class="line">APP_NAME=region</span><br><span class="line">SERVICE_DIR=/opt/ync-region</span><br><span class="line"></span><br><span class="line">FILE_NAME=`ls /opt/ync-region| grep <span class="string">'.[0-9]'</span>.jar`</span><br><span class="line"></span><br><span class="line">SERVICE_NAME=<span class="variable">$FILE_NAME</span></span><br><span class="line">JAR_NAME=<span class="variable">$SERVICE_NAME</span></span><br><span class="line">PID=<span class="variable">$SERVICE_NAME</span>\.pid</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$SERVICE_DIR</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">    start)</span><br><span class="line">        nohup <span class="variable">$JRE_HOME</span>/bin/java -Xms256m -Xmx512m  -Ddisconf.env=qa -Ddisconf.conf_server_host=192.168.88.30:8080 -Ddisconf.app=cwang -Ddisconf.version=1.0.0 -Ddisconf.user_define_download_dir=.classes -Ddisconf.enable.remote.conf=<span class="literal">true</span>    -jar <span class="variable">$JAR_NAME</span> &gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line">        <span class="built_in">echo</span> $! &gt; <span class="variable">$SERVICE_DIR</span>/<span class="variable">$PID</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"=== start <span class="variable">$SERVICE_NAME</span>"</span></span><br><span class="line">        ;;</span><br><span class="line"></span><br><span class="line">    stop)</span><br><span class="line">        <span class="comment">#kill `cat $SERVICE_DIR/$PID`</span></span><br><span class="line">        <span class="comment">#rm -rf $SERVICE_DIR/$PID</span></span><br><span class="line">        <span class="comment">#echo "=== stop $SERVICE_NAME"</span></span><br><span class="line"></span><br><span class="line">        sleep 5</span><br><span class="line">        P_ID=`ps -ef | grep -w <span class="string">"<span class="variable">$SERVICE_NAME</span>"</span> | grep -v <span class="string">"grep"</span> | awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line">        <span class="keyword">if</span> [ <span class="string">"<span class="variable">$P_ID</span>"</span> == <span class="string">""</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"=== <span class="variable">$SERVICE_NAME</span> process not exists or stop success"</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"=== <span class="variable">$SERVICE_NAME</span> process pid is:<span class="variable">$P_ID</span>"</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"=== begin kill <span class="variable">$SERVICE_NAME</span> process, pid is:<span class="variable">$P_ID</span>"</span></span><br><span class="line">            <span class="comment">#kill -9 $P_ID</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        ;;</span><br><span class="line"></span><br><span class="line">    restart)</span><br><span class="line">        <span class="variable">$0</span> stop</span><br><span class="line">        sleep 2</span><br><span class="line">        <span class="variable">$0</span> start</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"=== restart <span class="variable">$SERVICE_NAME</span>"</span></span><br><span class="line">        ;;</span><br><span class="line"></span><br><span class="line">    *)</span><br><span class="line">        <span class="comment">## restart</span></span><br><span class="line">        <span class="variable">$0</span> stop</span><br><span class="line">        sleep 2</span><br><span class="line">        <span class="variable">$0</span> start</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+
 <p>service-region-tag.sh</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## java env</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/jdk1.7.0_75</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre</span><br><span class="line"></span><br><span class="line"><span class="comment">## service name</span></span><br><span class="line">APP_NAME=region</span><br><span class="line"></span><br><span class="line"><span class="comment">#find filename</span></span><br><span class="line">FILE_NAME=`ls /opt/ync-region | grep <span class="string">'.[0-9]'</span>.jar`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"FILE_NAME=====================<span class="variable">$FILE_NAME</span>"</span></span><br><span class="line"></span><br><span class="line">SERVICE_DIR=/opt/ync-region</span><br><span class="line">SERVICE_NAME=<span class="variable">$FILE_NAME</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"SERVICE_NAME------------------:<span class="variable">$SERVICE_NAME</span>"</span></span><br><span class="line"></span><br><span class="line">JAR_NAME=<span class="variable">$SERVICE_NAME</span>\.jar</span><br><span class="line">PID=<span class="variable">$SERVICE_NAME</span>\.pid</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$SERVICE_DIR</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> [<span class="string">"<span class="variable">$FILE_NAME</span>"</span> == <span class="string">""</span>];<span class="keyword">then</span></span><br><span class="line">                <span class="built_in">exit</span> 0;</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">        sleep 5</span><br><span class="line">        P_ID=`ps -ef | grep -w <span class="string">"<span class="variable">$SERVICE_NAME</span>"</span> | grep -v <span class="string">"grep"</span> | awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"P_ID---------------------------:<span class="variable">$P_ID</span>"</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> [ <span class="string">"<span class="variable">$P_ID</span>"</span> == <span class="string">""</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"=== <span class="variable">$SERVICE_NAME</span> process not exists or stop success"</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"=== <span class="variable">$SERVICE_NAME</span> process pid is:<span class="variable">$P_ID</span>"</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"=== begin kill <span class="variable">$SERVICE_NAME</span> process, pid is:<span class="variable">$P_ID</span>"</span></span><br><span class="line">            <span class="built_in">kill</span> -9 <span class="variable">$P_ID</span></span><br><span class="line">       <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">`rm -rf <span class="variable">$FILE_NAME</span>`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/shell/" rel="tag"># shell</a>
-          
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/24/Linux硬盘操作.html" rel="next" title="linux 硬盘操作">
-                <i class="fa fa-chevron-left"></i> linux 硬盘操作
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/shell/" rel="tag"># shell</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/27/js.html" rel="prev" title="JavaScript 记录">
-                JavaScript 记录 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/05/24/Linux%E7%A1%AC%E7%9B%98%E6%93%8D%E4%BD%9C.html" rel="prev" title="linux 硬盘操作">
+      <i class="fa fa-chevron-left"></i> linux 硬盘操作
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/05/27/js.html" rel="next" title="JavaScript 记录">
+      JavaScript 记录 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
+  
+  
+  
 
   </div>
 
 
           </div>
           
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">77</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">71</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-相关操作"><span class="nav-number">1.</span> <span class="nav-text">Linux 相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统信息"><span class="nav-number">1.1.</span> <span class="nav-text">查看系统信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tail"><span class="nav-number">1.2.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭-selinux"><span class="nav-number">1.3.</span> <span class="nav-text">关闭 selinux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#epel-源"><span class="nav-number">1.4.</span> <span class="nav-text">epel 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushd-popd-切换目录"><span class="nav-number">1.5.</span> <span class="nav-text">pushd popd 切换目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cp-实现强行覆盖"><span class="nav-number">1.6.</span> <span class="nav-text">cp 实现强行覆盖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pkill-命令"><span class="nav-number">1.7.</span> <span class="nav-text">pkill 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nohup"><span class="nav-number">1.8.</span> <span class="nav-text">nohup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间设置"><span class="nav-number">1.9.</span> <span class="nav-text">时间设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-时间快-8-小时解决办法"><span class="nav-number">1.9.1.</span> <span class="nav-text">linux 时间快 8 小时解决办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ntp-安装"><span class="nav-number">1.9.2.</span> <span class="nav-text">ntp 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ifconfig"><span class="nav-number">1.10.</span> <span class="nav-text">ifconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#centos-mini-安装桌面环境"><span class="nav-number">1.11.</span> <span class="nav-text">centos mini 安装桌面环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netstat"><span class="nav-number">1.12.</span> <span class="nav-text">netstat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件占用"><span class="nav-number">1.13.</span> <span class="nav-text">查看文件占用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看内存使用"><span class="nav-number">1.14.</span> <span class="nav-text">查看内存使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看操作系统"><span class="nav-number">1.15.</span> <span class="nav-text">查看操作系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xargs-命令"><span class="nav-number">1.16.</span> <span class="nav-text">xargs 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-命令"><span class="nav-number">1.17.</span> <span class="nav-text">find 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看路由信息（经过网关）"><span class="nav-number">1.18.</span> <span class="nav-text">查看路由信息（经过网关）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追踪路由"><span class="nav-number">1.19.</span> <span class="nav-text">追踪路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-serf"><span class="nav-number">1.20.</span> <span class="nav-text">linux serf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsof-文件相关信息-pid-端口"><span class="nav-number">1.21.</span> <span class="nav-text">lsof 文件相关信息 pid 端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SystemPerformance-sh"><span class="nav-number">1.22.</span> <span class="nav-text">SystemPerformance.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins-重启-dubbo-服务脚本"><span class="nav-number">1.23.</span> <span class="nav-text">Jenkins 重启 dubbo 服务脚本</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
-
-  
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-相关操作"><span class="nav-number">1.</span> <span class="nav-text">Linux 相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统信息"><span class="nav-number">1.1.</span> <span class="nav-text">查看系统信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tail"><span class="nav-number">1.2.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭-selinux"><span class="nav-number">1.3.</span> <span class="nav-text">关闭 selinux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#epel-源"><span class="nav-number">1.4.</span> <span class="nav-text">epel 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushd-popd-切换目录"><span class="nav-number">1.5.</span> <span class="nav-text">pushd popd 切换目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cp-实现强行覆盖"><span class="nav-number">1.6.</span> <span class="nav-text">cp 实现强行覆盖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pkill-命令"><span class="nav-number">1.7.</span> <span class="nav-text">pkill 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nohup"><span class="nav-number">1.8.</span> <span class="nav-text">nohup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间设置"><span class="nav-number">1.9.</span> <span class="nav-text">时间设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-时间快-8-小时解决办法"><span class="nav-number">1.9.1.</span> <span class="nav-text">linux 时间快 8 小时解决办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ntp-安装"><span class="nav-number">1.9.2.</span> <span class="nav-text">ntp 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ifconfig"><span class="nav-number">1.10.</span> <span class="nav-text">ifconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#centos-mini-安装桌面环境"><span class="nav-number">1.11.</span> <span class="nav-text">centos mini 安装桌面环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netstat"><span class="nav-number">1.12.</span> <span class="nav-text">netstat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件占用"><span class="nav-number">1.13.</span> <span class="nav-text">查看文件占用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看内存使用"><span class="nav-number">1.14.</span> <span class="nav-text">查看内存使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看操作系统"><span class="nav-number">1.15.</span> <span class="nav-text">查看操作系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xargs-命令"><span class="nav-number">1.16.</span> <span class="nav-text">xargs 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-命令"><span class="nav-number">1.17.</span> <span class="nav-text">find 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看路由信息（经过网关）"><span class="nav-number">1.18.</span> <span class="nav-text">查看路由信息（经过网关）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追踪路由"><span class="nav-number">1.19.</span> <span class="nav-text">追踪路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-serf"><span class="nav-number">1.20.</span> <span class="nav-text">linux serf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsof-文件相关信息-pid-端口"><span class="nav-number">1.21.</span> <span class="nav-text">lsof 文件相关信息 pid 端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SystemPerformance-sh"><span class="nav-number">1.22.</span> <span class="nav-text">SystemPerformance.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins-重启-dubbo-服务脚本"><span class="nav-number">1.23.</span> <span class="nav-text">Jenkins 重启 dubbo 服务脚本</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">393k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.0
+  </div>
+
+        
 
 
 
@@ -986,424 +567,48 @@
 
 
 
-
-
-
-
+      </div>
+    </footer>
+  </div>
 
   
-    
-    
-      
-    
-  
-  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
+<script src="/js/utils.js"></script>
 
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.1"></script>
-
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
-
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
-
-
-  
-  
-
-
-  
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
 
-  
+
+
 
   
+<script src="/js/local-search.js"></script>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
 
   
 

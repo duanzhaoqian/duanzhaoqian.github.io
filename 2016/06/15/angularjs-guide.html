@@ -1,129 +1,78 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-CN,en,default">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="zh-CN,en,default">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://duanzhaoqian.site').hostname,
     root: '/',
     scheme: 'Mist',
-    version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false,"dimmer":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
-
-  
-
-
-
-
   <meta name="description" content="AngularJS Guide Chinese version">
-<meta name="keywords" content="AngularJS,Chinese,Guide">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AngularJS Guide Chinese version">
 <meta property="og:url" content="https://duanzhaoqian.site/2016/06/15/angularjs-guide.html">
 <meta property="og:site_name" content="Duan Blog">
 <meta property="og:description" content="AngularJS Guide Chinese version">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-04T12:09:11.238Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-06-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-04T12:09:11.238Z">
+<meta property="article:author" content="Duan Zhao Qian">
+<meta property="article:tag" content="AngularJS">
+<meta property="article:tag" content="Chinese">
+<meta property="article:tag" content="Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AngularJS Guide Chinese version">
-<meta name="twitter:description" content="AngularJS Guide Chinese version">
+
+<link rel="canonical" href="https://duanzhaoqian.site/2016/06/15/angularjs-guide.html">
 
 
-
-
-
-
-  <link rel="canonical" href="https://duanzhaoqian.site/2016/06/15/angularjs-guide.html">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: false,
+    isPost: true
   };
-
 </script>
+
   <title>AngularJS Guide Chinese version | Duan Blog</title>
   
 
@@ -132,15 +81,8 @@
 
 
 
-
-
-
-
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -149,9 +91,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -165,314 +106,175 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Duan Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
+        <li class="menu-item menu-item-sitemap">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
 
-
-  
-
-
-
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/06/15/angularjs-guide.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Duan Zhao Qian">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Duan Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">AngularJS Guide Chinese version
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          AngularJS Guide Chinese version
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-06-15 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-15T00:00:00+08:00">2016-06-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
             </span>
-          
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
             <div class="post-description">AngularJS Guide Chinese version</div>
-          
 
         </div>
       </header>
-    
 
     
     
@@ -480,860 +282,602 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
         <h1 id="AngularJS"><a href="#AngularJS" class="headerlink" title="AngularJS"></a>AngularJS</h1><p>这是一个 AngularJS Guide 的中文分支版本，提供关于 AngularJS 的视频、入门、使用与论坛等中文互联网内容，这里的分类并没有完全参照英文版，也并不固定，如果你有发现新的内容需要添加新类别，直接加吧。</p>
 <h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><ul>
-<li><a href="https://i.youku.com/u/UMzQyMDgyODk2/videos" target="_blank" rel="noopener">Angular 教学视频 youku 转载</a></li>
+<li><a href="https://i.youku.com/u/UMzQyMDgyODk2/videos">Angular 教学视频 youku 转载</a></li>
 </ul>
 <h2 id="入门指南"><a href="#入门指南" class="headerlink" title="入门指南"></a>入门指南</h2><ul>
-<li><a href="https://www.infoq.com/cn/news/2013/02/angular-web-app" target="_blank" rel="noopener">使用 AngularJS 构建大型 Web 应用</a></li>
-<li><a href="https://www.ituring.com.cn/article/13471" target="_blank" rel="noopener">AngularJS 入门教程</a></li>
-<li><a href="https://www.cnblogs.com/lcllao/archive/2012/10/18/2728787.html" target="_blank" rel="noopener">AngularJS 学习笔记</a></li>
+<li><a href="https://www.infoq.com/cn/news/2013/02/angular-web-app">使用 AngularJS 构建大型 Web 应用</a></li>
+<li><a href="https://www.ituring.com.cn/article/13471">AngularJS 入门教程</a></li>
+<li><a href="https://www.cnblogs.com/lcllao/archive/2012/10/18/2728787.html">AngularJS 学习笔记</a></li>
 </ul>
 <h2 id="使用经验"><a href="#使用经验" class="headerlink" title="使用经验"></a>使用经验</h2><ul>
-<li><a href="https://www.cnblogs.com/whitewolf/archive/2013/03/24/2979344.html" target="_blank" rel="noopener">AngularJS 开发一些经验总结</a></li>
-<li><a href="https://www.cnblogs.com/whitewolf/archive/2012/09/11/2680659.html" target="_blank" rel="noopener">再谈 AngularJS DI(Dependency Injection)</a></li>
-<li><a href="https://www.cnblogs.com/whitewolf/archive/2013/03/27/2983806.html" target="_blank" rel="noopener">Angularjs 的 IOC Inject 分析</a></li>
-<li><a href="https://www.cnblogs.com/whitewolf/archive/2013/05/22/3092184.html" target="_blank" rel="noopener">细说 Angular ng-class</a></li>
-<li><a href="https://www.cnblogs.com/whitewolf/archive/2013/04/16/3024843.html" target="_blank" rel="noopener">AngularJS Controller 间通信机制</a></li>
-<li><a href="https://www.cnblogs.com/whitewolf/archive/2012/09/14/2684186.html" target="_blank" rel="noopener">AngularJS 表达式-Expression</a></li>
-<li><a href="https://key232323.iteye.com/blog/1769376" target="_blank" rel="noopener">AngularJS 关于依赖和模块与 amd/cmd 的区别，分享下结合使用示例</a></li>
-<li><a href="https://blog.miniasp.com/post/2013/05/12/AngularJS-ng-module-select-ngOptions-usage-samples.aspx" target="_blank" rel="noopener">搞懂 AngularJS 預設模組 select 標籤的 ngOptions 參數用法</a></li>
-<li><a href="https://blog.miniasp.com/post/2013/05/08/AngularJS-Intellisense-in-Visual-Studio-2012.aspx" target="_blank" rel="noopener">如何讓 Visual Studio 2012 支援 AngularJS 的 Intellisense</a></li>
-<li><a href="https://www.csdn.net/article/2013-04-27/2815077-code-organization-angularjs-javascript" target="_blank" rel="noopener">如何组织大型 JavaScript 应用中的代码？</a></li>
+<li><a href="https://www.cnblogs.com/whitewolf/archive/2013/03/24/2979344.html">AngularJS 开发一些经验总结</a></li>
+<li><a href="https://www.cnblogs.com/whitewolf/archive/2012/09/11/2680659.html">再谈 AngularJS DI(Dependency Injection)</a></li>
+<li><a href="https://www.cnblogs.com/whitewolf/archive/2013/03/27/2983806.html">Angularjs 的 IOC Inject 分析</a></li>
+<li><a href="https://www.cnblogs.com/whitewolf/archive/2013/05/22/3092184.html">细说 Angular ng-class</a></li>
+<li><a href="https://www.cnblogs.com/whitewolf/archive/2013/04/16/3024843.html">AngularJS Controller 间通信机制</a></li>
+<li><a href="https://www.cnblogs.com/whitewolf/archive/2012/09/14/2684186.html">AngularJS 表达式-Expression</a></li>
+<li><a href="https://key232323.iteye.com/blog/1769376">AngularJS 关于依赖和模块与 amd/cmd 的区别，分享下结合使用示例</a></li>
+<li><a href="https://blog.miniasp.com/post/2013/05/12/AngularJS-ng-module-select-ngOptions-usage-samples.aspx">搞懂 AngularJS 預設模組 select 標籤的 ngOptions 參數用法</a></li>
+<li><a href="https://blog.miniasp.com/post/2013/05/08/AngularJS-Intellisense-in-Visual-Studio-2012.aspx">如何讓 Visual Studio 2012 支援 AngularJS 的 Intellisense</a></li>
+<li><a href="https://www.csdn.net/article/2013-04-27/2815077-code-organization-angularjs-javascript">如何组织大型 JavaScript 应用中的代码？</a></li>
 </ul>
 <h2 id="论坛"><a href="#论坛" class="headerlink" title="论坛"></a>论坛</h2><ul>
-<li><a href="https://www.AngularJS.cn/" target="_blank" rel="noopener">AngularJS 中文社区</a></li>
-<li><a href="https://www.angulargirl.com/bbs/forum.php" target="_blank" rel="noopener">angulargirl</a></li>
+<li><a href="https://www.AngularJS.cn/">AngularJS 中文社区</a></li>
+<li><a href="https://www.angulargirl.com/bbs/forum.php">angulargirl</a></li>
 </ul>
 <p>繁体中文翻译</p>
 <h1 id="学习-AngularJS"><a href="#学习-AngularJS" class="headerlink" title="学习 AngularJS"></a>学习 AngularJS</h1><p>译者: 这是 jmcunningham/AngularJS-Learning 的简体中文翻译<br>我会尽量依照原文翻译 某些专有名词就不另外翻译 如果翻译错误也请提出建议指教 希望大家可以帮忙提供更多更好的 AngularJS 学习资源 谢谢</p>
 <p>这里提供一些学习 AngularJS 的部落格链接, 文章, 和影片. 这个列表还在持续成长中. 如果你有想提供的链接与资源, 欢迎提出 pull request. 我也会尽量确认以下的资源是有用的(不是只有两段文字的灌水文). 如果你有更好的方法来分类这些资源, 请让我知道. 在一般主题分类中的类似文章, 我之后也会把他们另外分类出来.</p>
 <p>注意：**开头的链接是讨论 ANGULAR 1.2 版的新功能. 许多人希望快速了解 Angular 1.2 版的新功能, 所以我也会在之后开出新的分类标题. 等内容整理差不多或者 1.2 版分类变得太大我再来编辑, 不过现在的话 Angular 1.2 链接可以在两处同时看到.</p>
 <h2 id="Angular-1-2-的新功能"><a href="#Angular-1-2-的新功能" class="headerlink" title="Angular 1.2 的新功能"></a>Angular 1.2 的新功能</h2><ul>
-<li><a href="https://www.youtube.com/watch?v=W13qDdJDHp8&amp;feature=youtu.be" target="_blank" rel="noopener">**AngularJS 1.2 &amp; Beyond</a></li>
-<li><a href="https://kensheedlo.com/2013/08/15/error-message-minification-with-minerr.html" target="_blank" rel="noopener">**Error Message Minification with MinErr</a></li>
-<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/08/14/angularjs-routing-changes.aspx" target="_blank" rel="noopener">**AngularJS 路由的变化</a></li>
-<li><a href="https://blog.jasoncust.com/2013/08/angularjs-missing-directives-focus-blur_14.html" target="_blank" rel="noopener">**AngularJS 缺失的指令: Focus &amp; Blur</a></li>
-<li><a href="https://www.yearofmoo.com/2013/08/remastered-animation-in-angularjs-1-2.html" target="_blank" rel="noopener">**Remastered Animation in AngularJS 1.2</a></li>
-<li><a href="https://www.johnpapa.net/preparing-for-animations-in-angular-1-2-0/" target="_blank" rel="noopener">**Preparing for Animations in Angular 1.2.0</a></li>
-<li><a href="https://www.neevtech.com/blog/2013/08/17/5-cool-features-in-angularjs-1-2/" target="_blank" rel="noopener">**AngularJS 1.2 中的 5 个超酷新特性</a></li>
-<li><a href="https://www.exratione.com/2013/09/replacing-jqueryslidedown-with-nganimate-in-angularjs-120/" target="_blank" rel="noopener">**在 AngularJS 1.2.0 中使用 ngAnimate 替代 jQuery.slideDown()</a></li>
-<li><a href="https://wildermuth.com/2013/9/18/Getting_Ready_for_AngularJS_1_2" target="_blank" rel="noopener">**为 AngularJS 1.2 做好准备</a></li>
+<li><a href="https://www.youtube.com/watch?v=W13qDdJDHp8&feature=youtu.be">**AngularJS 1.2 &amp; Beyond</a></li>
+<li><a href="https://kensheedlo.com/2013/08/15/error-message-minification-with-minerr.html">**Error Message Minification with MinErr</a></li>
+<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/08/14/angularjs-routing-changes.aspx">**AngularJS 路由的变化</a></li>
+<li><a href="https://blog.jasoncust.com/2013/08/angularjs-missing-directives-focus-blur_14.html">**AngularJS 缺失的指令: Focus &amp; Blur</a></li>
+<li><a href="https://www.yearofmoo.com/2013/08/remastered-animation-in-angularjs-1-2.html">**Remastered Animation in AngularJS 1.2</a></li>
+<li><a href="https://www.johnpapa.net/preparing-for-animations-in-angular-1-2-0/">**Preparing for Animations in Angular 1.2.0</a></li>
+<li><a href="https://www.neevtech.com/blog/2013/08/17/5-cool-features-in-angularjs-1-2/">**AngularJS 1.2 中的 5 个超酷新特性</a></li>
+<li><a href="https://www.exratione.com/2013/09/replacing-jqueryslidedown-with-nganimate-in-angularjs-120/">**在 AngularJS 1.2.0 中使用 ngAnimate 替代 jQuery.slideDown()</a></li>
+<li><a href="https://wildermuth.com/2013/9/18/Getting_Ready_for_AngularJS_1_2">**为 AngularJS 1.2 做好准备</a></li>
 </ul>
 <h2 id="书籍-Books"><a href="#书籍-Books" class="headerlink" title="书籍 Books"></a>书籍 Books</h2><ul>
-<li><a href="https://shop.oreilly.com/product/0636920028055.do" target="_blank" rel="noopener">AngularJS</a></li>
-<li><a href="https://www.packtpub.com/angularjs-to-build-dynamic-web-applications/book" target="_blank" rel="noopener">立刻快速开发 AngularJS</a></li>
-<li><a href="https://leanpub.com/recipes-with-angular-js" target="_blank" rel="noopener">AngularJS 菜单</a></li>
-<li><a href="https://www.manning.com/bford/" target="_blank" rel="noopener">AngularJS 在行动</a></li>
-<li><a href="https://henriquat.re/" target="_blank" rel="noopener">AngularJS For .Net 开发员</a></li>
-<li><a href="https://www.packtpub.com/angularjs-web-application-development/book" target="_blank" rel="noopener">AngularJS 浏览器应用程序开发</a></li>
-<li><a href="https://bleedingedgepress.com/our-books/developing-an-angularjs-edge/" target="_blank" rel="noopener">发现自己的 AngularJS 优势</a></li>
-<li><a href="https://www.packtpub.com/angularjs-directives/book" target="_blank" rel="noopener">AngularJS Directives</a></li>
-<li><a href="https://www.ng-book.com/" target="_blank" rel="noopener">ng-book</a></li>
-<li><a href="https://teropa.info/build-your-own-angular/" target="_blank" rel="noopener">打造你的 AngularJS</a></li>
-<li><a href="https://www.packtpub.com/dependency-injection-angularjs/book" target="_blank" rel="noopener">AngularJS 依赖注入</a></li>
-<li><a href="https://www.packtpub.com/learning-web-development-with-bootstrap-and-angular/book" target="_blank" rel="noopener">通过 Bootstrap 和 AngularJS 学习 Web 开发</a></li>
-<li><a href="https://www.packtpub.com/angularjs-design-patterns/book" target="_blank" rel="noopener">AngularJS 设计模式</a></li>
-<li><a href="https://www.packtpub.com/angularjs-web-application-development-blueprints/book" target="_blank" rel="noopener">AngularJS 网路应用开发蓝图</a></li>
-<li><a href="https://leanpub.com/Practical_AngularJS" target="_blank" rel="noopener">实用 AngularJS</a></li>
+<li><a href="https://shop.oreilly.com/product/0636920028055.do">AngularJS</a></li>
+<li><a href="https://www.packtpub.com/angularjs-to-build-dynamic-web-applications/book">立刻快速开发 AngularJS</a></li>
+<li><a href="https://leanpub.com/recipes-with-angular-js">AngularJS 菜单</a></li>
+<li><a href="https://www.manning.com/bford/">AngularJS 在行动</a></li>
+<li><a href="https://henriquat.re/">AngularJS For .Net 开发员</a></li>
+<li><a href="https://www.packtpub.com/angularjs-web-application-development/book">AngularJS 浏览器应用程序开发</a></li>
+<li><a href="https://bleedingedgepress.com/our-books/developing-an-angularjs-edge/">发现自己的 AngularJS 优势</a></li>
+<li><a href="https://www.packtpub.com/angularjs-directives/book">AngularJS Directives</a></li>
+<li><a href="https://www.ng-book.com/">ng-book</a></li>
+<li><a href="https://teropa.info/build-your-own-angular/">打造你的 AngularJS</a></li>
+<li><a href="https://www.packtpub.com/dependency-injection-angularjs/book">AngularJS 依赖注入</a></li>
+<li><a href="https://www.packtpub.com/learning-web-development-with-bootstrap-and-angular/book">通过 Bootstrap 和 AngularJS 学习 Web 开发</a></li>
+<li><a href="https://www.packtpub.com/angularjs-design-patterns/book">AngularJS 设计模式</a></li>
+<li><a href="https://www.packtpub.com/angularjs-web-application-development-blueprints/book">AngularJS 网路应用开发蓝图</a></li>
+<li><a href="https://leanpub.com/Practical_AngularJS">实用 AngularJS</a></li>
 </ul>
 <h2 id="影片-Videos"><a href="#影片-Videos" class="headerlink" title="影片 Videos"></a>影片 Videos</h2><ul>
-<li><a href="https://www.egghead.io/" target="_blank" rel="noopener">Egghead.io</a> — 44 videos of about 4 minutes each — <a href="https://github.com/msfrisbie/egghead-angularjs" target="_blank" rel="noopener">source code</a></li>
-<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx" target="_blank" rel="noopener">视屏教程: 60 分钟教你 AngularJS 基础入门</a> — 1:10:50</li>
-<li><a href="https://www.youtube.com/user/angularjs" target="_blank" rel="noopener">AngularJS YouTube 主页</a> — several videos, mostly presentations of 1h or more</li>
-<li><a href="https://www.youtube.com/watch?v=8ILQOFAgaXE" target="_blank" rel="noopener">Angular JS 入门</a> — 50:05</li>
-<li><a href="https://www.youtube.com/watch?v=hqAyiqUs93c" target="_blank" rel="noopener">Angular JS 端对端测试</a> — 52:59</li>
-<li><a href="https://www.youtube.com/watch?v=18ifoT-Id54" target="_blank" rel="noopener">Angular JS 安全性</a> — 29:45</li>
-<li><a href="https://www.youtube.com/watch?v=fSAgFxjFSqY" target="_blank" rel="noopener">Grunt 和 Angular JS 前端开发流程</a> — 1:02:37</li>
-<li><a href="https://www.youtube.com/watch?v=WuiHuZq_cg4" target="_blank" rel="noopener">AngularJS 教程</a> — 12:19</li>
-<li><a href="https://tekpub.com/products/angular" target="_blank" rel="noopener">AngularJS 秀 (Tekpub)</a> — 8 videos (paid)</li>
-<li><a href="https://tutsplus.com/course/easier-js-apps-with-angular/" target="_blank" rel="noopener">用 AngularJS 快速开发 Javascript 应用程序(Tuts+)</a> — 22 videos of about 5 minutes each, in 8 sections (paid)</li>
-<li><a href="https://pluralsight.com/training/Courses/TableOfContents/angularjs-fundamentals" target="_blank" rel="noopener">AngularJS 基础入门 (Pluralsight)</a> - 6 hours 15 minutes total (paid)</li>
-<li><a href="https://www.youtube.com/watch?v=W13qDdJDHp8&amp;feature=youtu.be" target="_blank" rel="noopener">**AngularJS 1.2 和未来</a></li>
-<li><a href="https://www.youtube.com/playlist?list=PLfLN8Jd9-DVEQ0-PEnVeeUYyO0yg28mhN" target="_blank" rel="noopener">AngularJS 实例</a> - Growing list of 5 minute or less videos</li>
-<li><a href="https://www.youtube.com/watch?v=C7ZI7z7qnHU" target="_blank" rel="noopener">用 AngularJS 和 Firebase 开发实时程序</a></li>
-<li><a href="https://www.youtube.com/watch?v=XwSFg8nqBFA" target="_blank" rel="noopener">MongoDB 和 AngularJS， MEAN 堆</a></li>
-<li><a href="https://www.youtube.com/watch?v=mVjpwia1YN4" target="_blank" rel="noopener">AngularJS, EmberJS 和 KnockoutJS 双向绑定的比较</a></li>
-<li><a href="https://pluralsight.com/training/courses/TableOfContents?courseName=angular-best-practices&amp;highlight=" target="_blank" rel="noopener">Angular 最佳实践</a> - 64 videos(paid)</li>
-<li><a href="https://www.youtube.com/channel/UCdaEMffiYgTf_E7uTMxM4og/videos" target="_blank" rel="noopener">Neosavvy 的 Angular &amp; Jasmine 视频系列</a> - 16 videos of about 2-3 minutes each</li>
-<li><a href="https://www.youtube.com/channel/UCNhQ8pYS9U1EbwCx42NKaYQ" target="_blank" rel="noopener">AngularJS 视频集合</a> — Collection of Videos from Various websites.</li>
-<li><a href="https://www.youtube.com/user/ngconfvideos" target="_blank" rel="noopener">ng-conf YouTube 页面</a> — YouTube channel with all the presentations given at the Angular Conference in January 2014.</li>
-<li><a href="https://www.youtube.com/watch?v=TRrL5j3MIvo&amp;feature=youtu.be" target="_blank" rel="noopener">通过 50 个例子学习 Angular.js (第 1 部分)</a></li>
+<li><a href="https://www.egghead.io/">Egghead.io</a> — 44 videos of about 4 minutes each — <a href="https://github.com/msfrisbie/egghead-angularjs">source code</a></li>
+<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/04/12/video-tutorial-angularjs-fundamentals-in-60-ish-minutes.aspx">视屏教程: 60 分钟教你 AngularJS 基础入门</a> — 1:10:50</li>
+<li><a href="https://www.youtube.com/user/angularjs">AngularJS YouTube 主页</a> — several videos, mostly presentations of 1h or more</li>
+<li><a href="https://www.youtube.com/watch?v=8ILQOFAgaXE">Angular JS 入门</a> — 50:05</li>
+<li><a href="https://www.youtube.com/watch?v=hqAyiqUs93c">Angular JS 端对端测试</a> — 52:59</li>
+<li><a href="https://www.youtube.com/watch?v=18ifoT-Id54">Angular JS 安全性</a> — 29:45</li>
+<li><a href="https://www.youtube.com/watch?v=fSAgFxjFSqY">Grunt 和 Angular JS 前端开发流程</a> — 1:02:37</li>
+<li><a href="https://www.youtube.com/watch?v=WuiHuZq_cg4">AngularJS 教程</a> — 12:19</li>
+<li><a href="https://tekpub.com/products/angular">AngularJS 秀 (Tekpub)</a> — 8 videos (paid)</li>
+<li><a href="https://tutsplus.com/course/easier-js-apps-with-angular/">用 AngularJS 快速开发 Javascript 应用程序(Tuts+)</a> — 22 videos of about 5 minutes each, in 8 sections (paid)</li>
+<li><a href="https://pluralsight.com/training/Courses/TableOfContents/angularjs-fundamentals">AngularJS 基础入门 (Pluralsight)</a> - 6 hours 15 minutes total (paid)</li>
+<li><a href="https://www.youtube.com/watch?v=W13qDdJDHp8&feature=youtu.be">**AngularJS 1.2 和未来</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLfLN8Jd9-DVEQ0-PEnVeeUYyO0yg28mhN">AngularJS 实例</a> - Growing list of 5 minute or less videos</li>
+<li><a href="https://www.youtube.com/watch?v=C7ZI7z7qnHU">用 AngularJS 和 Firebase 开发实时程序</a></li>
+<li><a href="https://www.youtube.com/watch?v=XwSFg8nqBFA">MongoDB 和 AngularJS， MEAN 堆</a></li>
+<li><a href="https://www.youtube.com/watch?v=mVjpwia1YN4">AngularJS, EmberJS 和 KnockoutJS 双向绑定的比较</a></li>
+<li><a href="https://pluralsight.com/training/courses/TableOfContents?courseName=angular-best-practices&highlight=">Angular 最佳实践</a> - 64 videos(paid)</li>
+<li><a href="https://www.youtube.com/channel/UCdaEMffiYgTf_E7uTMxM4og/videos">Neosavvy 的 Angular &amp; Jasmine 视频系列</a> - 16 videos of about 2-3 minutes each</li>
+<li><a href="https://www.youtube.com/channel/UCNhQ8pYS9U1EbwCx42NKaYQ">AngularJS 视频集合</a> — Collection of Videos from Various websites.</li>
+<li><a href="https://www.youtube.com/user/ngconfvideos">ng-conf YouTube 页面</a> — YouTube channel with all the presentations given at the Angular Conference in January 2014.</li>
+<li><a href="https://www.youtube.com/watch?v=TRrL5j3MIvo&feature=youtu.be">通过 50 个例子学习 Angular.js (第 1 部分)</a></li>
 </ul>
 <h2 id="在线课程-Courses"><a href="#在线课程-Courses" class="headerlink" title="在线课程 Courses"></a>在线课程 Courses</h2><ul>
-<li><a href="https://www.thinkster.io/" target="_blank" rel="noopener">Thinkster.io - 学习 AngularJS 更好的方法</a> - 免費的線上 AngularJS 課程</li>
-<li><a href="https://ng-tutorial.mgechev.com/" target="_blank" rel="noopener">AngularJS 互动教程</a></li>
-<li><a href="https://www.udemy.com/angularjs-jumpstart/?sl=E0EYdlw9RBMALEwzBwZX" target="_blank" rel="noopener">和 Dan Wahlin 一起学习 AngularJS</a></li>
-<li><a href="https://tutsplus.com/course/hands-on-angular/" target="_blank" rel="noopener">Tuts+: 开始使用 Angular</a></li>
-<li><a href="https://www.codeschool.com/courses/shaping-up-with-angular-js" target="_blank" rel="noopener">Code School Shaping Up with Angular.js</a></li>
-<li><a href="https://www.lynda.com/AngularJS-tutorials/Up-Running-AngularJS/154414-2.html" target="_blank" rel="noopener">Lynda Up and Running with AngularJS</a></li>
-<li><a href="https://www.codecademy.com/courses/javascript-advanced-en-2hJ3J/0/1" target="_blank" rel="noopener">Codecademy AngularJs</a></li>
+<li><a href="https://www.thinkster.io/">Thinkster.io - 学习 AngularJS 更好的方法</a> - 免費的線上 AngularJS 課程</li>
+<li><a href="https://ng-tutorial.mgechev.com/">AngularJS 互动教程</a></li>
+<li><a href="https://www.udemy.com/angularjs-jumpstart/?sl=E0EYdlw9RBMALEwzBwZX">和 Dan Wahlin 一起学习 AngularJS</a></li>
+<li><a href="https://tutsplus.com/course/hands-on-angular/">Tuts+: 开始使用 Angular</a></li>
+<li><a href="https://www.codeschool.com/courses/shaping-up-with-angular-js">Code School Shaping Up with Angular.js</a></li>
+<li><a href="https://www.lynda.com/AngularJS-tutorials/Up-Running-AngularJS/154414-2.html">Lynda Up and Running with AngularJS</a></li>
+<li><a href="https://www.codecademy.com/courses/javascript-advanced-en-2hJ3J/0/1">Codecademy AngularJs</a></li>
 </ul>
 <h2 id="帮助-Help"><a href="#帮助-Help" class="headerlink" title="帮助 Help"></a>帮助 Help</h2><ul>
-<li><a href="https://stackoverflow.com/questions/tagged/angularjs" target="_blank" rel="noopener">StackOverflow</a></li>
-<li><a href="https://groups.google.com/group/angular" target="_blank" rel="noopener">AngularJS 邮件列表（谷歌小组）</a></li>
-<li><a href="https://webchat.freenode.net/?channels=angularjs&amp;uio=d4" target="_blank" rel="noopener">Chatroom （基于浏览器的在线聊天系统）</a></li>
-<li><a href="https://plus.google.com/u/0/communities/115368820700870330756" target="_blank" rel="noopener">AngularJS Google+的社区</a></li>
-<li><a href="https://www.reddit.com/r/angularjs" target="_blank" rel="noopener">reddit</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/angularjs">StackOverflow</a></li>
+<li><a href="https://groups.google.com/group/angular">AngularJS 邮件列表（谷歌小组）</a></li>
+<li><a href="https://webchat.freenode.net/?channels=angularjs&uio=d4">Chatroom （基于浏览器的在线聊天系统）</a></li>
+<li><a href="https://plus.google.com/u/0/communities/115368820700870330756">AngularJS Google+的社区</a></li>
+<li><a href="https://www.reddit.com/r/angularjs">reddit</a></li>
 </ul>
 <h2 id="一般主题-General-Topics"><a href="#一般主题-General-Topics" class="headerlink" title="一般主题 General Topics"></a>一般主题 General Topics</h2><ul>
-<li><a href="https://www.cheatography.com/proloser/cheat-sheets/angularjs/" target="_blank" rel="noopener">AngularJS 速查表</a></li>
-<li><a href="https://devgirl.org/2013/03/21/fun-with-angularjs/" target="_blank" rel="noopener">AngularJS 乐趣</a></li>
-<li><a href="https://onehungrymind.com/angularjs-philly-ete-slides/" target="_blank" rel="noopener">AngularJS Philly ETE 幻灯</a></li>
-<li><a href="https://blog.tomaka17.com/2012/12/random-tricks-when-using-angularjs/" target="_blank" rel="noopener">随机技巧使用 AngularJS</a></li>
-<li><a href="https://www.peterbe.com/plog/what-stumped-me-about-angularjs" target="_blank" rel="noopener">AngularJS 难倒我的是什么</a></li>
-<li><a href="https://oscarvillarreal.com/2013/05/07/5-reasons-to-use-angularjs-in-the-corporate-app-world/" target="_blank" rel="noopener">5 个理由在企业应用程序世界中使用 AngularJS</a></li>
-<li><a href="https://ify.io/lazy-loading-in-angularjs/" target="_blank" rel="noopener">在 AngularJS 中实现延迟加载</a></li>
-<li><a href="https://www.yearofmoo.com/2012/10/more-angularjs-magic-to-supercharge-your-webapp.html" target="_blank" rel="noopener">用更多 AngularJS 魔力来大力增压你的浏览器应用程序</a></li>
-<li><a href="https://www.bennadel.com/blog/2472-HashKeyCopier-An-AngularJS-Utility-Class-For-Merging-Cached-And-Live-Data.htm" target="_blank" rel="noopener">HashKeyCopier - 一个 AngularJS 合并缓存和实时数据的实用工具类</a></li>
-<li><a href="https://www.bennadel.com/blog/2444-Exploring-Directives-scope-DOM-Rendering-And-Timing-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中探索 Directive 指令，\$scope，DOM 渲染和时序</a></li>
-<li><a href="https://www.bennadel.com/blog/2432-Applying-A-Cached-Response-To-An-AngularJS-Resource.htm" target="_blank" rel="noopener">在 AngularJS 资源上应用缓存的响应</a></li>
-<li><a href="https://www.blogeek.com.ar/2013/06/03/angularytics-the-solution-to-tracking-page-views-and-events-in-a-spa-with-angularjs/" target="_blank" rel="noopener">Angularytics: 在 SPA 中用 AngularJS 来跟踪页面访问量和事件的解决方案</a></li>
-<li><a href="https://www.blogeek.com.ar/2013/05/01/sharing-data-state-on-angularjs-alternatives-comparison-and-my-solution/" target="_blank" rel="noopener">在 AngularJS 上共享数据，状态和模型： 方案选择，比较和我的解决方案</a></li>
-<li><a href="https://www.jefclaes.be/2013/06/angularjs-and-ie8-caching.html" target="_blank" rel="noopener">Angular.js 和 IE8 缓存</a></li>
-<li><a href="https://www.yearofmoo.com/2012/11/angularjs-and-seo.html" target="_blank" rel="noopener">AngularJS 和 SEO</a></li>
-<li><a href="https://sravi-kiran.blogspot.com/2013/03/TemplatesRoutingAndSharingDataBetweenViewsInAnAngularJsApplication.html" target="_blank" rel="noopener">模板，路由和共享数据视图之间的一个 AngularJS 的应用</a></li>
-<li><a href="https://blog.thousandeyes.com/improving-end-user-experience-with-angularjs/" target="_blank" rel="noopener">用 AngularJS 改善最终用户体验</a></li>
-<li><a href="https://viralpatel.net/blogs/angularjs-controller-tutorial/" target="_blank" rel="noopener">AngularJS 控制器教程与实例</a></li>
-<li><a href="https://amitavroy.com/justread/content/articles/html5-local-storage-angular-js" target="_blank" rel="noopener">HTML5 本地存储与 Angular JS</a></li>
-<li><a href="https://gonzalo123.com/2013/07/08/dynamic-routes-with-angularjs-and-silex/" target="_blank" rel="noopener">动态路由和 AngularJS 以及 Silex</a></li>
-<li><a href="https://joelhooks.com/blog/2013/04/24/modeling-data-and-state-in-your-angularjs-application/" target="_blank" rel="noopener">在你的 AngularJS 应用中建模数据和状态</a></li>
-<li><a href="https://www.phase2technology.com/blog/code-reuse-in-angularjs/" target="_blank" rel="noopener">AngularJS 代码重用 </a></li>
-<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx" target="_blank" rel="noopener">在 AngularJS 和 RequireJS 中动态加载控制器和视图</a></li>
-<li><a href="https://htmlcssjavascript.com/javascript/sorting-by-multiple-fields-with-different-sort-orders-using-the-angularjs-orderby-filter/" target="_blank" rel="noopener">用 AngularJS 的 orderby 筛选器对多个字段用不同顺序排序</a></li>
-<li><a href="https://blog.brunoscopelliti.com/http-response-interceptors" target="_blank" rel="noopener">\$http 响应拦截器</a></li>
-<li><a href="https://trochette.github.io/Angular-Design-Patterns-Best-Practices/#/intro" target="_blank" rel="noopener">AngularJS: 先进的设计模式和最佳实践</a></li>
-<li><a href="https://aboutcode.net/2013/07/27/json-date-parsing-angularjs.html" target="_blank" rel="noopener">AngularJS 的自动 JSON 数据解析</a></li>
-<li><a href="https://odetocode.com/blogs/scott/archive/2013/05/01/angularjs-abstractions-modules.aspx" target="_blank" rel="noopener">AngularJS 抽象：模块</a></li>
-<li><a href="https://www.bennadel.com/blog/2507-Mixing-Static-Content-With-ngSwitch-And-ngSwitchWhen-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中用 ngSwitch 和 ngSwitchWhen 来混合静态内容</a></li>
-<li><a href="https://pseudobry.com/building-large-apps-with-angularjs.html" target="_blank" rel="noopener">AngularJS 构建大型应用程序</a></li>
-<li><a href="https://kensheedlo.com/2013/08/15/error-message-minification-with-minerr.html" target="_blank" rel="noopener">**错误信息与 ​​ 微小 MinErr</a></li>
-<li><a href="https://blog-it.hypoport.de/2013/08/24/how-to-make-your-angularjs-app-work-in-ie-8/" target="_blank" rel="noopener">如何让你的 AngularJS 应用程序在 IE8 工作</a></li>
-<li><a href="https://tech.small-improvements.com/2013/09/10/angularjs-performance-with-large-lists/" target="_blank" rel="noopener">AngularJS 性能优化的长列表</a></li>
-<li><a href="https://www.innerhtml.com/responsive-website-using-angularjs.html" target="_blank" rel="noopener">AngularJS 响应网站</a></li>
-<li><a href="https://medium.com/p/f8ae57e2cec3" target="_blank" rel="noopener">在 AngularJS 减少初始化时间</a></li>
-<li><a href="https://www.sitepoint.com/kickstart-your-angularjs-development-with-yeoman-grunt-and-bower/" target="_blank" rel="noopener">用 Yeoman, Grunt 和 Bower 快速开发 Angular 程序</a></li>
-<li><a href="https://wildermuth.com/2013/9/18/Getting_Ready_for_AngularJS_1_2" target="_blank" rel="noopener">**AngularJS 1.2 准备</a></li>
-<li><a href="https://wintellect.com/blogs/jlikness/10-reasons-web-developers-should-learn-angularjs" target="_blank" rel="noopener">10 个理由网页开发人员应该了解 AngularJS</a></li>
-<li><a href="https://blog.mgechev.com/2013/10/01/angularjs-partials-lazy-prefetching-strategy-weighted-directed-graph/" target="_blank" rel="noopener">AngularJS partials 的懒惰预取</a></li>
-<li><a href="https://net.tutsplus.com/articles/resources-to-get-you-up-to-speed-in-angularjs/" target="_blank" rel="noopener">让你加快速度 AngularJS 开发的资源</a></li>
-<li><a href="https://solutionoptimist.com/2013/10/07/enhance-log-using-angularjs-decorators/" target="_blank" rel="noopener">使用装饰提升 AngularJS \$log</a></li>
-<li><a href="https://www.bennadel.com/blog/2542-Logging-Client-Side-Errors-With-AngularJS-And-Stacktrace-js.htm" target="_blank" rel="noopener">使用 AngularJS 和 Stacktrace.js 记录客户端错误</a></li>
-<li><a href="https://timothy.userapp.io/post/63412334209/form-autocomplete-and-remember-password-with-angularjs" target="_blank" rel="noopener">AngularJS 表单自动完成，并记住密码</a></li>
-<li><a href="https://blog.scalyr.com/2013/10/31/angularjs-1200ms-to-35ms/" target="_blank" rel="noopener">优化 AngularJS: 从 1200ms 到 35ms</a></li>
-<li><a href="https://www.bennadel.com/blog/2551-Creating-A-RequireJS-Service-For-AngularJS-Applications.htm" target="_blank" rel="noopener">为 AngularJS 应用创建一个 RequireJS 服务</a></li>
-<li><a href="https://www.bennadel.com/blog/2553-Loading-AngularJS-Components-After-Your-Application-Has-Been-Bootstrapped.htm" target="_blank" rel="noopener">在你的应用开始后加载 AngularJS 组件</a></li>
-<li><a href="https://blog.getelementsbyidea.com/load-a-module-on-demand-with-angularjs/" target="_blank" rel="noopener">根据需求加载 AngularJS 模块</a></li>
-<li><a href="https://newtriks.com/2013/11/29/environment-specific-configuration-in-angularjs-using-grunt/" target="_blank" rel="noopener">用 Grunt 来配置 AngularJS 环境</a></li>
-<li><a href="https://weblogs.asp.net/dwahlin/archive/2014/02/18/what-s-the-role-of-the-server-in-single-page-applications-spas.aspx" target="_blank" rel="noopener">服务器在单页应用(SPAs)中的作用?</a></li>
-<li><a href="https://blog.pusher.com/making-angular-js-realtime-with-pusher/" target="_blank" rel="noopener">通过 Websockets 将 Angular.js 实时化</a></li>
-<li><a href="https://blog.shinetech.com/2014/02/04/rich-object-models-and-angular-js/" target="_blank" rel="noopener">丰富的对象模型和 Angular.js</a></li>
-<li><a href="https://blog.shinetech.com/2014/02/28/rich-object-models-and-angular-identity-maps/" target="_blank" rel="noopener">丰富的对象模型和 Angular: 一致性映射</a></li>
-<li><a href="https://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/" target="_blank" rel="noopener">AngularJS 中的障碍和实用例子</a></li>
-<li><a href="https://www.undefinednull.com/2014/02/17/resolve-in-angularjs-routes-explained-as-story/" target="_blank" rel="noopener">通过故事理解 AngularJS 路径</a></li>
-<li><a href="https://blog.safaribooksonline.com/2014/04/08/refactoring-angularjs-get-hands-filthy/" target="_blank" rel="noopener">重构 AngularJS</a></li>
-<li><a href="https://medium.com/opinionated-angularjs/2e6a067c73bc" target="_blank" rel="noopener">Angular 模型和 javascript 的类</a></li>
-<li><a href="https://jonathancreamer.com/the-state-of-angularjs-controllers/" target="_blank" rel="noopener">angularjs 控制器的状态</a></li>
-<li><a href="https://www.yearofmoo.com/2014/05/how-to-use-ngmessages-in-angularjs.html" target="_blank" rel="noopener">怎么使用 AngularJS 的 ngMessages</a></li>
-<li><a href="https://toddmotto.com/digging-into-angulars-controller-as-syntax/" target="_blank" rel="noopener">深度挖掘 Angular 的控制器</a></li>
-<li><a href="https://toddmotto.com/everything-about-custom-filters-in-angular-js/" target="_blank" rel="noopener">AngularJS 自定义过滤器</a></li>
-<li><a href="https://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/" target="_blank" rel="noopener">理解 Angular 的$scope和$rootScope 事件系统中的$emit,$broadcast 和\$on </a></li>
-<li><a href="https://www.garbl.es/angularjs/preload/2014/06/07/frictionless-data-preloading-in-angularjs/" target="_blank" rel="noopener">AngularJS 无阻碍数据预载</a></li>
+<li><a href="https://www.cheatography.com/proloser/cheat-sheets/angularjs/">AngularJS 速查表</a></li>
+<li><a href="https://devgirl.org/2013/03/21/fun-with-angularjs/">AngularJS 乐趣</a></li>
+<li><a href="https://onehungrymind.com/angularjs-philly-ete-slides/">AngularJS Philly ETE 幻灯</a></li>
+<li><a href="https://blog.tomaka17.com/2012/12/random-tricks-when-using-angularjs/">随机技巧使用 AngularJS</a></li>
+<li><a href="https://www.peterbe.com/plog/what-stumped-me-about-angularjs">AngularJS 难倒我的是什么</a></li>
+<li><a href="https://oscarvillarreal.com/2013/05/07/5-reasons-to-use-angularjs-in-the-corporate-app-world/">5 个理由在企业应用程序世界中使用 AngularJS</a></li>
+<li><a href="https://ify.io/lazy-loading-in-angularjs/">在 AngularJS 中实现延迟加载</a></li>
+<li><a href="https://www.yearofmoo.com/2012/10/more-angularjs-magic-to-supercharge-your-webapp.html">用更多 AngularJS 魔力来大力增压你的浏览器应用程序</a></li>
+<li><a href="https://www.bennadel.com/blog/2472-HashKeyCopier-An-AngularJS-Utility-Class-For-Merging-Cached-And-Live-Data.htm">HashKeyCopier - 一个 AngularJS 合并缓存和实时数据的实用工具类</a></li>
+<li><a href="https://www.bennadel.com/blog/2444-Exploring-Directives-scope-DOM-Rendering-And-Timing-In-AngularJS.htm">在 AngularJS 中探索 Directive 指令，$scope，DOM 渲染和时序</a></li>
+<li><a href="https://www.bennadel.com/blog/2432-Applying-A-Cached-Response-To-An-AngularJS-Resource.htm">在 AngularJS 资源上应用缓存的响应</a></li>
+<li><a href="https://www.blogeek.com.ar/2013/06/03/angularytics-the-solution-to-tracking-page-views-and-events-in-a-spa-with-angularjs/">Angularytics: 在 SPA 中用 AngularJS 来跟踪页面访问量和事件的解决方案</a></li>
+<li><a href="https://www.blogeek.com.ar/2013/05/01/sharing-data-state-on-angularjs-alternatives-comparison-and-my-solution/">在 AngularJS 上共享数据，状态和模型： 方案选择，比较和我的解决方案</a></li>
+<li><a href="https://www.jefclaes.be/2013/06/angularjs-and-ie8-caching.html">Angular.js 和 IE8 缓存</a></li>
+<li><a href="https://www.yearofmoo.com/2012/11/angularjs-and-seo.html">AngularJS 和 SEO</a></li>
+<li><a href="https://sravi-kiran.blogspot.com/2013/03/TemplatesRoutingAndSharingDataBetweenViewsInAnAngularJsApplication.html">模板，路由和共享数据视图之间的一个 AngularJS 的应用</a></li>
+<li><a href="https://blog.thousandeyes.com/improving-end-user-experience-with-angularjs/">用 AngularJS 改善最终用户体验</a></li>
+<li><a href="https://viralpatel.net/blogs/angularjs-controller-tutorial/">AngularJS 控制器教程与实例</a></li>
+<li><a href="https://amitavroy.com/justread/content/articles/html5-local-storage-angular-js">HTML5 本地存储与 Angular JS</a></li>
+<li><a href="https://gonzalo123.com/2013/07/08/dynamic-routes-with-angularjs-and-silex/">动态路由和 AngularJS 以及 Silex</a></li>
+<li><a href="https://joelhooks.com/blog/2013/04/24/modeling-data-and-state-in-your-angularjs-application/">在你的 AngularJS 应用中建模数据和状态</a></li>
+<li><a href="https://www.phase2technology.com/blog/code-reuse-in-angularjs/">AngularJS 代码重用 </a></li>
+<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/05/22/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs.aspx">在 AngularJS 和 RequireJS 中动态加载控制器和视图</a></li>
+<li><a href="https://htmlcssjavascript.com/javascript/sorting-by-multiple-fields-with-different-sort-orders-using-the-angularjs-orderby-filter/">用 AngularJS 的 orderby 筛选器对多个字段用不同顺序排序</a></li>
+<li><a href="https://blog.brunoscopelliti.com/http-response-interceptors">$http 响应拦截器</a></li>
+<li><a href="https://trochette.github.io/Angular-Design-Patterns-Best-Practices/#/intro">AngularJS: 先进的设计模式和最佳实践</a></li>
+<li><a href="https://aboutcode.net/2013/07/27/json-date-parsing-angularjs.html">AngularJS 的自动 JSON 数据解析</a></li>
+<li><a href="https://odetocode.com/blogs/scott/archive/2013/05/01/angularjs-abstractions-modules.aspx">AngularJS 抽象：模块</a></li>
+<li><a href="https://www.bennadel.com/blog/2507-Mixing-Static-Content-With-ngSwitch-And-ngSwitchWhen-In-AngularJS.htm">在 AngularJS 中用 ngSwitch 和 ngSwitchWhen 来混合静态内容</a></li>
+<li><a href="https://pseudobry.com/building-large-apps-with-angularjs.html">AngularJS 构建大型应用程序</a></li>
+<li><a href="https://kensheedlo.com/2013/08/15/error-message-minification-with-minerr.html">**错误信息与 ​​ 微小 MinErr</a></li>
+<li><a href="https://blog-it.hypoport.de/2013/08/24/how-to-make-your-angularjs-app-work-in-ie-8/">如何让你的 AngularJS 应用程序在 IE8 工作</a></li>
+<li><a href="https://tech.small-improvements.com/2013/09/10/angularjs-performance-with-large-lists/">AngularJS 性能优化的长列表</a></li>
+<li><a href="https://www.innerhtml.com/responsive-website-using-angularjs.html">AngularJS 响应网站</a></li>
+<li><a href="https://medium.com/p/f8ae57e2cec3">在 AngularJS 减少初始化时间</a></li>
+<li><a href="https://www.sitepoint.com/kickstart-your-angularjs-development-with-yeoman-grunt-and-bower/">用 Yeoman, Grunt 和 Bower 快速开发 Angular 程序</a></li>
+<li><a href="https://wildermuth.com/2013/9/18/Getting_Ready_for_AngularJS_1_2">**AngularJS 1.2 准备</a></li>
+<li><a href="https://wintellect.com/blogs/jlikness/10-reasons-web-developers-should-learn-angularjs">10 个理由网页开发人员应该了解 AngularJS</a></li>
+<li><a href="https://blog.mgechev.com/2013/10/01/angularjs-partials-lazy-prefetching-strategy-weighted-directed-graph/">AngularJS partials 的懒惰预取</a></li>
+<li><a href="https://net.tutsplus.com/articles/resources-to-get-you-up-to-speed-in-angularjs/">让你加快速度 AngularJS 开发的资源</a></li>
+<li><a href="https://solutionoptimist.com/2013/10/07/enhance-log-using-angularjs-decorators/">使用装饰提升 AngularJS $log</a></li>
+<li><a href="https://www.bennadel.com/blog/2542-Logging-Client-Side-Errors-With-AngularJS-And-Stacktrace-js.htm">使用 AngularJS 和 Stacktrace.js 记录客户端错误</a></li>
+<li><a href="https://timothy.userapp.io/post/63412334209/form-autocomplete-and-remember-password-with-angularjs">AngularJS 表单自动完成，并记住密码</a></li>
+<li><a href="https://blog.scalyr.com/2013/10/31/angularjs-1200ms-to-35ms/">优化 AngularJS: 从 1200ms 到 35ms</a></li>
+<li><a href="https://www.bennadel.com/blog/2551-Creating-A-RequireJS-Service-For-AngularJS-Applications.htm">为 AngularJS 应用创建一个 RequireJS 服务</a></li>
+<li><a href="https://www.bennadel.com/blog/2553-Loading-AngularJS-Components-After-Your-Application-Has-Been-Bootstrapped.htm">在你的应用开始后加载 AngularJS 组件</a></li>
+<li><a href="https://blog.getelementsbyidea.com/load-a-module-on-demand-with-angularjs/">根据需求加载 AngularJS 模块</a></li>
+<li><a href="https://newtriks.com/2013/11/29/environment-specific-configuration-in-angularjs-using-grunt/">用 Grunt 来配置 AngularJS 环境</a></li>
+<li><a href="https://weblogs.asp.net/dwahlin/archive/2014/02/18/what-s-the-role-of-the-server-in-single-page-applications-spas.aspx">服务器在单页应用(SPAs)中的作用?</a></li>
+<li><a href="https://blog.pusher.com/making-angular-js-realtime-with-pusher/">通过 Websockets 将 Angular.js 实时化</a></li>
+<li><a href="https://blog.shinetech.com/2014/02/04/rich-object-models-and-angular-js/">丰富的对象模型和 Angular.js</a></li>
+<li><a href="https://blog.shinetech.com/2014/02/28/rich-object-models-and-angular-identity-maps/">丰富的对象模型和 Angular: 一致性映射</a></li>
+<li><a href="https://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/">AngularJS 中的障碍和实用例子</a></li>
+<li><a href="https://www.undefinednull.com/2014/02/17/resolve-in-angularjs-routes-explained-as-story/">通过故事理解 AngularJS 路径</a></li>
+<li><a href="https://blog.safaribooksonline.com/2014/04/08/refactoring-angularjs-get-hands-filthy/">重构 AngularJS</a></li>
+<li><a href="https://medium.com/opinionated-angularjs/2e6a067c73bc">Angular 模型和 javascript 的类</a></li>
+<li><a href="https://jonathancreamer.com/the-state-of-angularjs-controllers/">angularjs 控制器的状态</a></li>
+<li><a href="https://www.yearofmoo.com/2014/05/how-to-use-ngmessages-in-angularjs.html">怎么使用 AngularJS 的 ngMessages</a></li>
+<li><a href="https://toddmotto.com/digging-into-angulars-controller-as-syntax/">深度挖掘 Angular 的控制器</a></li>
+<li><a href="https://toddmotto.com/everything-about-custom-filters-in-angular-js/">AngularJS 自定义过滤器</a></li>
+<li><a href="https://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/">理解 Angular 的$scope和$rootScope 事件系统中的$emit,$broadcast 和$on </a></li>
+<li><a href="https://www.garbl.es/angularjs/preload/2014/06/07/frictionless-data-preloading-in-angularjs/">AngularJS 无阻碍数据预载</a></li>
 </ul>
 <h2 id="介绍-开始学习-AngularJS"><a href="#介绍-开始学习-AngularJS" class="headerlink" title="介绍/开始学习 AngularJS"></a>介绍/开始学习 AngularJS</h2><ul>
-<li><a href="https://www.adobe.com/devnet/html5/articles/getting-started-with-angularjs.html" target="_blank" rel="noopener">AngularJS 入门</a></li>
-<li><a href="https://stephanebegaudeau.tumblr.com/post/48776908163/everything-you-need-to-understand-to-start-with" target="_blank" rel="noopener">你需要开始了解的 AngularJS 的一切</a></li>
-<li><a href="https://codigovivo.com/2013/06/09/what-to-know-to-be-an-expert-in-angularjs/" target="_blank" rel="noopener">要成为 AngularJS 专家必备的知识</a></li>
-<li><a href="https://net.tutsplus.com/tutorials/javascript-ajax/5-awesome-angularjs-features/" target="_blank" rel="noopener">5 个很棒的 AngularJS 功能</a></li>
-<li><a href="https://blog.artlogic.com/2013/03/06/angularjs-for-jquery-developers/" target="_blank" rel="noopener">AngularJS for jQuery 开发者</a></li>
-<li><a href="https://www.webdesignerdepot.com/2013/04/an-introduction-to-angularjs/" target="_blank" rel="noopener">AngularJS 入门指南</a></li>
-<li><a href="https://net.tutsplus.com/tutorials/javascript-ajax/building-a-web-app-from-scratch-in-angularjs/" target="_blank" rel="noopener">用 AngularJS 从头开始写应用程序</a></li>
-<li><a href="https://glennstovall.com/blog/2013/06/27/angularjs-an-overview/" target="_blank" rel="noopener">AngularJS: 概述</a></li>
-<li><a href="https://www.sitepoint.com/angularjs-tutorial-build-an-app-using-directives-and-data-binding/" target="_blank" rel="noopener">AngularJS 教程 - 建立一个应用程序使用的指令和数据绑定</a></li>
-<li><a href="https://www.revillwebdesign.com/angularjs-tutorial/" target="_blank" rel="noopener">在 30 分钟内教会你 AngularJS</a></li>
-<li><a href="https://www.sitepoint.com/kickstart-your-angularjs-development-with-yeoman-grunt-and-bower/" target="_blank" rel="noopener">用 Yeoman, Grunt 和 Bower 快速开发</a></li>
-<li><a href="https://www.sitepoint.com/10-reasons-use-angularjs/" target="_blank" rel="noopener">10 个你需要开始用 AngularJS 的理由</a></li>
-<li><a href="https://www.kidsil.net/2013/09/filtering-with-angularjs/" target="_blank" rel="noopener">AngularJS 筛选器</a></li>
-<li><a href="https://toddmotto.com/ultimate-guide-to-learning-angular-js-in-one-day/" target="_blank" rel="noopener">一天学会 AngularJS</a></li>
-<li><a href="https://learnangularjs.net/2013/10/24/7-ways-to-be-successful-with-angularjs/" target="_blank" rel="noopener">7 种成功学习 Angular 的方法</a></li>
-<li><a href="https://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular" target="_blank" rel="noopener"> 用 Node and Angular 创建单页应用</a></li>
-<li><a href="https://tutorialzine.com/2013/08/learn-angularjs-5-examples" target="_blank" rel="noopener"> 通过 5 个实例学习 Angular</a></li>
-<li><a href="https://www.exratione.com/2013/12/considering-speed-and-slowness-in-angularjs/" target="_blank" rel="noopener">考虑的 AngularJS 的效率</a></li>
-<li><a href="https://newtriks.com/2013/11/29/environment-specific-configuration-in-angularjs-using-grunt/" target="_blank" rel="noopener">Environment Specific Configuration in AngularJS Using Grunt</a></li>
-<li><a href="https://solutionoptimist.com/2013/10/07/enhance-angularjs-logging-using-decorators/" target="_blank" rel="noopener">用装饰来提升 Angular 日志</a></li>
-<li><a href="https://github.com/deontologician/pipr/blob/master/tut.org" target="_blank" rel="noopener">Picking Up Angular, build a twitter-like application</a></li>
-<li><a href="https://blog.loadimpact.com/2014/06/03/exception-handling-in-an-angularjs-web-application-tutorial/" target="_blank" rel="noopener">AngularJS 网页应用的异常处理</a></li>
-<li><a href="https://www.pubnub.com/blog/angularjs-101-from-zero-to-angular-in-seconds/" target="_blank" rel="noopener">AngularJS 101: 从 0 开始学 Angular</a></li>
+<li><a href="https://www.adobe.com/devnet/html5/articles/getting-started-with-angularjs.html">AngularJS 入门</a></li>
+<li><a href="https://stephanebegaudeau.tumblr.com/post/48776908163/everything-you-need-to-understand-to-start-with">你需要开始了解的 AngularJS 的一切</a></li>
+<li><a href="https://codigovivo.com/2013/06/09/what-to-know-to-be-an-expert-in-angularjs/">要成为 AngularJS 专家必备的知识</a></li>
+<li><a href="https://net.tutsplus.com/tutorials/javascript-ajax/5-awesome-angularjs-features/">5 个很棒的 AngularJS 功能</a></li>
+<li><a href="https://blog.artlogic.com/2013/03/06/angularjs-for-jquery-developers/">AngularJS for jQuery 开发者</a></li>
+<li><a href="https://www.webdesignerdepot.com/2013/04/an-introduction-to-angularjs/">AngularJS 入门指南</a></li>
+<li><a href="https://net.tutsplus.com/tutorials/javascript-ajax/building-a-web-app-from-scratch-in-angularjs/">用 AngularJS 从头开始写应用程序</a></li>
+<li><a href="https://glennstovall.com/blog/2013/06/27/angularjs-an-overview/">AngularJS: 概述</a></li>
+<li><a href="https://www.sitepoint.com/angularjs-tutorial-build-an-app-using-directives-and-data-binding/">AngularJS 教程 - 建立一个应用程序使用的指令和数据绑定</a></li>
+<li><a href="https://www.revillwebdesign.com/angularjs-tutorial/">在 30 分钟内教会你 AngularJS</a></li>
+<li><a href="https://www.sitepoint.com/kickstart-your-angularjs-development-with-yeoman-grunt-and-bower/">用 Yeoman, Grunt 和 Bower 快速开发</a></li>
+<li><a href="https://www.sitepoint.com/10-reasons-use-angularjs/">10 个你需要开始用 AngularJS 的理由</a></li>
+<li><a href="https://www.kidsil.net/2013/09/filtering-with-angularjs/">AngularJS 筛选器</a></li>
+<li><a href="https://toddmotto.com/ultimate-guide-to-learning-angular-js-in-one-day/">一天学会 AngularJS</a></li>
+<li><a href="https://learnangularjs.net/2013/10/24/7-ways-to-be-successful-with-angularjs/">7 种成功学习 Angular 的方法</a></li>
+<li><a href="https://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular"> 用 Node and Angular 创建单页应用</a></li>
+<li><a href="https://tutorialzine.com/2013/08/learn-angularjs-5-examples"> 通过 5 个实例学习 Angular</a></li>
+<li><a href="https://www.exratione.com/2013/12/considering-speed-and-slowness-in-angularjs/">考虑的 AngularJS 的效率</a></li>
+<li><a href="https://newtriks.com/2013/11/29/environment-specific-configuration-in-angularjs-using-grunt/">Environment Specific Configuration in AngularJS Using Grunt</a></li>
+<li><a href="https://solutionoptimist.com/2013/10/07/enhance-angularjs-logging-using-decorators/">用装饰来提升 Angular 日志</a></li>
+<li><a href="https://github.com/deontologician/pipr/blob/master/tut.org">Picking Up Angular, build a twitter-like application</a></li>
+<li><a href="https://blog.loadimpact.com/2014/06/03/exception-handling-in-an-angularjs-web-application-tutorial/">AngularJS 网页应用的异常处理</a></li>
+<li><a href="https://www.pubnub.com/blog/angularjs-101-from-zero-to-angular-in-seconds/">AngularJS 101: 从 0 开始学 Angular</a></li>
 </ul>
 <h2 id="使用及学习心得-Lessons-Learned"><a href="#使用及学习心得-Lessons-Learned" class="headerlink" title="使用及学习心得 Lessons Learned"></a>使用及学习心得 Lessons Learned</h2><ul>
-<li><a href="https://joelhooks.com/blog/2013/05/22/lessons-learned-kicking-off-an-angularjs-project/" target="_blank" rel="noopener">经验教训：一年一个大 AngularJS 项目</a></li>
-<li><a href="https://branchandbound.net/blog/web/2013/08/some-angularjs-pitfalls/" target="_blank" rel="noopener">一些 AngularJS 陷阱</a></li>
-<li><a href="https://ruoyusun.com/2013/05/25/things-i-wish-i-were-told-about-angular-js.html" target="_blank" rel="noopener">我希望我事先被告知关于 Angular.js 的事实</a></li>
-<li><a href="https://www.objectpartners.com/2013/08/09/i-wish-i-knew-then-what-i-know-now-life-with-angularjs/" target="_blank" rel="noopener">我希望我当时就知道我现在知道的东西 — 我和 AngularJS</a></li>
-<li><a href="https://gocardless.com/blog/building-a-large-angular-application/" target="_blank" rel="noopener">如何建立一个大型 Angular.js 应用</a></li>
-<li><a href="https://www.bytesforthought.com/angularjs-tips/" target="_blank" rel="noopener">对新手和全能好奇的开发人员的 AngularJS 提示和技巧</a></li>
+<li><a href="https://joelhooks.com/blog/2013/05/22/lessons-learned-kicking-off-an-angularjs-project/">经验教训：一年一个大 AngularJS 项目</a></li>
+<li><a href="https://branchandbound.net/blog/web/2013/08/some-angularjs-pitfalls/">一些 AngularJS 陷阱</a></li>
+<li><a href="https://ruoyusun.com/2013/05/25/things-i-wish-i-were-told-about-angular-js.html">我希望我事先被告知关于 Angular.js 的事实</a></li>
+<li><a href="https://www.objectpartners.com/2013/08/09/i-wish-i-knew-then-what-i-know-now-life-with-angularjs/">我希望我当时就知道我现在知道的东西 — 我和 AngularJS</a></li>
+<li><a href="https://gocardless.com/blog/building-a-large-angular-application/">如何建立一个大型 Angular.js 应用</a></li>
+<li><a href="https://www.bytesforthought.com/angularjs-tips/">对新手和全能好奇的开发人员的 AngularJS 提示和技巧</a></li>
 </ul>
 <h2 id="分段式文章-Multipart-Articles"><a href="#分段式文章-Multipart-Articles" class="headerlink" title="分段式文章 Multipart Articles"></a>分段式文章 Multipart Articles</h2><ul>
-<li>开始使用 elasticsearch 和 AngularJS: <a href="https://www.fullscale.co/blog/2013/02/28/getting_started_with_elasticsearch_and_AngularJS_searching.html" target="_blank" rel="noopener">Part1 - 搜索</a>, <a href="https://www.fullscale.co/blog/2013/03/07/getting_started_with_elasticsearch_and-AngularJS_faceting.html" target="_blank" rel="noopener">Part 2: Faceting</a>, <a href="https://www.fullscale.co/blog/2013/03/20/getting_started_with_elasticsearch_and_AngularJS_d3.html" target="_blank" rel="noopener">Part 3: Visualization</a></li>
-<li>用 AngularJS 开发可维护网络应用: <a href="https://blog.akquinet.de/2013/01/22/maintainable-rich-web-applications-with-angularjs/" target="_blank" rel="noopener">Part 1</a>, <a href="https://blog.akquinet.de/2013/03/21/maintainable-rich-web-applications-with-angularjs-part-2/" target="_blank" rel="noopener">Part 2</a></li>
-<li>Google,Twitter 和 AngularJS: <a href="https://dailyjs.com/2013/04/11/angularjs-1/" target="_blank" rel="noopener">1: Google, Twitter, and AngularJS</a>, <a href="https://dailyjs.com/2013/04/18/angularjs-2/" target="_blank" rel="noopener">2: Let’s Make a Feed Reader</a>, <a href="https://dailyjs.com/2013/04/25/angularjs-3/" target="_blank" rel="noopener">3: 生成源</a>, <a href="https://dailyjs.com/2013/05/09/angularjs-4/" target="_blank" rel="noopener">4: 管理源</a>, <a href="https://dailyjs.com/2013/05/16/angularjs-5/" target="_blank" rel="noopener">5: 测试</a>, <a href="https://dailyjs.com/2013/05/30/angularjs-6/" target="_blank" rel="noopener">6: 增加依赖</a>, <a href="https://dailyjs.com/2013/06/06/angularjs-7/" target="_blank" rel="noopener">7: 表格验证</a>, <a href="https://dailyjs.com/2013/06/13/angularjs-8/" target="_blank" rel="noopener">8: 迭代程序 &amp; 过滤器</a>, <a href="https://dailyjs.com/2013/07/18/angularjs-9/" target="_blank" rel="noopener">9: 安装</a></li>
-<li>用 AnuglarJS 打造 SignalR Stock Ticker: <a href="https://sravi-kiran.blogspot.in/2013/05/ImplementingSignalRStockTickerUsingAngularJSPart1.html" target="_blank" rel="noopener">Part 1</a>, <a href="https://sravi-kiran.blogspot.in/2013/05/ImplementingSignalRStockTickerUsingAngularJSPart2.html" target="_blank" rel="noopener">Part 2</a></li>
-<li>AngularJS 最佳实践: 我之前都做错了!: <a href="https://blog.artlogic.com/2013/05/02/ive-been-doing-it-wrong-part-1-of-3/" target="_blank" rel="noopener">Part 1</a>, <a href="https://blog.artlogic.com/2013/05/06/angularjs-best-practices-ive-been-doing-it-wrong-part-2-of-3/" target="_blank" rel="noopener">Part 2</a>, <a href="https://blog.artlogic.com/2013/05/08/angularjs-best-practices-ive-been-doing-it-wrong-part-3-of-3/" target="_blank" rel="noopener">Part 3</a></li>
-<li>AngularJS 简介 <a href="https://www.raweng.com/blog/2013/01/30/introduction-to-angularjs-part-1/" target="_blank" rel="noopener">Part 1</a>, <a href="https://www.raweng.com/blog/2013/05/16/introduction-to-angularjs-part-2/" target="_blank" rel="noopener">Part 2</a></li>
-<li>深入 AngularJS : <a href="https://suhairhassan.com/2013/06/07/angularjs-in-depth-part-1.html" target="_blank" rel="noopener">Part 1</a>, <a href="https://suhairhassan.com/2013/07/25/angularjs-in-depth-part-2.html" target="_blank" rel="noopener">Part 2: 过滤器</a></li>
-<li><a href="https://www.ng-newsletter.com/posts/beginner2expert-how_to_start.html" target="_blank" rel="noopener">The 7 成为 Angularjs 大师</a>, <a href="https://www.ng-newsletter.com/posts/beginner2expert-scopes.html" target="_blank" rel="noopener">Part 2: Scopes</a>, <a href="https://www.ng-newsletter.com/posts/beginner2expert-data-binding.html" target="_blank" rel="noopener">Part 3: 双向绑定</a>, <a href="https://www.ng-newsletter.com/posts/beginner2expert-directives.html" target="_blank" rel="noopener">Part 4 and 5: Expressions and directives</a>, <a href="https://www.ng-newsletter.com/posts/beginner2expert-services.html" target="_blank" rel="noopener">Part 6: 服务</a></li>
-<li>AngularJS 概况: <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/04/05/getting-started-with-angularjs.aspx" target="_blank" rel="noopener">1:开始 AngularJS 编程</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/04/10/creating-an-angularjs-controller.aspx" target="_blank" rel="noopener">2:创造 一个 AngularJS 控制器</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/04/15/the-angularjs-scope-is-not-the-mvc-model.aspx" target="_blank" rel="noopener">3: AngularJS \$scope 不是 MVC 模型</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/05/10/using-repeating-elements-in-angularjs.aspx" target="_blank" rel="noopener">4:在 AngularJS 中重复使用元素</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/05/13/filtering-the-data-in-an-angularjs-ngrepeat-element.aspx" target="_blank" rel="noopener">5: 在一个 AngularJS ngRepeat 元素中过滤数据</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/08/19/using-the-angularjs-formcontroller-to-control-form-submission.aspx" target="_blank" rel="noopener">6:用 #AngularJS 表格控制器来控制表格提交</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/08/29/creating-an-angularjs-directive.aspx" target="_blank" rel="noopener">7:创造 #AngularJS Directive</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/09/05/using-the-dom-in-an-angularjs-application.aspx" target="_blank" rel="noopener">8:在一个 AngularJS 应用中使用 DOM</a></li>
-<li>打造一个基于 MongoDB, ExpressJS, AngularJS, 和 Node.js 的 Google 日历订阅 App <a href="https://www.jonathanbroquist.com/blog/2013/10/building-a-google-calendar-booking-app-with-mongodb-expressjs-angularjs-and-node-js-part-1/" target="_blank" rel="noopener">Part 1</a></li>
-<li>创造组建: <a href="https://blog.thousandeyes.com/creating-extensible-widgets-part-1-jquery-to-angularjs/" target="_blank" rel="noopener">Part 1: 30 秒将 jQuery 转成 AngularJS</a>, <a href="https://blog.thousandeyes.com/creating-extensible-widgets-part-2-angularjs-directive-controllers/" target="_blank" rel="noopener">Part 2: AngularJS Directive 控制器</a></li>
+<li>开始使用 elasticsearch 和 AngularJS: <a href="https://www.fullscale.co/blog/2013/02/28/getting_started_with_elasticsearch_and_AngularJS_searching.html">Part1 - 搜索</a>, <a href="https://www.fullscale.co/blog/2013/03/07/getting_started_with_elasticsearch_and-AngularJS_faceting.html">Part 2: Faceting</a>, <a href="https://www.fullscale.co/blog/2013/03/20/getting_started_with_elasticsearch_and_AngularJS_d3.html">Part 3: Visualization</a></li>
+<li>用 AngularJS 开发可维护网络应用: <a href="https://blog.akquinet.de/2013/01/22/maintainable-rich-web-applications-with-angularjs/">Part 1</a>, <a href="https://blog.akquinet.de/2013/03/21/maintainable-rich-web-applications-with-angularjs-part-2/">Part 2</a></li>
+<li>Google,Twitter 和 AngularJS: <a href="https://dailyjs.com/2013/04/11/angularjs-1/">1: Google, Twitter, and AngularJS</a>, <a href="https://dailyjs.com/2013/04/18/angularjs-2/">2: Let’s Make a Feed Reader</a>, <a href="https://dailyjs.com/2013/04/25/angularjs-3/">3: 生成源</a>, <a href="https://dailyjs.com/2013/05/09/angularjs-4/">4: 管理源</a>, <a href="https://dailyjs.com/2013/05/16/angularjs-5/">5: 测试</a>, <a href="https://dailyjs.com/2013/05/30/angularjs-6/">6: 增加依赖</a>, <a href="https://dailyjs.com/2013/06/06/angularjs-7/">7: 表格验证</a>, <a href="https://dailyjs.com/2013/06/13/angularjs-8/">8: 迭代程序 &amp; 过滤器</a>, <a href="https://dailyjs.com/2013/07/18/angularjs-9/">9: 安装</a></li>
+<li>用 AnuglarJS 打造 SignalR Stock Ticker: <a href="https://sravi-kiran.blogspot.in/2013/05/ImplementingSignalRStockTickerUsingAngularJSPart1.html">Part 1</a>, <a href="https://sravi-kiran.blogspot.in/2013/05/ImplementingSignalRStockTickerUsingAngularJSPart2.html">Part 2</a></li>
+<li>AngularJS 最佳实践: 我之前都做错了!: <a href="https://blog.artlogic.com/2013/05/02/ive-been-doing-it-wrong-part-1-of-3/">Part 1</a>, <a href="https://blog.artlogic.com/2013/05/06/angularjs-best-practices-ive-been-doing-it-wrong-part-2-of-3/">Part 2</a>, <a href="https://blog.artlogic.com/2013/05/08/angularjs-best-practices-ive-been-doing-it-wrong-part-3-of-3/">Part 3</a></li>
+<li>AngularJS 简介 <a href="https://www.raweng.com/blog/2013/01/30/introduction-to-angularjs-part-1/">Part 1</a>, <a href="https://www.raweng.com/blog/2013/05/16/introduction-to-angularjs-part-2/">Part 2</a></li>
+<li>深入 AngularJS : <a href="https://suhairhassan.com/2013/06/07/angularjs-in-depth-part-1.html">Part 1</a>, <a href="https://suhairhassan.com/2013/07/25/angularjs-in-depth-part-2.html">Part 2: 过滤器</a></li>
+<li><a href="https://www.ng-newsletter.com/posts/beginner2expert-how_to_start.html">The 7 成为 Angularjs 大师</a>, <a href="https://www.ng-newsletter.com/posts/beginner2expert-scopes.html">Part 2: Scopes</a>, <a href="https://www.ng-newsletter.com/posts/beginner2expert-data-binding.html">Part 3: 双向绑定</a>, <a href="https://www.ng-newsletter.com/posts/beginner2expert-directives.html">Part 4 and 5: Expressions and directives</a>, <a href="https://www.ng-newsletter.com/posts/beginner2expert-services.html">Part 6: 服务</a></li>
+<li>AngularJS 概况: <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/04/05/getting-started-with-angularjs.aspx">1:开始 AngularJS 编程</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/04/10/creating-an-angularjs-controller.aspx">2:创造 一个 AngularJS 控制器</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/04/15/the-angularjs-scope-is-not-the-mvc-model.aspx">3: AngularJS $scope 不是 MVC 模型</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/05/10/using-repeating-elements-in-angularjs.aspx">4:在 AngularJS 中重复使用元素</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/05/13/filtering-the-data-in-an-angularjs-ngrepeat-element.aspx">5: 在一个 AngularJS ngRepeat 元素中过滤数据</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/08/19/using-the-angularjs-formcontroller-to-control-form-submission.aspx">6:用 #AngularJS 表格控制器来控制表格提交</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/08/29/creating-an-angularjs-directive.aspx">7:创造 #AngularJS Directive</a>, <a href="https://msmvps.com/blogs/theproblemsolver/archive/2013/09/05/using-the-dom-in-an-angularjs-application.aspx">8:在一个 AngularJS 应用中使用 DOM</a></li>
+<li>打造一个基于 MongoDB, ExpressJS, AngularJS, 和 Node.js 的 Google 日历订阅 App <a href="https://www.jonathanbroquist.com/blog/2013/10/building-a-google-calendar-booking-app-with-mongodb-expressjs-angularjs-and-node-js-part-1/">Part 1</a></li>
+<li>创造组建: <a href="https://blog.thousandeyes.com/creating-extensible-widgets-part-1-jquery-to-angularjs/">Part 1: 30 秒将 jQuery 转成 AngularJS</a>, <a href="https://blog.thousandeyes.com/creating-extensible-widgets-part-2-angularjs-directive-controllers/">Part 2: AngularJS Directive 控制器</a></li>
 </ul>
 <h2 id="范例应用程序-Sample-Apps"><a href="#范例应用程序-Sample-Apps" class="headerlink" title="范例应用程序 Sample Apps"></a>范例应用程序 Sample Apps</h2><ul>
-<li><a href="https://www.codeproject.com/Articles/576246/A-Shopping-Cart-Application-Built-with-AngularJS" target="_blank" rel="noopener">建有 AngularJS 购物车应用程序</a></li>
-<li><a href="https://cacodaemon.de/index.php?id=51" target="_blank" rel="noopener">用谷歌 feed API 和 AngularJS 建立一个 feed 阅读器</a></li>
+<li><a href="https://www.codeproject.com/Articles/576246/A-Shopping-Cart-Application-Built-with-AngularJS">建有 AngularJS 购物车应用程序</a></li>
+<li><a href="https://cacodaemon.de/index.php?id=51">用谷歌 feed API 和 AngularJS 建立一个 feed 阅读器</a></li>
 </ul>
 <h2 id="Scopes-amp-Compile"><a href="#Scopes-amp-Compile" class="headerlink" title="Scopes &amp; Compile"></a>Scopes &amp; Compile</h2><ul>
-<li><a href="https://jimhoskins.com/2012/12/17/angularjs-and-apply.html" target="_blank" rel="noopener">AngularJS 和 scope.\$apply</a></li>
-<li><a href="https://stackoverflow.com/questions/14049480/what-are-the-nuances-of-scope-prototypal-prototypical-inheritance-in-angularjs" target="_blank" rel="noopener">AngularJS 什么是范围原型/原型继承的细微之处？</a></li>
-<li><a href="https://eburley.github.io/2013/01/31/angularjs-watch-pub-sub-best-practices.html" target="_blank" rel="noopener">angularjs.org watch, on pub sub, 和你.</a></li>
-<li><a href="https://www.befundoo.com/blog/use-ng-bind-in-angularjs/" target="_blank" rel="noopener">AngularJS 中使用 Ng-bind</a></li>
-<li><a href="https://www.bennadel.com/blog/2480-Unbinding-watch-Listeners-In-AngularJS.htm" target="_blank" rel="noopener">In AngularJS 中解除绑定 \$watch() Listeners </a></li>
-<li><a href="https://www.bennadel.com/blog/2457-Accessing-scope-On-The-DOM-Using-AngularJS.htm" target="_blank" rel="noopener">使用 AngularJS 对 DOMZ 中的 \$scope 进行访问</a></li>
-<li><a href="https://www.bennadel.com/blog/2449-Directive-Link-observe-And-watch-Functions-Execute-Inside-An-AngularJS-Context.htm" target="_blank" rel="noopener">指令链路, $observe, 和 $watch 功能在 AngularJS 语境执行的内部</a></li>
-<li><a href="https://codingsmackdown.tv/blog/2013/04/29/hailing-all-frequencies-communicating-in-angularjs-with-the-pubsub-design-pattern/" target="_blank" rel="noopener">Hailing All Frequencies – 在 AngularJS 用 Pub / Sub 设计模式进行内部沟通</a></li>
-<li><a href="https://jimhoskins.com/2012/12/14/nested-scopes-in-angularjs.html" target="_blank" rel="noopener">AngularJS 嵌套作用域</a></li>
-<li><a href="https://thenittygritty.co/angularjs-pitfalls-using-scopes" target="_blank" rel="noopener">AngularJS: 6 个常见的使用作用域的陷阱</a></li>
-<li>Scoping AngularJS Directives: <a href="https://spectaclelabs.io/blog/2013/06/22/scoping-angularjs-directives-part-1/" target="_blank" rel="noopener">Part 1</a>, <a href="https://spectaclelabs.io/blog/2013/06/23/scoping-angularjs-directives-part-2/" target="_blank" rel="noopener">Part 2</a></li>
-<li><a href="https://angular-tips.com/blog/2013/08/watch-how-the-apply-runs-a-digest/" target="_blank" rel="noopener">$watch $apply 是怎么运行 \$digest 的</a></li>
-<li><a href="https://www.benlesh.com/2013/08/angularjs-watch-digest-and-apply-oh-my.html" target="_blank" rel="noopener">AngularJS: $watch, $digest 和 \$apply</a></li>
-<li><a href="https://angular-tips.com/blog/2013/08/removing-the-unneeded-watches/" target="_blank" rel="noopener">删除不需要的 Watches</a></li>
-<li><a href="https://www.benlesh.com/2013/08/angular-compile-how-it-works-how-to-use.html" target="_blank" rel="noopener">Angular - \$compile: 它是如何工作，如何使用它。</a></li>
-<li><a href="https://ruoyusun.com/2013/08/24/a-glimpse-of-angularjs-scope-via-example.html" target="_blank" rel="noopener">通过实例来了解 Angular.js \$scope</a></li>
-<li><a href="https://variadic.me/posts/2013-10-15-share-state-between-controllers-in-angularjs.html" target="_blank" rel="noopener">在 AngularJS 控制器之间共享状态</a></li>
+<li><a href="https://jimhoskins.com/2012/12/17/angularjs-and-apply.html">AngularJS 和 scope.$apply</a></li>
+<li><a href="https://stackoverflow.com/questions/14049480/what-are-the-nuances-of-scope-prototypal-prototypical-inheritance-in-angularjs">AngularJS 什么是范围原型/原型继承的细微之处？</a></li>
+<li><a href="https://eburley.github.io/2013/01/31/angularjs-watch-pub-sub-best-practices.html">angularjs.org watch, on pub sub, 和你.</a></li>
+<li><a href="https://www.befundoo.com/blog/use-ng-bind-in-angularjs/">AngularJS 中使用 Ng-bind</a></li>
+<li><a href="https://www.bennadel.com/blog/2480-Unbinding-watch-Listeners-In-AngularJS.htm">In AngularJS 中解除绑定 $watch() Listeners </a></li>
+<li><a href="https://www.bennadel.com/blog/2457-Accessing-scope-On-The-DOM-Using-AngularJS.htm">使用 AngularJS 对 DOMZ 中的 $scope 进行访问</a></li>
+<li><a href="https://www.bennadel.com/blog/2449-Directive-Link-observe-And-watch-Functions-Execute-Inside-An-AngularJS-Context.htm">指令链路, $observe, 和 $watch 功能在 AngularJS 语境执行的内部</a></li>
+<li><a href="https://codingsmackdown.tv/blog/2013/04/29/hailing-all-frequencies-communicating-in-angularjs-with-the-pubsub-design-pattern/">Hailing All Frequencies – 在 AngularJS 用 Pub / Sub 设计模式进行内部沟通</a></li>
+<li><a href="https://jimhoskins.com/2012/12/14/nested-scopes-in-angularjs.html">AngularJS 嵌套作用域</a></li>
+<li><a href="https://thenittygritty.co/angularjs-pitfalls-using-scopes">AngularJS: 6 个常见的使用作用域的陷阱</a></li>
+<li>Scoping AngularJS Directives: <a href="https://spectaclelabs.io/blog/2013/06/22/scoping-angularjs-directives-part-1/">Part 1</a>, <a href="https://spectaclelabs.io/blog/2013/06/23/scoping-angularjs-directives-part-2/">Part 2</a></li>
+<li><a href="https://angular-tips.com/blog/2013/08/watch-how-the-apply-runs-a-digest/">$watch $apply 是怎么运行 $digest 的</a></li>
+<li><a href="https://www.benlesh.com/2013/08/angularjs-watch-digest-and-apply-oh-my.html">AngularJS: $watch, $digest 和 $apply</a></li>
+<li><a href="https://angular-tips.com/blog/2013/08/removing-the-unneeded-watches/">删除不需要的 Watches</a></li>
+<li><a href="https://www.benlesh.com/2013/08/angular-compile-how-it-works-how-to-use.html">Angular - $compile: 它是如何工作，如何使用它。</a></li>
+<li><a href="https://ruoyusun.com/2013/08/24/a-glimpse-of-angularjs-scope-via-example.html">通过实例来了解 Angular.js $scope</a></li>
+<li><a href="https://variadic.me/posts/2013-10-15-share-state-between-controllers-in-angularjs.html">在 AngularJS 控制器之间共享状态</a></li>
 </ul>
 <h2 id="依賴注入-Dependency-Injection"><a href="#依賴注入-Dependency-Injection" class="headerlink" title="依賴注入 Dependency Injection"></a>依賴注入 Dependency Injection</h2><ul>
-<li><a href="https://www.alexrothenberg.com/2013/02/11/the-magic-behind-angularjs-dependency-injection.html" target="_blank" rel="noopener">AngularJS 依赖注入背后的魔法</a></li>
-<li><a href="https://dailyjs.com/2013/05/23/angularjs-injection/" target="_blank" rel="noopener">AngularJS: 更多关于依赖注入</a></li>
-<li><a href="https://diegobarahona.com/javascript/angularjs/2013/06/13/angularjs-dependency-injection/" target="_blank" rel="noopener">Angularjs 依赖注入</a></li>
-<li><a href="https://joelhooks.com/blog/2013/08/18/configuring-dependency-injection-in-angularjs/" target="_blank" rel="noopener">在 AngularJS 中配置依赖注入</a></li>
-<li><a href="https://www.bennadel.com/blog/2527-Defining-Instantiatable-Classes-In-The-AngularJS-Dependency-Injection-Framework.htm" target="_blank" rel="noopener">在 AngularJS 依赖注入框架中定义实例化的类</a></li>
+<li><a href="https://www.alexrothenberg.com/2013/02/11/the-magic-behind-angularjs-dependency-injection.html">AngularJS 依赖注入背后的魔法</a></li>
+<li><a href="https://dailyjs.com/2013/05/23/angularjs-injection/">AngularJS: 更多关于依赖注入</a></li>
+<li><a href="https://diegobarahona.com/javascript/angularjs/2013/06/13/angularjs-dependency-injection/">Angularjs 依赖注入</a></li>
+<li><a href="https://joelhooks.com/blog/2013/08/18/configuring-dependency-injection-in-angularjs/">在 AngularJS 中配置依赖注入</a></li>
+<li><a href="https://www.bennadel.com/blog/2527-Defining-Instantiatable-Classes-In-The-AngularJS-Dependency-Injection-Framework.htm">在 AngularJS 依赖注入框架中定义实例化的类</a></li>
 </ul>
 <h2 id="指令-Directives"><a href="#指令-Directives" class="headerlink" title="指令 Directives"></a>指令 Directives</h2><ul>
-<li><a href="https://www.adobe.com/devnet/html5/articles/angularjs-directives-and-the-computer-science-of-javascript.html" target="_blank" rel="noopener">AngularJS 指令和 JavaScript 的计算机科学</a></li>
-<li><a href="https://henriquat.re/directives/introduction-to-directives/introductionToDirectives.html" target="_blank" rel="noopener">AngularJS 指令 - 特定于域的扩展为 HTML</a></li>
-<li><a href="https://www.befundoo.com/university/tutorials/angularjs-directives-tutorial/" target="_blank" rel="noopener">AngularJS 指令教程</a></li>
-<li><a href="https://panthersoftware.com/blog/2013/05/30/commentable-a-polymorphic-nested-comments-directive-for-angularjs/" target="_blank" rel="noopener">Commentable： AngularJS 的多态嵌套注释指令</a></li>
-<li><a href="https://blog.brunoscopelliti.com/the-ngform-directive-of-angularjs" target="_blank" rel="noopener">AngularJS 的 ngForm 指令</a></li>
-<li><a href="https://blog.brunoscopelliti.com/run-a-directive-after-the-dom-has-finished-rendering" target="_blank" rel="noopener">执行指令后，DOM 完成渲染</a></li>
-<li><a href="https://blog.brunoscopelliti.com/use-cases-of-angularjs-directives" target="_blank" rel="noopener">使用 AngularJS 指令的案例</a></li>
-<li><a href="https://www.bennadel.com/blog/2476-My-Approach-To-Building-AngularJS-Directives-That-Bind-To-JavaScript-Events.htm" target="_blank" rel="noopener">我的方法来构建绑定到 JavaScript 的事件的 AngularJS 指令</a></li>
-<li><a href="https://www.bennadel.com/blog/2471-Delegating-Nested-Directive-Behavior-To-Parent-Directive-In-AngularJS.htm" target="_blank" rel="noopener">AngularJS 委派嵌套指令行为转到父指令</a></li>
-<li><a href="https://www.bennadel.com/blog/2447-Exploring-Directive-Controllers-Compiling-Linking-And-Priority-In-AngularJS.htm" target="_blank" rel="noopener">AngularJS 探索指令控制器，编译，链接和优先级</a></li>
-<li><a href="https://www.bennadel.com/blog/2446-Using-Controllers-In-Directives-In-AngularJS.htm" target="_blank" rel="noopener">AngularJS 在指令中使用控制器</a></li>
-<li><a href="https://www.grobmeier.de/angular-js-directives-with-json-arguments-08012013.html" target="_blank" rel="noopener">Angular.js 使用 JSON 参数的指令</a></li>
-<li><a href="https://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/" target="_blank" rel="noopener">指令的漫游指南</a></li>
-<li><a href="https://codingsmackdown.tv/blog/2012/12/14/creating-a-simple-angularjs-directive/" target="_blank" rel="noopener">创建一个简单的 AngularJS 指令</a></li>
-<li><a href="https://www.codeproject.com/Articles/607873/Extending-HTML-with-AngularJS-Directives" target="_blank" rel="noopener">扩展的 HTML AngularJS 指令</a></li>
-<li><a href="https://sporto.github.io/blog/2013/06/24/nested-recursive-directives-in-angular/" target="_blank" rel="noopener">Angular 嵌套递归指令</a></li>
-<li><a href="https://icelab.com.au/articles/an-all-in-one-directive-controller-with-angularjs/" target="_blank" rel="noopener">AngularJS 一个全功能于一身的指令控制器</a></li>
-<li><a href="https://icelab.com.au/articles/levelling-up-with-angularjs-building-a-reusable-click-to-edit-directive/" target="_blank" rel="noopener">平了 AngularJS 的战场: 构建可重用点击编辑指令</a></li>
-<li><a href="https://joelhooks.com/blog/2013/07/15/a-look-at-angularjs-internal-directives-that-override-standard-html-tags/" target="_blank" rel="noopener">AngularJS 覆盖标准的 HTML 标签的指令</a></li>
-<li><a href="https://ngokevin.com/blog/angularslider/" target="_blank" rel="noopener">AngularJS 移动滑块指令</a></li>
-<li><a href="https://www.bennadel.com/blog/2494-Using-Namespaces-For-One-Off-Directives-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中使用命名空间一次性指令</a></li>
-<li><a href="https://www.phase2technology.com/blog/angularjs-and-compile/" target="_blank" rel="noopener">AngularJS 和 \$compile</a></li>
-<li><a href="https://www.ng-newsletter.com/posts/directives.html" target="_blank" rel="noopener">深度了解指令</a></li>
-<li><a href="https://www.grobmeier.de/angularjs-referencing-parent-scope-directive-23082013.html" target="_blank" rel="noopener">AngularJS: 引用父作用域的指令</a></li>
-<li><a href="https://angular-tips.com/blog/2013/08/tip-directives-with-the-same-name/" target="_blank" rel="noopener">提示：具有相同的名称的指令</a></li>
-<li><a href="https://odetocode.com/blogs/scott/archive/2013/09/11/moving-data-in-an-angularjs-directive.aspx" target="_blank" rel="noopener">将数据移入一个 AngularJS 指令</a></li>
-<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/09/24/building-a-custom-angularjs-unique-value-directive.aspx" target="_blank" rel="noopener">构建自定义 AngularJS 指令的独特价值</a></li>
-<li><a href="https://toddmotto.com/creating-an-angularjs-directive-from-one-of-your-existing-plugins-scripts/" target="_blank" rel="noopener">从现有的插件/脚本之一创建 AngularJS 指令</a></li>
-<li><a href="https://jasonmore.net/angular-js-directives-difference-controller-link/" target="_blank" rel="noopener">Angular.js 指令 - 控制器和链路之间的区别</a></li>
-<li><a href="https://www.befundoo.com/university/tutorials/angularjs-directives-tutorial/" target="_blank" rel="noopener">AngularJS 指令教程</a></li>
-<li><a href="https://seanhess.github.io/2013/10/14/angularjs-directive-design.html" target="_blank" rel="noopener">AngularJS 指令设计一点通</a></li>
-<li><a href="https://suhairhassan.com/2013/10/21/refactoring-to-angularjs-directive.html" target="_blank" rel="noopener">重构 AngularJS 指令</a></li>
+<li><a href="https://www.adobe.com/devnet/html5/articles/angularjs-directives-and-the-computer-science-of-javascript.html">AngularJS 指令和 JavaScript 的计算机科学</a></li>
+<li><a href="https://henriquat.re/directives/introduction-to-directives/introductionToDirectives.html">AngularJS 指令 - 特定于域的扩展为 HTML</a></li>
+<li><a href="https://www.befundoo.com/university/tutorials/angularjs-directives-tutorial/">AngularJS 指令教程</a></li>
+<li><a href="https://panthersoftware.com/blog/2013/05/30/commentable-a-polymorphic-nested-comments-directive-for-angularjs/">Commentable： AngularJS 的多态嵌套注释指令</a></li>
+<li><a href="https://blog.brunoscopelliti.com/the-ngform-directive-of-angularjs">AngularJS 的 ngForm 指令</a></li>
+<li><a href="https://blog.brunoscopelliti.com/run-a-directive-after-the-dom-has-finished-rendering">执行指令后，DOM 完成渲染</a></li>
+<li><a href="https://blog.brunoscopelliti.com/use-cases-of-angularjs-directives">使用 AngularJS 指令的案例</a></li>
+<li><a href="https://www.bennadel.com/blog/2476-My-Approach-To-Building-AngularJS-Directives-That-Bind-To-JavaScript-Events.htm">我的方法来构建绑定到 JavaScript 的事件的 AngularJS 指令</a></li>
+<li><a href="https://www.bennadel.com/blog/2471-Delegating-Nested-Directive-Behavior-To-Parent-Directive-In-AngularJS.htm">AngularJS 委派嵌套指令行为转到父指令</a></li>
+<li><a href="https://www.bennadel.com/blog/2447-Exploring-Directive-Controllers-Compiling-Linking-And-Priority-In-AngularJS.htm">AngularJS 探索指令控制器，编译，链接和优先级</a></li>
+<li><a href="https://www.bennadel.com/blog/2446-Using-Controllers-In-Directives-In-AngularJS.htm">AngularJS 在指令中使用控制器</a></li>
+<li><a href="https://www.grobmeier.de/angular-js-directives-with-json-arguments-08012013.html">Angular.js 使用 JSON 参数的指令</a></li>
+<li><a href="https://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/">指令的漫游指南</a></li>
+<li><a href="https://codingsmackdown.tv/blog/2012/12/14/creating-a-simple-angularjs-directive/">创建一个简单的 AngularJS 指令</a></li>
+<li><a href="https://www.codeproject.com/Articles/607873/Extending-HTML-with-AngularJS-Directives">扩展的 HTML AngularJS 指令</a></li>
+<li><a href="https://sporto.github.io/blog/2013/06/24/nested-recursive-directives-in-angular/">Angular 嵌套递归指令</a></li>
+<li><a href="https://icelab.com.au/articles/an-all-in-one-directive-controller-with-angularjs/">AngularJS 一个全功能于一身的指令控制器</a></li>
+<li><a href="https://icelab.com.au/articles/levelling-up-with-angularjs-building-a-reusable-click-to-edit-directive/">平了 AngularJS 的战场: 构建可重用点击编辑指令</a></li>
+<li><a href="https://joelhooks.com/blog/2013/07/15/a-look-at-angularjs-internal-directives-that-override-standard-html-tags/">AngularJS 覆盖标准的 HTML 标签的指令</a></li>
+<li><a href="https://ngokevin.com/blog/angularslider/">AngularJS 移动滑块指令</a></li>
+<li><a href="https://www.bennadel.com/blog/2494-Using-Namespaces-For-One-Off-Directives-In-AngularJS.htm">在 AngularJS 中使用命名空间一次性指令</a></li>
+<li><a href="https://www.phase2technology.com/blog/angularjs-and-compile/">AngularJS 和 $compile</a></li>
+<li><a href="https://www.ng-newsletter.com/posts/directives.html">深度了解指令</a></li>
+<li><a href="https://www.grobmeier.de/angularjs-referencing-parent-scope-directive-23082013.html">AngularJS: 引用父作用域的指令</a></li>
+<li><a href="https://angular-tips.com/blog/2013/08/tip-directives-with-the-same-name/">提示：具有相同的名称的指令</a></li>
+<li><a href="https://odetocode.com/blogs/scott/archive/2013/09/11/moving-data-in-an-angularjs-directive.aspx">将数据移入一个 AngularJS 指令</a></li>
+<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/09/24/building-a-custom-angularjs-unique-value-directive.aspx">构建自定义 AngularJS 指令的独特价值</a></li>
+<li><a href="https://toddmotto.com/creating-an-angularjs-directive-from-one-of-your-existing-plugins-scripts/">从现有的插件/脚本之一创建 AngularJS 指令</a></li>
+<li><a href="https://jasonmore.net/angular-js-directives-difference-controller-link/">Angular.js 指令 - 控制器和链路之间的区别</a></li>
+<li><a href="https://www.befundoo.com/university/tutorials/angularjs-directives-tutorial/">AngularJS 指令教程</a></li>
+<li><a href="https://seanhess.github.io/2013/10/14/angularjs-directive-design.html">AngularJS 指令设计一点通</a></li>
+<li><a href="https://suhairhassan.com/2013/10/21/refactoring-to-angularjs-directive.html">重构 AngularJS 指令</a></li>
 </ul>
 <h2 id="服务-供应商-Services-Providers"><a href="#服务-供应商-Services-Providers" class="headerlink" title="服务/供应商 Services/Providers"></a>服务/供应商 Services/Providers</h2><ul>
-<li><a href="https://iffycan.blogspot.com/2013/05/angular-service-or-factory.html" target="_blank" rel="noopener">Angular service 还是 factory?</a></li>
-<li><a href="https://blog.jdriven.com/2013/03/how-to-create-singleton-angularjs-services-in-4-different-ways/" target="_blank" rel="noopener">如何在 4 种不同的方式创建 （Singleton） AngularJS 服务</a></li>
-<li><a href="https://sravi-kiran.blogspot.com/2013/03/MovingAjaxCallsToACustomServiceInAngularJS.html" target="_blank" rel="noopener">Angular JS 中移动 AJAX 调用到定制服务</a></li>
-<li><a href="https://angular-tips.com/blog/2013/08/consuming-services/" target="_blank" rel="noopener">消费服务</a></li>
-<li><a href="https://angular-tips.com/blog/2013/08/understanding-service-types/" target="_blank" rel="noopener">了解服务的类型</a></li>
-<li><a href="https://djds4rce.wordpress.com/2013/08/13/understanding-angular-http-interceptors/" target="_blank" rel="noopener">理解 angular \$http 拦截器</a></li>
-<li><a href="https://blog.xebia.com/2013/09/01/differences-between-providers-in-angularjs/" target="_blank" rel="noopener">在 AngularJS 中 provider 供应商之间的差异</a></li>
-<li><a href="https://docs.google.com/document/d/1gkDp8HJU5Hdgse6d0Ol0_nsi9MQulVTbRCkEThW0RRY/edit#" target="_blank" rel="noopener">Angular 的模块：工厂服务，服务，价值，噢，我的天啊</a></li>
+<li><a href="https://iffycan.blogspot.com/2013/05/angular-service-or-factory.html">Angular service 还是 factory?</a></li>
+<li><a href="https://blog.jdriven.com/2013/03/how-to-create-singleton-angularjs-services-in-4-different-ways/">如何在 4 种不同的方式创建 （Singleton） AngularJS 服务</a></li>
+<li><a href="https://sravi-kiran.blogspot.com/2013/03/MovingAjaxCallsToACustomServiceInAngularJS.html">Angular JS 中移动 AJAX 调用到定制服务</a></li>
+<li><a href="https://angular-tips.com/blog/2013/08/consuming-services/">消费服务</a></li>
+<li><a href="https://angular-tips.com/blog/2013/08/understanding-service-types/">了解服务的类型</a></li>
+<li><a href="https://djds4rce.wordpress.com/2013/08/13/understanding-angular-http-interceptors/">理解 angular $http 拦截器</a></li>
+<li><a href="https://blog.xebia.com/2013/09/01/differences-between-providers-in-angularjs/">在 AngularJS 中 provider 供应商之间的差异</a></li>
+<li><a href="https://docs.google.com/document/d/1gkDp8HJU5Hdgse6d0Ol0_nsi9MQulVTbRCkEThW0RRY/edit#">Angular 的模块：工厂服务，服务，价值，噢，我的天啊</a></li>
 </ul>
 <h2 id="路由-Routing"><a href="#路由-Routing" class="headerlink" title="路由 Routing"></a>路由 Routing</h2><ul>
-<li><a href="https://blog.brunoscopelliti.com/how-to-defer-route-definition-in-an-angularjs-web-app" target="_blank" rel="noopener">如何在 AngularJS Web 应用程序中推迟路由定义</a></li>
-<li><a href="https://txt.fliglio.com/2013/05/angularjs-state-management-with-ui-router/" target="_blank" rel="noopener">AngularJS UI 路由器状态管理</a></li>
-<li><a href="https://www.bennadel.com/blog/2441-Nested-Views-Routing-And-Deep-Linking-With-AngularJS.htm" target="_blank" rel="noopener">AngularJS 嵌套视图，路由和深层链接</a></li>
-<li><a href="https://angular-ui.github.io/ui-router/sample/#/" target="_blank" rel="noopener">Angular UI 路由器</a></li>
-<li><a href="https://joelhooks.com/blog/2013/07/22/the-basics-of-using-ui-router-with-angularjs/" target="_blank" rel="noopener">AngularJS 使用 UI 路由器基础</a></li>
-<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/08/14/angularjs-routing-changes.aspx" target="_blank" rel="noopener">**AngularJS 路由变化</a></li>
+<li><a href="https://blog.brunoscopelliti.com/how-to-defer-route-definition-in-an-angularjs-web-app">如何在 AngularJS Web 应用程序中推迟路由定义</a></li>
+<li><a href="https://txt.fliglio.com/2013/05/angularjs-state-management-with-ui-router/">AngularJS UI 路由器状态管理</a></li>
+<li><a href="https://www.bennadel.com/blog/2441-Nested-Views-Routing-And-Deep-Linking-With-AngularJS.htm">AngularJS 嵌套视图，路由和深层链接</a></li>
+<li><a href="https://angular-ui.github.io/ui-router/sample/#/">Angular UI 路由器</a></li>
+<li><a href="https://joelhooks.com/blog/2013/07/22/the-basics-of-using-ui-router-with-angularjs/">AngularJS 使用 UI 路由器基础</a></li>
+<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/08/14/angularjs-routing-changes.aspx">**AngularJS 路由变化</a></li>
 </ul>
 <h2 id="承诺-递延-Promises-Deferred"><a href="#承诺-递延-Promises-Deferred" class="headerlink" title="承诺/递延 Promises/Deferred"></a>承诺/递延 Promises/Deferred</h2><ul>
-<li><a href="https://www.blogeek.com.ar/2013/05/02/enhancing-angular-promises-returning-new-promise-of-field-or-method-called-from-original-promises-result/" target="_blank" rel="noopener">加强 Angular 承诺: 从当初的诺言的结果中返回字段或方法的新的承诺</a></li>
-<li><a href="https://blog.brunoscopelliti.com/angularjs-promise-or-dealing-with-asynchronous-requests-in-angularjs" target="_blank" rel="noopener">AngularJS 承诺，或在 AngularJS 处理异步请求</a></li>
-<li><a href="https://imownbey.github.io/skinny_controllers_for_yeezus.html" target="_blank" rel="noopener">在 AngularJS 中利用 Futures </a></li>
-<li><a href="https://markdalgleish.com/2013/06/using-promises-in-angularjs-views/" target="_blank" rel="noopener">在 AngularJS 视图中使用承诺</a></li>
-<li><a href="https://liamkaufman.com/blog/2013/09/09/using-angularjs-promises/" target="_blank" rel="noopener">使用 AngularJS 承诺</a></li>
-<li><a href="https://blog.brunoscopelliti.com/show-route-only-after-all-promises-are-resolved" target="_blank" rel="noopener">只有在所有的承诺都解决了再显示路由</a></li>
+<li><a href="https://www.blogeek.com.ar/2013/05/02/enhancing-angular-promises-returning-new-promise-of-field-or-method-called-from-original-promises-result/">加强 Angular 承诺: 从当初的诺言的结果中返回字段或方法的新的承诺</a></li>
+<li><a href="https://blog.brunoscopelliti.com/angularjs-promise-or-dealing-with-asynchronous-requests-in-angularjs">AngularJS 承诺，或在 AngularJS 处理异步请求</a></li>
+<li><a href="https://imownbey.github.io/skinny_controllers_for_yeezus.html">在 AngularJS 中利用 Futures </a></li>
+<li><a href="https://markdalgleish.com/2013/06/using-promises-in-angularjs-views/">在 AngularJS 视图中使用承诺</a></li>
+<li><a href="https://liamkaufman.com/blog/2013/09/09/using-angularjs-promises/">使用 AngularJS 承诺</a></li>
+<li><a href="https://blog.brunoscopelliti.com/show-route-only-after-all-promises-are-resolved">只有在所有的承诺都解决了再显示路由</a></li>
 </ul>
 <h2 id="表单-Forms"><a href="#表单-Forms" class="headerlink" title="表单 Forms"></a>表单 Forms</h2><ul>
-<li><a href="https://blog.brunoscopelliti.com/form-validation-the-angularjs-way" target="_blank" rel="noopener">AngularJS 表单验证</a></li>
-<li><a href="https://blog.brunoscopelliti.com/angularjs-directive-to-test-the-strength-of-a-password" target="_blank" rel="noopener">AngularJS 指令来测试密码强度</a></li>
-<li><a href="https://blog.brunoscopelliti.com/angularjs-directive-to-check-that-passwords-match" target="_blank" rel="noopener">AngularJS 指令来检查密码是否匹配</a></li>
-<li><a href="https://www.bennadel.com/blog/2452-Mixing-Static-And-Dynamic-Data-In-An-AngularJS-Select-Menu.htm" target="_blank" rel="noopener">在 AngularJS 选择菜单中混合静态和动态数据</a></li>
-<li><a href="https://www.grobmeier.de/angular-js-ng-select-and-ng-options-21112012.html" target="_blank" rel="noopener">Angular.js: ng-select 和 ng-options</a></li>
-<li><a href="https://www.grobmeier.de/angular-js-autocomplete-and-enabling-a-form-with-watch-and-blur-19112012.html" target="_blank" rel="noopener">Angular.js: 用 \$watch 和 blur 自动完成和启用表单</a></li>
-<li><a href="https://kazimanzurrashid.com/posts/create-angularjs-directives-to-remove-duplicate-codes-in-form" target="_blank" rel="noopener">创建 AngularJS 指令在表格中来删除重复的代码</a></li>
-<li><a href="https://www.bennadel.com/blog/2468-Forced-Repaints-In-Directive-Can-Cause-Accidental-Scrolling-In-AngularJS.htm" target="_blank" rel="noopener">In AngularJS 在指令中强制重绘会导致意外滚动</a></li>
-<li><a href="https://odetocode.com/blogs/scott/archive/2013/06/19/using-ngoptions-in-angularjs.aspx" target="_blank" rel="noopener">在 AngularJS 中使用 ngOptions</a></li>
-<li><a href="https://sravi-kiran.blogspot.com/2013/06/ShowingValidationMessagesInBulkWhileValidatingFormUsingAngularJS.html" target="_blank" rel="noopener">用 Angular JS 验证表单显示大量验证消息</a></li>
-<li><a href="https://blog.brunoscopelliti.com/a-directive-to-manage-file-upload-in-an-angularjs-application" target="_blank" rel="noopener">在 AngularJS 应用程序管理文件上传的指令</a></li>
-<li><a href="https://odetocode.com/blogs/scott/archive/2013/06/25/radio-buttons-with-angularjs.aspx" target="_blank" rel="noopener">AngularJS 单选按钮</a></li>
-<li><a href="https://shazwazza.com/post/Reference-the-current-form-controller-in-AngularJS" target="_blank" rel="noopener">AngularJS Referece 当前的 FormController</a></li>
-<li><a href="https://shazwazza.com/post/Listening-for-validation-changes-in-AngularJS" target="_blank" rel="noopener">在 AngularJS 中监听变化的验证</a></li>
-<li><a href="https://www.bennadel.com/blog/2492-What-A-Select-watch-Teaches-Me-About-ngModel-And-AngularJS.htm" target="_blank" rel="noopener">A Select \$watch() 教我关于 ngModel 和 AngularJS</a></li>
-<li><a href="https://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/" target="_blank" rel="noopener">最前沿的：高级 AngularJS 表单验证</a></li>
-<li><a href="https://aboutcode.net/2013/07/13/twitter-bootstrap-control-group-directive-for-angularjs.html" target="_blank" rel="noopener">Twitter Bootstrap control-group directive for AngularJS</a></li>
-<li><a href="https://blog.codebrag.com/post/57412530001/preventing-duplicated-requests-in-angularjs" target="_blank" rel="noopener">在 AngularJS 中防止重复的请求</a></li>
-<li><a href="https://blog.jasoncust.com/2013/08/angularjs-missing-directives-native.html" target="_blank" rel="noopener">AngularJS 缺少的指令：原表单复位</a></li>
-<li><a href="https://blog.jasoncust.com/2013/08/angularjs-missing-directives-focus-blur_14.html" target="_blank" rel="noopener">**AngularJS 缺少的指令：焦点和模糊</a></li>
-<li><a href="https://www.benlesh.com/2013/03/angular-js-validating-form-elements-in.html" target="_blank" rel="noopener">Angular JS: 重复验证表单元素</a></li>
-<li><a href="https://www.benlesh.com/2012/12/angular-js-custom-validation-via.html" target="_blank" rel="noopener">Angular JS: 通过指令自定义验证</a></li>
-<li><a href="https://www.benlesh.com/2012/11/angular-js-form-validation.html" target="_blank" rel="noopener">Angular JS: 表单验证</a></li>
-<li><a href="https://www.ng-newsletter.com/posts/validations.html" target="_blank" rel="noopener">深入学习表单验证</a></li>
-<li><a href="https://jeremymarc.github.io/2013/08/20/ng-model-and-custom-form-validation/" target="_blank" rel="noopener">Ng-model 和自定义表单验证</a></li>
-<li><a href="https://www.amitavroy.com/justread/content/articles/angular-js-ajax-dropdowns-date-picker-and-saving-data" target="_blank" rel="noopener">Angular JS Ajax 下拉菜单，日期选择器和保存数据</a></li>
-<li><a href="https://mrbool.com/the-concepts-of-angularjs-forms/29117" target="_blank" rel="noopener">AngularJS 表单的概念</a></li>
+<li><a href="https://blog.brunoscopelliti.com/form-validation-the-angularjs-way">AngularJS 表单验证</a></li>
+<li><a href="https://blog.brunoscopelliti.com/angularjs-directive-to-test-the-strength-of-a-password">AngularJS 指令来测试密码强度</a></li>
+<li><a href="https://blog.brunoscopelliti.com/angularjs-directive-to-check-that-passwords-match">AngularJS 指令来检查密码是否匹配</a></li>
+<li><a href="https://www.bennadel.com/blog/2452-Mixing-Static-And-Dynamic-Data-In-An-AngularJS-Select-Menu.htm">在 AngularJS 选择菜单中混合静态和动态数据</a></li>
+<li><a href="https://www.grobmeier.de/angular-js-ng-select-and-ng-options-21112012.html">Angular.js: ng-select 和 ng-options</a></li>
+<li><a href="https://www.grobmeier.de/angular-js-autocomplete-and-enabling-a-form-with-watch-and-blur-19112012.html">Angular.js: 用 $watch 和 blur 自动完成和启用表单</a></li>
+<li><a href="https://kazimanzurrashid.com/posts/create-angularjs-directives-to-remove-duplicate-codes-in-form">创建 AngularJS 指令在表格中来删除重复的代码</a></li>
+<li><a href="https://www.bennadel.com/blog/2468-Forced-Repaints-In-Directive-Can-Cause-Accidental-Scrolling-In-AngularJS.htm">In AngularJS 在指令中强制重绘会导致意外滚动</a></li>
+<li><a href="https://odetocode.com/blogs/scott/archive/2013/06/19/using-ngoptions-in-angularjs.aspx">在 AngularJS 中使用 ngOptions</a></li>
+<li><a href="https://sravi-kiran.blogspot.com/2013/06/ShowingValidationMessagesInBulkWhileValidatingFormUsingAngularJS.html">用 Angular JS 验证表单显示大量验证消息</a></li>
+<li><a href="https://blog.brunoscopelliti.com/a-directive-to-manage-file-upload-in-an-angularjs-application">在 AngularJS 应用程序管理文件上传的指令</a></li>
+<li><a href="https://odetocode.com/blogs/scott/archive/2013/06/25/radio-buttons-with-angularjs.aspx">AngularJS 单选按钮</a></li>
+<li><a href="https://shazwazza.com/post/Reference-the-current-form-controller-in-AngularJS">AngularJS Referece 当前的 FormController</a></li>
+<li><a href="https://shazwazza.com/post/Listening-for-validation-changes-in-AngularJS">在 AngularJS 中监听变化的验证</a></li>
+<li><a href="https://www.bennadel.com/blog/2492-What-A-Select-watch-Teaches-Me-About-ngModel-And-AngularJS.htm">A Select $watch() 教我关于 ngModel 和 AngularJS</a></li>
+<li><a href="https://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/">最前沿的：高级 AngularJS 表单验证</a></li>
+<li><a href="https://aboutcode.net/2013/07/13/twitter-bootstrap-control-group-directive-for-angularjs.html">Twitter Bootstrap control-group directive for AngularJS</a></li>
+<li><a href="https://blog.codebrag.com/post/57412530001/preventing-duplicated-requests-in-angularjs">在 AngularJS 中防止重复的请求</a></li>
+<li><a href="https://blog.jasoncust.com/2013/08/angularjs-missing-directives-native.html">AngularJS 缺少的指令：原表单复位</a></li>
+<li><a href="https://blog.jasoncust.com/2013/08/angularjs-missing-directives-focus-blur_14.html">**AngularJS 缺少的指令：焦点和模糊</a></li>
+<li><a href="https://www.benlesh.com/2013/03/angular-js-validating-form-elements-in.html">Angular JS: 重复验证表单元素</a></li>
+<li><a href="https://www.benlesh.com/2012/12/angular-js-custom-validation-via.html">Angular JS: 通过指令自定义验证</a></li>
+<li><a href="https://www.benlesh.com/2012/11/angular-js-form-validation.html">Angular JS: 表单验证</a></li>
+<li><a href="https://www.ng-newsletter.com/posts/validations.html">深入学习表单验证</a></li>
+<li><a href="https://jeremymarc.github.io/2013/08/20/ng-model-and-custom-form-validation/">Ng-model 和自定义表单验证</a></li>
+<li><a href="https://www.amitavroy.com/justread/content/articles/angular-js-ajax-dropdowns-date-picker-and-saving-data">Angular JS Ajax 下拉菜单，日期选择器和保存数据</a></li>
+<li><a href="https://mrbool.com/the-concepts-of-angularjs-forms/29117">AngularJS 表单的概念</a></li>
 </ul>
 <h2 id="认证-Authentication"><a href="#认证-Authentication" class="headerlink" title="认证 Authentication"></a>认证 Authentication</h2><ul>
-<li><a href="https://blog.brunoscopelliti.com/deal-with-users-authentication-in-an-angularjs-web-app" target="_blank" rel="noopener">AngularJS Web 应用程序处理用户身份验证</a></li>
-<li><a href="https://www.frederiknakstad.com/authentication-in-single-page-applications-with-angular-js/" target="_blank" rel="noopener">Angular.js 单页应用程序验证</a></li>
-<li><a href="https://arthur.gonigberg.com/2013/06/29/angularjs-role-based-auth/" target="_blank" rel="noopener">AngularJS – 快速的基于角色的认证</a></li>
-<li><a href="https://vickev.com/#!/article/authentication-in-single-page-applications-node-js-passportjs-angularjs" target="_blank" rel="noopener">单页应用验证</a></li>
+<li><a href="https://blog.brunoscopelliti.com/deal-with-users-authentication-in-an-angularjs-web-app">AngularJS Web 应用程序处理用户身份验证</a></li>
+<li><a href="https://www.frederiknakstad.com/authentication-in-single-page-applications-with-angular-js/">Angular.js 单页应用程序验证</a></li>
+<li><a href="https://arthur.gonigberg.com/2013/06/29/angularjs-role-based-auth/">AngularJS – 快速的基于角色的认证</a></li>
+<li><a href="https://vickev.com/#!/article/authentication-in-single-page-applications-node-js-passportjs-angularjs">单页应用验证</a></li>
 </ul>
 <h2 id="Collections-amp-ngRepeat-Stuff"><a href="#Collections-amp-ngRepeat-Stuff" class="headerlink" title="Collections (&amp; ngRepeat Stuff)"></a>Collections (&amp; ngRepeat Stuff)</h2><ul>
-<li><a href="https://www.bennadel.com/blog/2485-Working-With-Inherited-Collections-In-AngularJS.htm" target="_blank" rel="noopener">使用 AngularJS 继承来的 Collection</a></li>
-<li><a href="https://www.bennadel.com/blog/2451-Adding-An-ngRepeat-List-Delimiter-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中 添加 ngRepeat 列表分隔符</a></li>
-<li><a href="https://www.bennadel.com/blog/2456-Grouping-Nested-ngRepeat-Lists-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中分组嵌套 ngRepeat 列表</a></li>
-<li><a href="https://www.bennadel.com/blog/2450-Using-ngController-With-ngRepeat-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中使用 ngController 和 ngRepeat</a></li>
-<li><a href="https://www.bennadel.com/blog/2443-Rendering-DOM-Elements-With-ngRepeat-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中通过 ngRepeat 渲染 DOM 元素</a></li>
+<li><a href="https://www.bennadel.com/blog/2485-Working-With-Inherited-Collections-In-AngularJS.htm">使用 AngularJS 继承来的 Collection</a></li>
+<li><a href="https://www.bennadel.com/blog/2451-Adding-An-ngRepeat-List-Delimiter-In-AngularJS.htm">在 AngularJS 中 添加 ngRepeat 列表分隔符</a></li>
+<li><a href="https://www.bennadel.com/blog/2456-Grouping-Nested-ngRepeat-Lists-In-AngularJS.htm">在 AngularJS 中分组嵌套 ngRepeat 列表</a></li>
+<li><a href="https://www.bennadel.com/blog/2450-Using-ngController-With-ngRepeat-In-AngularJS.htm">在 AngularJS 中使用 ngController 和 ngRepeat</a></li>
+<li><a href="https://www.bennadel.com/blog/2443-Rendering-DOM-Elements-With-ngRepeat-In-AngularJS.htm">在 AngularJS 中通过 ngRepeat 渲染 DOM 元素</a></li>
 </ul>
 <h2 id="原始码组织架构-Code-Organization"><a href="#原始码组织架构-Code-Organization" class="headerlink" title="原始码组织架构 Code Organization"></a>原始码组织架构 Code Organization</h2><ul>
-<li><a href="https://briantford.com/blog/huuuuuge-angular-apps.html" target="_blank" rel="noopener">用 AngularJS 开发超大的应用程序</a></li>
-<li><a href="https://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript" target="_blank" rel="noopener">大 AngularJS 和 JavaScript 的应用的代码组织</a></li>
-<li><a href="https://www.blogeek.com.ar/2013/05/18/proposed-angulars-project-structure/" target="_blank" rel="noopener">Angular 应用程序的网页结构构想</a></li>
-<li><a href="https://www.blogeek.com.ar/2013/03/23/the-right-way-of-coding-angularjs-how-to-organize-a-regular-webapp/" target="_blank" rel="noopener">如何组织一个普通 Web 应用程序： 编码 AngularJS 的正确方法。基本示例</a></li>
-<li><a href="https://codingsmackdown.tv/blog/2013/04/19/angularjs-modules-for-great-justice/" target="_blank" rel="noopener">AngularJS 模块</a></li>
-<li><a href="https://github.com/Nikku/requirejs-angular-define" target="_blank" rel="noopener">ngDefine: AngularJS &amp; RequireJS</a></li>
-<li><a href="https://clintberry.com/2013/modular-angularjs-application-design/" target="_blank" rel="noopener">模块化 AngularJS 应用设计</a></li>
-<li><a href="https://solutionoptimist.com/2013/09/30/requirejs-angularjs-dependency-injection/" target="_blank" rel="noopener">在 AngularJS DI 中使用 RequireJS</a></li>
+<li><a href="https://briantford.com/blog/huuuuuge-angular-apps.html">用 AngularJS 开发超大的应用程序</a></li>
+<li><a href="https://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript">大 AngularJS 和 JavaScript 的应用的代码组织</a></li>
+<li><a href="https://www.blogeek.com.ar/2013/05/18/proposed-angulars-project-structure/">Angular 应用程序的网页结构构想</a></li>
+<li><a href="https://www.blogeek.com.ar/2013/03/23/the-right-way-of-coding-angularjs-how-to-organize-a-regular-webapp/">如何组织一个普通 Web 应用程序： 编码 AngularJS 的正确方法。基本示例</a></li>
+<li><a href="https://codingsmackdown.tv/blog/2013/04/19/angularjs-modules-for-great-justice/">AngularJS 模块</a></li>
+<li><a href="https://github.com/Nikku/requirejs-angular-define">ngDefine: AngularJS &amp; RequireJS</a></li>
+<li><a href="https://clintberry.com/2013/modular-angularjs-application-design/">模块化 AngularJS 应用设计</a></li>
+<li><a href="https://solutionoptimist.com/2013/09/30/requirejs-angularjs-dependency-injection/">在 AngularJS DI 中使用 RequireJS</a></li>
 </ul>
 <h2 id="测试-Testing"><a href="#测试-Testing" class="headerlink" title="测试 Testing"></a>测试 Testing</h2><ul>
-<li><a href="https://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-testacular.html" target="_blank" rel="noopener">用 AngularJS 和 Testacular 进行全频谱测试</a></li>
-<li><a href="https://codingsmackdown.tv/blog/2012/12/28/mocking-promises-in-unit-tests/" target="_blank" rel="noopener">在单元测试中 Mocking 承诺</a></li>
-<li><a href="https://newtriks.com/2013/04/26/how-to-test-an-angularjs-directive/" target="_blank" rel="noopener">如何测试 AngularJS 指令</a></li>
-<li><a href="https://sravi-kiran.blogspot.com/2013/04/UnitTestingAngularJsControllerUsingJasmine.html" target="_blank" rel="noopener">用 Jasmine 单元测试 AngularJS 控制器</a></li>
-<li><a href="https://sravi-kiran.blogspot.com/2013/06/UnitTestingAngularJsControllerUsingQUnitAndSinon.html" target="_blank" rel="noopener">使用 QUnit 和 Sinon 单元测试 AngularJS 控制器</a></li>
-<li><a href="https://www.portlandwebworks.com/blog/testing-angularjs-directives-handling-external-templates" target="_blank" rel="noopener">测试 AngularJS Directive： 处理外部模板</a></li>
-<li><a href="https://www.alexrothenberg.com/2013/08/06/how-to-unit-test-an-angular-app.html" target="_blank" rel="noopener">如何进行 Angular 应用程序的单元测试</a></li>
-<li><a href="https://www.benlesh.com/2013/06/angular-js-unit-testing-directives.html" target="_blank" rel="noopener">单元测试 - 指令 Directives</a></li>
-<li><a href="https://www.benlesh.com/2013/06/angular-js-unit-testing-services.html" target="_blank" rel="noopener">单元测试 - 服务</a></li>
-<li><a href="https://www.benlesh.com/2013/05/angularjs-unit-testing-controllers.html" target="_blank" rel="noopener">单元测试 - 控制器</a></li>
-<li><a href="https://flippinawesome.org/2013/09/09/mocking-server-dependencies-in-javascript-and-angularjs/" target="_blank" rel="noopener">在 JavaScript 和 AngularJS 中 mock 服务器依赖性</a></li>
-<li><a href="https://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html" target="_blank" rel="noopener">AngularJS 先进的测试和调试的</a></li>
-<li><a href="https://andyshora.com/unit-testing-best-practices-angularjs.html" target="_blank" rel="noopener">AngularJS 单元测试的最佳实践</a></li>
-<li><a href="https://blogs.mulesoft.org/angularjs-using-decorators-for-unit-testing/" target="_blank" rel="noopener">在 AngularJS 中装饰你的测试</a></li>
+<li><a href="https://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-testacular.html">用 AngularJS 和 Testacular 进行全频谱测试</a></li>
+<li><a href="https://codingsmackdown.tv/blog/2012/12/28/mocking-promises-in-unit-tests/">在单元测试中 Mocking 承诺</a></li>
+<li><a href="https://newtriks.com/2013/04/26/how-to-test-an-angularjs-directive/">如何测试 AngularJS 指令</a></li>
+<li><a href="https://sravi-kiran.blogspot.com/2013/04/UnitTestingAngularJsControllerUsingJasmine.html">用 Jasmine 单元测试 AngularJS 控制器</a></li>
+<li><a href="https://sravi-kiran.blogspot.com/2013/06/UnitTestingAngularJsControllerUsingQUnitAndSinon.html">使用 QUnit 和 Sinon 单元测试 AngularJS 控制器</a></li>
+<li><a href="https://www.portlandwebworks.com/blog/testing-angularjs-directives-handling-external-templates">测试 AngularJS Directive： 处理外部模板</a></li>
+<li><a href="https://www.alexrothenberg.com/2013/08/06/how-to-unit-test-an-angular-app.html">如何进行 Angular 应用程序的单元测试</a></li>
+<li><a href="https://www.benlesh.com/2013/06/angular-js-unit-testing-directives.html">单元测试 - 指令 Directives</a></li>
+<li><a href="https://www.benlesh.com/2013/06/angular-js-unit-testing-services.html">单元测试 - 服务</a></li>
+<li><a href="https://www.benlesh.com/2013/05/angularjs-unit-testing-controllers.html">单元测试 - 控制器</a></li>
+<li><a href="https://flippinawesome.org/2013/09/09/mocking-server-dependencies-in-javascript-and-angularjs/">在 JavaScript 和 AngularJS 中 mock 服务器依赖性</a></li>
+<li><a href="https://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html">AngularJS 先进的测试和调试的</a></li>
+<li><a href="https://andyshora.com/unit-testing-best-practices-angularjs.html">AngularJS 单元测试的最佳实践</a></li>
+<li><a href="https://blogs.mulesoft.org/angularjs-using-decorators-for-unit-testing/">在 AngularJS 中装饰你的测试</a></li>
 </ul>
 <h2 id="RESTful-Stuff"><a href="#RESTful-Stuff" class="headerlink" title="RESTful Stuff"></a>RESTful Stuff</h2><ul>
-<li><a href="https://www.bennadel.com/blog/2433-Using-RESTful-Controllers-In-An-AngularJS-Resource.htm" target="_blank" rel="noopener">在 AngularJS 资源中使用 REST 风格的控制器</a></li>
-<li><a href="https://www.blogeek.com.ar/2013/04/09/restangular-new-angular-framework-to-handle-restful-resources-properly-and-easily/" target="_blank" rel="noopener">Restangular: 新 AngularJS 框架来适当地，轻松地处理 REST API REST 风格的资源</a></li>
-<li><a href="https://www.blogeek.com.ar/2013/04/26/new-features-on-restangular-the-ultimate-rest-api-client-for-angularjs/" target="_blank" rel="noopener">Restangular 新功能: 针对 Angular 的终极 REST API 客户端</a></li>
-<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/08/16/using-an-angularjs-factory-to-interact-with-a-restful-service.aspx" target="_blank" rel="noopener">使用 AngularJS 厂服务与 RESTful 服务实现互动</a></li>
-<li><a href="https://blog.brunoscopelliti.com/authentication-to-a-restful-web-service-in-an-angularjs-web-app" target="_blank" rel="noopener">在 AngularJS web 应用程序中实现一个 REST 风格的 Web 服务身份验证</a></li>
+<li><a href="https://www.bennadel.com/blog/2433-Using-RESTful-Controllers-In-An-AngularJS-Resource.htm">在 AngularJS 资源中使用 REST 风格的控制器</a></li>
+<li><a href="https://www.blogeek.com.ar/2013/04/09/restangular-new-angular-framework-to-handle-restful-resources-properly-and-easily/">Restangular: 新 AngularJS 框架来适当地，轻松地处理 REST API REST 风格的资源</a></li>
+<li><a href="https://www.blogeek.com.ar/2013/04/26/new-features-on-restangular-the-ultimate-rest-api-client-for-angularjs/">Restangular 新功能: 针对 Angular 的终极 REST API 客户端</a></li>
+<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/08/16/using-an-angularjs-factory-to-interact-with-a-restful-service.aspx">使用 AngularJS 厂服务与 RESTful 服务实现互动</a></li>
+<li><a href="https://blog.brunoscopelliti.com/authentication-to-a-restful-web-service-in-an-angularjs-web-app">在 AngularJS web 应用程序中实现一个 REST 风格的 Web 服务身份验证</a></li>
 </ul>
 <h2 id="本地化-Localization"><a href="#本地化-Localization" class="headerlink" title="本地化 Localization"></a>本地化 Localization</h2><ul>
-<li><a href="https://codingsmackdown.tv/blog/2013/04/23/localizing-your-angularjs-apps-update/" target="_blank" rel="noopener">Localizing Your AngularJS Apps</a></li>
-<li><a href="https://blog.brunoscopelliti.com/internazionalization-i18n-with-angularjs" target="_blank" rel="noopener">Internazionalization (i18n) with AngularJS</a></li>
-<li><a href="https://coderwall.com/p/uyrtpq" target="_blank" rel="noopener">AngularJS And i18n</a></li>
+<li><a href="https://codingsmackdown.tv/blog/2013/04/23/localizing-your-angularjs-apps-update/">Localizing Your AngularJS Apps</a></li>
+<li><a href="https://blog.brunoscopelliti.com/internazionalization-i18n-with-angularjs">Internazionalization (i18n) with AngularJS</a></li>
+<li><a href="https://coderwall.com/p/uyrtpq">AngularJS And i18n</a></li>
 </ul>
 <h2 id="界面-UI-Stuff"><a href="#界面-UI-Stuff" class="headerlink" title="界面 UI Stuff"></a>界面 UI Stuff</h2><ul>
-<li><a href="https://angular-ui.github.io/" target="_blank" rel="noopener">Angular UI 套件（包括一些子项目）</a></li>
-<li><a href="https://www.yearofmoo.com/2013/04/animation-in-angularjs.html" target="_blank" rel="noopener">AngularJS 动画</a></li>
-<li><a href="https://www.yearofmoo.com/2013/05/enhanced-animations-in-angularjs.html" target="_blank" rel="noopener">在 AngularJS 增强的动画功能</a></li>
-<li><a href="https://www.befundoo.com/blog/angularjs-popup-dialog/" target="_blank" rel="noopener">可重复使用的 AngularJS 弹出的对话框中服务</a></li>
-<li><a href="https://www.bennadel.com/blog/2440-Creating-A-Custom-Show-Hide-Directive-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中创建自定义显示/隐藏 Directive </a></li>
-<li><a href="https://www.grobmeier.de/bootstrap-tabs-with-angular-js-25112012.html" target="_blank" rel="noopener">在 Angular.js 中实现 Bootstrap Tabs</a></li>
-<li><a href="https://codingsmackdown.tv/blog/2013/01/02/using-response-interceptors-to-show-and-hide-a-loading-widget/" target="_blank" rel="noopener">使用拦截器的响应显示和隐藏一个装载小工具</a></li>
-<li><a href="https://hueypetersen.com/posts/2013/06/24/typeahead-with-angular/" target="_blank" rel="noopener">用 AngularJS 建立一个 Typeahead Directive </a></li>
-<li><a href="https://fundoo-solutions.github.io/angularjs-modal-service/" target="_blank" rel="noopener">AngularJS Modal 服务</a></li>
-<li><a href="https://www.bennadel.com/blog/2497-Cross-Fading-Images-With-AngularJS.htm" target="_blank" rel="noopener">AngularJS 中实现交叉衰落图像</a></li>
-<li><a href="https://dailyjs.com/2013/06/07/angular-svg/" target="_blank" rel="noopener">AngularJS 和 SVG</a></li>
-<li><a href="https://jjperezaguinaga.wordpress.com/2013/07/16/angularjs-scroll-animations/" target="_blank" rel="noopener">AngularJS: 滚动动画</a></li>
-<li><a href="https://flippinawesome.org/2013/08/05/animating-with-angularjs/" target="_blank" rel="noopener">AngularJS 动画</a></li>
-<li><a href="https://buildinternet.com/2013/08/drag-and-drop-file-upload-with-angularjs/" target="_blank" rel="noopener">用 AngularJS 实现拖放文件上传</a></li>
-<li><a href="https://www.yearofmoo.com/2013/08/remastered-animation-in-angularjs-1-2.html" target="_blank" rel="noopener">**在 AngularJS 1.2 中重新掌握动画</a></li>
-<li><a href="https://www.benlesh.com/2013/02/angular-js-scrolling-to-element-by-id.html" target="_blank" rel="noopener">Angular JS - 通过 ID 滚动到某个元素</a></li>
-<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/08/19/building-an-angularjs-dialog-service.aspx" target="_blank" rel="noopener">构建 AngularJS 对话服务</a></li>
-<li><a href="https://www.johnpapa.net/preparing-for-animations-in-angular-1-2-0/" target="_blank" rel="noopener">**在 Angular 1.2.0 中准备使用动画</a></li>
-<li><a href="https://www.exratione.com/2013/09/replacing-jqueryslidedown-with-nganimate-in-angularjs-120/" target="_blank" rel="noopener">**在 AngularJS 1.2.0 中用 ngAnimate 替换 jQuery.slideDown()</a></li>
-<li><a href="https://veamospues.wordpress.com/2013/10/13/angularjs-blurred-image-directive/" target="_blank" rel="noopener">AngularJS: 模糊图像 directive</a></li>
-<li><a href="https://julienrenaux.fr/2013/10/27/create-a-load-more-widget-using-angularjs-ajax-and-bootstrap-3/" target="_blank" rel="noopener">使用 AngularJS，Ajax 和 Bootstrap 3 来建立一个“加载更多”小工具</a></li>
+<li><a href="https://angular-ui.github.io/">Angular UI 套件（包括一些子项目）</a></li>
+<li><a href="https://www.yearofmoo.com/2013/04/animation-in-angularjs.html">AngularJS 动画</a></li>
+<li><a href="https://www.yearofmoo.com/2013/05/enhanced-animations-in-angularjs.html">在 AngularJS 增强的动画功能</a></li>
+<li><a href="https://www.befundoo.com/blog/angularjs-popup-dialog/">可重复使用的 AngularJS 弹出的对话框中服务</a></li>
+<li><a href="https://www.bennadel.com/blog/2440-Creating-A-Custom-Show-Hide-Directive-In-AngularJS.htm">在 AngularJS 中创建自定义显示/隐藏 Directive </a></li>
+<li><a href="https://www.grobmeier.de/bootstrap-tabs-with-angular-js-25112012.html">在 Angular.js 中实现 Bootstrap Tabs</a></li>
+<li><a href="https://codingsmackdown.tv/blog/2013/01/02/using-response-interceptors-to-show-and-hide-a-loading-widget/">使用拦截器的响应显示和隐藏一个装载小工具</a></li>
+<li><a href="https://hueypetersen.com/posts/2013/06/24/typeahead-with-angular/">用 AngularJS 建立一个 Typeahead Directive </a></li>
+<li><a href="https://fundoo-solutions.github.io/angularjs-modal-service/">AngularJS Modal 服务</a></li>
+<li><a href="https://www.bennadel.com/blog/2497-Cross-Fading-Images-With-AngularJS.htm">AngularJS 中实现交叉衰落图像</a></li>
+<li><a href="https://dailyjs.com/2013/06/07/angular-svg/">AngularJS 和 SVG</a></li>
+<li><a href="https://jjperezaguinaga.wordpress.com/2013/07/16/angularjs-scroll-animations/">AngularJS: 滚动动画</a></li>
+<li><a href="https://flippinawesome.org/2013/08/05/animating-with-angularjs/">AngularJS 动画</a></li>
+<li><a href="https://buildinternet.com/2013/08/drag-and-drop-file-upload-with-angularjs/">用 AngularJS 实现拖放文件上传</a></li>
+<li><a href="https://www.yearofmoo.com/2013/08/remastered-animation-in-angularjs-1-2.html">**在 AngularJS 1.2 中重新掌握动画</a></li>
+<li><a href="https://www.benlesh.com/2013/02/angular-js-scrolling-to-element-by-id.html">Angular JS - 通过 ID 滚动到某个元素</a></li>
+<li><a href="https://weblogs.asp.net/dwahlin/archive/2013/08/19/building-an-angularjs-dialog-service.aspx">构建 AngularJS 对话服务</a></li>
+<li><a href="https://www.johnpapa.net/preparing-for-animations-in-angular-1-2-0/">**在 Angular 1.2.0 中准备使用动画</a></li>
+<li><a href="https://www.exratione.com/2013/09/replacing-jqueryslidedown-with-nganimate-in-angularjs-120/">**在 AngularJS 1.2.0 中用 ngAnimate 替换 jQuery.slideDown()</a></li>
+<li><a href="https://veamospues.wordpress.com/2013/10/13/angularjs-blurred-image-directive/">AngularJS: 模糊图像 directive</a></li>
+<li><a href="https://julienrenaux.fr/2013/10/27/create-a-load-more-widget-using-angularjs-ajax-and-bootstrap-3/">使用 AngularJS，Ajax 和 Bootstrap 3 来建立一个“加载更多”小工具</a></li>
 </ul>
 <h2 id="整合其他语言-框架-Integration-With-Other-Languages-Frameworks"><a href="#整合其他语言-框架-Integration-With-Other-Languages-Frameworks" class="headerlink" title="整合其他语言/框架 Integration With Other Languages/Frameworks"></a>整合其他语言/框架 Integration With Other Languages/Frameworks</h2><ul>
-<li><a href="https://notebookheavy.com/2013/05/22/angularjs-and-typescript/" target="_blank" rel="noopener">AngularJS 和 TypeScript</a></li>
-<li><a href="https://spiiice.net/using-angularjs-and-d3-to-create-a-wordcloud-directive/" target="_blank" rel="noopener">用 AngularJS 和 D3 来建立一个 WordCloud Directive</a></li>
-<li><a href="https://www.bennadel.com/blog/2448-Using-jQuery-Event-Delegation-In-AngularJS.htm" target="_blank" rel="noopener">在 AngularJS 中用 jQuery Event Delegation </a></li>
-<li><a href="https://sravi-kiran.blogspot.in/2013/05/HookingUpAspNetSignalRWithAngularJS.html" target="_blank" rel="noopener">Hooking up ASP.NET SignalR with Angular JS</a></li>
-<li><a href="https://blog.brunoscopelliti.com/facebook-authentication-in-your-angularjs-web-app" target="_blank" rel="noopener">在你的 AngularJS 应用程序进行 Facebook 的身份验证</a></li>
-<li><a href="https://newtriks.com/2013/06/11/automating-angularjs-with-yeoman-grunt-and-bower/" target="_blank" rel="noopener">用 Yeoman, Grunt &amp; Bower 来全面自动化你的 Angular 开发过程</a></li>
-<li><a href="https://briantford.com/blog/angular-bower.html" target="_blank" rel="noopener">用 Bower 编写可重用的 AngularJS 组件</a></li>
-<li><a href="https://wbyoko.co/angularjs/angularjs-google-maps-components.html" target="_blank" rel="noopener">用 ngularJS 开发谷歌地图的组件</a></li>
-<li><a href="https://mircozeiss.com/sync-multiple-angularjs-apps-without-server-via-pouchdb/" target="_blank" rel="noopener">无需服务器来通过 PouchDB 来同步多个 AngularJS 应用程序</a></li>
-<li><a href="https://mircozeiss.com/building-offline-applications-with-angularjs-and-pouchdb/" target="_blank" rel="noopener">用 AngularJS 和 PouchDB 构建离线应用</a></li>
-<li><a href="https://shellycloud.com/blog/2013/10/how-to-integrate-angularjs-with-rails-4" target="_blank" rel="noopener">如何 AngularJS 和 Rails 集成 4</a></li>
+<li><a href="https://notebookheavy.com/2013/05/22/angularjs-and-typescript/">AngularJS 和 TypeScript</a></li>
+<li><a href="https://spiiice.net/using-angularjs-and-d3-to-create-a-wordcloud-directive/">用 AngularJS 和 D3 来建立一个 WordCloud Directive</a></li>
+<li><a href="https://www.bennadel.com/blog/2448-Using-jQuery-Event-Delegation-In-AngularJS.htm">在 AngularJS 中用 jQuery Event Delegation </a></li>
+<li><a href="https://sravi-kiran.blogspot.in/2013/05/HookingUpAspNetSignalRWithAngularJS.html">Hooking up ASP.NET SignalR with Angular JS</a></li>
+<li><a href="https://blog.brunoscopelliti.com/facebook-authentication-in-your-angularjs-web-app">在你的 AngularJS 应用程序进行 Facebook 的身份验证</a></li>
+<li><a href="https://newtriks.com/2013/06/11/automating-angularjs-with-yeoman-grunt-and-bower/">用 Yeoman, Grunt &amp; Bower 来全面自动化你的 Angular 开发过程</a></li>
+<li><a href="https://briantford.com/blog/angular-bower.html">用 Bower 编写可重用的 AngularJS 组件</a></li>
+<li><a href="https://wbyoko.co/angularjs/angularjs-google-maps-components.html">用 ngularJS 开发谷歌地图的组件</a></li>
+<li><a href="https://mircozeiss.com/sync-multiple-angularjs-apps-without-server-via-pouchdb/">无需服务器来通过 PouchDB 来同步多个 AngularJS 应用程序</a></li>
+<li><a href="https://mircozeiss.com/building-offline-applications-with-angularjs-and-pouchdb/">用 AngularJS 和 PouchDB 构建离线应用</a></li>
+<li><a href="https://shellycloud.com/blog/2013/10/how-to-integrate-angularjs-with-rails-4">如何 AngularJS 和 Rails 集成 4</a></li>
 </ul>
 <h2 id="后端代管-Hosted-Backends"><a href="#后端代管-Hosted-Backends" class="headerlink" title="后端代管 Hosted Backends"></a>后端代管 Hosted Backends</h2><ul>
-<li><a href="https://brandid.github.io/parse-angular-demo/#/features" target="_blank" rel="noopener">Parse.com boilerplate 建设大型，复杂 AngularJS 应用</a></li>
-<li><a href="https://github.com/firebase/angularFire" target="_blank" rel="noopener">用 Firebase 用于 Angular 应用程序的实时数据库</a></li>
-<li><a href="https://blog.backlift.com/entry/angular-tut1" target="_blank" rel="noopener">用 Backlift 开发针对 Angular 的 CRUD 后端 </a></li>
-<li><a href="https://mircozeiss.com/building-offline-applications-with-angularjs-and-pouchdb/" target="_blank" rel="noopener">用 AngularJS 和 PouchDB 构建离线应用</a></li>
-<li><a href="https://www.dreamfactory.com/angularjs-example" target="_blank" rel="noopener">用 DreamFactory 开发 针对 Angular 的 CRUD 后端</a></li>
-<li><a href="https://www.firebase.com/blog/2013-10-04-firebase-angular-data-binding.html" target="_blank" rel="noopener">Firebase 和 Angular 三个双向数据绑定</a></li>
+<li><a href="https://brandid.github.io/parse-angular-demo/#/features">Parse.com boilerplate 建设大型，复杂 AngularJS 应用</a></li>
+<li><a href="https://github.com/firebase/angularFire">用 Firebase 用于 Angular 应用程序的实时数据库</a></li>
+<li><a href="https://blog.backlift.com/entry/angular-tut1">用 Backlift 开发针对 Angular 的 CRUD 后端 </a></li>
+<li><a href="https://mircozeiss.com/building-offline-applications-with-angularjs-and-pouchdb/">用 AngularJS 和 PouchDB 构建离线应用</a></li>
+<li><a href="https://www.dreamfactory.com/angularjs-example">用 DreamFactory 开发 针对 Angular 的 CRUD 后端</a></li>
+<li><a href="https://www.firebase.com/blog/2013-10-04-firebase-angular-data-binding.html">Firebase 和 Angular 三个双向数据绑定</a></li>
 </ul>
 <h2 id="移动装置-Mobile"><a href="#移动装置-Mobile" class="headerlink" title="移动装置 Mobile"></a>移动装置 Mobile</h2><ul>
-<li><a href="https://devgirl.org/2013/06/10/quick-start-guide-phonegap-and-angularjs/" target="_blank" rel="noopener">PhoneGap+AngularJS 快速入门指南</a></li>
-<li><a href="https://briantford.com/blog/angular-phonegap.html" target="_blank" rel="noopener">用 AngularJS 开发 PhoneGap 引用程序</a></li>
-<li><a href="https://tech.pro/tutorial/1357/phonegap-and-angularjs-in-app-browser" target="_blank" rel="noopener">PhoneGap 和 AngularJS: In App Browser</a></li>
-<li><a href="https://tech.pro/tutorial/1349/phonegap-and-angularjs-notification-service" target="_blank" rel="noopener">PhoneGap 和 AngularJS: Notification Service</a></li>
-<li><a href="https://abou-kone.com/2013/07/17/developing-a-mobile-app-with-phonegap-angularjs-and-expressjs-part-i/" target="_blank" rel="noopener">用 Phonegap, AngularJS 和 ExpressJS 开发移动程序第一部分</a></li>
+<li><a href="https://devgirl.org/2013/06/10/quick-start-guide-phonegap-and-angularjs/">PhoneGap+AngularJS 快速入门指南</a></li>
+<li><a href="https://briantford.com/blog/angular-phonegap.html">用 AngularJS 开发 PhoneGap 引用程序</a></li>
+<li><a href="https://tech.pro/tutorial/1357/phonegap-and-angularjs-in-app-browser">PhoneGap 和 AngularJS: In App Browser</a></li>
+<li><a href="https://tech.pro/tutorial/1349/phonegap-and-angularjs-notification-service">PhoneGap 和 AngularJS: Notification Service</a></li>
+<li><a href="https://abou-kone.com/2013/07/17/developing-a-mobile-app-with-phonegap-angularjs-and-expressjs-part-i/">用 Phonegap, AngularJS 和 ExpressJS 开发移动程序第一部分</a></li>
 </ul>
 <h2 id="编译器-Text-editor-bundles-IDE-Stuff"><a href="#编译器-Text-editor-bundles-IDE-Stuff" class="headerlink" title="编译器 Text editor bundles/IDE Stuff"></a>编译器 Text editor bundles/IDE Stuff</h2><ul>
-<li><a href="https://github.com/angular-ui/AngularJS-sublime-package" target="_blank" rel="noopener">Sublime text 2 包</a></li>
-<li><a href="https://github.com/matthewsimo/angular-vim-snippets" target="_blank" rel="noopener">VIM UltiSnip &amp; Snipmate AngularJS 代码片段 </a></li>
-<li><a href="https://blog.jetbrains.com/webstorm/2013/10/running-javascript-tests-with-karma-in-webstorm-7/" target="_blank" rel="noopener">在 WebStorm 7 中运行 Javscript 测试</a></li>
-<li><a href="https://www.microsoft.com/visualstudio" target="_blank" rel="noopener">Visual Studio</a></li>
+<li><a href="https://github.com/angular-ui/AngularJS-sublime-package">Sublime text 2 包</a></li>
+<li><a href="https://github.com/matthewsimo/angular-vim-snippets">VIM UltiSnip &amp; Snipmate AngularJS 代码片段 </a></li>
+<li><a href="https://blog.jetbrains.com/webstorm/2013/10/running-javascript-tests-with-karma-in-webstorm-7/">在 WebStorm 7 中运行 Javscript 测试</a></li>
+<li><a href="https://www.microsoft.com/visualstudio">Visual Studio</a></li>
 </ul>
 <h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><ul>
-<li><a href="https://github.com/angular/angularjs-batarang" target="_blank" rel="noopener">AngularJS Batarang Chrome 浏览器扩展</a></li>
-<li><a href="https://spascaffold.azurewebsites.net/AngularJSScaffold" target="_blank" rel="noopener">从 JSON 或者 restful API 生成 JavaScript 和 HTML，使用 AngularJS 和 JQuery</a></li>
+<li><a href="https://github.com/angular/angularjs-batarang">AngularJS Batarang Chrome 浏览器扩展</a></li>
+<li><a href="https://spascaffold.azurewebsites.net/AngularJSScaffold">从 JSON 或者 restful API 生成 JavaScript 和 HTML，使用 AngularJS 和 JQuery</a></li>
 </ul>
 
-      
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/AngularJS/" rel="tag"># AngularJS</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/06/04/jekyll-pagination-with-jpages.html" rel="next" title="用jPages为Jekyll增加分页">
-                <i class="fa fa-chevron-left"></i> 用jPages为Jekyll增加分页
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AngularJS/" rel="tag"># AngularJS</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/19/clean-git-repo.html" rel="prev" title="清洗 Git Repo 代码仓库">
-                清洗 Git Repo 代码仓库 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/06/04/jekyll-pagination-with-jpages.html" rel="prev" title="用jPages为Jekyll增加分页">
+      <i class="fa fa-chevron-left"></i> 用jPages为Jekyll增加分页
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/06/19/clean-git-repo.html" rel="next" title="清洗 Git Repo 代码仓库">
+      清洗 Git Repo 代码仓库 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
+  
+  
+  
 
   </div>
 
 
           </div>
           
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">77</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">71</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AngularJS"><span class="nav-number">1.</span> <span class="nav-text">AngularJS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#视频"><span class="nav-number">1.1.</span> <span class="nav-text">视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入门指南"><span class="nav-number">1.2.</span> <span class="nav-text">入门指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用经验"><span class="nav-number">1.3.</span> <span class="nav-text">使用经验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论坛"><span class="nav-number">1.4.</span> <span class="nav-text">论坛</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习-AngularJS"><span class="nav-number">2.</span> <span class="nav-text">学习 AngularJS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Angular-1-2-的新功能"><span class="nav-number">2.1.</span> <span class="nav-text">Angular 1.2 的新功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#书籍-Books"><span class="nav-number">2.2.</span> <span class="nav-text">书籍 Books</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#影片-Videos"><span class="nav-number">2.3.</span> <span class="nav-text">影片 Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在线课程-Courses"><span class="nav-number">2.4.</span> <span class="nav-text">在线课程 Courses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#帮助-Help"><span class="nav-number">2.5.</span> <span class="nav-text">帮助 Help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般主题-General-Topics"><span class="nav-number">2.6.</span> <span class="nav-text">一般主题 General Topics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍-开始学习-AngularJS"><span class="nav-number">2.7.</span> <span class="nav-text">介绍/开始学习 AngularJS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用及学习心得-Lessons-Learned"><span class="nav-number">2.8.</span> <span class="nav-text">使用及学习心得 Lessons Learned</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分段式文章-Multipart-Articles"><span class="nav-number">2.9.</span> <span class="nav-text">分段式文章 Multipart Articles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范例应用程序-Sample-Apps"><span class="nav-number">2.10.</span> <span class="nav-text">范例应用程序 Sample Apps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scopes-amp-Compile"><span class="nav-number">2.11.</span> <span class="nav-text">Scopes &amp; Compile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依賴注入-Dependency-Injection"><span class="nav-number">2.12.</span> <span class="nav-text">依賴注入 Dependency Injection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令-Directives"><span class="nav-number">2.13.</span> <span class="nav-text">指令 Directives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务-供应商-Services-Providers"><span class="nav-number">2.14.</span> <span class="nav-text">服务/供应商 Services/Providers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由-Routing"><span class="nav-number">2.15.</span> <span class="nav-text">路由 Routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#承诺-递延-Promises-Deferred"><span class="nav-number">2.16.</span> <span class="nav-text">承诺/递延 Promises/Deferred</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单-Forms"><span class="nav-number">2.17.</span> <span class="nav-text">表单 Forms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认证-Authentication"><span class="nav-number">2.18.</span> <span class="nav-text">认证 Authentication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections-amp-ngRepeat-Stuff"><span class="nav-number">2.19.</span> <span class="nav-text">Collections (&amp; ngRepeat Stuff)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始码组织架构-Code-Organization"><span class="nav-number">2.20.</span> <span class="nav-text">原始码组织架构 Code Organization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试-Testing"><span class="nav-number">2.21.</span> <span class="nav-text">测试 Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful-Stuff"><span class="nav-number">2.22.</span> <span class="nav-text">RESTful Stuff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化-Localization"><span class="nav-number">2.23.</span> <span class="nav-text">本地化 Localization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面-UI-Stuff"><span class="nav-number">2.24.</span> <span class="nav-text">界面 UI Stuff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合其他语言-框架-Integration-With-Other-Languages-Frameworks"><span class="nav-number">2.25.</span> <span class="nav-text">整合其他语言/框架 Integration With Other Languages/Frameworks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端代管-Hosted-Backends"><span class="nav-number">2.26.</span> <span class="nav-text">后端代管 Hosted Backends</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动装置-Mobile"><span class="nav-number">2.27.</span> <span class="nav-text">移动装置 Mobile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器-Text-editor-bundles-IDE-Stuff"><span class="nav-number">2.28.</span> <span class="nav-text">编译器 Text editor bundles/IDE Stuff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发工具"><span class="nav-number">2.29.</span> <span class="nav-text">开发工具</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
-
-  
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AngularJS"><span class="nav-number">1.</span> <span class="nav-text">AngularJS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#视频"><span class="nav-number">1.1.</span> <span class="nav-text">视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入门指南"><span class="nav-number">1.2.</span> <span class="nav-text">入门指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用经验"><span class="nav-number">1.3.</span> <span class="nav-text">使用经验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论坛"><span class="nav-number">1.4.</span> <span class="nav-text">论坛</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习-AngularJS"><span class="nav-number">2.</span> <span class="nav-text">学习 AngularJS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Angular-1-2-的新功能"><span class="nav-number">2.1.</span> <span class="nav-text">Angular 1.2 的新功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#书籍-Books"><span class="nav-number">2.2.</span> <span class="nav-text">书籍 Books</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#影片-Videos"><span class="nav-number">2.3.</span> <span class="nav-text">影片 Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在线课程-Courses"><span class="nav-number">2.4.</span> <span class="nav-text">在线课程 Courses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#帮助-Help"><span class="nav-number">2.5.</span> <span class="nav-text">帮助 Help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般主题-General-Topics"><span class="nav-number">2.6.</span> <span class="nav-text">一般主题 General Topics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍-开始学习-AngularJS"><span class="nav-number">2.7.</span> <span class="nav-text">介绍&#x2F;开始学习 AngularJS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用及学习心得-Lessons-Learned"><span class="nav-number">2.8.</span> <span class="nav-text">使用及学习心得 Lessons Learned</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分段式文章-Multipart-Articles"><span class="nav-number">2.9.</span> <span class="nav-text">分段式文章 Multipart Articles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范例应用程序-Sample-Apps"><span class="nav-number">2.10.</span> <span class="nav-text">范例应用程序 Sample Apps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scopes-amp-Compile"><span class="nav-number">2.11.</span> <span class="nav-text">Scopes &amp; Compile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依賴注入-Dependency-Injection"><span class="nav-number">2.12.</span> <span class="nav-text">依賴注入 Dependency Injection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令-Directives"><span class="nav-number">2.13.</span> <span class="nav-text">指令 Directives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务-供应商-Services-Providers"><span class="nav-number">2.14.</span> <span class="nav-text">服务&#x2F;供应商 Services&#x2F;Providers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由-Routing"><span class="nav-number">2.15.</span> <span class="nav-text">路由 Routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#承诺-递延-Promises-Deferred"><span class="nav-number">2.16.</span> <span class="nav-text">承诺&#x2F;递延 Promises&#x2F;Deferred</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单-Forms"><span class="nav-number">2.17.</span> <span class="nav-text">表单 Forms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认证-Authentication"><span class="nav-number">2.18.</span> <span class="nav-text">认证 Authentication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections-amp-ngRepeat-Stuff"><span class="nav-number">2.19.</span> <span class="nav-text">Collections (&amp; ngRepeat Stuff)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始码组织架构-Code-Organization"><span class="nav-number">2.20.</span> <span class="nav-text">原始码组织架构 Code Organization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试-Testing"><span class="nav-number">2.21.</span> <span class="nav-text">测试 Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful-Stuff"><span class="nav-number">2.22.</span> <span class="nav-text">RESTful Stuff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化-Localization"><span class="nav-number">2.23.</span> <span class="nav-text">本地化 Localization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面-UI-Stuff"><span class="nav-number">2.24.</span> <span class="nav-text">界面 UI Stuff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合其他语言-框架-Integration-With-Other-Languages-Frameworks"><span class="nav-number">2.25.</span> <span class="nav-text">整合其他语言&#x2F;框架 Integration With Other Languages&#x2F;Frameworks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端代管-Hosted-Backends"><span class="nav-number">2.26.</span> <span class="nav-text">后端代管 Hosted Backends</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动装置-Mobile"><span class="nav-number">2.27.</span> <span class="nav-text">移动装置 Mobile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器-Text-editor-bundles-IDE-Stuff"><span class="nav-number">2.28.</span> <span class="nav-text">编译器 Text editor bundles&#x2F;IDE Stuff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发工具"><span class="nav-number">2.29.</span> <span class="nav-text">开发工具</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">393k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.0
+  </div>
+
+        
 
 
 
@@ -1342,424 +886,48 @@
 
 
 
-
-
-
-
+      </div>
+    </footer>
+  </div>
 
   
-    
-    
-      
-    
-  
-  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
+<script src="/js/utils.js"></script>
 
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.1"></script>
-
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
-
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
-
-
-  
-  
-
-
-  
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
 
-  
+
+
 
   
+<script src="/js/local-search.js"></script>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
 
   
 

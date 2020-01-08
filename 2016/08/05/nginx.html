@@ -1,129 +1,80 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-CN,en,default">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="zh-CN,en,default">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://duanzhaoqian.site').hostname,
     root: '/',
     scheme: 'Mist',
-    version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false,"dimmer":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
-
-  
-
-
-
-
   <meta name="description" content="nginx源码安装及安全">
-<meta name="keywords" content="nginx,linux,safe,安全,安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译安装nginx-1.10.1">
 <meta property="og:url" content="https://duanzhaoqian.site/2016/08/05/nginx.html">
 <meta property="og:site_name" content="Duan Blog">
 <meta property="og:description" content="nginx源码安装及安全">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-04T12:09:11.242Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-08-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-04T12:09:11.242Z">
+<meta property="article:author" content="Duan Zhao Qian">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="safe">
+<meta property="article:tag" content="安全">
+<meta property="article:tag" content="安装">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编译安装nginx-1.10.1">
-<meta name="twitter:description" content="nginx源码安装及安全">
+
+<link rel="canonical" href="https://duanzhaoqian.site/2016/08/05/nginx.html">
 
 
-
-
-
-
-  <link rel="canonical" href="https://duanzhaoqian.site/2016/08/05/nginx.html">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: false,
+    isPost: true
   };
-
 </script>
+
   <title>编译安装nginx-1.10.1 | Duan Blog</title>
   
 
@@ -132,15 +83,8 @@
 
 
 
-
-
-
-
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -149,9 +93,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -165,322 +108,180 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Duan Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
+        <li class="menu-item menu-item-sitemap">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
 
-
-  
-
-
-
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/08/05/nginx.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Duan Zhao Qian">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Duan Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">编译安装nginx-1.10.1
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          编译安装nginx-1.10.1
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-08-05 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-05T00:00:00+08:00">2016-08-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
             </span>
-          
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
             <div class="post-description">nginx源码安装及安全</div>
-          
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><!--
@@ -490,36 +291,52 @@ Author: <段朝骞>
 This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
 本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
 -->
-<h2 id="nginx-1-8-不支持-tcp-转发"><a href="#nginx-1-8-不支持-tcp-转发" class="headerlink" title="nginx 1.8 不支持 tcp 转发"></a>nginx 1.8 不支持 tcp 转发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx --sbin-path=/usr/local/nginx/nginx --conf-path=/usr/local/nginx/nginx.conf --pid-path=/usr/local/nginx/nginx.pid --with-http_ssl_module --with-pcre=../pcre-4.4  --with-zlib=../zlib-1.1.3</span><br></pre></td></tr></table></figure>
-<h2 id="nginx-1-9-以后支持-tcp-转发"><a href="#nginx-1-9-以后支持-tcp-转发" class="headerlink" title="nginx 1.9 以后支持 tcp 转发"></a>nginx 1.9 以后支持 tcp 转发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx --sbin-path=/usr/local/nginx/nginx --conf-path=/usr/local/nginx/nginx.conf --pid-path=/usr/local/nginx/nginx.pid --with-http_ssl_module --with-pcre=../pcre-4.4  --with-zlib=../zlib-1.1.3 --with-stream --with-stream_ssl_module --with-http_slice_module</span><br></pre></td></tr></table></figure>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">https://nginx.org/en/download.html</a></p>
-<h2 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h2><p><a href="https://nginx.org/en/docs/" target="_blank" rel="noopener">https://nginx.org/en/docs/</a></p>
+
+<h2 id="nginx-1-8-不支持-tcp-转发"><a href="#nginx-1-8-不支持-tcp-转发" class="headerlink" title="nginx 1.8 不支持 tcp 转发"></a>nginx 1.8 不支持 tcp 转发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --sbin-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;nginx --conf-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;nginx.conf --pid-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;nginx.pid --with-http_ssl_module --with-pcre&#x3D;..&#x2F;pcre-4.4  --with-zlib&#x3D;..&#x2F;zlib-1.1.3</span><br></pre></td></tr></table></figure>
+
+<h2 id="nginx-1-9-以后支持-tcp-转发"><a href="#nginx-1-9-以后支持-tcp-转发" class="headerlink" title="nginx 1.9 以后支持 tcp 转发"></a>nginx 1.9 以后支持 tcp 转发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --sbin-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;nginx --conf-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;nginx.conf --pid-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;nginx.pid --with-http_ssl_module --with-pcre&#x3D;..&#x2F;pcre-4.4  --with-zlib&#x3D;..&#x2F;zlib-1.1.3 --with-stream --with-stream_ssl_module --with-http_slice_module</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
+<h2 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h2><p><a href="https://nginx.org/en/docs/">https://nginx.org/en/docs/</a></p>
 <h2 id="编译安装-nginx-1-10-1-tar-gz"><a href="#编译安装-nginx-1-10-1-tar-gz" class="headerlink" title="编译安装 nginx-1.10.1.tar.gz"></a>编译安装 nginx-1.10.1.tar.gz</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake libtool make</span><br><span class="line">yum -y install openssl openssl-devel</span><br></pre></td></tr></table></figure>
-<h3 id="下载-nginx-1-10-1-tar-gz"><a href="#下载-nginx-1-10-1-tar-gz" class="headerlink" title="下载 nginx-1.10.1.tar.gz"></a>下载 nginx-1.10.1.tar.gz</h3><p><a href="https://nginx.org/download/nginx-1.10.1.tar.gz" target="_blank" rel="noopener">https://nginx.org/download/nginx-1.10.1.tar.gz</a></p>
+
+<h3 id="下载-nginx-1-10-1-tar-gz"><a href="#下载-nginx-1-10-1-tar-gz" class="headerlink" title="下载 nginx-1.10.1.tar.gz"></a>下载 nginx-1.10.1.tar.gz</h3><p><a href="https://nginx.org/download/nginx-1.10.1.tar.gz">https://nginx.org/download/nginx-1.10.1.tar.gz</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">wget https://nginx.org/download/nginx-1.10.1.tar.gz</span><br></pre></td></tr></table></figure>
-<h3 id="下载-pcre-8-39"><a href="#下载-pcre-8-39" class="headerlink" title="下载 pcre-8.39"></a>下载 pcre-8.39</h3><p><a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/" target="_blank" rel="noopener">ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/</a></p>
+
+<h3 id="下载-pcre-8-39"><a href="#下载-pcre-8-39" class="headerlink" title="下载 pcre-8.39"></a>下载 pcre-8.39</h3><p><a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/">ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.zip</span><br></pre></td></tr></table></figure>
-<h3 id="下载-zlib-1-2-8"><a href="#下载-zlib-1-2-8" class="headerlink" title="下载 zlib-1.2.8"></a>下载 zlib-1.2.8</h3><p><a href="https://zlib.net/fossils/" target="_blank" rel="noopener">https://zlib.net/fossils/</a></p>
+
+<h3 id="下载-zlib-1-2-8"><a href="#下载-zlib-1-2-8" class="headerlink" title="下载 zlib-1.2.8"></a>下载 zlib-1.2.8</h3><p><a href="https://zlib.net/fossils/">https://zlib.net/fossils/</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://zlib.net/fossils/zlib-1.2.8.tar.gz</span><br></pre></td></tr></table></figure>
+
 <h3 id="解压-nginx-pcre-zlib"><a href="#解压-nginx-pcre-zlib" class="headerlink" title="解压 nginx pcre zlib"></a>解压 nginx pcre zlib</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.10.1.tar.gz</span><br><span class="line">unzip pcre-8.39.zip</span><br><span class="line">tar -xvf zlib-1.2.8.tar.gz</span><br></pre></td></tr></table></figure>
+
 <h3 id="configuration-nginx"><a href="#configuration-nginx" class="headerlink" title="configuration nginx"></a>configuration nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd nginx-1.10.1</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx --sbin-path=/usr/local/nginx/sbin/nginx --conf-path=/usr/local/nginx/conf/nginx.conf --pid-path=/usr/local/nginx/pid/nginx.pid --with-http_ssl_module --with-pcre=../pcre-8.39 --with-zlib=../zlib-1.2.8 --with-stream --with-stream_ssl_module --with-http_slice_module --with-http_stub_status_module --with-http_gzip_static_module  --with-http_flv_module --with-http_mp4_module</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --sbin-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx --conf-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.conf --pid-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;pid&#x2F;nginx.pid --with-http_ssl_module --with-pcre&#x3D;..&#x2F;pcre-8.39 --with-zlib&#x3D;..&#x2F;zlib-1.2.8 --with-stream --with-stream_ssl_module --with-http_slice_module --with-http_stub_status_module --with-http_gzip_static_module  --with-http_flv_module --with-http_mp4_module</span><br></pre></td></tr></table></figure>
+
 <p>另编译参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--prefix=/etc/nginx/ --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --user=nginx --group=nginx --with-http_flv_module --with-http_mp4_module --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-file-aio --with-ipv6 --with-cc-opt=&apos;-O2 -g -m64 -mtune=generic&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--prefix&#x3D;&#x2F;etc&#x2F;nginx&#x2F; --sbin-path&#x3D;&#x2F;usr&#x2F;sbin&#x2F;nginx --conf-path&#x3D;&#x2F;etc&#x2F;nginx&#x2F;nginx.conf --error-log-path&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log --http-log-path&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log --pid-path&#x3D;&#x2F;var&#x2F;run&#x2F;nginx.pid --lock-path&#x3D;&#x2F;var&#x2F;run&#x2F;nginx.lock --user&#x3D;nginx --group&#x3D;nginx --with-http_flv_module --with-http_mp4_module --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-file-aio --with-ipv6 --with-cc-opt&#x3D;&#39;-O2 -g -m64 -mtune&#x3D;generic&#39;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">说明：开启tcp转发模块等功能</span><br><span class="line">--with-stream --with-stream_ssl_module --with-http_slice_module</span><br><span class="line"></span><br><span class="line">Nginx中的stub_status模块主要用于查看Nginx的一些状态信息</span><br><span class="line">--with-http_stub_status_module</span><br></pre></td></tr></table></figure>
+
 <h3 id="After-configuration-nginx-is-compiled-and-installed-using-make"><a href="#After-configuration-nginx-is-compiled-and-installed-using-make" class="headerlink" title="After configuration, nginx is compiled and installed using make"></a>After configuration, nginx is compiled and installed using <code>make</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
 <h3 id="after-make-using-make-install-install"><a href="#after-make-using-make-install-install" class="headerlink" title="after make,using make install install"></a>after <code>make</code>,using <code>make install</code> install</h3><p>安装 nginx 到指定目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <h3 id="s-reload"><a href="#s-reload" class="headerlink" title="-s reload"></a>-s reload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload 热重启</span><br></pre></td></tr></table></figure>
-<h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><p><a href="https://segmentfault.com/a/1190000002797606" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002797606</a></p>
+
+<h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><p><a href="https://segmentfault.com/a/1190000002797606">https://segmentfault.com/a/1190000002797606</a></p>
 <p>nginx-location-rewrite</p>
-<p><a href="https://seanlook.com/2015/05/17/nginx-location-rewrite/" target="_blank" rel="noopener">https://seanlook.com/2015/05/17/nginx-location-rewrite/</a></p>
+<p><a href="https://seanlook.com/2015/05/17/nginx-location-rewrite/">https://seanlook.com/2015/05/17/nginx-location-rewrite/</a></p>
 <p>keepalive</p>
-<p><a href="https://seanlook.com/2015/05/18/nginx-keepalived-ha/" target="_blank" rel="noopener">https://seanlook.com/2015/05/18/nginx-keepalived-ha/</a></p>
+<p><a href="https://seanlook.com/2015/05/18/nginx-keepalived-ha/">https://seanlook.com/2015/05/18/nginx-keepalived-ha/</a></p>
 <p>nginx-ssl</p>
-<p><a href="https://seanlook.com/2015/05/28/nginx-ssl/" target="_blank" rel="noopener">https://seanlook.com/2015/05/28/nginx-ssl/</a></p>
+<p><a href="https://seanlook.com/2015/05/28/nginx-ssl/">https://seanlook.com/2015/05/28/nginx-ssl/</a></p>
 <h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3><p>一个示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">location  = / &#123;</span><br><span class="line">  # 精确匹配 / ，主机名后面不能带任何字符串</span><br><span class="line">  [ configuration A ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location  / &#123;</span><br><span class="line">  # 因为所有的地址都以 / 开头，所以这条规则将匹配到所有请求</span><br><span class="line">  # 但是正则和最长字符串会优先匹配</span><br><span class="line">  [ configuration B ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /documents/ &#123;</span><br><span class="line">  # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索</span><br><span class="line">  # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span><br><span class="line">  [ configuration C ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ /documents/Abc &#123;</span><br><span class="line">  # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索</span><br><span class="line">  # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span><br><span class="line">  [ configuration CC ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ^~ /images/ &#123;</span><br><span class="line">  # 匹配任何以 /images/ 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。</span><br><span class="line">  [ configuration D ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* \.(gif|jpg|jpeg)$ &#123;</span><br><span class="line">  # 匹配所有以 gif,jpg或jpeg 结尾的请求</span><br><span class="line">  # 然而，所有请求 /images/ 下的图片会被 config D 处理，因为 ^~ 到达不了这一条正则</span><br><span class="line">  [ configuration E ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /images/ &#123;</span><br><span class="line">  # 字符匹配到 /images/，继续往下，会发现 ^~ 存在</span><br><span class="line">  [ configuration F ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /images/abc &#123;</span><br><span class="line">  # 最长字符匹配到 /images/abc，继续往下，会发现 ^~ 存在</span><br><span class="line">  # F与G的放置顺序是没有关系的</span><br><span class="line">  [ configuration G ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ /images/abc/ &#123;</span><br><span class="line">  # 只有去掉 config D 才有效：先最长匹配 config G 开头的地址，继续往下搜索，匹配到这一条正则，采用</span><br><span class="line">    [ configuration H ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* /js/.*/\.js&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* favicon.ico &#123;</span><br><span class="line">    log_not_found off;</span><br><span class="line">    access_log off;</span><br><span class="line">    root html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">location  &#x3D; &#x2F; &#123;</span><br><span class="line">  # 精确匹配 &#x2F; ，主机名后面不能带任何字符串</span><br><span class="line">  [ configuration A ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location  &#x2F; &#123;</span><br><span class="line">  # 因为所有的地址都以 &#x2F; 开头，所以这条规则将匹配到所有请求</span><br><span class="line">  # 但是正则和最长字符串会优先匹配</span><br><span class="line">  [ configuration B ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location &#x2F;documents&#x2F; &#123;</span><br><span class="line">  # 匹配任何以 &#x2F;documents&#x2F; 开头的地址，匹配符合以后，还要继续往下搜索</span><br><span class="line">  # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span><br><span class="line">  [ configuration C ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ &#x2F;documents&#x2F;Abc &#123;</span><br><span class="line">  # 匹配任何以 &#x2F;documents&#x2F; 开头的地址，匹配符合以后，还要继续往下搜索</span><br><span class="line">  # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span><br><span class="line">  [ configuration CC ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ^~ &#x2F;images&#x2F; &#123;</span><br><span class="line">  # 匹配任何以 &#x2F;images&#x2F; 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。</span><br><span class="line">  [ configuration D ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* \.(gif|jpg|jpeg)$ &#123;</span><br><span class="line">  # 匹配所有以 gif,jpg或jpeg 结尾的请求</span><br><span class="line">  # 然而，所有请求 &#x2F;images&#x2F; 下的图片会被 config D 处理，因为 ^~ 到达不了这一条正则</span><br><span class="line">  [ configuration E ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location &#x2F;images&#x2F; &#123;</span><br><span class="line">  # 字符匹配到 &#x2F;images&#x2F;，继续往下，会发现 ^~ 存在</span><br><span class="line">  [ configuration F ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location &#x2F;images&#x2F;abc &#123;</span><br><span class="line">  # 最长字符匹配到 &#x2F;images&#x2F;abc，继续往下，会发现 ^~ 存在</span><br><span class="line">  # F与G的放置顺序是没有关系的</span><br><span class="line">  [ configuration G ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ &#x2F;images&#x2F;abc&#x2F; &#123;</span><br><span class="line">  # 只有去掉 config D 才有效：先最长匹配 config G 开头的地址，继续往下搜索，匹配到这一条正则，采用</span><br><span class="line">    [ configuration H ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* &#x2F;js&#x2F;.*&#x2F;\.js&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* favicon.ico &#123;</span><br><span class="line">    log_not_found off;</span><br><span class="line">    access_log off;</span><br><span class="line">    root html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>已=开头表示精确匹配</li>
 <li>如 A 中只匹配根目录结尾的请求，后面不能带任何字符串。</li>
@@ -529,7 +346,7 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 <li>/ 通用匹配, 如果没有其它匹配,任何请求都会匹配到</li>
 </ul>
 <p>顺序 no 优先级：</p>
-<p>(location =) &gt; (location 完整路径) &gt; (location ^~ 路径) &gt; (location ~,~* 正则顺序) &gt; (location 部分起始路径) &gt; (/)</p>
+<p>(location =) &gt; (location 完整路径) &gt; (location ^~ 路径) &gt; (location <del>,</del>* 正则顺序) &gt; (location 部分起始路径) &gt; (/)</p>
 <p>上面的匹配结果<br>按照上面的 location 写法，以下的匹配示例成立：</p>
 <ul>
 <li>/ -&gt; config A<br>精确完全匹配，即使/index.html 也匹配不了</li>
@@ -540,8 +357,9 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 <li>/documents/1.jpg -&gt; configuration E<br>匹配到 C，往下正则匹配到 E</li>
 <li>/documents/Abc.jpg -&gt; config CC<br>最长匹配到 C，往下正则顺序匹配到 CC，不会往下到 E</li>
 </ul>
-<h3 id="实际使用建议"><a href="#实际使用建议" class="headerlink" title="实际使用建议"></a>实际使用建议</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">所以实际使用中，个人觉得至少有三个匹配规则定义，如下：</span><br><span class="line">#直接匹配网站根，通过域名访问网站首页比较频繁，使用这个会加速处理，官网如是说。</span><br><span class="line">#这里是直接转发给后端应用服务器了，也可以是一个静态首页</span><br><span class="line"># 第一个必选规则</span><br><span class="line">location = / &#123;</span><br><span class="line">    proxy_pass https://tomcat:8080/index</span><br><span class="line">&#125;</span><br><span class="line"># 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项</span><br><span class="line"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span><br><span class="line">location ^~ /static/ &#123;</span><br><span class="line">    root /webroot/static/;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">    root /webroot/res/;</span><br><span class="line">&#125;</span><br><span class="line">#第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span><br><span class="line">#非静态文件请求就默认是动态请求，自己根据实际把握</span><br><span class="line">#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass https://tomcat:8080/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://tengine.taobao.org/book/chapter_02.html" target="_blank" rel="noopener">https://tengine.taobao.org/book/chapter_02.html</a><br><a href="https://nginx.org/en/docs/http/ngx_http_rewrite_module.html" target="_blank" rel="noopener">https://nginx.org/en/docs/http/ngx_http_rewrite_module.html</a></p>
+<h3 id="实际使用建议"><a href="#实际使用建议" class="headerlink" title="实际使用建议"></a>实际使用建议</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">所以实际使用中，个人觉得至少有三个匹配规则定义，如下：</span><br><span class="line">#直接匹配网站根，通过域名访问网站首页比较频繁，使用这个会加速处理，官网如是说。</span><br><span class="line">#这里是直接转发给后端应用服务器了，也可以是一个静态首页</span><br><span class="line"># 第一个必选规则</span><br><span class="line">location &#x3D; &#x2F; &#123;</span><br><span class="line">    proxy_pass https:&#x2F;&#x2F;tomcat:8080&#x2F;index</span><br><span class="line">&#125;</span><br><span class="line"># 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项</span><br><span class="line"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span><br><span class="line">location ^~ &#x2F;static&#x2F; &#123;</span><br><span class="line">    root &#x2F;webroot&#x2F;static&#x2F;;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">    root &#x2F;webroot&#x2F;res&#x2F;;</span><br><span class="line">&#125;</span><br><span class="line">#第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span><br><span class="line">#非静态文件请求就默认是动态请求，自己根据实际把握</span><br><span class="line">#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了</span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">    proxy_pass https:&#x2F;&#x2F;tomcat:8080&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://tengine.taobao.org/book/chapter_02.html">https://tengine.taobao.org/book/chapter_02.html</a><br><a href="https://nginx.org/en/docs/http/ngx_http_rewrite_module.html">https://nginx.org/en/docs/http/ngx_http_rewrite_module.html</a></p>
 <h3 id="Rewrite-规则"><a href="#Rewrite-规则" class="headerlink" title="Rewrite 规则"></a>Rewrite 规则</h3><p>rewrite 功能就是，使用 nginx 提供的全局变量或自己设置的变量，结合正则表达式和标志位实现 url 重写以及重定向。rewrite 只能放在 server{},location{},if{}中，并且只能对域名后边的除去传递的参数外的字符串起作用，例如 <code>https://seanlook.com/a/we/index.php?id=1&amp;u=str</code> 只对/a/we/index.php 重写。语法<code>rewrite regex replacement [flag]</code>;</p>
 <p>如果相对域名或参数字符串起作用，可以使用全局变量匹配，也可以使用 proxy_pass 反向代理。</p>
 <p>表明看 rewrite 和 location 功能有点像，都能实现跳转，主要区别在于 rewrite 是在同一域名内更改获取资源的路径，而 location 是对一类路径做控制访问或反向代理，可以 proxy_pass 到其他机器。很多情况下 rewrite 也会写在 location 里，它们的执行顺序是：</p>
@@ -565,21 +383,27 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 </ol>
 <h3 id="if-指令与全局变量"><a href="#if-指令与全局变量" class="headerlink" title="if 指令与全局变量"></a>if 指令与全局变量</h3><h4 id="if-判断指令"><a href="#if-判断指令" class="headerlink" title="if 判断指令"></a>if 判断指令</h4><p>语法为<code>if(condition){...}</code>，对给定的条件 condition 进行判断。如果为真，大括号内的 rewrite 指令将被执行，if 条件(conditon)可以是如下任何内容：</p>
 <ul>
-<li>当表达式只是一个变量时，如果值为空或任何以 0 开头的字符串都会当做 false</li>
-<li>直接比较变量和内容时，使用<code>=</code>或<code>!=</code></li>
+<li><p>当表达式只是一个变量时，如果值为空或任何以 0 开头的字符串都会当做 false</p>
+</li>
+<li><p>直接比较变量和内容时，使用<code>=</code>或<code>!=</code></p>
+</li>
 <li><p><code>~</code>正则表达式匹配，<code>~*</code>不区分大小写的匹配，<code>!~</code>区分大小写的不匹配</p>
 </li>
 <li><p><code>-f</code>和<code>!-f</code>用来判断是否存在文件</p>
 </li>
-<li><code>-d</code>和<code>!-d</code>用来判断是否存在目录</li>
-<li><code>-e</code>和<code>!-e</code>用来判断是否存在文件或目录</li>
-<li><code>-x</code>和<code>!-x</code>用来判断文件是否可执行</li>
+<li><p><code>-d</code>和<code>!-d</code>用来判断是否存在目录</p>
+</li>
+<li><p><code>-e</code>和<code>!-e</code>用来判断是否存在文件或目录</p>
+</li>
+<li><p><code>-x</code>和<code>!-x</code>用来判断文件是否可执行</p>
+</li>
 </ul>
 <p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下</span><br><span class="line"></span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line"></span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line"></span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; //限速，$slow可以通过 set 指令设置</span><br><span class="line"></span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http://127.0.0.1;</span><br><span class="line">&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line"></span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">    rewrite ^ https://example.com/ permanent;</span><br><span class="line">&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.com</span><br><span class="line"></span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; //防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">    rewrite ^(.*)$ &#x2F;msie&#x2F;$1 break;</span><br><span class="line">&#125; &#x2F;&#x2F;如果UA包含&quot;MSIE&quot;，rewrite请求到&#x2F;msid&#x2F;目录下</span><br><span class="line"></span><br><span class="line">if ($http_cookie ~* &quot;id&#x3D;([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">    set $id $1;</span><br><span class="line"> &#125; &#x2F;&#x2F;如果cookie匹配正则，设置变量$id等于正则引用部分</span><br><span class="line"></span><br><span class="line">if ($request_method &#x3D; POST) &#123;</span><br><span class="line">    return 405;</span><br><span class="line">&#125; &#x2F;&#x2F;如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302</span><br><span class="line"></span><br><span class="line">if ($slow) &#123;</span><br><span class="line">    limit_rate 10k;</span><br><span class="line">&#125; &#x2F;&#x2F;限速，$slow可以通过 set 指令设置</span><br><span class="line"></span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">    break;</span><br><span class="line">    proxy_pass  http:&#x2F;&#x2F;127.0.0.1;</span><br><span class="line">&#125; &#x2F;&#x2F;如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查</span><br><span class="line"></span><br><span class="line">if ($args ~ post&#x3D;140)&#123;</span><br><span class="line">    rewrite ^ https:&#x2F;&#x2F;example.com&#x2F; permanent;</span><br><span class="line">&#125; &#x2F;&#x2F;如果query string中包含&quot;post&#x3D;140&quot;，永久重定向到example.com</span><br><span class="line"></span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">    valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125; &#x2F;&#x2F;防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><p>下面是可以用作 if 判断的全局变量</p>
 <ul>
-<li><code>$args</code> ： #这个变量等于请求行中的参数，同\$query_string</li>
+<li><code>$args</code> ： #这个变量等于请求行中的参数，同$query_string</li>
 <li><code>$content_length</code> ： 请求头中的 Content-length 字段。</li>
 <li><code>$content_type</code> ： 请求头中的 Content-Type 字段。</li>
 <li><code>$document_root</code> ： 当前请求在 root 指令中指定的值。</li>
@@ -598,11 +422,12 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 <li><code>$server_name</code> ： 服务器名称。</li>
 <li><code>$server_port</code> ： 请求到达服务器的端口号。</li>
 <li><code>$request_uri</code> ： 包含请求参数的原始 URI，不包含主机名，如：”/foo/bar.php?arg=baz”。</li>
-<li><code>$uri</code> ： 不带请求参数的当前 URI，\$uri 不包含主机名，如”/foo/bar.html”。</li>
-<li><code>$document_uri</code> ： 与\$uri 相同。</li>
+<li><code>$uri</code> ： 不带请求参数的当前 URI，$uri 不包含主机名，如”/foo/bar.html”。</li>
+<li><code>$document_uri</code> ： 与$uri 相同。</li>
 </ul>
 <p>例：<code>https://localhost:88/test1/test2/test.php</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$host：localhost</span><br><span class="line">$server_port：88</span><br><span class="line">$request_uri：https://localhost:88/test1/test2/test.php</span><br><span class="line">$document_uri：/test1/test2/test.php</span><br><span class="line">$document_root：/var/www/html</span><br><span class="line">$request_filename：/var/www/html/test1/test2/test.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$host：localhost</span><br><span class="line">$server_port：88</span><br><span class="line">$request_uri：https:&#x2F;&#x2F;localhost:88&#x2F;test1&#x2F;test2&#x2F;test.php</span><br><span class="line">$document_uri：&#x2F;test1&#x2F;test2&#x2F;test.php</span><br><span class="line">$document_root：&#x2F;var&#x2F;www&#x2F;html</span><br><span class="line">$request_filename：&#x2F;var&#x2F;www&#x2F;html&#x2F;test1&#x2F;test2&#x2F;test.php</span><br></pre></td></tr></table></figure>
+
 <h4 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h4><ul>
 <li><code>.</code> ： 匹配除换行符以外的任意字符</li>
 <li><code>?</code> ： 重复 0 次或 1 次</li>
@@ -618,10 +443,12 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 </ul>
 <p>小括号()之间匹配的内容，可以在后面通过$1来引用，$2 表示的是前面第二个()里的内容。正则里面容易让人困惑的是\转义特殊字符。</p>
 <h3 id="rewrite-实例"><a href="#rewrite-实例" class="headerlink" title="rewrite 实例"></a>rewrite 实例</h3><p>例 1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    # 定义image日志格式</span><br><span class="line">    log_format imagelog &apos;[$time_local] &apos; $image_file &apos; &apos; $image_type &apos; &apos; $body_bytes_sent &apos; &apos; $status;</span><br><span class="line">    # 开启重写日志</span><br><span class="line">    rewrite_log on;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        root /home/www;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                # 重写规则信息</span><br><span class="line">                error_log logs/rewrite.log notice;</span><br><span class="line">                # 注意这里要用‘’单引号引起来，避免&#123;&#125;</span><br><span class="line">                rewrite &apos;^/images/([a-z]&#123;2&#125;)/([a-z0-9]&#123;5&#125;)/(.*)\.(png|jpg|gif)$&apos; /data?file=$3.$4;</span><br><span class="line">                # 注意不能在上面这条规则后面加上“last”参数，否则下面的set指令不会执行</span><br><span class="line">                set $image_file $3;</span><br><span class="line">                set $image_type $4;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location /data &#123;</span><br><span class="line">                # 指定针对图片的日志格式，来分析图片类型和大小</span><br><span class="line">                access_log logs/images.log mian;</span><br><span class="line">                root /data/images;</span><br><span class="line">                # 应用前面定义的变量。判断首先文件在不在，不在再判断目录在不在，如果还不在就跳转到最后一个url里</span><br><span class="line">                try_files /$arg_file /image404.html;</span><br><span class="line">        &#125;</span><br><span class="line">        location = /image404.html &#123;</span><br><span class="line">                # 图片不存在返回特定的信息</span><br><span class="line">                return 404 &quot;image not found\n&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    # 定义image日志格式</span><br><span class="line">    log_format imagelog &#39;[$time_local] &#39; $image_file &#39; &#39; $image_type &#39; &#39; $body_bytes_sent &#39; &#39; $status;</span><br><span class="line">    # 开启重写日志</span><br><span class="line">    rewrite_log on;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        root &#x2F;home&#x2F;www;</span><br><span class="line"></span><br><span class="line">        location &#x2F; &#123;</span><br><span class="line">                # 重写规则信息</span><br><span class="line">                error_log logs&#x2F;rewrite.log notice;</span><br><span class="line">                # 注意这里要用‘’单引号引起来，避免&#123;&#125;</span><br><span class="line">                rewrite &#39;^&#x2F;images&#x2F;([a-z]&#123;2&#125;)&#x2F;([a-z0-9]&#123;5&#125;)&#x2F;(.*)\.(png|jpg|gif)$&#39; &#x2F;data?file&#x3D;$3.$4;</span><br><span class="line">                # 注意不能在上面这条规则后面加上“last”参数，否则下面的set指令不会执行</span><br><span class="line">                set $image_file $3;</span><br><span class="line">                set $image_type $4;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location &#x2F;data &#123;</span><br><span class="line">                # 指定针对图片的日志格式，来分析图片类型和大小</span><br><span class="line">                access_log logs&#x2F;images.log mian;</span><br><span class="line">                root &#x2F;data&#x2F;images;</span><br><span class="line">                # 应用前面定义的变量。判断首先文件在不在，不在再判断目录在不在，如果还不在就跳转到最后一个url里</span><br><span class="line">                try_files &#x2F;$arg_file &#x2F;image404.html;</span><br><span class="line">        &#125;</span><br><span class="line">        location &#x3D; &#x2F;image404.html &#123;</span><br><span class="line">                # 图片不存在返回特定的信息</span><br><span class="line">                return 404 &quot;image not found\n&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>对形如<code>/images/ef/uh7b3/test.png</code>的请求，重写到<code>/data?file=test.png</code>，于是匹配到<code>location /data</code>，先看<code>/data/images/test.png</code>文件存不存在，如果存在则正常响应，如果不存在则重写 tryfiles 到新的 image404 location，直接返回 404 状态码。</p>
 <p>例 2：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rewrite ^/images/(.*)_(\d+)x(\d+)\.(png|jpg|gif)$ /resizer/$1.$4?width=$2&amp;height=$3? last;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rewrite ^&#x2F;images&#x2F;(.*)_(\d+)x(\d+)\.(png|jpg|gif)$ &#x2F;resizer&#x2F;$1.$4?width&#x3D;$2&amp;height&#x3D;$3? last;</span><br></pre></td></tr></table></figure>
+
 <p>对形如<code>/images/bla_500x400.jpg</code>的文件请求，重写到<code>/resizer/bla.jpg?width=500&amp;height=400</code>地址，并会继续尝试匹配 location。</p>
 <h2 id="log-format"><a href="#log-format" class="headerlink" title="log_format"></a>log_format</h2><table>
 <thead>
@@ -631,503 +458,246 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 <th>示例</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>\$remote_addr</td>
+<tbody><tr>
+<td>$remote_addr</td>
 <td>客户端地址</td>
 <td>211.28.65.253</td>
 </tr>
 <tr>
-<td>\$remote_user</td>
+<td>$remote_user</td>
 <td>客户端用户名称</td>
 <td>–</td>
 </tr>
 <tr>
-<td>\$time_local</td>
+<td>$time_local</td>
 <td>访问时间和时区</td>
 <td>18/Jul/2012:17:00:01 +0800</td>
 </tr>
 <tr>
-<td>\$request</td>
+<td>$request</td>
 <td>请求的 URI 和 HTTP 协议</td>
 <td>“GET /article-10000.html HTTP/1.1”</td>
 </tr>
 <tr>
-<td>\$http_host</td>
+<td>$http_host</td>
 <td>请求地址，即浏览器中你输入的地址（IP 或域名）</td>
-<td><a href="https://www.duanzhaoqian.com" target="_blank" rel="noopener">https://www.duanzhaoqian.com</a> 192.168.100.100</td>
+<td><a href="https://www.duanzhaoqian.com">https://www.duanzhaoqian.com</a> 192.168.100.100</td>
 </tr>
 <tr>
-<td>\$status</td>
+<td>$status</td>
 <td>HTTP 请求状态</td>
 <td>200</td>
 </tr>
 <tr>
-<td>\$upstream_status</td>
+<td>$upstream_status</td>
 <td>upstream 状态</td>
 <td>200</td>
 </tr>
 <tr>
-<td>\$body_bytes_sent</td>
+<td>$body_bytes_sent</td>
 <td>发送给客户端文件内容大小</td>
 <td>1547</td>
 </tr>
 <tr>
-<td>\$http_referer url</td>
+<td>$http_referer url</td>
 <td>跳转来源</td>
-<td><a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a></td>
+<td><a href="https://www.baidu.com/">https://www.baidu.com/</a></td>
 </tr>
 <tr>
-<td>\$http_user_agent</td>
+<td>$http_user_agent</td>
 <td>用户终端浏览器等信息</td>
 <td>“Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SV1; GTB7.0; .NET4.0C;</td>
 </tr>
 <tr>
-<td>\$ssl_protocol</td>
+<td>$ssl_protocol</td>
 <td>SSL 协议版本</td>
 <td>TLSv1</td>
 </tr>
 <tr>
-<td>\$ssl_cipher</td>
+<td>$ssl_cipher</td>
 <td>交换数据中的算法</td>
 <td>RC4-SHA</td>
 </tr>
 <tr>
-<td>\$upstream_addr</td>
+<td>$upstream_addr</td>
 <td>后台 upstream 的地址，即真正提供服务的主机地址</td>
 <td>10.10.10.100:80</td>
 </tr>
 <tr>
-<td>\$request_time</td>
+<td>$request_time</td>
 <td>整个请求的总时间</td>
 <td>0.205</td>
 </tr>
 <tr>
-<td>\$upstream_response_time</td>
+<td>$upstream_response_time</td>
 <td>请求过程中，upstream 响应时间</td>
 <td>0.002</td>
 </tr>
-</tbody>
-</table>
-<h2 id="nginx-ssl"><a href="#nginx-ssl" class="headerlink" title="nginx ssl"></a>nginx ssl</h2><p><a href="https://www.open-open.com/lib/view/open1433390156947.html" target="_blank" rel="noopener">https://www.open-open.com/lib/view/open1433390156947.html</a></p>
-<p><a href="https://www.oschina.net/question/12_10555" target="_blank" rel="noopener">https://www.oschina.net/question/12_10555</a></p>
-<p><a href="https://segmentfault.com/a/1190000002866627" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002866627</a></p>
+</tbody></table>
+<h2 id="nginx-ssl"><a href="#nginx-ssl" class="headerlink" title="nginx ssl"></a>nginx ssl</h2><p><a href="https://www.open-open.com/lib/view/open1433390156947.html">https://www.open-open.com/lib/view/open1433390156947.html</a></p>
+<p><a href="https://www.oschina.net/question/12_10555">https://www.oschina.net/question/12_10555</a></p>
+<p><a href="https://segmentfault.com/a/1190000002866627">https://segmentfault.com/a/1190000002866627</a></p>
 <p>start ssl</p>
-<p><a href="https://www.cnblogs.com/apanly/p/5585208.html" target="_blank" rel="noopener">https://www.cnblogs.com/apanly/p/5585208.html</a></p>
+<p><a href="https://www.cnblogs.com/apanly/p/5585208.html">https://www.cnblogs.com/apanly/p/5585208.html</a></p>
 
-      
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/08/05/jekyll-liquid.html" rel="next" title="jekyll-liquid">
-                <i class="fa fa-chevron-left"></i> jekyll-liquid
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/05/JVM设置.html" rel="prev" title="JVM设置">
-                JVM设置 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/08/05/jekyll-liquid.html" rel="prev" title="jekyll-liquid">
+      <i class="fa fa-chevron-left"></i> jekyll-liquid
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/08/05/JVM%E8%AE%BE%E7%BD%AE.html" rel="next" title="JVM设置">
+      JVM设置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
+  
+  
+  
 
   </div>
 
 
           </div>
           
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">77</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">71</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx"><span class="nav-number">1.</span> <span class="nav-text">nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-1-8-不支持-tcp-转发"><span class="nav-number">1.1.</span> <span class="nav-text">nginx 1.8 不支持 tcp 转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-1-9-以后支持-tcp-转发"><span class="nav-number">1.2.</span> <span class="nav-text">nginx 1.9 以后支持 tcp 转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载地址"><span class="nav-number">1.3.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档地址"><span class="nav-number">1.4.</span> <span class="nav-text">文档地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装-nginx-1-10-1-tar-gz"><span class="nav-number">1.5.</span> <span class="nav-text">编译安装 nginx-1.10.1.tar.gz</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">1.5.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-nginx-1-10-1-tar-gz"><span class="nav-number">1.5.2.</span> <span class="nav-text">下载 nginx-1.10.1.tar.gz</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-pcre-8-39"><span class="nav-number">1.5.3.</span> <span class="nav-text">下载 pcre-8.39</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-zlib-1-2-8"><span class="nav-number">1.5.4.</span> <span class="nav-text">下载 zlib-1.2.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压-nginx-pcre-zlib"><span class="nav-number">1.5.5.</span> <span class="nav-text">解压 nginx pcre zlib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configuration-nginx"><span class="nav-number">1.5.6.</span> <span class="nav-text">configuration nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#After-configuration-nginx-is-compiled-and-installed-using-make"><span class="nav-number">1.5.7.</span> <span class="nav-text">After configuration, nginx is compiled and installed using make</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#after-make-using-make-install-install"><span class="nav-number">1.5.8.</span> <span class="nav-text">after make,using make install install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#s-reload"><span class="nav-number">1.5.9.</span> <span class="nav-text">-s reload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-配置"><span class="nav-number">1.6.</span> <span class="nav-text">nginx 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#location"><span class="nav-number">1.6.1.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际使用建议"><span class="nav-number">1.6.2.</span> <span class="nav-text">实际使用建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rewrite-规则"><span class="nav-number">1.6.3.</span> <span class="nav-text">Rewrite 规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flag-标志位"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">flag 标志位</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-指令与全局变量"><span class="nav-number">1.6.4.</span> <span class="nav-text">if 指令与全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if-判断指令"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">if 判断指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量"><span class="nav-number">1.6.4.2.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用正则"><span class="nav-number">1.6.4.3.</span> <span class="nav-text">常用正则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rewrite-实例"><span class="nav-number">1.6.5.</span> <span class="nav-text">rewrite 实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log-format"><span class="nav-number">1.7.</span> <span class="nav-text">log_format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-ssl"><span class="nav-number">1.8.</span> <span class="nav-text">nginx ssl</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
-
-  
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx"><span class="nav-number">1.</span> <span class="nav-text">nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-1-8-不支持-tcp-转发"><span class="nav-number">1.1.</span> <span class="nav-text">nginx 1.8 不支持 tcp 转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-1-9-以后支持-tcp-转发"><span class="nav-number">1.2.</span> <span class="nav-text">nginx 1.9 以后支持 tcp 转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载地址"><span class="nav-number">1.3.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档地址"><span class="nav-number">1.4.</span> <span class="nav-text">文档地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装-nginx-1-10-1-tar-gz"><span class="nav-number">1.5.</span> <span class="nav-text">编译安装 nginx-1.10.1.tar.gz</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">1.5.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-nginx-1-10-1-tar-gz"><span class="nav-number">1.5.2.</span> <span class="nav-text">下载 nginx-1.10.1.tar.gz</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-pcre-8-39"><span class="nav-number">1.5.3.</span> <span class="nav-text">下载 pcre-8.39</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-zlib-1-2-8"><span class="nav-number">1.5.4.</span> <span class="nav-text">下载 zlib-1.2.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压-nginx-pcre-zlib"><span class="nav-number">1.5.5.</span> <span class="nav-text">解压 nginx pcre zlib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configuration-nginx"><span class="nav-number">1.5.6.</span> <span class="nav-text">configuration nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#After-configuration-nginx-is-compiled-and-installed-using-make"><span class="nav-number">1.5.7.</span> <span class="nav-text">After configuration, nginx is compiled and installed using make</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#after-make-using-make-install-install"><span class="nav-number">1.5.8.</span> <span class="nav-text">after make,using make install install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#s-reload"><span class="nav-number">1.5.9.</span> <span class="nav-text">-s reload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-配置"><span class="nav-number">1.6.</span> <span class="nav-text">nginx 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#location"><span class="nav-number">1.6.1.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际使用建议"><span class="nav-number">1.6.2.</span> <span class="nav-text">实际使用建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rewrite-规则"><span class="nav-number">1.6.3.</span> <span class="nav-text">Rewrite 规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flag-标志位"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">flag 标志位</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-指令与全局变量"><span class="nav-number">1.6.4.</span> <span class="nav-text">if 指令与全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if-判断指令"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">if 判断指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量"><span class="nav-number">1.6.4.2.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用正则"><span class="nav-number">1.6.4.3.</span> <span class="nav-text">常用正则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rewrite-实例"><span class="nav-number">1.6.5.</span> <span class="nav-text">rewrite 实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log-format"><span class="nav-number">1.7.</span> <span class="nav-text">log_format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-ssl"><span class="nav-number">1.8.</span> <span class="nav-text">nginx ssl</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">393k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.0
+  </div>
+
+        
 
 
 
@@ -1136,424 +706,48 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 
 
 
-
-
-
-
+      </div>
+    </footer>
+  </div>
 
   
-    
-    
-      
-    
-  
-  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
+<script src="/js/utils.js"></script>
 
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.1"></script>
-
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
-
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
-
-
-  
-  
-
-
-  
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
 
-  
+
+
 
   
+<script src="/js/local-search.js"></script>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
 
   
 

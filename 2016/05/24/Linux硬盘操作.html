@@ -1,129 +1,76 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-CN,en,default">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="zh-CN,en,default">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://duanzhaoqian.site').hostname,
     root: '/',
     scheme: 'Mist',
-    version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false,"dimmer":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
-
-
-  
-
-
-
 
   <meta name="description" content="linux 硬盘操作">
-<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 硬盘操作">
-<meta property="og:url" content="https://duanzhaoqian.site/2016/05/24/Linux硬盘操作.html">
+<meta property="og:url" content="https://duanzhaoqian.site/2016/05/24/Linux%E7%A1%AC%E7%9B%98%E6%93%8D%E4%BD%9C.html">
 <meta property="og:site_name" content="Duan Blog">
 <meta property="og:description" content="linux 硬盘操作">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-04T12:09:11.236Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-05-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-04T12:09:11.236Z">
+<meta property="article:author" content="Duan Zhao Qian">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux 硬盘操作">
-<meta name="twitter:description" content="linux 硬盘操作">
+
+<link rel="canonical" href="https://duanzhaoqian.site/2016/05/24/Linux%E7%A1%AC%E7%9B%98%E6%93%8D%E4%BD%9C.html">
 
 
-
-
-
-
-  <link rel="canonical" href="https://duanzhaoqian.site/2016/05/24/Linux硬盘操作.html">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: false,
+    isPost: true
   };
-
 </script>
+
   <title>linux 硬盘操作 | Duan Blog</title>
   
 
@@ -132,15 +79,8 @@
 
 
 
-
-
-
-
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -149,9 +89,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -165,322 +104,180 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Duan Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
+        <li class="menu-item menu-item-sitemap">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
 
-
-  
-
-
-
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/05/24/Linux硬盘操作.html">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/05/24/Linux%E7%A1%AC%E7%9B%98%E6%93%8D%E4%BD%9C.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Duan Zhao Qian">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Duan Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">linux 硬盘操作
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          linux 硬盘操作
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2016-05-24T00:00:00+08:00">2016-05-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
             </span>
-          
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
             <div class="post-description">linux 硬盘操作</div>
-          
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h1 id="Linux-硬盘操作"><a href="#Linux-硬盘操作" class="headerlink" title="Linux 硬盘操作"></a>Linux 硬盘操作</h1><!--
@@ -490,477 +287,248 @@ Author: <段朝骞>
 This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
 本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
 -->
+
 <h2 id="nfs-文件共享"><a href="#nfs-文件共享" class="headerlink" title="nfs 文件共享"></a>nfs 文件共享</h2><p>centos6 下安装配置</p>
-<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep nfs</span><br><span class="line">rpm -qa|grep rpcbind</span><br><span class="line">yum install -y nfs-utils-* rpcbind</span><br><span class="line">vim /etc/exports</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/exports</span><br><span class="line">/data *(rw,no_root_squash,no_all_squash,sync)</span><br><span class="line">exportfs -r 使配置文件生效</span><br></pre></td></tr></table></figure>
+<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep nfs</span><br><span class="line">rpm -qa|grep rpcbind</span><br><span class="line">yum install -y nfs-utils-* rpcbind</span><br><span class="line">vim &#x2F;etc&#x2F;exports</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;exports</span><br><span class="line">&#x2F;data *(rw,no_root_squash,no_all_squash,sync)</span><br><span class="line">exportfs -r 使配置文件生效</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service rpcbind start</span><br><span class="line">service nfs start</span><br><span class="line">chkconfig rpcbind on</span><br><span class="line">chkconfig nfs on</span><br></pre></td></tr></table></figure>
+
 <p>showmount 命令查询 NFS 的共享状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">showmount -e　　　　//默认查看自己共享的服务，前提是要DNS能解析自己，不然容易报错</span><br><span class="line">showmount -a　　　　//显示已经与客户端连接上的目录信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">showmount -e　　　　&#x2F;&#x2F;默认查看自己共享的服务，前提是要DNS能解析自己，不然容易报错</span><br><span class="line">showmount -a　　　　&#x2F;&#x2F;显示已经与客户端连接上的目录信息</span><br></pre></td></tr></table></figure>
+
 <p>关闭防火墙</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop</span><br><span class="line">chkconfig iptables off</span><br></pre></td></tr></table></figure>
+
 <h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>挂载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep nfs</span><br><span class="line">rpm -qa|grep rpcbind</span><br><span class="line">yum install -y nfs-utils-* rpcbind</span><br><span class="line">mkdir /log</span><br><span class="line">showmount -e 192.168.100.51</span><br><span class="line">mount -t nfs  192.168.100.51:/data /log</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep nfs</span><br><span class="line">rpm -qa|grep rpcbind</span><br><span class="line">yum install -y nfs-utils-* rpcbind</span><br><span class="line">mkdir &#x2F;log</span><br><span class="line">showmount -e 192.168.100.51</span><br><span class="line">mount -t nfs  192.168.100.51:&#x2F;data &#x2F;log</span><br></pre></td></tr></table></figure>
+
 <p>启动自动挂载 nfs 文件系统</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fstab 添加</span><br><span class="line">192.168.100.51:/data /log nfs defaults 0 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab 添加</span><br><span class="line">192.168.100.51:&#x2F;data &#x2F;log nfs defaults 0 0</span><br></pre></td></tr></table></figure>
+
 <p>解除挂载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount /log</span><br><span class="line">mount</span><br></pre></td></tr></table></figure>
-<h3 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h3><p><a href="https://www.cnblogs.com/mchina/archive/2013/01/03/2840040.html" target="_blank" rel="noopener">https://www.cnblogs.com/mchina/archive/2013/01/03/2840040.html</a></p>
-<p><a href="https://www.lvtao.net/server/centos-nfs.html" target="_blank" rel="noopener">https://www.lvtao.net/server/centos-nfs.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount &#x2F;log</span><br><span class="line">mount</span><br></pre></td></tr></table></figure>
+
+<h3 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h3><p><a href="https://www.cnblogs.com/mchina/archive/2013/01/03/2840040.html">https://www.cnblogs.com/mchina/archive/2013/01/03/2840040.html</a></p>
+<p><a href="https://www.lvtao.net/server/centos-nfs.html">https://www.lvtao.net/server/centos-nfs.html</a></p>
 <p>服务器端防火墙设置（NFS 开启防墙配置）</p>
 <p>修改/etc/service,添加以下内容（端口号必须在 1024 以下,且未被占用）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Local services</span><br><span class="line">mountd 1011/tcp #rpc.mountd</span><br><span class="line">mountd 1011/udp #rpc.mountd</span><br><span class="line">rquotad 1012/tcp #rpc.rquotad</span><br><span class="line">rquotad 1012/udp #rpc.rquotad</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Local services</span><br><span class="line">mountd 1011&#x2F;tcp #rpc.mountd</span><br><span class="line">mountd 1011&#x2F;udp #rpc.mountd</span><br><span class="line">rquotad 1012&#x2F;tcp #rpc.rquotad</span><br><span class="line">rquotad 1012&#x2F;udp #rpc.rquotad</span><br></pre></td></tr></table></figure>
+
 <p>重起 Linux NFS 服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nfs restart</span><br></pre></td></tr></table></figure>
+
 <p>此时 rpc 相关端口已经被固定,可以为 Linux NFS 添加防火墙规则</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 111 -j ACCEPT</span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 2049 -j ACCEPT</span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 1011 -j ACCEPT</span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 1012 -j ACCEPT</span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 32768 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#portmap</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p tcp --dport 111 -j ACCEPT</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p udp --dport 111 -j ACCEPT</span><br><span class="line">#nfsd</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p tcp --dport 2049 -j ACCEPT</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p udp --dport 2049 -j ACCEPT</span><br><span class="line">#mountd</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p tcp --dport 1011 -j ACCEPT</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p udp --dport 1011 -j ACCEPT</span><br><span class="line">#rquotad</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p tcp --dport 1012 -j ACCEPT</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p udp --dport 1012 -j ACCEPT</span><br><span class="line">#rpc.statd</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p tcp --dport 32768 -j ACCEPT</span><br><span class="line">/sbin/iptables -A INPUT -s 192.168.1.0/254 -p udp --dport 32768 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#portmap</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p tcp --dport 111 -j ACCEPT</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p udp --dport 111 -j ACCEPT</span><br><span class="line">#nfsd</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p tcp --dport 2049 -j ACCEPT</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p udp --dport 2049 -j ACCEPT</span><br><span class="line">#mountd</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p tcp --dport 1011 -j ACCEPT</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p udp --dport 1011 -j ACCEPT</span><br><span class="line">#rquotad</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p tcp --dport 1012 -j ACCEPT</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p udp --dport 1012 -j ACCEPT</span><br><span class="line">#rpc.statd</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p tcp --dport 32768 -j ACCEPT</span><br><span class="line">&#x2F;sbin&#x2F;iptables -A INPUT -s 192.168.1.0&#x2F;254 -p udp --dport 32768 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
 <p>NFS 的常用目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/exports                         NFS服务的主要配置文件</span><br><span class="line">/usr/sbin/exportfs                   NFS服务的管理命令</span><br><span class="line">/usr/sbin/showmount              		客户端的查看命令</span><br><span class="line">/var/lib/nfs/etab                  	记录NFS分享出来的目录的完整权限设定值</span><br><span class="line">/var/lib/nfs/xtab                   	记录曾经登录过的客户端信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;exports                         NFS服务的主要配置文件</span><br><span class="line">&#x2F;usr&#x2F;sbin&#x2F;exportfs                   NFS服务的管理命令</span><br><span class="line">&#x2F;usr&#x2F;sbin&#x2F;showmount              		客户端的查看命令</span><br><span class="line">&#x2F;var&#x2F;lib&#x2F;nfs&#x2F;etab                  	记录NFS分享出来的目录的完整权限设定值</span><br><span class="line">&#x2F;var&#x2F;lib&#x2F;nfs&#x2F;xtab                   	记录曾经登录过的客户端信息</span><br></pre></td></tr></table></figure>
+
 <p>/etc/exports 配置文件说明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">/etc/exports文件内容格式：</span><br><span class="line"></span><br><span class="line">&lt;输出目录&gt; [客户端1 选项（访问权限,用户映射,其他）] [客户端2 选项（访问权限,用户映射,其他）]</span><br><span class="line">a. 输出目录：</span><br><span class="line"></span><br><span class="line">输出目录是指NFS系统中需要共享给客户机使用的目录；</span><br><span class="line"></span><br><span class="line">b. 客户端：</span><br><span class="line"></span><br><span class="line">客户端是指网络中可以访问这个NFS输出目录的计算机</span><br><span class="line"></span><br><span class="line">客户端常用的指定方式</span><br><span class="line"></span><br><span class="line">指定ip地址的主机：192.168.0.200</span><br><span class="line">指定子网中的所有主机：192.168.0.0/24 192.168.0.0/255.255.255.0</span><br><span class="line">指定域名的主机：david.bsmart.cn</span><br><span class="line">指定域中的所有主机：*.bsmart.cn</span><br><span class="line">所有主机：*</span><br><span class="line">c. 选项：</span><br><span class="line"></span><br><span class="line">选项用来设置输出目录的访问权限、用户映射等。</span><br><span class="line"></span><br><span class="line">NFS主要有3类选项：</span><br><span class="line"></span><br><span class="line">访问权限选项</span><br><span class="line"></span><br><span class="line">设置输出目录只读：ro</span><br><span class="line">设置输出目录读写：rw</span><br><span class="line">用户映射选项</span><br><span class="line"></span><br><span class="line">all_squash：将远程访问的所有普通用户及所属组都映射为匿名用户或用户组（nfsnobody）；</span><br><span class="line">no_all_squash：与all_squash取反（默认设置）；</span><br><span class="line">root_squash：将root用户及所属组都映射为匿名用户或用户组（默认设置）；</span><br><span class="line">no_root_squash：与rootsquash取反；</span><br><span class="line">anonuid=xxx：将远程访问的所有用户都映射为匿名用户，并指定该用户为本地用户（UID=xxx）；</span><br><span class="line">anongid=xxx：将远程访问的所有用户组都映射为匿名用户组账户，并指定该匿名用户组账户为本地用户组账户（GID=xxx）；</span><br><span class="line">其它选项</span><br><span class="line"></span><br><span class="line">secure：限制客户端只能从小于1024的tcp/ip端口连接nfs服务器（默认设置）；</span><br><span class="line">insecure：允许客户端从大于1024的tcp/ip端口连接服务器；</span><br><span class="line">sync：将数据同步写入内存缓冲区与磁盘中，效率低，但可以保证数据的一致性；</span><br><span class="line">async：将数据先保存在内存缓冲区中，必要时才写入磁盘；</span><br><span class="line">wdelay：检查是否有相关的写操作，如果有则将这些写操作一起执行，这样可以提高效率（默认设置）；</span><br><span class="line">no_wdelay：若有写操作则立即执行，应与sync配合使用；</span><br><span class="line">subtree：若输出目录是一个子目录，则nfs服务器将检查其父目录的权限(默认设置)；</span><br><span class="line">no_subtree：即使输出目录是一个子目录，nfs服务器也不检查其父目录的权限，这样可以提高效率；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;exports文件内容格式：</span><br><span class="line"></span><br><span class="line">&lt;输出目录&gt; [客户端1 选项（访问权限,用户映射,其他）] [客户端2 选项（访问权限,用户映射,其他）]</span><br><span class="line">a. 输出目录：</span><br><span class="line"></span><br><span class="line">输出目录是指NFS系统中需要共享给客户机使用的目录；</span><br><span class="line"></span><br><span class="line">b. 客户端：</span><br><span class="line"></span><br><span class="line">客户端是指网络中可以访问这个NFS输出目录的计算机</span><br><span class="line"></span><br><span class="line">客户端常用的指定方式</span><br><span class="line"></span><br><span class="line">指定ip地址的主机：192.168.0.200</span><br><span class="line">指定子网中的所有主机：192.168.0.0&#x2F;24 192.168.0.0&#x2F;255.255.255.0</span><br><span class="line">指定域名的主机：david.bsmart.cn</span><br><span class="line">指定域中的所有主机：*.bsmart.cn</span><br><span class="line">所有主机：*</span><br><span class="line">c. 选项：</span><br><span class="line"></span><br><span class="line">选项用来设置输出目录的访问权限、用户映射等。</span><br><span class="line"></span><br><span class="line">NFS主要有3类选项：</span><br><span class="line"></span><br><span class="line">访问权限选项</span><br><span class="line"></span><br><span class="line">设置输出目录只读：ro</span><br><span class="line">设置输出目录读写：rw</span><br><span class="line">用户映射选项</span><br><span class="line"></span><br><span class="line">all_squash：将远程访问的所有普通用户及所属组都映射为匿名用户或用户组（nfsnobody）；</span><br><span class="line">no_all_squash：与all_squash取反（默认设置）；</span><br><span class="line">root_squash：将root用户及所属组都映射为匿名用户或用户组（默认设置）；</span><br><span class="line">no_root_squash：与rootsquash取反；</span><br><span class="line">anonuid&#x3D;xxx：将远程访问的所有用户都映射为匿名用户，并指定该用户为本地用户（UID&#x3D;xxx）；</span><br><span class="line">anongid&#x3D;xxx：将远程访问的所有用户组都映射为匿名用户组账户，并指定该匿名用户组账户为本地用户组账户（GID&#x3D;xxx）；</span><br><span class="line">其它选项</span><br><span class="line"></span><br><span class="line">secure：限制客户端只能从小于1024的tcp&#x2F;ip端口连接nfs服务器（默认设置）；</span><br><span class="line">insecure：允许客户端从大于1024的tcp&#x2F;ip端口连接服务器；</span><br><span class="line">sync：将数据同步写入内存缓冲区与磁盘中，效率低，但可以保证数据的一致性；</span><br><span class="line">async：将数据先保存在内存缓冲区中，必要时才写入磁盘；</span><br><span class="line">wdelay：检查是否有相关的写操作，如果有则将这些写操作一起执行，这样可以提高效率（默认设置）；</span><br><span class="line">no_wdelay：若有写操作则立即执行，应与sync配合使用；</span><br><span class="line">subtree：若输出目录是一个子目录，则nfs服务器将检查其父目录的权限(默认设置)；</span><br><span class="line">no_subtree：即使输出目录是一个子目录，nfs服务器也不检查其父目录的权限，这样可以提高效率；</span><br></pre></td></tr></table></figure>
+
 <p>相关命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">1、exportfs</span><br><span class="line"></span><br><span class="line">如果我们在启动了NFS之后又修改了/etc/exports，是不是还要重新启动nfs呢？这个时候我们就可以用exportfs 命令来使改动立刻生效，该命令格式如下：</span><br><span class="line"></span><br><span class="line">　　# exportfs [-aruv]</span><br><span class="line"></span><br><span class="line">　　-a 全部挂载或卸载 /etc/exports中的内容</span><br><span class="line">　　-r 重新读取/etc/exports 中的信息 ，并同步更新/etc/exports、/var/lib/nfs/xtab</span><br><span class="line">　　-u 卸载单一目录（和-a一起使用为卸载所有/etc/exports文件中的目录）</span><br><span class="line">　　-v 在export的时候，将详细的信息输出到屏幕上。</span><br><span class="line"></span><br><span class="line">具体例子：</span><br><span class="line">　　# exportfs -au 卸载所有共享目录</span><br><span class="line">　　# exportfs -rv 重新共享所有目录并输出详细信息</span><br><span class="line"></span><br><span class="line">2、nfsstat</span><br><span class="line"></span><br><span class="line">查看NFS的运行状态，对于调整NFS的运行有很大帮助。</span><br><span class="line"></span><br><span class="line">3、rpcinfo</span><br><span class="line">查看rpc执行信息，可以用于检测rpc运行情况的工具，利用rpcinfo -p 可以查看出RPC开启的端口所提供的程序有哪些。</span><br><span class="line"></span><br><span class="line">4、showmount</span><br><span class="line"></span><br><span class="line">　　-a 显示已经于客户端连接上的目录信息</span><br><span class="line">　　-e IP或者hostname 显示此IP地址分享出来的目录</span><br><span class="line"></span><br><span class="line">5、netstat</span><br><span class="line"></span><br><span class="line">可以查看出nfs服务开启的端口，其中nfs 开启的是2049，portmap 开启的是111，其余则是rpc开启的。</span><br><span class="line"></span><br><span class="line">最后注意两点，虽然通过权限设置可以让普通用户访问，但是挂载的时候默认情况下只有root可以去挂载，普通用户可以执行sudo。</span><br><span class="line"></span><br><span class="line">NFS server 关机的时候一点要确保NFS服务关闭，没有客户端处于连接状态！通过showmount -a 可以查看，如果有的话用kill killall pkill 来结束，（-9 强制结束）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">1、exportfs</span><br><span class="line"></span><br><span class="line">如果我们在启动了NFS之后又修改了&#x2F;etc&#x2F;exports，是不是还要重新启动nfs呢？这个时候我们就可以用exportfs 命令来使改动立刻生效，该命令格式如下：</span><br><span class="line"></span><br><span class="line">　　# exportfs [-aruv]</span><br><span class="line"></span><br><span class="line">　　-a 全部挂载或卸载 &#x2F;etc&#x2F;exports中的内容</span><br><span class="line">　　-r 重新读取&#x2F;etc&#x2F;exports 中的信息 ，并同步更新&#x2F;etc&#x2F;exports、&#x2F;var&#x2F;lib&#x2F;nfs&#x2F;xtab</span><br><span class="line">　　-u 卸载单一目录（和-a一起使用为卸载所有&#x2F;etc&#x2F;exports文件中的目录）</span><br><span class="line">　　-v 在export的时候，将详细的信息输出到屏幕上。</span><br><span class="line"></span><br><span class="line">具体例子：</span><br><span class="line">　　# exportfs -au 卸载所有共享目录</span><br><span class="line">　　# exportfs -rv 重新共享所有目录并输出详细信息</span><br><span class="line"></span><br><span class="line">2、nfsstat</span><br><span class="line"></span><br><span class="line">查看NFS的运行状态，对于调整NFS的运行有很大帮助。</span><br><span class="line"></span><br><span class="line">3、rpcinfo</span><br><span class="line">查看rpc执行信息，可以用于检测rpc运行情况的工具，利用rpcinfo -p 可以查看出RPC开启的端口所提供的程序有哪些。</span><br><span class="line"></span><br><span class="line">4、showmount</span><br><span class="line"></span><br><span class="line">　　-a 显示已经于客户端连接上的目录信息</span><br><span class="line">　　-e IP或者hostname 显示此IP地址分享出来的目录</span><br><span class="line"></span><br><span class="line">5、netstat</span><br><span class="line"></span><br><span class="line">可以查看出nfs服务开启的端口，其中nfs 开启的是2049，portmap 开启的是111，其余则是rpc开启的。</span><br><span class="line"></span><br><span class="line">最后注意两点，虽然通过权限设置可以让普通用户访问，但是挂载的时候默认情况下只有root可以去挂载，普通用户可以执行sudo。</span><br><span class="line"></span><br><span class="line">NFS server 关机的时候一点要确保NFS服务关闭，没有客户端处于连接状态！通过showmount -a 可以查看，如果有的话用kill killall pkill 来结束，（-9 强制结束）</span><br></pre></td></tr></table></figure>
+
 <p>问题</p>
 <p>客户端在挂载的时候遇到的一个问题如下，可能是网络不太稳定，NFS 默认是用 UDP 协议，换成 TCP 协议即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t nfs 192.168.100.51:/data /log  -o proto=tcp -o nolock</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t nfs 192.168.100.51:&#x2F;data &#x2F;log  -o proto&#x3D;tcp -o nolock</span><br></pre></td></tr></table></figure>
+
 <p>解除挂载 umount.nfs: /log: device is busy</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fuser -m -v /log</span><br><span class="line">                     用户     进程号 权限   命令</span><br><span class="line">/log:                root      26741 ..c.. bash</span><br><span class="line"></span><br><span class="line">kill -9 26741</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fuser -m -v &#x2F;log</span><br><span class="line">                     用户     进程号 权限   命令</span><br><span class="line">&#x2F;log:                root      26741 ..c.. bash</span><br><span class="line"></span><br><span class="line">kill -9 26741</span><br></pre></td></tr></table></figure>
+
 <h2 id="fstab-文件"><a href="#fstab-文件" class="headerlink" title="fstab 文件"></a>fstab 文件</h2><p>保存文件挂载信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/fstab</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># /etc/fstab</span></span><br><span class="line"><span class="comment"># Created by anaconda on Wed May 18 23:29:58 2016</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Accessible filesystems, by reference, are maintained under '/dev/disk'</span></span><br><span class="line"><span class="comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1</span><br><span class="line">UUID=3725aff0-9f5e-47ce-85b2-80e438dc9df8 /boot                   ext4    defaults        1 2</span><br><span class="line">/dev/mapper/VolGroup-lv_home /opt                   ext4    defaults        1 2</span><br><span class="line">/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0</span><br><span class="line">tmpfs                   /dev/shm                tmpfs   defaults        0 0</span><br><span class="line">devpts                  /dev/pts                devpts  gid=5,mode=620  0 0</span><br><span class="line">sysfs                   /sys                    sysfs   defaults        0 0</span><br><span class="line">proc                    /proc                   proc    defaults        0 0</span><br></pre></td></tr></table></figure>
+
 <h2 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h2><p>查看挂载信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost opt]<span class="comment"># mount</span></span><br><span class="line">/dev/mapper/VolGroup-lv_root on / <span class="built_in">type</span> ext4 (rw)</span><br><span class="line">proc on /proc <span class="built_in">type</span> proc (rw)</span><br><span class="line">sysfs on /sys <span class="built_in">type</span> sysfs (rw)</span><br><span class="line">devpts on /dev/pts <span class="built_in">type</span> devpts (rw,gid=5,mode=620)</span><br><span class="line">tmpfs on /dev/shm <span class="built_in">type</span> tmpfs (rw,rootcontext=<span class="string">"system_u:object_r:tmpfs_t:s0"</span>)</span><br><span class="line">/dev/sda1 on /boot <span class="built_in">type</span> ext4 (rw)</span><br><span class="line">none on /proc/sys/fs/binfmt_misc <span class="built_in">type</span> binfmt_misc (rw)</span><br><span class="line">/dev/mapper/VolGroup-lv_home on /opt <span class="built_in">type</span> ext4 (rw)</span><br><span class="line">[root@localhost opt]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
 <p>挂载分区</p>
 <p>挂载/dev/mapper/VolGroup-lv_home 到/opt</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/mapper/VolGroup-lv_home /opt</span><br></pre></td></tr></table></figure>
+
 <h2 id="umount"><a href="#umount" class="headerlink" title="umount"></a>umount</h2><p>取消挂载</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /home</span><br></pre></td></tr></table></figure>
+
 <h2 id="du"><a href="#du" class="headerlink" title="du"></a>du</h2><p>查看当前目录使用大小</p>
 <p><code>du -sh</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost opt]<span class="comment"># du -sh</span></span><br><span class="line">20K	.</span><br><span class="line">[root@localhost opt]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><p>查看当前硬盘挂载信息及使用情况</p>
 <p><code>df -h</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost opt]<span class="comment"># df -h</span></span><br><span class="line">Filesystem            Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/VolGroup-lv_root</span><br><span class="line">                       50G  646M   46G   2% /</span><br><span class="line">tmpfs                 1.9G     0  1.9G   0% /dev/shm</span><br><span class="line">/dev/sda1             477M   25M  427M   6% /boot</span><br><span class="line">/dev/mapper/VolGroup-lv_home</span><br><span class="line">                      405G   71M  385G   1% /opt</span><br><span class="line">[root@localhost opt]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="fdisk"><a href="#fdisk" class="headerlink" title="fdisk"></a>fdisk</h2><p>查看硬盘信息</p>
 <p><code>fdisk -l</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost opt]<span class="comment"># fdisk -l</span></span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 500.1 GB, 500107862016 bytes</span><br><span class="line">255 heads, 63 sectors/track, 60801 cylinders</span><br><span class="line">Units = cylinders of 16065 * 512 = 8225280 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x54bbc984</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *           1          64      512000   83  Linux</span><br><span class="line">Partition 1 does not end on cylinder boundary.</span><br><span class="line">/dev/sda2              64       60802   487873536   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">Disk /dev/mapper/VolGroup-lv_root: 53.7 GB, 53687091200 bytes</span><br><span class="line">255 heads, 63 sectors/track, 6527 cylinders</span><br><span class="line">Units = cylinders of 16065 * 512 = 8225280 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x00000000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk /dev/mapper/VolGroup-lv_swap: 4076 MB, 4076863488 bytes</span><br><span class="line">255 heads, 63 sectors/track, 495 cylinders</span><br><span class="line">Units = cylinders of 16065 * 512 = 8225280 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x00000000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk /dev/mapper/VolGroup-lv_home: 441.8 GB, 441815400448 bytes</span><br><span class="line">255 heads, 63 sectors/track, 53714 cylinders</span><br><span class="line">Units = cylinders of 16065 * 512 = 8225280 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x00000000</span><br><span class="line"></span><br><span class="line">[root@localhost opt]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="格式化与分区"><a href="#格式化与分区" class="headerlink" title="格式化与分区"></a>格式化与分区</h2><p>fdisk -l /dev/sda 查看第一块硬盘分区情况</p>
 <p>fdisk /dev/sdb 给第二块硬盘分区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">command acton (m for help)：m #显示命令列表</span><br><span class="line"></span><br><span class="line">　　a-设置可引导标志;b-设置卷标; d-删除一个分区; n-新建分区</span><br><span class="line"></span><br><span class="line">　　p-显示分区信息; v-校验分区表;q-不存盘退出;w-存盘退出;t-改变分区类型</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：n 新建分区</span><br><span class="line"></span><br><span class="line">　　command action</span><br><span class="line"></span><br><span class="line">　　e extended #扩展分区</span><br><span class="line"></span><br><span class="line">　　p primary partition (1-4) #主分区</span><br><span class="line"></span><br><span class="line">　　p #创建主分区</span><br><span class="line"></span><br><span class="line">　　partition number (1-4):1 #创建第一个主分区　　first cylinder (1-522,default 1):1 #起始柱面(第一个分区始终为1)</span><br><span class="line"></span><br><span class="line">　　last cylinder or +size or +sizeM or +siezK(1-522,default 522): 10 #截止柱面(若522则整个硬盘分给了一个区)此分区大小是系统按照柱面大小自动计算出来的</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：n</span><br><span class="line"></span><br><span class="line">　　command action</span><br><span class="line"></span><br><span class="line">　　e extended</span><br><span class="line"></span><br><span class="line">　　p primary partition (1-4)</span><br><span class="line"></span><br><span class="line">　　p</span><br><span class="line">　　</span><br><span class="line">　　partition number (1-4):2 #创建第二个主分区</span><br><span class="line"></span><br><span class="line">　　first cylinder (11-522,default 11):11</span><br><span class="line"></span><br><span class="line">　　last cylinder ...(11-522,default 522): +100M #自定义分区大小</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：n</span><br><span class="line"></span><br><span class="line">　　command action</span><br><span class="line"></span><br><span class="line">　　e extended</span><br><span class="line"></span><br><span class="line">　　p primary partition (1-4)</span><br><span class="line"></span><br><span class="line">　　e #创建扩展分区，注意一个磁盘只能创建一个扩展区</span><br><span class="line"></span><br><span class="line">　　partition number (1-4):3</span><br><span class="line">　　</span><br><span class="line">　　first cylinder (28-522,default 28):28</span><br><span class="line"></span><br><span class="line">　　last cylinder ...(28-522,default 522):522 #将剩余空间全部分给扩展分区</span><br><span class="line"></span><br><span class="line">　　扩展分区是不能直接使用的，必须在其上创建逻辑分区!</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：n</span><br><span class="line"></span><br><span class="line">　　command action</span><br><span class="line"></span><br><span class="line">　　l logical (5 or over) #逻辑分区</span><br><span class="line"></span><br><span class="line">　　p primary partition (1-4)</span><br><span class="line">　　</span><br><span class="line">　　l</span><br><span class="line"></span><br><span class="line">　　first sylinder (28-255,default 28):28 #在扩展分区里建逻辑分区</span><br><span class="line"></span><br><span class="line">　　last cylinder ...(28-522,default 522):522 #柱面用尽，等于说只建一个逻辑分区</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：w #保存退出</span><br><span class="line"></span><br><span class="line">　　转换分区类型：</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：t #转换分区类型</span><br><span class="line"></span><br><span class="line">　　partition number (1-4):2 #选择第二个主分区</span><br><span class="line">　　</span><br><span class="line">　　hex code (type L to list codes):82 #按L可列出分区类型所对应的编码</span><br><span class="line"></span><br><span class="line">　　格式化与挂载: (挂载目录可以自行创建也可指定存在的空目录)</span><br><span class="line"></span><br><span class="line">　　mksf.ext3 /dev/sdb1 把第二块硬盘的第一个主分区格式化为ext3</span><br><span class="line"></span><br><span class="line">　　mkswap /dev/sdb2 初始化swap区，此区不可格式化。</span><br><span class="line"></span><br><span class="line">　　mount /dev/sdb1 /mnt/d #将第一个分区挂载到d这个目录</span><br><span class="line"></span><br><span class="line">　　重启后自动挂载：vi /etc/fstab</span><br><span class="line">　　</span><br><span class="line">　　添加：/dev/sdb1 /mnt/d ext3 default 0 0</span><br></pre></td></tr></table></figure>
-<h2 id="添加新硬盘挂载"><a href="#添加新硬盘挂载" class="headerlink" title="添加新硬盘挂载"></a>添加新硬盘挂载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l 查看新硬盘</span><br><span class="line">mksf.ext4 /dev/xvdb 格式化新硬盘</span><br><span class="line">mkdir /data 添加目录</span><br><span class="line">mount /dev/xvdb /data 挂载硬盘</span><br><span class="line">vi /etc/fstab 修改添加下面一条记录，开机自动挂载</span><br><span class="line">	/dev/xvdb       /data   ext4    defaults        0 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">command acton (m for help)：m #显示命令列表</span><br><span class="line"></span><br><span class="line">　　a-设置可引导标志;b-设置卷标; d-删除一个分区; n-新建分区</span><br><span class="line"></span><br><span class="line">　　p-显示分区信息; v-校验分区表;q-不存盘退出;w-存盘退出;t-改变分区类型</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：n 新建分区</span><br><span class="line"></span><br><span class="line">　　command action</span><br><span class="line"></span><br><span class="line">　　e extended #扩展分区</span><br><span class="line"></span><br><span class="line">　　p primary partition (1-4) #主分区</span><br><span class="line"></span><br><span class="line">　　p #创建主分区</span><br><span class="line"></span><br><span class="line">　　partition number (1-4):1 #创建第一个主分区　　first cylinder (1-522,default 1):1 #起始柱面(第一个分区始终为1)</span><br><span class="line"></span><br><span class="line">　　last cylinder or +size or +sizeM or +siezK(1-522,default 522): 10 #截止柱面(若522则整个硬盘分给了一个区)此分区大小是系统按照柱面大小自动计算出来的</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：n</span><br><span class="line"></span><br><span class="line">　　command action</span><br><span class="line"></span><br><span class="line">　　e extended</span><br><span class="line"></span><br><span class="line">　　p primary partition (1-4)</span><br><span class="line"></span><br><span class="line">　　p</span><br><span class="line">　　</span><br><span class="line">　　partition number (1-4):2 #创建第二个主分区</span><br><span class="line"></span><br><span class="line">　　first cylinder (11-522,default 11):11</span><br><span class="line"></span><br><span class="line">　　last cylinder ...(11-522,default 522): +100M #自定义分区大小</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：n</span><br><span class="line"></span><br><span class="line">　　command action</span><br><span class="line"></span><br><span class="line">　　e extended</span><br><span class="line"></span><br><span class="line">　　p primary partition (1-4)</span><br><span class="line"></span><br><span class="line">　　e #创建扩展分区，注意一个磁盘只能创建一个扩展区</span><br><span class="line"></span><br><span class="line">　　partition number (1-4):3</span><br><span class="line">　　</span><br><span class="line">　　first cylinder (28-522,default 28):28</span><br><span class="line"></span><br><span class="line">　　last cylinder ...(28-522,default 522):522 #将剩余空间全部分给扩展分区</span><br><span class="line"></span><br><span class="line">　　扩展分区是不能直接使用的，必须在其上创建逻辑分区!</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：n</span><br><span class="line"></span><br><span class="line">　　command action</span><br><span class="line"></span><br><span class="line">　　l logical (5 or over) #逻辑分区</span><br><span class="line"></span><br><span class="line">　　p primary partition (1-4)</span><br><span class="line">　　</span><br><span class="line">　　l</span><br><span class="line"></span><br><span class="line">　　first sylinder (28-255,default 28):28 #在扩展分区里建逻辑分区</span><br><span class="line"></span><br><span class="line">　　last cylinder ...(28-522,default 522):522 #柱面用尽，等于说只建一个逻辑分区</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：w #保存退出</span><br><span class="line"></span><br><span class="line">　　转换分区类型：</span><br><span class="line"></span><br><span class="line">　　command acton (m for help)：t #转换分区类型</span><br><span class="line"></span><br><span class="line">　　partition number (1-4):2 #选择第二个主分区</span><br><span class="line">　　</span><br><span class="line">　　hex code (type L to list codes):82 #按L可列出分区类型所对应的编码</span><br><span class="line"></span><br><span class="line">　　格式化与挂载: (挂载目录可以自行创建也可指定存在的空目录)</span><br><span class="line"></span><br><span class="line">　　mksf.ext3 &#x2F;dev&#x2F;sdb1 把第二块硬盘的第一个主分区格式化为ext3</span><br><span class="line"></span><br><span class="line">　　mkswap &#x2F;dev&#x2F;sdb2 初始化swap区，此区不可格式化。</span><br><span class="line"></span><br><span class="line">　　mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt&#x2F;d #将第一个分区挂载到d这个目录</span><br><span class="line"></span><br><span class="line">　　重启后自动挂载：vi &#x2F;etc&#x2F;fstab</span><br><span class="line">　　</span><br><span class="line">　　添加：&#x2F;dev&#x2F;sdb1 &#x2F;mnt&#x2F;d ext3 default 0 0</span><br></pre></td></tr></table></figure>
 
-      
+<h2 id="添加新硬盘挂载"><a href="#添加新硬盘挂载" class="headerlink" title="添加新硬盘挂载"></a>添加新硬盘挂载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l 查看新硬盘</span><br><span class="line">mksf.ext4 &#x2F;dev&#x2F;xvdb 格式化新硬盘</span><br><span class="line">mkdir &#x2F;data 添加目录</span><br><span class="line">mount &#x2F;dev&#x2F;xvdb &#x2F;data 挂载硬盘</span><br><span class="line">vi &#x2F;etc&#x2F;fstab 修改添加下面一条记录，开机自动挂载</span><br><span class="line">	&#x2F;dev&#x2F;xvdb       &#x2F;data   ext4    defaults        0 0</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/23/Linux用户管理.html" rel="next" title="linux 用户命令">
-                <i class="fa fa-chevron-left"></i> linux 用户命令
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/25/Linux相关操作.html" rel="prev" title="linux 命令">
-                linux 命令 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/05/23/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.html" rel="prev" title="linux 用户命令">
+      <i class="fa fa-chevron-left"></i> linux 用户命令
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/05/25/Linux%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C.html" rel="next" title="linux 命令">
+      linux 命令 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
+  
+  
+  
 
   </div>
 
 
           </div>
           
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">77</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">71</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-硬盘操作"><span class="nav-number">1.</span> <span class="nav-text">Linux 硬盘操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nfs-文件共享"><span class="nav-number">1.1.</span> <span class="nav-text">nfs 文件共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端"><span class="nav-number">1.1.1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">1.1.2.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关介绍"><span class="nav-number">1.1.3.</span> <span class="nav-text">相关介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fstab-文件"><span class="nav-number">1.2.</span> <span class="nav-text">fstab 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mount"><span class="nav-number">1.3.</span> <span class="nav-text">mount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#umount"><span class="nav-number">1.4.</span> <span class="nav-text">umount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#du"><span class="nav-number">1.5.</span> <span class="nav-text">du</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#df"><span class="nav-number">1.6.</span> <span class="nav-text">df</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fdisk"><span class="nav-number">1.7.</span> <span class="nav-text">fdisk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化与分区"><span class="nav-number">1.8.</span> <span class="nav-text">格式化与分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新硬盘挂载"><span class="nav-number">1.9.</span> <span class="nav-text">添加新硬盘挂载</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
-
-  
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-硬盘操作"><span class="nav-number">1.</span> <span class="nav-text">Linux 硬盘操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nfs-文件共享"><span class="nav-number">1.1.</span> <span class="nav-text">nfs 文件共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端"><span class="nav-number">1.1.1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">1.1.2.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关介绍"><span class="nav-number">1.1.3.</span> <span class="nav-text">相关介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fstab-文件"><span class="nav-number">1.2.</span> <span class="nav-text">fstab 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mount"><span class="nav-number">1.3.</span> <span class="nav-text">mount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#umount"><span class="nav-number">1.4.</span> <span class="nav-text">umount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#du"><span class="nav-number">1.5.</span> <span class="nav-text">du</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#df"><span class="nav-number">1.6.</span> <span class="nav-text">df</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fdisk"><span class="nav-number">1.7.</span> <span class="nav-text">fdisk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化与分区"><span class="nav-number">1.8.</span> <span class="nav-text">格式化与分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新硬盘挂载"><span class="nav-number">1.9.</span> <span class="nav-text">添加新硬盘挂载</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">393k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.0
+  </div>
+
+        
 
 
 
@@ -969,424 +537,48 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 
 
 
-
-
-
-
+      </div>
+    </footer>
+  </div>
 
   
-    
-    
-      
-    
-  
-  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
+<script src="/js/utils.js"></script>
 
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.1"></script>
-
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
-
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
-
-
-  
-  
-
-
-  
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
 
-  
+
+
 
   
+<script src="/js/local-search.js"></script>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
 
   
 

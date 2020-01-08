@@ -1,129 +1,77 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-CN,en,default">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="zh-CN,en,default">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://duanzhaoqian.site').hostname,
     root: '/',
     scheme: 'Mist',
-    version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false,"dimmer":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
-
-  
-
-
-
-
   <meta name="description" content="linux 命令">
-<meta name="keywords" content="linux, iptables">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux iptables">
 <meta property="og:url" content="https://duanzhaoqian.site/2016/08/15/iptables.html">
 <meta property="og:site_name" content="Duan Blog">
 <meta property="og:description" content="linux 命令">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-04T12:09:11.245Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-08-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-04T12:09:11.245Z">
+<meta property="article:author" content="Duan Zhao Qian">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content=" iptables">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux iptables">
-<meta name="twitter:description" content="linux 命令">
+
+<link rel="canonical" href="https://duanzhaoqian.site/2016/08/15/iptables.html">
 
 
-
-
-
-
-  <link rel="canonical" href="https://duanzhaoqian.site/2016/08/15/iptables.html">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: false,
+    isPost: true
   };
-
 </script>
+
   <title>linux iptables | Duan Blog</title>
   
 
@@ -132,15 +80,8 @@
 
 
 
-
-
-
-
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -149,9 +90,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -165,322 +105,180 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Duan Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
+        <li class="menu-item menu-item-sitemap">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
 
-
-  
-
-
-
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/08/15/iptables.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Duan Zhao Qian">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Duan Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">linux iptables
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          linux iptables
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-08-15 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-15T00:00:00+08:00">2016-08-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
             </span>
-          
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
             <div class="post-description">linux 命令</div>
-          
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h1 id="2016-08-15-iptables"><a href="#2016-08-15-iptables" class="headerlink" title="2016-08-15-iptables"></a>2016-08-15-iptables</h1><!--
@@ -490,7 +288,8 @@ Author: <TODO: 请写上你的名字>
 This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
 本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
 -->
-<h2 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h2><p><a href="https://blog.chinaunix.net/uid-26495963-id-3279216.html" target="_blank" rel="noopener">https://blog.chinanix.net/uid-26495963-id-3279216.html</a></p>
+
+<h2 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h2><p><a href="https://blog.chinaunix.net/uid-26495963-id-3279216.html">https://blog.chinanix.net/uid-26495963-id-3279216.html</a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>防火墙，其实说白了讲，就是用于实现 Linux 下访问控制的功能的，它分为硬件的或者软件的防火墙两种。无论是在哪个网络中，防火墙工作的地方一定是在网络的边缘。而我们的任务就是需要去定义到底防火墙如何工作，这就是防火墙的策略，规则，以达到让它对出入网络的 IP、数据进行检测。</p>
 <p>目前市面上比较常见的有 3、4 层的防火墙，叫 <strong>网络层的防火墙</strong>，还有 7 层的防火墙，其实是 <strong>代理层的网关</strong>。</p>
 <p>对于 TCP/IP 的七层模型来讲，我们知道第三层是网络层，三层的防火墙会在这层 <strong>对源地址和目标地址进行检测</strong>。但是对于七层的防火墙，不管你 <strong>源端口或者目标端口，源地址或者目标地址是什么，都将对你所有的东西进行检查</strong>。所以，对于设计原理来讲，七层防火墙更加安全，但是这却带来了效率更低。所以市面上通常的防火墙方案，都是两者结合的。而又由于我们都需要从防火墙所控制的这个口来访问，所以防火墙的工作效率就成了用户能够访问数据多少的一个最重要的控制，配置的不好甚至有可能成为流量的瓶颈。</p>
@@ -539,6 +338,7 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 <h2 id="规则的写法"><a href="#规则的写法" class="headerlink" title="规则的写法"></a>规则的写法</h2><p>iptables 定义规则的方式比较复杂:</p>
 <p>格式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iptables [-t table] COMMAND chain CRETIRIA -j ACTION</span><br><span class="line">		 -t table ：3个filter nat mangle</span><br><span class="line">		 COMMAND：定义如何对规则进行管理</span><br><span class="line">		 chain：指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的</span><br><span class="line">		 CRETIRIA:指定匹配标准</span><br><span class="line">		 -j ACTION :指定如何进行处理</span><br></pre></td></tr></table></figure>
+
 <p>比如：不允许 172.16.0.0/24 的进行访问。</p>
 <p>iptables -t filter -A INPUT -s 172.16.0.0/16 -p udp –dport 53 -j DROP</p>
 <p>当然你如果想拒绝的更彻底：</p>
@@ -547,44 +347,41 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
 <h2 id="详解-COMMAND"><a href="#详解-COMMAND" class="headerlink" title="详解 COMMAND"></a>详解 COMMAND</h2><ol>
 <li><p>链管理命令（这都是立即生效的）</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; -P :设置默认策略的（设定默认门是关着的还是开着的）</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-P :设置默认策略的（设定默认门是关着的还是开着的）</span><br></pre></td></tr></table></figure>
 </blockquote>
 <pre><code>默认策略一般只有两种
 iptables -P INPUT (DROP|ACCEPT)  默认是关的/默认是开的
 比如：
-iptables -P INPUT DROP 这就把默认规则给拒绝了。并且没有定义哪个动作，所以关于外界连接的所有规则包括Xshell连接之类的，远程连接都被拒绝了。
-</code></pre><p>-F: FLASH，清空规则链的(注意每个链的管理权限)<br>iptables -t nat -F PREROUTING<br>iptables -t nat -F 清空 nat 表的所有链<br>-N:NEW 支持用户新建一个链<br>iptables -N inbound_tcp_web 表示附在 tcp 表上用于检查 web 的。<br>-X: 用于删除用户自定义的空链<br>使用方法跟-N 相同，但是在删除之前必须要将里面的链给清空昂了<br>-E：用来 Rename chain 主要是用来给用户自定义的链重命名<br>-E oldname newname<br>-Z：清空链，及链中默认规则的计数器的（有两个计数器，被匹配到多少个数据包，多少个字节）<br>iptables -Z :清空</p>
+iptables -P INPUT DROP 这就把默认规则给拒绝了。并且没有定义哪个动作，所以关于外界连接的所有规则包括Xshell连接之类的，远程连接都被拒绝了。</code></pre><p>-F: FLASH，清空规则链的(注意每个链的管理权限)<br>iptables -t nat -F PREROUTING<br>iptables -t nat -F 清空 nat 表的所有链<br>-N:NEW 支持用户新建一个链<br>iptables -N inbound_tcp_web 表示附在 tcp 表上用于检查 web 的。<br>-X: 用于删除用户自定义的空链<br>使用方法跟-N 相同，但是在删除之前必须要将里面的链给清空昂了<br>-E：用来 Rename chain 主要是用来给用户自定义的链重命名<br>-E oldname newname<br>-Z：清空链，及链中默认规则的计数器的（有两个计数器，被匹配到多少个数据包，多少个字节）<br>iptables -Z :清空</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>规则管理命令</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; -A：追加，在当前链的最后新增一个规则</span><br><span class="line">&gt; -I num : 插入，把当前规则插入为第几条。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-A：追加，在当前链的最后新增一个规则</span><br><span class="line">-I num : 插入，把当前规则插入为第几条。</span><br></pre></td></tr></table></figure>
 </blockquote>
-<pre><code>-I 3 :插入为第三条
-</code></pre><p>-R num：Replays 替换/修改第几条规则<br>格式：iptables -R 3 …………<br>-D num：删除，明确指定删除第几条规则</p>
+<pre><code>-I 3 :插入为第三条</code></pre><p>-R num：Replays 替换/修改第几条规则<br>格式：iptables -R 3 …………<br>-D num：删除，明确指定删除第几条规则</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>查看管理命令 “-L”</p>
 <p>附加子命令</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; -n：以数字的方式显示ip，它会将ip直接显示出来，如果不加-n，则会将ip反向解析成主机名。</span><br><span class="line">&gt; -v：显示详细信息</span><br><span class="line">&gt; -vv</span><br><span class="line">&gt; -vvv :越多越详细</span><br><span class="line">&gt; -x：在计数器上显示精确值，不做单位换算</span><br><span class="line">&gt; --line-numbers : 显示规则的行号</span><br><span class="line">&gt; -t nat：显示所有的关卡的信息</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-n：以数字的方式显示ip，它会将ip直接显示出来，如果不加-n，则会将ip反向解析成主机名。</span><br><span class="line">-v：显示详细信息</span><br><span class="line">-vv</span><br><span class="line">-vvv :越多越详细</span><br><span class="line">-x：在计数器上显示精确值，不做单位换算</span><br><span class="line">--line-numbers : 显示规则的行号</span><br><span class="line">-t nat：显示所有的关卡的信息</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ol>
 <h2 id="详解匹配标准"><a href="#详解匹配标准" class="headerlink" title="详解匹配标准"></a>详解匹配标准</h2><ol>
 <li><p>通用匹配：源地址目标地址的匹配</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; -s：指定作为源地址匹配，这里不能指定主机名称，必须是IP</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-s：指定作为源地址匹配，这里不能指定主机名称，必须是IP</span><br></pre></td></tr></table></figure>
 </blockquote>
 <pre><code>IP | IP/MASK | 0.0.0.0/0.0.0.0
-而且地址可以取反，加一个“!”表示除了哪个IP之外
-</code></pre><p>-d：表示匹配目标地址<br>-p：用于匹配协议的（这里的协议通常有 3 种，TCP/UDP/ICMP）<br>-i eth0：从这块网卡流入的数据<br>流入一般用在 INPUT 和 PREROUTING 上<br>-o eth0：从这块网卡流出的数据<br>流出一般在 OUTPUT 和 POSTROUTING 上</p>
+而且地址可以取反，加一个“!”表示除了哪个IP之外</code></pre><p>-d：表示匹配目标地址<br>-p：用于匹配协议的（这里的协议通常有 3 种，TCP/UDP/ICMP）<br>-i eth0：从这块网卡流入的数据<br>流入一般用在 INPUT 和 PREROUTING 上<br>-o eth0：从这块网卡流出的数据<br>流出一般在 OUTPUT 和 POSTROUTING 上</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>扩展匹配</p>
@@ -592,7 +389,7 @@ iptables -P INPUT DROP 这就把默认规则给拒绝了。并且没有定义哪
 <p>隐含扩展：对协议的扩展</p>
 </blockquote>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; -p tcp :TCP协议的扩展。一般有三种扩展</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-p tcp :TCP协议的扩展。一般有三种扩展</span><br></pre></td></tr></table></figure>
 </blockquote>
 <pre><code>--dport XX-XX：指定目标端口,不能指定多个非连续端口,只能指定单个端口，比如
 --dport 21  或者 --dport 21-23 (此时表示21,22,23)
@@ -602,10 +399,9 @@ iptables -P INPUT DROP 这就把默认规则给拒绝了。并且没有定义哪
     1.检查的标志位
     2.必须为1的标志位
     --tcpflags syn,ack,fin,rst syn   =    --syn
-    表示检查这4个位，这4个位中syn必须为1，其他的必须为0。所以这个意思就是用于检测三次握手的第一次包的。对于这种专门匹配第一包的SYN为1的包，还有一种简写方式，叫做--syn
-</code></pre><p>-p udp：UDP 协议的扩展<br>–dport<br>–sport<br>-p icmp：icmp 数据报文的扩展<br>–icmp-type：<br>echo-request(请求回显)，一般用 8 来表示<br>所以 –icmp-type 8 匹配请求回显数据包<br>echo-reply （响应的数据包）一般用 0 来表示</p>
+    表示检查这4个位，这4个位中syn必须为1，其他的必须为0。所以这个意思就是用于检测三次握手的第一次包的。对于这种专门匹配第一包的SYN为1的包，还有一种简写方式，叫做--syn</code></pre><p>-p udp：UDP 协议的扩展<br>–dport<br>–sport<br>-p icmp：icmp 数据报文的扩展<br>–icmp-type：<br>echo-request(请求回显)，一般用 8 来表示<br>所以 –icmp-type 8 匹配请求回显数据包<br>echo-reply （响应的数据包）一般用 0 来表示</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>显式扩展（-m）</p>
@@ -615,6 +411,7 @@ iptables -P INPUT DROP 这就把默认规则给拒绝了。并且没有定义哪
 </ol>
 <h2 id="详解-j-ACTION"><a href="#详解-j-ACTION" class="headerlink" title="详解-j ACTION"></a>详解-j ACTION</h2><p>常用的 ACTION：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DROP：悄悄丢弃</span><br><span class="line">一般我们多用DROP来隐藏我们的身份，以及隐藏我们的链表</span><br><span class="line">REJECT：明示拒绝</span><br><span class="line">ACCEPT：接受</span><br><span class="line">custom_chain：转向一个自定义的链</span><br><span class="line">DNAT</span><br><span class="line">SNAT</span><br><span class="line">MASQUERADE：源地址伪装</span><br><span class="line">REDIRECT：重定向：主要用于实现端口重定向</span><br><span class="line">MARK：打防火墙标记的</span><br><span class="line">RETURN：返回</span><br><span class="line">在自定义链执行完毕后使用返回，来返回原规则链。</span><br></pre></td></tr></table></figure>
+
 <h4 id="练习题-1："><a href="#练习题-1：" class="headerlink" title="练习题 1："></a>练习题 1：</h4><p>只要是来自于 172.16.0.0/16 网段的都允许访问我本机的 172.16.100.1 的 SSHD 服务</p>
 <p>分析：首先肯定是在允许表中定义的。因为不需要做 NAT 地址转换之类的，然后查看我们 SSHD 服务，在 22 号端口上，处理机制是接受，对于这个表，需要有一来一回两个规则，如果我们允许也好，拒绝也好，对于访问本机服务，我们最好是定义在 INPUT 链上，而 OUTPUT 再予以定义就好。(会话的初始端先定义)，所以加规则就是：</p>
 <p>定义进来的： iptables -t filter -A INPUT -s 172.16.0.0/16 -d 172.16.100.1 -p tcp –dport 22 -j ACCEPT</p>
@@ -666,8 +463,7 @@ iptables -P INPUT DROP 这就把默认规则给拒绝了。并且没有定义哪
 
 iptables -t nat -A PREROUTING -d 172.16.100.2 -p tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80
 
-iptables -t nat -A PREROUTING -d 172.16.100.2 -p tcp --dport 80 -j DNAT --to 192.168.10.10:80
-</code></pre><p>目标地址转换要做在到达网卡之前进行转换,所以要做在 PREROUTING 这个位置上</p>
+iptables -t nat -A PREROUTING -d 172.16.100.2 -p tcp --dport 80 -j DNAT --to 192.168.10.10:80</code></pre><p>目标地址转换要做在到达网卡之前进行转换,所以要做在 PREROUTING 这个位置上</p>
 </li>
 </ol>
 <h2 id="控制规则的存放以及开启"><a href="#控制规则的存放以及开启" class="headerlink" title="控制规则的存放以及开启"></a>控制规则的存放以及开启</h2><p>注意：你所定义的所有内容，当你重启的时候都会失效，要想我们能够生效，需要使用一个命令将它保存起来</p>
@@ -685,7 +481,7 @@ iptables -t nat -A PREROUTING -d 172.16.100.2 -p tcp --dport 80 -j DNAT --to 192
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>iptables 是一个非常重要的工具，它是每一个防火墙上几乎必备的设置，也是我们在做大型网络的时候，为了很多原因而必须要设置的。学好 Iptables,可以让我们对整个网络的结构有一个比较深刻的了解，同时，我们还能够将内核空间中数据的走向以及 linux 的安全给掌握的非常透彻。我们在学习的时候，尽量能结合着各种各样的项目，实验来完成，这样对你加深 iptables 的配置，以及各种技巧有非常大的帮助。</p>
 <p>附加 iptables 比较好的文章：</p>
-<p><a href="https://www.linuxso.com/linuxpeixun/10332.html" target="_blank" rel="noopener">https://www.linuxso.com/linuxpeixun/10332.html</a></p>
+<p><a href="https://www.linuxso.com/linuxpeixun/10332.html">https://www.linuxso.com/linuxpeixun/10332.html</a></p>
 <h2 id="开启独立日志记录"><a href="#开启独立日志记录" class="headerlink" title="开启独立日志记录"></a>开启独立日志记录</h2><p>系统日志配置在 CentOS5 上叫 syslog，而在 CentOS6 上叫 rsyslog，叫增强版的 syslog，CentOS5 上的配置文件在/etc/syslog.conf 下，而 CentOS6 在/etc/rsyslog.conf 下</p>
 <ol>
 <li><p>在 rsyslog.conf 添加配置</p>
@@ -740,442 +536,193 @@ iptables -t nat -A PREROUTING -d 172.16.100.2 -p tcp --dport 80 -j DNAT --to 192
 </blockquote>
 <p>添加 nat tcp 日志（日志一般者配在 INPUT 链上）</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; iptables -t nat -A PREROUTING -p tcp -j LOG --log-prefix &quot;iptables&quot;（未生效）</span><br><span class="line">&gt; iptables -t nat -A POSTROUTING -p tcp -j LOG --log-prefix &quot;iptables&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp -j LOG --log-prefix &quot;iptables&quot;（未生效）</span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -j LOG --log-prefix &quot;iptables&quot;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>指定 tcp IP 端口（未生效）</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; iptables -A INPUT -d 172.10.2.201 -p tcp --dport 80 -j LOG --log-prefix &quot;iptables&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -d 172.10.2.201 -p tcp --dport 80 -j LOG --log-prefix &quot;iptables&quot;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ol>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="限制不同-IP-段互相访问"><a href="#限制不同-IP-段互相访问" class="headerlink" title="限制不同 IP 段互相访问"></a>限制不同 IP 段互相访问</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">192.168.10.10/24 网关 192.168.10.254</span><br><span class="line">192.168.20.20/24 网关 192.168.20.254</span><br><span class="line">172.10.2.100/24 网关 172.10.2.254</span><br><span class="line">192.168.10.254、192.168.20.254、172.10.2.254是同一机器上的三个网络接口</span><br><span class="line">允许192.168.0.0/16之间互相访问，不允许172.10.0.0/16和192.168.0.0/16之间访问</span><br><span class="line">iptables -I FORWARD -s 172.10.0.0/16 -d 192.168.0.0/16 -j DROP</span><br></pre></td></tr></table></figure>
-<h3 id="限制指定-IP-间访问"><a href="#限制指定-IP-间访问" class="headerlink" title="限制指定 IP 间访问"></a>限制指定 IP 间访问</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I FORWARD -s 192.168.10.11/32 -d 192.168.20.20/32 -j DROP</span><br></pre></td></tr></table></figure>
-<h3 id="允许指定-IP-互相-P-通"><a href="#允许指定-IP-互相-P-通" class="headerlink" title="允许指定 IP 互相 P 通"></a>允许指定 IP 互相 P 通</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I FORWARD -s 192.168.10.11/32 -d 192.168.20.20/32 -j DROP -p icmp</span><br></pre></td></tr></table></figure>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="限制不同-IP-段互相访问"><a href="#限制不同-IP-段互相访问" class="headerlink" title="限制不同 IP 段互相访问"></a>限制不同 IP 段互相访问</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">192.168.10.10&#x2F;24 网关 192.168.10.254</span><br><span class="line">192.168.20.20&#x2F;24 网关 192.168.20.254</span><br><span class="line">172.10.2.100&#x2F;24 网关 172.10.2.254</span><br><span class="line">192.168.10.254、192.168.20.254、172.10.2.254是同一机器上的三个网络接口</span><br><span class="line">允许192.168.0.0&#x2F;16之间互相访问，不允许172.10.0.0&#x2F;16和192.168.0.0&#x2F;16之间访问</span><br><span class="line">iptables -I FORWARD -s 172.10.0.0&#x2F;16 -d 192.168.0.0&#x2F;16 -j DROP</span><br></pre></td></tr></table></figure>
+
+<h3 id="限制指定-IP-间访问"><a href="#限制指定-IP-间访问" class="headerlink" title="限制指定 IP 间访问"></a>限制指定 IP 间访问</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I FORWARD -s 192.168.10.11&#x2F;32 -d 192.168.20.20&#x2F;32 -j DROP</span><br></pre></td></tr></table></figure>
+
+<h3 id="允许指定-IP-互相-P-通"><a href="#允许指定-IP-互相-P-通" class="headerlink" title="允许指定 IP 互相 P 通"></a>允许指定 IP 互相 P 通</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I FORWARD -s 192.168.10.11&#x2F;32 -d 192.168.20.20&#x2F;32 -j DROP -p icmp</span><br></pre></td></tr></table></figure>
+
 <h3 id="禁止-20-段上网，允许-10-段上网（FORWARD-默认策略-DROP）"><a href="#禁止-20-段上网，允许-10-段上网（FORWARD-默认策略-DROP）" class="headerlink" title="禁止 20 段上网，允许 10 段上网（FORWARD 默认策略 DROP）"></a>禁止 20 段上网，允许 10 段上网（FORWARD 默认策略 DROP）</h3><p>FORWARD DROP 添加 192.168.10.0/24 ACCEPT</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -P FORWARD DROP</span><br><span class="line">iptables -I FORWARD -s 192.168.10.0/24 -j ACCEPT</span><br><span class="line">iptables -I FORWARD -d 192.168.10.0/24 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># Generated by iptables-save v1.4.7 on Tue Aug 16 10:55:10 2016</span><br><span class="line">*filter</span><br><span class="line">:INPUT DROP [572:39414]</span><br><span class="line">:FORWARD DROP [3:227]</span><br><span class="line">:OUTPUT ACCEPT [41:5184]</span><br><span class="line">-A INPUT -s 192.168.0.0/16 -p tcp -m tcp --dport 22 -j ACCEPT</span><br><span class="line">-A INPUT -p icmp -j ACCEPT</span><br><span class="line">-A INPUT -d 172.10.2.201/32 -p tcp -j LOG --log-prefix &quot;iptables&quot;</span><br><span class="line">-A FORWARD -s 192.168.10.0/24 -j ACCEPT</span><br><span class="line">-A FORWARD -d 192.168.10.0/24 -j ACCEPT</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Tue Aug 16 10:55:10 2016</span><br><span class="line"># Generated by iptables-save v1.4.7 on Tue Aug 16 10:55:10 2016</span><br><span class="line">*nat</span><br><span class="line">:PREROUTING ACCEPT [4983944:300624001]</span><br><span class="line">:POSTROUTING ACCEPT [604:39091]</span><br><span class="line">:OUTPUT ACCEPT [43:3387]</span><br><span class="line">-A PREROUTING -d 172.10.2.201/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80</span><br><span class="line">-A POSTROUTING -s 192.168.0.0/16 -o em1 -j MASQUERADE</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Tue Aug 16 10:55:10 2016</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -P FORWARD DROP</span><br><span class="line">iptables -I FORWARD -s 192.168.10.0&#x2F;24 -j ACCEPT</span><br><span class="line">iptables -I FORWARD -d 192.168.10.0&#x2F;24 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># Generated by iptables-save v1.4.7 on Tue Aug 16 10:55:10 2016</span><br><span class="line">*filter</span><br><span class="line">:INPUT DROP [572:39414]</span><br><span class="line">:FORWARD DROP [3:227]</span><br><span class="line">:OUTPUT ACCEPT [41:5184]</span><br><span class="line">-A INPUT -s 192.168.0.0&#x2F;16 -p tcp -m tcp --dport 22 -j ACCEPT</span><br><span class="line">-A INPUT -p icmp -j ACCEPT</span><br><span class="line">-A INPUT -d 172.10.2.201&#x2F;32 -p tcp -j LOG --log-prefix &quot;iptables&quot;</span><br><span class="line">-A FORWARD -s 192.168.10.0&#x2F;24 -j ACCEPT</span><br><span class="line">-A FORWARD -d 192.168.10.0&#x2F;24 -j ACCEPT</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Tue Aug 16 10:55:10 2016</span><br><span class="line"># Generated by iptables-save v1.4.7 on Tue Aug 16 10:55:10 2016</span><br><span class="line">*nat</span><br><span class="line">:PREROUTING ACCEPT [4983944:300624001]</span><br><span class="line">:POSTROUTING ACCEPT [604:39091]</span><br><span class="line">:OUTPUT ACCEPT [43:3387]</span><br><span class="line">-A PREROUTING -d 172.10.2.201&#x2F;32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80</span><br><span class="line">-A POSTROUTING -s 192.168.0.0&#x2F;16 -o em1 -j MASQUERADE</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Tue Aug 16 10:55:10 2016</span><br></pre></td></tr></table></figure>
+
 <h3 id="192-168-20-20-所有请求转到-192-168-10-10"><a href="#192-168-20-20-所有请求转到-192-168-10-10" class="headerlink" title="192.168.20.20 所有请求转到 192.168.10.10"></a>192.168.20.20 所有请求转到 192.168.10.10</h3><p>开启转发</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysctl.conf</span><br><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line"></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;sysctl.conf</span><br><span class="line">net.ipv4.ip_forward &#x3D; 1</span><br><span class="line"></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
 <p>设置 SNAT</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -j MASQUERADE</span><br><span class="line">或者</span><br><span class="line">iptables -t nat -A POSTROUTING -d 192.168.10.10 -j SNAT --to 192.168.20.20</span><br></pre></td></tr></table></figure>
+
 <p>设置 DNAT</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -d 192.168.20.20 -j DNAT --to 192.168.10.10</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-            <a href="/tags/iptables/" rel="tag"># iptables</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/08/05/JVM设置.html" rel="next" title="JVM设置">
-                <i class="fa fa-chevron-left"></i> JVM设置
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/iptables/" rel="tag"># iptables</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/15/Linux-NAT.html" rel="prev" title="linux nat">
-                linux nat <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/08/05/JVM%E8%AE%BE%E7%BD%AE.html" rel="prev" title="JVM设置">
+      <i class="fa fa-chevron-left"></i> JVM设置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/08/15/Linux-NAT.html" rel="next" title="linux nat">
+      linux nat <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
+  
+  
+  
 
   </div>
 
 
           </div>
           
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">77</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">71</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-08-15-iptables"><span class="nav-number">1.</span> <span class="nav-text">2016-08-15-iptables</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原文链接"><span class="nav-number">1.1.</span> <span class="nav-text">原文链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iptables-的历史以及工作原理"><span class="nav-number">1.3.</span> <span class="nav-text">iptables 的历史以及工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规则的写法"><span class="nav-number">1.4.</span> <span class="nav-text">规则的写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解-COMMAND"><span class="nav-number">1.5.</span> <span class="nav-text">详解 COMMAND</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解匹配标准"><span class="nav-number">1.6.</span> <span class="nav-text">详解匹配标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解-j-ACTION"><span class="nav-number">1.7.</span> <span class="nav-text">详解-j ACTION</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#练习题-1："><span class="nav-number">1.7.0.1.</span> <span class="nav-text">练习题 1：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态检测"><span class="nav-number">1.8.</span> <span class="nav-text">状态检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#练习题-2："><span class="nav-number">1.8.0.1.</span> <span class="nav-text">练习题 2：</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#SNAT-和-DNAT-的实现"><span class="nav-number">1.9.</span> <span class="nav-text">SNAT 和 DNAT 的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制规则的存放以及开启"><span class="nav-number">1.10.</span> <span class="nav-text">控制规则的存放以及开启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.11.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启独立日志记录"><span class="nav-number">1.12.</span> <span class="nav-text">开启独立日志记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.13.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#限制不同-IP-段互相访问"><span class="nav-number">1.13.1.</span> <span class="nav-text">限制不同 IP 段互相访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制指定-IP-间访问"><span class="nav-number">1.13.2.</span> <span class="nav-text">限制指定 IP 间访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#允许指定-IP-互相-P-通"><span class="nav-number">1.13.3.</span> <span class="nav-text">允许指定 IP 互相 P 通</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#禁止-20-段上网，允许-10-段上网（FORWARD-默认策略-DROP）"><span class="nav-number">1.13.4.</span> <span class="nav-text">禁止 20 段上网，允许 10 段上网（FORWARD 默认策略 DROP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#192-168-20-20-所有请求转到-192-168-10-10"><span class="nav-number">1.13.5.</span> <span class="nav-text">192.168.20.20 所有请求转到 192.168.10.10</span></a></li></ol></li></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
-
-  
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-08-15-iptables"><span class="nav-number">1.</span> <span class="nav-text">2016-08-15-iptables</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原文链接"><span class="nav-number">1.1.</span> <span class="nav-text">原文链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iptables-的历史以及工作原理"><span class="nav-number">1.3.</span> <span class="nav-text">iptables 的历史以及工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规则的写法"><span class="nav-number">1.4.</span> <span class="nav-text">规则的写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解-COMMAND"><span class="nav-number">1.5.</span> <span class="nav-text">详解 COMMAND</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解匹配标准"><span class="nav-number">1.6.</span> <span class="nav-text">详解匹配标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解-j-ACTION"><span class="nav-number">1.7.</span> <span class="nav-text">详解-j ACTION</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#练习题-1："><span class="nav-number">1.7.0.1.</span> <span class="nav-text">练习题 1：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态检测"><span class="nav-number">1.8.</span> <span class="nav-text">状态检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#练习题-2："><span class="nav-number">1.8.0.1.</span> <span class="nav-text">练习题 2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SNAT-和-DNAT-的实现"><span class="nav-number">1.9.</span> <span class="nav-text">SNAT 和 DNAT 的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制规则的存放以及开启"><span class="nav-number">1.10.</span> <span class="nav-text">控制规则的存放以及开启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.11.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启独立日志记录"><span class="nav-number">1.12.</span> <span class="nav-text">开启独立日志记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.13.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#限制不同-IP-段互相访问"><span class="nav-number">1.13.1.</span> <span class="nav-text">限制不同 IP 段互相访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制指定-IP-间访问"><span class="nav-number">1.13.2.</span> <span class="nav-text">限制指定 IP 间访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#允许指定-IP-互相-P-通"><span class="nav-number">1.13.3.</span> <span class="nav-text">允许指定 IP 互相 P 通</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#禁止-20-段上网，允许-10-段上网（FORWARD-默认策略-DROP）"><span class="nav-number">1.13.4.</span> <span class="nav-text">禁止 20 段上网，允许 10 段上网（FORWARD 默认策略 DROP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#192-168-20-20-所有请求转到-192-168-10-10"><span class="nav-number">1.13.5.</span> <span class="nav-text">192.168.20.20 所有请求转到 192.168.10.10</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">393k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.0
+  </div>
+
+        
 
 
 
@@ -1184,424 +731,48 @@ iptables -t nat -A PREROUTING -d 172.16.100.2 -p tcp --dport 80 -j DNAT --to 192
 
 
 
-
-
-
-
+      </div>
+    </footer>
+  </div>
 
   
-    
-    
-      
-    
-  
-  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
+<script src="/js/utils.js"></script>
 
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.1"></script>
-
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
-
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
-
-
-  
-  
-
-
-  
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
 
-  
+
+
 
   
+<script src="/js/local-search.js"></script>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
 
   
 

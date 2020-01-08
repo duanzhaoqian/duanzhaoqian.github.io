@@ -1,129 +1,76 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-CN,en,default">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="zh-CN,en,default">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://duanzhaoqian.site').hostname,
     root: '/',
     scheme: 'Mist',
-    version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false,"dimmer":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
-
-  
-
-
-
-
   <meta name="description" content="ambari-2.4.1">
-<meta name="keywords" content="ambari-2.4.1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ambari-2.4.1">
 <meta property="og:url" content="https://duanzhaoqian.site/2016/10/24/ambari-2.4.1.html">
 <meta property="og:site_name" content="Duan Blog">
 <meta property="og:description" content="ambari-2.4.1">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-04T12:09:11.247Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-10-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-04T12:09:11.247Z">
+<meta property="article:author" content="Duan Zhao Qian">
+<meta property="article:tag" content="ambari-2.4.1">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ambari-2.4.1">
-<meta name="twitter:description" content="ambari-2.4.1">
+
+<link rel="canonical" href="https://duanzhaoqian.site/2016/10/24/ambari-2.4.1.html">
 
 
-
-
-
-
-  <link rel="canonical" href="https://duanzhaoqian.site/2016/10/24/ambari-2.4.1.html">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: false,
+    isPost: true
   };
-
 </script>
+
   <title>ambari-2.4.1 | Duan Blog</title>
   
 
@@ -132,15 +79,8 @@
 
 
 
-
-
-
-
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -149,9 +89,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -165,322 +104,180 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Duan Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
+        <li class="menu-item menu-item-sitemap">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
 
-
-  
-
-
-
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://duanzhaoqian.site/2016/10/24/ambari-2.4.1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Duan Zhao Qian">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Duan Zhao Qian">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Duan Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">ambari-2.4.1
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          ambari-2.4.1
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-10-24 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-24T00:00:00+08:00">2016-10-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
             </span>
-          
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>11 分钟</span>
+            </span>
             <div class="post-description">ambari-2.4.1</div>
-          
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h1 id="2016-10-24-ambari-2-4-1"><a href="#2016-10-24-ambari-2-4-1" class="headerlink" title="2016-10-24-ambari-2.4.1"></a>2016-10-24-ambari-2.4.1</h1><!--
@@ -494,515 +291,301 @@ icon:fa-linux fa-database icon-java fa-apple
 icon https://fizzed.com/oss/font-mfizz
 icon https://fontawesome.io/icons/
 -->
-<h2 id="yum-源安装"><a href="#yum-源安装" class="headerlink" title="yum 源安装"></a>yum 源安装</h2><p><a href="https://cwiki.apache.org/confluence/display/AMBARI/Quick+Start+for+New+VM+Users" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/AMBARI/Quick+Start+for+New+VM+Users</a></p>
+
+<h2 id="yum-源安装"><a href="#yum-源安装" class="headerlink" title="yum 源安装"></a>yum 源安装</h2><p><a href="https://cwiki.apache.org/confluence/display/AMBARI/Quick+Start+for+New+VM+Users">https://cwiki.apache.org/confluence/display/AMBARI/Quick+Start+for+New+VM+Users</a></p>
 <h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>rpm<br>curl<br>wget<br>pdsh</p>
 <p>添加源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span><br><span class="line">yum install -y pdsh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh https:&#x2F;&#x2F;dl.fedoraproject.org&#x2F;pub&#x2F;epel&#x2F;6&#x2F;x86_64&#x2F;epel-release-6-8.noarch.rpm</span><br><span class="line">yum install -y pdsh</span><br></pre></td></tr></table></figure>
+
 <h3 id="centos6-7-mini"><a href="#centos6-7-mini" class="headerlink" title="centos6.7-mini"></a>centos6.7-mini</h3><p>系统版本 CentOS-6.7-x86_64-minimal.iso 2 核 4G 100G 硬盘</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -nv https://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.1.0/ambari.repo -O /etc/yum.repos.d/ambari.repo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -nv https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;ambari&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.4.1.0&#x2F;ambari.repo -O &#x2F;etc&#x2F;yum.repos.d&#x2F;ambari.repo</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ambari-server -y</span><br></pre></td></tr></table></figure>
+
 <p>rpm 包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://162.209.124.204/hortonworks/ambari/centos6/2.x/updates/2.1.1/Updates-ambari-2.1.1/ambari/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;162.209.124.204&#x2F;hortonworks&#x2F;ambari&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.1.1&#x2F;Updates-ambari-2.1.1&#x2F;ambari&#x2F;</span><br></pre></td></tr></table></figure>
+
 <h4 id="准备机器"><a href="#准备机器" class="headerlink" title="准备机器"></a>准备机器</h4><blockquote>
 <p>192.168.100.37<br>192.168.100.21<br>192.168.100.22<br>192.168.100.23<br>192.168.100.24</p>
 </blockquote>
 <p>192.168.100.37 安装 ambari-server dnsmasq</p>
 <p>各机器配置(同步时间等)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y ntp</span><br><span class="line">ntpdate 192.168.100.10</span><br></pre></td></tr></table></figure>
+
 <p>修改 hostname 及 IP</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network</span><br><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;network</span><br><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth2</span><br></pre></td></tr></table></figure>
+
 <p>修改 dns 解析</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/resolv.conf</span><br><span class="line">nameserver 192.168.100.37</span><br></pre></td></tr></table></figure>
-<h5 id="192-168-100-37"><a href="#192-168-100-37" class="headerlink" title="192.168.100.37"></a>192.168.100.37</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget rpm curl wget pdsh</span><br><span class="line"></span><br><span class="line">wget -nv https://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.1.0/ambari.repo -O /etc/yum.repos.d/ambari.repo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;resolv.conf</span><br><span class="line">nameserver 192.168.100.37</span><br></pre></td></tr></table></figure>
+
+<h5 id="192-168-100-37"><a href="#192-168-100-37" class="headerlink" title="192.168.100.37"></a>192.168.100.37</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh https:&#x2F;&#x2F;dl.fedoraproject.org&#x2F;pub&#x2F;epel&#x2F;6&#x2F;x86_64&#x2F;epel-release-6-8.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget rpm curl wget pdsh</span><br><span class="line"></span><br><span class="line">wget -nv https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;ambari&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.4.1.0&#x2F;ambari.repo -O &#x2F;etc&#x2F;yum.repos.d&#x2F;ambari.repo</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y dnsmasq</span><br><span class="line">yum install -y ambari-server</span><br></pre></td></tr></table></figure>
+
 <p>配置 hosts 及 ssh 免密登陆</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br><span class="line"></span><br><span class="line">192.168.100.37 ambari37</span><br><span class="line">192.168.100.36 ambari36</span><br><span class="line">192.168.100.35 kafka35</span><br><span class="line">192.168.100.34 kafka34</span><br><span class="line">192.168.100.33 storm33</span><br><span class="line">192.168.100.32 storm32</span><br><span class="line">192.168.100.31 storm31</span><br><span class="line">192.168.100.21 node21</span><br><span class="line">192.168.100.22 node22</span><br><span class="line">192.168.100.23 node23</span><br><span class="line">192.168.100.24 node24</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;hosts</span><br><span class="line"></span><br><span class="line">192.168.100.37 ambari37</span><br><span class="line">192.168.100.36 ambari36</span><br><span class="line">192.168.100.35 kafka35</span><br><span class="line">192.168.100.34 kafka34</span><br><span class="line">192.168.100.33 storm33</span><br><span class="line">192.168.100.32 storm32</span><br><span class="line">192.168.100.31 storm31</span><br><span class="line">192.168.100.21 node21</span><br><span class="line">192.168.100.22 node22</span><br><span class="line">192.168.100.23 node23</span><br><span class="line">192.168.100.24 node24</span><br></pre></td></tr></table></figure>
+
 <p>ssh 免密登陆</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line">ssh-copy-id root@node21</span><br><span class="line">ssh-copy-id root@node22</span><br><span class="line">ssh-copy-id root@node23</span><br><span class="line">ssh-copy-id root@node24</span><br></pre></td></tr></table></figure>
+
 <p>启动 dnsmasq</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service dnsmasq start</span><br></pre></td></tr></table></figure>
+
 <h5 id="192-168-100-37-1"><a href="#192-168-100-37-1" class="headerlink" title="192.168.100.37"></a>192.168.100.37</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ambari-server setup -s</span><br></pre></td></tr></table></figure>
+
 <p>自动检查环境 自动下载 jdk-8u77-linux-x64.tar.gz</p>
 <p>执行过程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">[root@ambari37 ~]# ambari-server setup -s</span><br><span class="line">Using python  /usr/bin/python</span><br><span class="line">Setup ambari-server</span><br><span class="line">Checking SELinux...</span><br><span class="line">SELinux status is &apos;enabled&apos;</span><br><span class="line">SELinux mode is &apos;enforcing&apos;</span><br><span class="line">Temporarily disabling SELinux</span><br><span class="line">WARNING: SELinux is set to &apos;permissive&apos; mode and temporarily disabled.</span><br><span class="line">OK to continue [y/n] (y)?</span><br><span class="line">Customize user account for ambari-server daemon [y/n] (n)?</span><br><span class="line">Adjusting ambari-server permissions and ownership...</span><br><span class="line">Checking firewall status...</span><br><span class="line">Checking JDK...</span><br><span class="line">[1] Oracle JDK 1.8 + Java Cryptography Extension (JCE) Policy Files 8</span><br><span class="line">[2] Oracle JDK 1.7 + Java Cryptography Extension (JCE) Policy Files 7</span><br><span class="line">[3] Custom JDK</span><br><span class="line">==============================================================================</span><br><span class="line">Enter choice (1):</span><br><span class="line">To download the Oracle JDK and the Java Cryptography Extension (JCE) Policy Files you must accept the license terms found at https://www.oracle.com/technetwork/java/javase/terms/license/index.html and not accepting will cancel the Ambari Server setup and you must install the JDK and JCE files manually.</span><br><span class="line">Do you accept the Oracle Binary Code License Agreement [y/n] (y)?</span><br><span class="line">Downloading JDK from https://public-repo-1.hortonworks.com/ARTIFACTS/jdk-8u77-linux-x64.tar.gz to /var/lib/ambari-server/resources/jdk-8u77-linux-x64.tar.gz</span><br><span class="line">jdk-8u77-linux-x64.tar.gz... 100% (173.0 MB of 173.0 MB)</span><br><span class="line">Successfully downloaded JDK distribution to /var/lib/ambari-server/resources/jdk-8u77-linux-x64.tar.gz</span><br><span class="line">Installing JDK to /usr/jdk64/</span><br><span class="line">Successfully installed JDK to /usr/jdk64/</span><br><span class="line">Downloading JCE Policy archive from https://public-repo-1.hortonworks.com/ARTIFACTS/jce_policy-8.zip to /var/lib/ambari-server/resources/jce_policy-8.zip</span><br><span class="line"></span><br><span class="line">Successfully downloaded JCE Policy archive to /var/lib/ambari-server/resources/jce_policy-8.zip</span><br><span class="line">Installing JCE policy...</span><br><span class="line">Completing setup...</span><br><span class="line">Configuring database...</span><br><span class="line">Enter advanced database configuration [y/n] (n)?</span><br><span class="line">Configuring database...</span><br><span class="line">Default properties detected. Using built-in database.</span><br><span class="line">Configuring ambari database...</span><br><span class="line">Checking PostgreSQL...</span><br><span class="line">Running initdb: This may take up to a minute.</span><br><span class="line">Initializing database: [  OK  ]</span><br><span class="line"></span><br><span class="line">About to start PostgreSQL</span><br><span class="line">Configuring local database...</span><br><span class="line">Connecting to local database...done.</span><br><span class="line">Configuring PostgreSQL...</span><br><span class="line">Restarting PostgreSQL</span><br><span class="line">Extracting system views...</span><br><span class="line">.........ambari-admin-2.4.1.0.22.jar</span><br><span class="line">..</span><br><span class="line">Adjusting ambari-server permissions and ownership...</span><br><span class="line">Ambari Server &apos;setup&apos; completed successfully.</span><br><span class="line">[root@ambari37 ~]#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">[root@ambari37 ~]# ambari-server setup -s</span><br><span class="line">Using python  &#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">Setup ambari-server</span><br><span class="line">Checking SELinux...</span><br><span class="line">SELinux status is &#39;enabled&#39;</span><br><span class="line">SELinux mode is &#39;enforcing&#39;</span><br><span class="line">Temporarily disabling SELinux</span><br><span class="line">WARNING: SELinux is set to &#39;permissive&#39; mode and temporarily disabled.</span><br><span class="line">OK to continue [y&#x2F;n] (y)?</span><br><span class="line">Customize user account for ambari-server daemon [y&#x2F;n] (n)?</span><br><span class="line">Adjusting ambari-server permissions and ownership...</span><br><span class="line">Checking firewall status...</span><br><span class="line">Checking JDK...</span><br><span class="line">[1] Oracle JDK 1.8 + Java Cryptography Extension (JCE) Policy Files 8</span><br><span class="line">[2] Oracle JDK 1.7 + Java Cryptography Extension (JCE) Policy Files 7</span><br><span class="line">[3] Custom JDK</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">Enter choice (1):</span><br><span class="line">To download the Oracle JDK and the Java Cryptography Extension (JCE) Policy Files you must accept the license terms found at https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;terms&#x2F;license&#x2F;index.html and not accepting will cancel the Ambari Server setup and you must install the JDK and JCE files manually.</span><br><span class="line">Do you accept the Oracle Binary Code License Agreement [y&#x2F;n] (y)?</span><br><span class="line">Downloading JDK from https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;ARTIFACTS&#x2F;jdk-8u77-linux-x64.tar.gz to &#x2F;var&#x2F;lib&#x2F;ambari-server&#x2F;resources&#x2F;jdk-8u77-linux-x64.tar.gz</span><br><span class="line">jdk-8u77-linux-x64.tar.gz... 100% (173.0 MB of 173.0 MB)</span><br><span class="line">Successfully downloaded JDK distribution to &#x2F;var&#x2F;lib&#x2F;ambari-server&#x2F;resources&#x2F;jdk-8u77-linux-x64.tar.gz</span><br><span class="line">Installing JDK to &#x2F;usr&#x2F;jdk64&#x2F;</span><br><span class="line">Successfully installed JDK to &#x2F;usr&#x2F;jdk64&#x2F;</span><br><span class="line">Downloading JCE Policy archive from https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;ARTIFACTS&#x2F;jce_policy-8.zip to &#x2F;var&#x2F;lib&#x2F;ambari-server&#x2F;resources&#x2F;jce_policy-8.zip</span><br><span class="line"></span><br><span class="line">Successfully downloaded JCE Policy archive to &#x2F;var&#x2F;lib&#x2F;ambari-server&#x2F;resources&#x2F;jce_policy-8.zip</span><br><span class="line">Installing JCE policy...</span><br><span class="line">Completing setup...</span><br><span class="line">Configuring database...</span><br><span class="line">Enter advanced database configuration [y&#x2F;n] (n)?</span><br><span class="line">Configuring database...</span><br><span class="line">Default properties detected. Using built-in database.</span><br><span class="line">Configuring ambari database...</span><br><span class="line">Checking PostgreSQL...</span><br><span class="line">Running initdb: This may take up to a minute.</span><br><span class="line">Initializing database: [  OK  ]</span><br><span class="line"></span><br><span class="line">About to start PostgreSQL</span><br><span class="line">Configuring local database...</span><br><span class="line">Connecting to local database...done.</span><br><span class="line">Configuring PostgreSQL...</span><br><span class="line">Restarting PostgreSQL</span><br><span class="line">Extracting system views...</span><br><span class="line">.........ambari-admin-2.4.1.0.22.jar</span><br><span class="line">..</span><br><span class="line">Adjusting ambari-server permissions and ownership...</span><br><span class="line">Ambari Server &#39;setup&#39; completed successfully.</span><br><span class="line">[root@ambari37 ~]#</span><br></pre></td></tr></table></figure>
+
 <p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ambari-server start</span><br><span class="line">[root@ambari37 ~]# ambari-server start</span><br><span class="line">Using python  /usr/bin/python</span><br><span class="line">Starting ambari-server</span><br><span class="line">Ambari Server running with administrator privileges.</span><br><span class="line">Organizing resource files at /var/lib/ambari-server/resources...</span><br><span class="line">Ambari database consistency check started...</span><br><span class="line">No errors were found.</span><br><span class="line">Ambari database consistency check finished</span><br><span class="line">Server PID at: /var/run/ambari-server/ambari-server.pid</span><br><span class="line">Server out at: /var/log/ambari-server/ambari-server.out</span><br><span class="line">Server log at: /var/log/ambari-server/ambari-server.log</span><br><span class="line">Waiting for server start....................</span><br><span class="line">Ambari Server &apos;start&apos; completed successfully.</span><br><span class="line">[root@ambari37 ~]#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ambari-server start</span><br><span class="line">[root@ambari37 ~]# ambari-server start</span><br><span class="line">Using python  &#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">Starting ambari-server</span><br><span class="line">Ambari Server running with administrator privileges.</span><br><span class="line">Organizing resource files at &#x2F;var&#x2F;lib&#x2F;ambari-server&#x2F;resources...</span><br><span class="line">Ambari database consistency check started...</span><br><span class="line">No errors were found.</span><br><span class="line">Ambari database consistency check finished</span><br><span class="line">Server PID at: &#x2F;var&#x2F;run&#x2F;ambari-server&#x2F;ambari-server.pid</span><br><span class="line">Server out at: &#x2F;var&#x2F;log&#x2F;ambari-server&#x2F;ambari-server.out</span><br><span class="line">Server log at: &#x2F;var&#x2F;log&#x2F;ambari-server&#x2F;ambari-server.log</span><br><span class="line">Waiting for server start....................</span><br><span class="line">Ambari Server &#39;start&#39; completed successfully.</span><br><span class="line">[root@ambari37 ~]#</span><br></pre></td></tr></table></figure>
+
 <p>检查</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@ambari37 ~]# ambari-server status</span><br><span class="line">Using python  /usr/bin/python</span><br><span class="line">Ambari-server status</span><br><span class="line">Ambari Server running</span><br><span class="line">Found Ambari Server PID: 11599 at: /var/run/ambari-server/ambari-server.pid</span><br><span class="line">[root@ambari37 ~]#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@ambari37 ~]# ambari-server status</span><br><span class="line">Using python  &#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">Ambari-server status</span><br><span class="line">Ambari Server running</span><br><span class="line">Found Ambari Server PID: 11599 at: &#x2F;var&#x2F;run&#x2F;ambari-server&#x2F;ambari-server.pid</span><br><span class="line">[root@ambari37 ~]#</span><br></pre></td></tr></table></figure>
+
 <p>192.168.100.37:8080</p>
-<h2 id="离线-yum-安装"><a href="#离线-yum-安装" class="headerlink" title="离线 yum 安装"></a>离线 yum 安装</h2><p><a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.2.0/bk_Installing_HDP_AMB/content/_hdp_24_repositories.html" target="_blank" rel="noopener">HDP 2.4.2</a></p>
-<p><a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/download-links-250.html" target="_blank" rel="noopener">HDP 2.5.0</a></p>
+<h2 id="离线-yum-安装"><a href="#离线-yum-安装" class="headerlink" title="离线 yum 安装"></a>离线 yum 安装</h2><p><a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.2.0/bk_Installing_HDP_AMB/content/_hdp_24_repositories.html">HDP 2.4.2</a></p>
+<p><a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/download-links-250.html">HDP 2.5.0</a></p>
 <p>安装本地源</p>
-<p><a href="https://my.oschina.net/u/1461927/blog/372147" target="_blank" rel="noopener">https://my.oschina.net/u/1461927/blog/372147</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -nv https://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.1.0/ambari.repo -O /etc/yum.repos.d/ambari.repo</span><br><span class="line">wget -nv https://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.0/hdp.repo -O /etc/yum.repos.d/hdp.repo</span><br></pre></td></tr></table></figure>
+<p><a href="https://my.oschina.net/u/1461927/blog/372147">https://my.oschina.net/u/1461927/blog/372147</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -nv https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;ambari&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.4.1.0&#x2F;ambari.repo -O &#x2F;etc&#x2F;yum.repos.d&#x2F;ambari.repo</span><br><span class="line">wget -nv https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;HDP&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.5.0.0&#x2F;hdp.repo -O &#x2F;etc&#x2F;yum.repos.d&#x2F;hdp.repo</span><br></pre></td></tr></table></figure>
+
 <p>下载链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.0/HDP-2.5.0.0-centos6-rpm.tar.gz</span><br><span class="line">https://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.1.0/ambari-2.4.1.0-centos6.tar.gz</span><br><span class="line">https://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6/HDP-UTILS-1.1.0.21-centos6.tar.gz</span><br><span class="line"></span><br><span class="line">下面链接可以不用下载</span><br><span class="line">https://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.0/HDP-2.5.0.0-centos6-tars-tarball.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;HDP&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.5.0.0&#x2F;HDP-2.5.0.0-centos6-rpm.tar.gz</span><br><span class="line">https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;ambari&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.4.1.0&#x2F;ambari-2.4.1.0-centos6.tar.gz</span><br><span class="line">https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;HDP-UTILS-1.1.0.21&#x2F;repos&#x2F;centos6&#x2F;HDP-UTILS-1.1.0.21-centos6.tar.gz</span><br><span class="line"></span><br><span class="line">下面链接可以不用下载</span><br><span class="line">https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;HDP&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.5.0.0&#x2F;HDP-2.5.0.0-centos6-tars-tarball.tar.gz</span><br></pre></td></tr></table></figure>
+
 <p>将 ambari-2.4.1.0-centos6\AMBARI-2.4.1.0\centos6\2.4.1.0-22 目录中的文件复制到 /var/www/html/ambari/centos6/Updates-ambari-2.4.1.0</p>
 <p>将 HDP-2.5.0.0-centos6-rpm\HDP\centos6 目录中的文件复制到 /var/www/html/hdp/centos6/HDP-2.5.0.0</p>
 <p>将 HDP-UTILS-1.1.0.21-centos6\HDP-UTILS-1.1.0.21\repos\centos6 目录中的文件复制到 /var/www/html/hdp/centos6/HDP-UTILS-1.1.0.21</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd</span><br><span class="line">yum install yum-utils createrepo</span><br><span class="line">mkdir -p /var/www/html</span><br><span class="line">cd /var/www/html/</span><br><span class="line">mkdir -p ambari/centos6</span><br><span class="line">cd ambari/centos6/</span><br><span class="line">reposync -r Updates-ambari-2.4.1.0</span><br><span class="line">cd /var/www/html/</span><br><span class="line">mkdir -p hdp/centos6</span><br><span class="line">cd hdp/centos6</span><br><span class="line">reposync -r HDP-2.5.0.0</span><br><span class="line">reposync -r HDP-UTILS-1.1.0.21</span><br><span class="line"></span><br><span class="line">createrepo /var/www/html/ambari/centos6/Updates-ambari-2.4.1.0</span><br><span class="line">createrepo /var/www/html/hdp/centos6/HDP-2.5.0.0</span><br><span class="line">createrepo /var/www/html/hdp/centos6/HDP-UTILS-1.1.0.21</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd</span><br><span class="line">yum install yum-utils createrepo</span><br><span class="line">mkdir -p &#x2F;var&#x2F;www&#x2F;html</span><br><span class="line">cd &#x2F;var&#x2F;www&#x2F;html&#x2F;</span><br><span class="line">mkdir -p ambari&#x2F;centos6</span><br><span class="line">cd ambari&#x2F;centos6&#x2F;</span><br><span class="line">reposync -r Updates-ambari-2.4.1.0</span><br><span class="line">cd &#x2F;var&#x2F;www&#x2F;html&#x2F;</span><br><span class="line">mkdir -p hdp&#x2F;centos6</span><br><span class="line">cd hdp&#x2F;centos6</span><br><span class="line">reposync -r HDP-2.5.0.0</span><br><span class="line">reposync -r HDP-UTILS-1.1.0.21</span><br><span class="line"></span><br><span class="line">createrepo &#x2F;var&#x2F;www&#x2F;html&#x2F;ambari&#x2F;centos6&#x2F;Updates-ambari-2.4.1.0</span><br><span class="line">createrepo &#x2F;var&#x2F;www&#x2F;html&#x2F;hdp&#x2F;centos6&#x2F;HDP-2.5.0.0</span><br><span class="line">createrepo &#x2F;var&#x2F;www&#x2F;html&#x2F;hdp&#x2F;centos6&#x2F;HDP-UTILS-1.1.0.21</span><br></pre></td></tr></table></figure>
+
 <p>搭建完成本地 repo 源后修改/etc/yum.repo.d/ambari.repo 和/etc/yum.repo.d/hdp.repo,将链接地址修改</p>
 <p>HDP-2.4.2.0 链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.2.2.0/ambari-2.2.2.0-centos6.tar.gz</span><br><span class="line">https://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6/HDP-UTILS-1.1.0.20-centos6.tar.gz</span><br><span class="line">https://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.4.2.0/HDP-2.4.2.0-centos6-rpm.tar.gz</span><br></pre></td></tr></table></figure>
-<h2 id="删除-ambari"><a href="#删除-ambari" class="headerlink" title="删除 ambari"></a>删除 ambari</h2><p><a href="https://community.hortonworks.com/questions/1110/how-to-completely-remove-uninstall-ambari-and-hdp.html" target="_blank" rel="noopener">https://community.hortonworks.com/questions/1110/how-to-completely-remove-uninstall-ambari-and-hdp.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;ambari&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.2.2.0&#x2F;ambari-2.2.2.0-centos6.tar.gz</span><br><span class="line">https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;HDP-UTILS-1.1.0.20&#x2F;repos&#x2F;centos6&#x2F;HDP-UTILS-1.1.0.20-centos6.tar.gz</span><br><span class="line">https:&#x2F;&#x2F;public-repo-1.hortonworks.com&#x2F;HDP&#x2F;centos6&#x2F;2.x&#x2F;updates&#x2F;2.4.2.0&#x2F;HDP-2.4.2.0-centos6-rpm.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除-ambari"><a href="#删除-ambari" class="headerlink" title="删除 ambari"></a>删除 ambari</h2><p><a href="https://community.hortonworks.com/questions/1110/how-to-completely-remove-uninstall-ambari-and-hdp.html">https://community.hortonworks.com/questions/1110/how-to-completely-remove-uninstall-ambari-and-hdp.html</a></p>
 <h3 id="服务端重置"><a href="#服务端重置" class="headerlink" title="服务端重置"></a>服务端重置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ambari-server stop</span><br><span class="line">ambari-server reset</span><br><span class="line"></span><br><span class="line">ambari-server setup  (重新设置server,可以不做)</span><br></pre></td></tr></table></figure>
+
 <h3 id="客户端删除"><a href="#客户端删除" class="headerlink" title="客户端删除"></a>客户端删除</h3><p>清除各目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">service ambari-agent stop</span><br><span class="line">python /usr/lib/python2.6/site-packages/ambari_agent/HostCleanup.py --silent</span><br><span class="line"></span><br><span class="line">yum erase  -y ambari-agent hdp-select</span><br><span class="line">rpm -qa|grep ambari |xargs yum erase -y</span><br><span class="line"></span><br><span class="line">rm -rf /var/lib/ambari-agent</span><br><span class="line"></span><br><span class="line">rm -rf /var/lib/ambari-server</span><br><span class="line"></span><br><span class="line">rm -rf /var/run/ambari-agent</span><br><span class="line"></span><br><span class="line">rm -rf /usr/lib/amrbari-agent</span><br><span class="line"></span><br><span class="line">rm -rf /etc/ambari-agent</span><br><span class="line"></span><br><span class="line">rm -rf /var/log/ambari-agent</span><br><span class="line"></span><br><span class="line">rm -rf /usr/lib/python2.6/site-packages/ambari*</span><br><span class="line"></span><br><span class="line">rm -rf /etc/hadoop/</span><br><span class="line"></span><br><span class="line">rm -rf /etc/storm/</span><br><span class="line"></span><br><span class="line">rm -rf /usr/hdp/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">service ambari-agent stop</span><br><span class="line">python &#x2F;usr&#x2F;lib&#x2F;python2.6&#x2F;site-packages&#x2F;ambari_agent&#x2F;HostCleanup.py --silent</span><br><span class="line"></span><br><span class="line">yum erase  -y ambari-agent hdp-select</span><br><span class="line">rpm -qa|grep ambari |xargs yum erase -y</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;var&#x2F;lib&#x2F;ambari-agent</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;var&#x2F;lib&#x2F;ambari-server</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;var&#x2F;run&#x2F;ambari-agent</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;usr&#x2F;lib&#x2F;amrbari-agent</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;etc&#x2F;ambari-agent</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;var&#x2F;log&#x2F;ambari-agent</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;usr&#x2F;lib&#x2F;python2.6&#x2F;site-packages&#x2F;ambari*</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;etc&#x2F;hadoop&#x2F;</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;etc&#x2F;storm&#x2F;</span><br><span class="line"></span><br><span class="line">rm -rf &#x2F;usr&#x2F;hdp&#x2F;</span><br></pre></td></tr></table></figure>
+
 <p>重启机器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
 <p>说明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python /usr/lib/python2.6/site-packages/ambari_agent/HostCleanup.py --silent --skip=users</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line">To clean up in interactive mode, remove --silent option.</span><br><span class="line">To clean up all resources, including users, remove --skip=users option.</span><br><span class="line">Use --help for a list of available options.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python &#x2F;usr&#x2F;lib&#x2F;python2.6&#x2F;site-packages&#x2F;ambari_agent&#x2F;HostCleanup.py --silent --skip&#x3D;users</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line">To clean up in interactive mode, remove --silent option.</span><br><span class="line">To clean up all resources, including users, remove --skip&#x3D;users option.</span><br><span class="line">Use --help for a list of available options.</span><br></pre></td></tr></table></figure>
+
 <p>删除 rpm 包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep ambari |xargs yum erase -y</span><br><span class="line">yum -y erase hdp-select</span><br></pre></td></tr></table></figure>
-<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><h3 id="document"><a href="#document" class="headerlink" title="document"></a>document</h3><p><a href="https://cwiki.apache.org/confluence/display/AMBARI/Installation+Guide+for+Ambari+2.4.1" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/AMBARI/Installation+Guide+for+Ambari+2.4.1</a></p>
-<p><a href="https://cwiki.apache.org/confluence/display/AMBARI/Ambari+Development" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/AMBARI/Ambari+Development</a></p>
+
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><h3 id="document"><a href="#document" class="headerlink" title="document"></a>document</h3><p><a href="https://cwiki.apache.org/confluence/display/AMBARI/Installation+Guide+for+Ambari+2.4.1">https://cwiki.apache.org/confluence/display/AMBARI/Installation+Guide+for+Ambari+2.4.1</a></p>
+<p><a href="https://cwiki.apache.org/confluence/display/AMBARI/Ambari+Development">https://cwiki.apache.org/confluence/display/AMBARI/Ambari+Development</a></p>
 <h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>jdk 1.7.0_80</p>
 <p>python 2.6.6</p>
 <p>maven 3.3.9</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@ambari36 ~]# mvn -version</span><br><span class="line">Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-11T00:41:47+08:00)</span><br><span class="line">Maven home: /usr/local/maven</span><br><span class="line">Java version: 1.7.0_80, vendor: Oracle Corporation</span><br><span class="line">Java home: /usr/local/java/jre</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;linux&quot;, version: &quot;2.6.32-573.el6.x86_64&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@ambari36 ~]# mvn -version</span><br><span class="line">Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-11T00:41:47+08:00)</span><br><span class="line">Maven home: &#x2F;usr&#x2F;local&#x2F;maven</span><br><span class="line">Java version: 1.7.0_80, vendor: Oracle Corporation</span><br><span class="line">Java home: &#x2F;usr&#x2F;local&#x2F;java&#x2F;jre</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;linux&quot;, version: &quot;2.6.32-573.el6.x86_64&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;</span><br></pre></td></tr></table></figure>
+
 <p>安装 g++ gcc</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake libtool make</span><br></pre></td></tr></table></figure>
+
 <p>安装 rpm-build</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install rpm-build</span><br></pre></td></tr></table></figure>
+
 <p>安装 Node.js npm 0.10.44</p>
-<p><a href="https://nodejs.org/download/release/v0.10.44/" target="_blank" rel="noopener">https://nodejs.org/download/release/v0.10.44/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v0.10.44/node-v0.10.44-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line">export JAVA_HOME=/usr/local/java</span><br><span class="line">export MAVEN_HOME=/usr/local/maven</span><br><span class="line">export NODE_HOME=/usr/local/node</span><br><span class="line">export PATH=$JAVA_HOME/bin:$NODE_HOME/bin:$PATH:$MAVEN_HOME/bin</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<p><a href="https://nodejs.org/download/release/v0.10.44/">https://nodejs.org/download/release/v0.10.44/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v0.10.44&#x2F;node-v0.10.44-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;profile</span><br><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java</span><br><span class="line">export MAVEN_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;maven</span><br><span class="line">export NODE_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;node</span><br><span class="line">export PATH&#x3D;$JAVA_HOME&#x2F;bin:$NODE_HOME&#x2F;bin:$PATH:$MAVEN_HOME&#x2F;bin</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
 <p>安装 brunch</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g brunch@1.7.20</span><br></pre></td></tr></table></figure>
+
 <p>安装 git</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
-<h3 id="下载编译"><a href="#下载编译" class="headerlink" title="下载编译"></a>下载编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.apache.org/dist/ambari/ambari-2.4.1/apache-ambari-2.4.1-src.tar.gz</span><br><span class="line">tar xfvz apache-ambari-2.4.1-src.tar.gz</span><br><span class="line">cd apache-ambari-2.4.1-src</span><br><span class="line">mvn versions:set -DneVersion=2.4.1.0.0</span><br><span class="line"></span><br><span class="line">pushd ambari-metrics</span><br><span class="line">mvn versions:set -DnewVersion=2.4.1.0.0</span><br><span class="line">popd</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -B clean install package rpm:rpm -DnewVersion=2.4.1.0.0 -DskipTests -Dpython.ver=&quot;python &gt;= 2.6&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载编译"><a href="#下载编译" class="headerlink" title="下载编译"></a>下载编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;www.apache.org&#x2F;dist&#x2F;ambari&#x2F;ambari-2.4.1&#x2F;apache-ambari-2.4.1-src.tar.gz</span><br><span class="line">tar xfvz apache-ambari-2.4.1-src.tar.gz</span><br><span class="line">cd apache-ambari-2.4.1-src</span><br><span class="line">mvn versions:set -DneVersion&#x3D;2.4.1.0.0</span><br><span class="line"></span><br><span class="line">pushd ambari-metrics</span><br><span class="line">mvn versions:set -DnewVersion&#x3D;2.4.1.0.0</span><br><span class="line">popd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -B clean install package rpm:rpm -DnewVersion&#x3D;2.4.1.0.0 -DskipTests -Dpython.ver&#x3D;&quot;python &gt;&#x3D; 2.6&quot;</span><br></pre></td></tr></table></figure>
+
 <h3 id="error"><a href="#error" class="headerlink" title="error"></a>error</h3><p>编译中由于网络原因 总是失败</p>
 <p>1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ERROR] Failed to execute goal org.codehaus.mojo:rpm-maven-plugin:2.0.1:rpm (default-cli) on project ambari: RPM build execution returned: &apos;127&apos; executing &apos;/bin/sh -c cd /root/apache-ambari-2.4.1-src/target/rpm/ambari/SPECS &amp;&amp; rpmbuild -bb --buildroot /root/apache-ambari-2.4.1-src/target/rpm/ambari/buildroot --define &apos;_topdir /root/apache-ambari-2.4.1-src/target/rpm/ambari&apos; --target noarch-redhat-linux ambari.spec&apos; -&gt; [Help 1]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ERROR] Failed to execute goal org.codehaus.mojo:rpm-maven-plugin:2.0.1:rpm (default-cli) on project ambari: RPM build execution returned: &#39;127&#39; executing &#39;&#x2F;bin&#x2F;sh -c cd &#x2F;root&#x2F;apache-ambari-2.4.1-src&#x2F;target&#x2F;rpm&#x2F;ambari&#x2F;SPECS &amp;&amp; rpmbuild -bb --buildroot &#x2F;root&#x2F;apache-ambari-2.4.1-src&#x2F;target&#x2F;rpm&#x2F;ambari&#x2F;buildroot --define &#39;_topdir &#x2F;root&#x2F;apache-ambari-2.4.1-src&#x2F;target&#x2F;rpm&#x2F;ambari&#39; --target noarch-redhat-linux ambari.spec&#39; -&gt; [Help 1]</span><br></pre></td></tr></table></figure>
+
 <p>rpmbuild 命令未找到</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install rpm-build</span><br></pre></td></tr></table></figure>
+
 <p>2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.2.1:exec (compile-npm) on project ambari-web: Command execution failed. Cannot run program &quot;npm&quot; (in directory &quot;/root/apache-ambari-2.4.1-src/ambari-web&quot;): error=2, 没有那个文件或目录 -&gt; [Help 1]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.2.1:exec (compile-npm) on project ambari-web: Command execution failed. Cannot run program &quot;npm&quot; (in directory &quot;&#x2F;root&#x2F;apache-ambari-2.4.1-src&#x2F;ambari-web&quot;): error&#x3D;2, 没有那个文件或目录 -&gt; [Help 1]</span><br></pre></td></tr></table></figure>
+
 <p>npm 命令不存在</p>
 <p>安装 node.js npm</p>
 <p>3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v0.10.44/node-v0.10.44-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/Medium/phantomjs/releases/download/v1.9.19/phantomjs-1.9.8-linux-x86_64.tar.bz2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v0.10.44&#x2F;node-v0.10.44-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;Medium&#x2F;phantomjs&#x2F;releases&#x2F;download&#x2F;v1.9.19&#x2F;phantomjs-1.9.8-linux-x86_64.tar.bz2</span><br></pre></td></tr></table></figure>
+
 <p>phantomjs error</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@ambari36 phantomjs-1.9.8-linux-x86_64]# bin/phantomjs</span><br><span class="line">bin/phantomjs: error while loading shared libraries: libfreetype.so.6: cannot open shared object file: No such file or directory</span><br><span class="line">解决</span><br><span class="line">yum install freetype</span><br><span class="line"></span><br><span class="line">[root@ambari36 phantomjs-1.9.8-linux-x86_64]# bin/phantomjs</span><br><span class="line">bin/phantomjs: error while loading shared libraries: libfontconfig.so.1: cannot open shared object file: No such file or directory</span><br><span class="line">解决</span><br><span class="line">yum install fontconfig freetype libfreetype.so.6 libfontconfig.so.1 libstdc++.so.6</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@ambari36 phantomjs-1.9.8-linux-x86_64]# bin&#x2F;phantomjs</span><br><span class="line">bin&#x2F;phantomjs: error while loading shared libraries: libfreetype.so.6: cannot open shared object file: No such file or directory</span><br><span class="line">解决</span><br><span class="line">yum install freetype</span><br><span class="line"></span><br><span class="line">[root@ambari36 phantomjs-1.9.8-linux-x86_64]# bin&#x2F;phantomjs</span><br><span class="line">bin&#x2F;phantomjs: error while loading shared libraries: libfontconfig.so.1: cannot open shared object file: No such file or directory</span><br><span class="line">解决</span><br><span class="line">yum install fontconfig freetype libfreetype.so.6 libfontconfig.so.1 libstdc++.so.6</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/10/22/xenserver.html" rel="next" title="xenserver 6.5">
-                <i class="fa fa-chevron-left"></i> xenserver 6.5
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/25/dns.html" rel="prev" title="本地dns解析">
-                本地dns解析 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/10/22/xenserver.html" rel="prev" title="xenserver 6.5">
+      <i class="fa fa-chevron-left"></i> xenserver 6.5
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/10/25/dns.html" rel="next" title="本地dns解析">
+      本地dns解析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
+  
+  
+  
 
   </div>
 
 
           </div>
           
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">77</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">71</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-10-24-ambari-2-4-1"><span class="nav-number">1.</span> <span class="nav-text">2016-10-24-ambari-2.4.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#yum-源安装"><span class="nav-number">1.1.</span> <span class="nav-text">yum 源安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos6-7-mini"><span class="nav-number">1.1.2.</span> <span class="nav-text">centos6.7-mini</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备机器"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">准备机器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#192-168-100-37"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">192.168.100.37</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#192-168-100-37-1"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">192.168.100.37</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离线-yum-安装"><span class="nav-number">1.2.</span> <span class="nav-text">离线 yum 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除-ambari"><span class="nav-number">1.3.</span> <span class="nav-text">删除 ambari</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端重置"><span class="nav-number">1.3.1.</span> <span class="nav-text">服务端重置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端删除"><span class="nav-number">1.3.2.</span> <span class="nav-text">客户端删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装"><span class="nav-number">1.4.</span> <span class="nav-text">编译安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#document"><span class="nav-number">1.4.1.</span> <span class="nav-text">document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.4.2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载编译"><span class="nav-number">1.4.3.</span> <span class="nav-text">下载编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#error"><span class="nav-number">1.4.4.</span> <span class="nav-text">error</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
-
-  
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-10-24-ambari-2-4-1"><span class="nav-number">1.</span> <span class="nav-text">2016-10-24-ambari-2.4.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#yum-源安装"><span class="nav-number">1.1.</span> <span class="nav-text">yum 源安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos6-7-mini"><span class="nav-number">1.1.2.</span> <span class="nav-text">centos6.7-mini</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备机器"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">准备机器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#192-168-100-37"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">192.168.100.37</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#192-168-100-37-1"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">192.168.100.37</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离线-yum-安装"><span class="nav-number">1.2.</span> <span class="nav-text">离线 yum 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除-ambari"><span class="nav-number">1.3.</span> <span class="nav-text">删除 ambari</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端重置"><span class="nav-number">1.3.1.</span> <span class="nav-text">服务端重置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端删除"><span class="nav-number">1.3.2.</span> <span class="nav-text">客户端删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装"><span class="nav-number">1.4.</span> <span class="nav-text">编译安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#document"><span class="nav-number">1.4.1.</span> <span class="nav-text">document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.4.2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载编译"><span class="nav-number">1.4.3.</span> <span class="nav-text">下载编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#error"><span class="nav-number">1.4.4.</span> <span class="nav-text">error</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Duan Zhao Qian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Zhao Qian</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">393k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.0
+  </div>
+
+        
 
 
 
@@ -1011,424 +594,48 @@ icon https://fontawesome.io/icons/
 
 
 
-
-
-
-
+      </div>
+    </footer>
+  </div>
 
   
-    
-    
-      
-    
-  
-  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
+<script src="/js/utils.js"></script>
 
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.1"></script>
-
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
-
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
-<script src="/js/src/post-details.js?v=7.0.1"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
-
-
-  
-  
-
-
-  
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
 
-  
+
+
 
   
+<script src="/js/local-search.js"></script>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
 
   
 
