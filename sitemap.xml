@@ -79,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/10/22/xenserver.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.247Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://duanzhaoqian.site/2016/10/24/ambari-2.4.1.html</loc>
     
     <lastmod>2020-01-04T12:09:11.247Z</lastmod>
@@ -93,14 +86,21 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/09/11/linux-syslog.html</loc>
+    <loc>https://duanzhaoqian.site/2016/10/22/xenserver.html</loc>
+    
+    <lastmod>2020-01-04T12:09:11.247Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2016/09/11/marboo-default.html</loc>
     
     <lastmod>2020-01-04T12:09:11.246Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/09/11/marboo-default.html</loc>
+    <loc>https://duanzhaoqian.site/2016/09/11/linux-syslog.html</loc>
     
     <lastmod>2020-01-04T12:09:11.246Z</lastmod>
     
@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/08/15/iptables.html</loc>
+    <loc>https://duanzhaoqian.site/2016/09/05/mysql-5.6.27rpm.html</loc>
     
     <lastmod>2020-01-04T12:09:11.245Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/09/05/mysql-5.6.27rpm.html</loc>
+    <loc>https://duanzhaoqian.site/2016/08/15/iptables.html</loc>
     
     <lastmod>2020-01-04T12:09:11.245Z</lastmod>
     
@@ -198,14 +198,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/06/26/JavaScript-if-statement.html</loc>
+    <loc>https://duanzhaoqian.site/2016/06/23/javascript-json-array.html</loc>
     
     <lastmod>2020-01-04T12:09:11.240Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/06/23/javascript-json-array.html</loc>
+    <loc>https://duanzhaoqian.site/2016/06/26/JavaScript-if-statement.html</loc>
     
     <lastmod>2020-01-04T12:09:11.240Z</lastmod>
     
@@ -219,13 +219,6 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/06/19/clean-git-repo.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.239Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://duanzhaoqian.site/2016/08/05/JVM%E8%AE%BE%E7%BD%AE.html</loc>
     
     <lastmod>2020-01-04T12:09:11.239Z</lastmod>
@@ -233,14 +226,21 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/06/04/jekyll-pagination-with-jpages.html</loc>
+    <loc>https://duanzhaoqian.site/2016/06/19/clean-git-repo.html</loc>
+    
+    <lastmod>2020-01-04T12:09:11.239Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2016/06/15/angularjs-guide.html</loc>
     
     <lastmod>2020-01-04T12:09:11.238Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/06/15/angularjs-guide.html</loc>
+    <loc>https://duanzhaoqian.site/2016/06/04/jekyll-pagination-with-jpages.html</loc>
     
     <lastmod>2020-01-04T12:09:11.238Z</lastmod>
     
@@ -324,14 +324,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/06/MongoDB.html</loc>
+    <loc>https://duanzhaoqian.site/2016/05/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86.html</loc>
     
     <lastmod>2020-01-04T12:09:11.232Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86.html</loc>
+    <loc>https://duanzhaoqian.site/2016/05/06/MongoDB.html</loc>
     
     <lastmod>2020-01-04T12:09:11.232Z</lastmod>
     
@@ -380,14 +380,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/02/04/supervisord-celery.html</loc>
+    <loc>https://duanzhaoqian.site/2016/04/11/docker-hadoop%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%88%86%E6%9E%90.html</loc>
     
     <lastmod>2020-01-04T12:09:11.230Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/04/11/docker-hadoop%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%88%86%E6%9E%90.html</loc>
+    <loc>https://duanzhaoqian.site/2016/02/04/supervisord-celery.html</loc>
     
     <lastmod>2020-01-04T12:09:11.230Z</lastmod>
     
@@ -457,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2015/08/18/linux-memcached.html</loc>
+    <loc>https://duanzhaoqian.site/2015/07/22/cpu.html</loc>
     
     <lastmod>2020-01-04T12:09:11.227Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2015/07/22/cpu.html</loc>
+    <loc>https://duanzhaoqian.site/2015/08/18/linux-memcached.html</loc>
     
     <lastmod>2020-01-04T12:09:11.227Z</lastmod>
     
