@@ -332,6 +332,7 @@ B-->>A:虚线虚箭头</textarea><textarea id="sequence-1-options" style="displa
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -535,6 +536,26 @@ B-->>A:虚线虚箭头</textarea><textarea id="sequence-1-options" style="displa
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '2387d7ac9b023507cd5c',
+      clientSecret: 'ed4b7bf4bc80d1f304ac4f2f7c9e47a66c06992c',
+      repo: 'duanzhaoqian.github.io',
+      owner: 'duanzhaoqian',
+      admin: ['duanzhaoqian'],
+      id: '30aae79cdf55ae7cb20078bfe85594f0',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
