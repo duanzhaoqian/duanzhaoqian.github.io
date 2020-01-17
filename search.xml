@@ -221,7 +221,7 @@
 
 <p><a href="https://wewelove.github.io/fcoder/2017/09/06/markdown-sequence/">为 Hexo 增加时序图解析功能</a><script src="https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js"></script><script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script><script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdn.bootcss.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Alice->Bob: Hello Bob, how are you?
 Note right of Bob: Bob thinks
-Bob-->> Alice: I am good thanks!</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">title:序列图sequence(示例)
+Bob-->> Alice: I am good thanks!</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">title:序列图sequence(示例)
 participant A
 participant B
 participant C
@@ -232,7 +232,7 @@ A->A:自己到自己
 A->B:实线实箭头
 B->>C:实线虚箭头
 C-->B:虚线实箭头
-B-->>A:虚线虚箭头</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
+B-->>A:虚线虚箭头</textarea><textarea id="sequence-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
 ]]></content>
   </entry>
   <entry>
@@ -252,7 +252,7 @@ io=>inputoutput: 输出
 st(right)->op->cond
 cond(no)->sub(right)->op
 cond(yes)->io(right)->e
-​</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: Start|past:>https://www.google.com[blank]
+​</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: Start|past:>https://www.google.com[blank]
 e=>end: End:>https://www.google.com
 op1=>operation: My Operation|past
 op2=>operation: Stuff|current
@@ -266,7 +266,7 @@ st->op1(right)->cond
 cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
-c2(no)->op2->e</textarea><textarea id="flowchart-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script>]]></content>
+c2(no)->op2->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script>]]></content>
   </entry>
   <entry>
     <title>vscode-settings-sync</title>
@@ -901,6 +901,30 @@ icon https://fontawesome.io/icons/
       </tags>
   </entry>
   <entry>
+    <title>marboo md default模版</title>
+    <url>//2016/09/11/marboo-default.html</url>
+    <content><![CDATA[<h1 id="2016-09-11-marboo-default"><a href="#2016-09-11-marboo-default" class="headerlink" title="2016-09-11-marboo-default"></a>2016-09-11-marboo-default</h1><!--
+create time: 2016-09-11 12:11:11
+Author: 段朝骞
+Email: duanzhaoqian@outlook.com
+
+categories:[Linux] [Database]  [Java] [HTML]  [Mac] [Life]
+icon:fa-linux fa-database icon-java fa-apple
+
+icon https://fizzed.com/oss/font-mfizz
+icon https://fontawesome.io/icons/
+-->
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: post</span><br><span class="line">title:  &quot;&quot;</span><br><span class="line">date:   &#123;&#123;date&#125;&#125;</span><br><span class="line">desc: &quot;&quot;</span><br><span class="line">keywords: &quot;&quot;</span><br><span class="line">categories: [Linux]</span><br><span class="line">tags: [linux]</span><br><span class="line">icon: fa-linux</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># &#123;&#123;title&#125;&#125;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">create time: &#123;&#123;date&#125;&#125;</span><br><span class="line">Author: &#123;&#123;author&#125;&#125;</span><br><span class="line">Email: &#123;&#123;email&#125;&#125;</span><br><span class="line"></span><br><span class="line">categories:[Linux] [Database]  [Java] [HTML]  [Mac] [Life]</span><br><span class="line">icon:fa-linux fa-database icon-java fa-apple</span><br><span class="line"></span><br><span class="line">icon https:&#x2F;&#x2F;fizzed.com&#x2F;oss&#x2F;font-mfizz</span><br><span class="line">icon https:&#x2F;&#x2F;fontawesome.io&#x2F;icons&#x2F;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>marboo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>linux syslog</title>
     <url>//2016/09/11/linux-syslog.html</url>
     <content><![CDATA[<h1 id="2016-09-11-linux-syslog"><a href="#2016-09-11-linux-syslog" class="headerlink" title="2016-09-11-linux-syslog"></a>2016-09-11-linux-syslog</h1><!--
@@ -967,30 +991,6 @@ icon https:///fontawesome.io/icons/
       </tags>
   </entry>
   <entry>
-    <title>marboo md default模版</title>
-    <url>//2016/09/11/marboo-default.html</url>
-    <content><![CDATA[<h1 id="2016-09-11-marboo-default"><a href="#2016-09-11-marboo-default" class="headerlink" title="2016-09-11-marboo-default"></a>2016-09-11-marboo-default</h1><!--
-create time: 2016-09-11 12:11:11
-Author: 段朝骞
-Email: duanzhaoqian@outlook.com
-
-categories:[Linux] [Database]  [Java] [HTML]  [Mac] [Life]
-icon:fa-linux fa-database icon-java fa-apple
-
-icon https://fizzed.com/oss/font-mfizz
-icon https://fontawesome.io/icons/
--->
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: post</span><br><span class="line">title:  &quot;&quot;</span><br><span class="line">date:   &#123;&#123;date&#125;&#125;</span><br><span class="line">desc: &quot;&quot;</span><br><span class="line">keywords: &quot;&quot;</span><br><span class="line">categories: [Linux]</span><br><span class="line">tags: [linux]</span><br><span class="line">icon: fa-linux</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># &#123;&#123;title&#125;&#125;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">create time: &#123;&#123;date&#125;&#125;</span><br><span class="line">Author: &#123;&#123;author&#125;&#125;</span><br><span class="line">Email: &#123;&#123;email&#125;&#125;</span><br><span class="line"></span><br><span class="line">categories:[Linux] [Database]  [Java] [HTML]  [Mac] [Life]</span><br><span class="line">icon:fa-linux fa-database icon-java fa-apple</span><br><span class="line"></span><br><span class="line">icon https:&#x2F;&#x2F;fizzed.com&#x2F;oss&#x2F;font-mfizz</span><br><span class="line">icon https:&#x2F;&#x2F;fontawesome.io&#x2F;icons&#x2F;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Mac</category>
-      </categories>
-      <tags>
-        <tag>marboo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL5.6 rpm安装</title>
     <url>//2016/09/05/mysql-5.6.27rpm.html</url>
     <content><![CDATA[<h1 id="2016-09-05-mysql-5-6"><a href="#2016-09-05-mysql-5-6" class="headerlink" title="2016-09-05-mysql-5.6"></a>2016-09-05-mysql-5.6</h1><!--
@@ -1044,6 +1044,135 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
       </categories>
       <tags>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux nat</title>
+    <url>//2016/08/15/Linux-NAT.html</url>
+    <content><![CDATA[<h1 id="2016-08-15-Linux-NAT"><a href="#2016-08-15-Linux-NAT" class="headerlink" title="2016-08-15-Linux-NAT"></a>2016-08-15-Linux-NAT</h1><!--
+create time: 2016-08-15 13:16:09
+Author: <TODO: 请写上你的名字>
+
+This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
+本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
+-->
+
+<h2 id="设置-IPv4-转发"><a href="#设置-IPv4-转发" class="headerlink" title="设置 IPv4 转发"></a>设置 IPv4 转发</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line">设置</span><br><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line">生效</span><br><span class="line">sysctl -p</span><br><span class="line">显示所有系统参数</span><br><span class="line">sysctl -a</span><br></pre></td></tr></table></figure>
+
+<h2 id="sysctl"><a href="#sysctl" class="headerlink" title="sysctl"></a>sysctl</h2><p>sysctl 配置与显示在/proc/sys 目录中的内核参数．可以用 sysctl 来设置或重新设置联网功能，如 IP 转发、IP 碎片去除以及源路由检查等。用户只需要编辑/etc/sysctl.conf 文件，即可手工或自动执行由 sysctl 控制的功能。</p>
+<p>命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sysctl [-n] [-e] -w variable&#x3D;value</span><br><span class="line"></span><br><span class="line">    sysctl [-n] [-e] -p &lt;filename&gt; (default &#x2F;etc&#x2F;sysctl.conf)</span><br><span class="line"></span><br><span class="line">    sysctl [-n] [-e] -a</span><br><span class="line"></span><br><span class="line">    常用参数的意义：</span><br><span class="line"></span><br><span class="line">    -w   临时改变某个指定参数的值，如</span><br><span class="line"></span><br><span class="line">         sysctl -w net.ipv4.ip_forward&#x3D;1</span><br><span class="line"></span><br><span class="line">    -a   显示所有的系统参数</span><br><span class="line"></span><br><span class="line">    -p   从指定的文件加载系统参数，如不指定即从&#x2F;etc&#x2F;sysctl.conf中加载</span><br></pre></td></tr></table></figure>
+
+<p>如果仅仅是想临时改变某个系统参数的值，可以用两种方法来实现,例如想启用 IP 路由转发功能：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo 1 &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward</span><br><span class="line"></span><br><span class="line">sysctl -w net.ipv4.ip_forward&#x3D;1</span><br></pre></td></tr></table></figure>
+
+<p>以上两种方法都可能立即开启路由功能，但如果系统重启，或执行了<code>service network restart</code>命令，所设置的值即会丢失，如果想永久保留配置，可以修改/etc/sysctl.conf 文件</p>
+<p>将 net.ipv4.ip_forward=0 改为 net.ipv4.ip_forward=1</p>
+<h2 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h2><p>详细链接：<a href="./iptables.html">iptables.html</a></p>
+<h3 id="查看-iptables-规则内容"><a href="#查看-iptables-规则内容" class="headerlink" title="查看 iptables 规则内容"></a>查看 iptables 规则内容</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service iptables status</span><br><span class="line">或者</span><br><span class="line">iptables -L</span><br><span class="line">更详细的信息</span><br><span class="line">iptables -L -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="清空-iptables-规则"><a href="#清空-iptables-规则" class="headerlink" title="清空 iptables 规则"></a>清空 iptables 规则</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
+
+<h3 id="允许-192-168-10-0-0-16-连接-ssh"><a href="#允许-192-168-10-0-0-16-连接-ssh" class="headerlink" title="允许 192.168.10.0.0/16 连接 ssh"></a>允许 192.168.10.0.0/16 连接 ssh</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t filter -A INPUT -s 192.168.0.0&#x2F;16 -p tcp --dport 22 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="INPUT-默认策略改为-DROP"><a href="#INPUT-默认策略改为-DROP" class="headerlink" title="INPUT 默认策略改为 DROP"></a>INPUT 默认策略改为 DROP</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -P INPUT DROP</span><br></pre></td></tr></table></figure>
+
+<h3 id="OUTPUT-默认策略改为-ACCEPT"><a href="#OUTPUT-默认策略改为-ACCEPT" class="headerlink" title="OUTPUT 默认策略改为 ACCEPT"></a>OUTPUT 默认策略改为 ACCEPT</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -P OUTPUT ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加-SNAT"><a href="#添加-SNAT" class="headerlink" title="添加 SNAT"></a>添加 SNAT</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -s 192.168.0.0&#x2F;16 -o em1 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
+<p>不需要下面这条</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t nat -R POSTROUTING 2 -d 192.168.10.2 -p tcp --dport 8081 -j SNAT --to 172.10.2.201:80</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加-DNAT"><a href="#添加-DNAT" class="headerlink" title="添加 DNAT"></a>添加 DNAT</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -d 172.10.2.201 -p tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加-INPUT-允许"><a href="#添加-INPUT-允许" class="headerlink" title="添加 INPUT 允许"></a>添加 INPUT 允许</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t filter -A INPUT -s 172.10.2.201&#x2F;32 -p tcp --dport 80 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="允许-PING"><a href="#允许-PING" class="headerlink" title="允许 PING"></a>允许 PING</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -A INPUT -p icmp -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="临时添加多个公网-IP"><a href="#临时添加多个公网-IP" class="headerlink" title="临时添加多个公网 IP"></a>临时添加多个公网 IP</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip address add 172.10.2.203&#x2F;24 dev em1</span><br></pre></td></tr></table></figure>
+
+<h3 id="永久添加多个公网-IP"><a href="#永久添加多个公网-IP" class="headerlink" title="永久添加多个公网 IP"></a>永久添加多个公网 IP</h3><p>仿照/etc/sysconfig/network-scripts/ifcfg-em1 增加一文件根据网络虚拟接口的名字进行命名</p>
+<p>/etc/sysconfig/network-scripts 目录下复制 ifcfg-em1 到 ifcfg-em1:0</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp ifcfg-em1 ifcfg-em1:0</span><br></pre></td></tr></table></figure>
+
+<p>修改 ifcfg-em1:0 文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DEVICE&#x3D;em1:0</span><br><span class="line">TYPE&#x3D;Ethernet</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">NM_CONTROLLED&#x3D;yes</span><br><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line">IPADDR&#x3D;172.10.2.201</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">GATEWAY&#x3D;172.10.2.1</span><br></pre></td></tr></table></figure>
+
+<h4 id="ifconfig-em1-0-down"><a href="#ifconfig-em1-0-down" class="headerlink" title="ifconfig em1:0 down"></a>ifconfig em1:0 down</h4><p>关闭虚拟接口</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig eth*[:x] down(*代表的是网卡编号，x代表虚拟接口号0－255)</span><br></pre></td></tr></table></figure>
+
+<h4 id="ifconfig-em1-0-up"><a href="#ifconfig-em1-0-up" class="headerlink" title="ifconfig em1:0 up"></a>ifconfig em1:0 up</h4><p>启动虚拟网口出现错误</p>
+<p>SIOCSIFFLAGS: Cannot assign requested address</p>
+<p>出现以上错误的原因是把 em1:1 的信息写在了 ifcfg-em1:1 的配置文件里，本意是想，开机启动的时候自动加载，实现一块网卡双 IP。</p>
+<p>但当手动把 em1:1 设备 down（执行了：“ifconfig em1:1 down”），然后再启用的时候会报以上错误，主要是 mac 地址重复了</p>
+<p>解决办法：</p>
+<p>1、手动分配一个 mac 地址（不建议）</p>
+<p>2、手动执行添加 IP 的命令，把写在 ifcfg-eth0:1 里的信息配置上，如</p>
+<p>ifconfig eth0:1 192.168.1.2/24</p>
+<p>route add default gw 192.168.1.1 dev eth0:1</p>
+<h3 id="查看-IP"><a href="#查看-IP" class="headerlink" title="查看 IP"></a>查看 IP</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加默认网关"><a href="#添加默认网关" class="headerlink" title="添加默认网关"></a>添加默认网关</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">route add default gw 172.10.2.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>iptables -P INPUT DROP 后无法 ping 通 <code>www.baidu.com</code>（无法进行域名解析）</p>
+<p>使用 iptables -P INPUT ACCEPT 允许所有通过</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -A INPUT -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A INPUT -m state --state INVALID -j DROP</span><br></pre></td></tr></table></figure>
+
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>配置后内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@mysql ~]# vim &#x2F;etc&#x2F;sysconfig&#x2F;iptables</span><br><span class="line"></span><br><span class="line"># Generated by iptables-save v1.4.7 on Mon Aug 15 17:30:49 2016</span><br><span class="line">*nat</span><br><span class="line">:PREROUTING ACCEPT [20:3272]</span><br><span class="line">:POSTROUTING ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">-A PREROUTING -d 172.10.2.201&#x2F;32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80</span><br><span class="line">-A POSTROUTING -s 192.168.0.0&#x2F;16 -o em1 -j MASQUERADE</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Aug 15 17:30:49 2016</span><br><span class="line"># Generated by iptables-save v1.4.7 on Mon Aug 15 17:30:49 2016</span><br><span class="line">*filter</span><br><span class="line">:INPUT ACCEPT [1368:118485]</span><br><span class="line">:FORWARD ACCEPT [21251:9829802]</span><br><span class="line">:OUTPUT ACCEPT [425:52772]</span><br><span class="line">-A INPUT -s 192.168.0.0&#x2F;16 -p tcp -m tcp --dport 22 -j ACCEPT</span><br><span class="line">-A INPUT -p icmp -j ACCEPT</span><br><span class="line">-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">-A INPUT -m state --state INVALID -j DROP</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Aug 15 17:30:49 2016</span><br></pre></td></tr></table></figure>
+
+<h1 id="IP-命令"><a href="#IP-命令" class="headerlink" title="IP 命令"></a>IP 命令</h1><p>链接：<a href="https://www.cnblogs.com/bamboo-talking/archive/2013/01/10/2855306.html">https://www.cnblogs.com/bamboo-talking/archive/2013/01/10/2855306.html</a></p>
+<h4 id="ip-link-set–改变设备的属性-缩写：set、s"><a href="#ip-link-set–改变设备的属性-缩写：set、s" class="headerlink" title="ip link set–改变设备的属性. 缩写：set、s"></a>ip link set–改变设备的属性. 缩写：set、s</h4><p>示例 1：up/down 起动／关闭设备。</p>
+<p>ip link set dev eth0 up</p>
+<p>这个等于传统的 ifconfig eth0 up(down)</p>
+<h4 id="ip-link-show–显示设备属性-缩写：show、list、lst、sh、ls、l"><a href="#ip-link-show–显示设备属性-缩写：show、list、lst、sh、ls、l" class="headerlink" title="ip link show–显示设备属性. 缩写：show、list、lst、sh、ls、l"></a>ip link show–显示设备属性. 缩写：show、list、lst、sh、ls、l</h4><p>-s 选项出现两次或者更多次，ip 会输出更为详细的错误信息统计。</p>
+<p>示例:</p>
+<p>ip -s -s link ls eth0</p>
+<p>eth0: mtu 1500 qdisc cbq qlen 100</p>
+<p>link/ether 00:a0:cc:66:18:78 brd ff:ff:ff:ff:ff:ff</p>
+<p>RX: bytes packets errors dropped overrun mcast</p>
+<p>2449949362 2786187 0 0 0 0</p>
+<p>RX errors: length crc frame fifo missed</p>
+<p>0 0 0 0 0</p>
+<p>TX: bytes packets errors dropped carrier collsns</p>
+<p>178558497 1783946 332 0 332 35172</p>
+<p>TX errors: aborted fifo window heartbeat</p>
+<p>0 0 0 332</p>
+<p>这个命令等于传统的 ifconfig eth0</p>
+<h4 id="ip-address-add–添加一个新的协议地址-缩写：add、a"><a href="#ip-address-add–添加一个新的协议地址-缩写：add、a" class="headerlink" title="ip address add–添加一个新的协议地址. 缩写：add、a"></a>ip address add–添加一个新的协议地址. 缩写：add、a</h4><p>示例 1：为每个地址设置一个字符串作为标签。为了和 Linux-2.0 的网络别名兼容，这个字符串必须以设备名开头，接着一个冒号，</p>
+<p>ip addr add local 192.168.4.1/28 brd + label eth0:1 dev eth0</p>
+<p>示例 2: 在以太网接口 eth0 上增加一个地址 192.168.20.0，掩码长度为 24 位(155.155.155.0)，标准广播地址，标签为 eth0:Alias：</p>
+<p>ip addr add 192.168.4.2/24 brd + dev eth1 label eth1:1</p>
+<p>这个命令等于传统的: ifconfig eth1:1 192.168.4.2</p>
+<h4 id="ip-address-delete–删除一个协议地址-缩写：delete、del、d"><a href="#ip-address-delete–删除一个协议地址-缩写：delete、del、d" class="headerlink" title="ip address delete–删除一个协议地址. 缩写：delete、del、d"></a>ip address delete–删除一个协议地址. 缩写：delete、del、d</h4><p>ip addr del 192.168.4.1/24 brd + dev eth0 label eth0:Alias1</p>
+<h4 id="ip-address-show–显示协议地址-缩写：show、list、lst、sh、ls、l"><a href="#ip-address-show–显示协议地址-缩写：show、list、lst、sh、ls、l" class="headerlink" title="ip address show–显示协议地址. 缩写：show、list、lst、sh、ls、l"></a>ip address show–显示协议地址. 缩写：show、list、lst、sh、ls、l</h4><p>ip addr ls eth0</p>
+<h4 id="ip-address-flush–清除协议地址-缩写：flush、f"><a href="#ip-address-flush–清除协议地址-缩写：flush、f" class="headerlink" title="ip address flush–清除协议地址. 缩写：flush、f"></a>ip address flush–清除协议地址. 缩写：flush、f</h4><p>示例 1 : 删除属于私网 10.0.0.0/8 的所有地址：</p>
+<p>ip -s -s a f to 10/8</p>
+<p>示例 2 : 取消所有以太网卡的 IP 地址</p>
+<p>ip -4 addr flush label “eth0”</p>
+<h4 id="ip-neighbour–neighbour-arp-表管理命令"><a href="#ip-neighbour–neighbour-arp-表管理命令" class="headerlink" title="ip neighbour–neighbour/arp 表管理命令"></a>ip neighbour–neighbour/arp 表管理命令</h4><p>缩写 neighbour、neighbor、neigh、n</p>
+<p>命令 add、change、replace、delete、fulsh、show(或者 list)</p>
+<h4 id="ip-neighbour-add-–-添加一个新的邻接条目"><a href="#ip-neighbour-add-–-添加一个新的邻接条目" class="headerlink" title="ip neighbour add – 添加一个新的邻接条目"></a>ip neighbour add – 添加一个新的邻接条目</h4><p>ip neighbour change–修改一个现有的条目</p>
+<p>ip neighbour replace–替换一个已有的条目</p>
+<p>缩写：add、a；change、chg；replace、repl</p>
+<p>示例 1: 在设备 eth0 上，为地址 10.0.0.3 添加一个 permanent ARP 条目：</p>
+<p>ip neigh add 10.0.0.3 lladdr 0:0:0:0:0:1 dev eth0 nud perm</p>
+<p>示例 2:把状态改为 reachable</p>
+<p>ip neigh chg 10.0.0.3 dev eth0 nud reachable</p>
+<h4 id="ip-neighbour-delete–删除一个邻接条目"><a href="#ip-neighbour-delete–删除一个邻接条目" class="headerlink" title="ip neighbour delete–删除一个邻接条目"></a>ip neighbour delete–删除一个邻接条目</h4><p>示例 1:删除设备 eth0 上的一个 ARP 条目 10.0.0.3</p>
+<p>ip neigh del 10.0.0.3 dev eth0</p>
+<h4 id="ip-neighbour-show–显示网络邻居的信息-缩写：show、list、sh、ls"><a href="#ip-neighbour-show–显示网络邻居的信息-缩写：show、list、sh、ls" class="headerlink" title="ip neighbour show–显示网络邻居的信息. 缩写：show、list、sh、ls"></a>ip neighbour show–显示网络邻居的信息. 缩写：show、list、sh、ls</h4><p>示例 1: ip -s n ls 193.233.7.254</p>
+<p>193.233.7.254. dev eth0 lladdr 00:00:0c:76:3f:85 ref 5 used 12/13/20 nud reachable</p>
+<h5 id="ip-neighbour-flush–清除邻接条目-缩写：flush、f"><a href="#ip-neighbour-flush–清除邻接条目-缩写：flush、f" class="headerlink" title="ip neighbour flush–清除邻接条目. 缩写：flush、f"></a>ip neighbour flush–清除邻接条目. 缩写：flush、f</h5><p>示例 1: (-s 可以显示详细信息)</p>
+<p>ip -s -s n f 193.233.7.254</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>nat</tag>
       </tags>
   </entry>
   <entry>
@@ -1338,135 +1467,6 @@ iptables -t nat -A PREROUTING -d 172.16.100.2 -p tcp --dport 80 -j DNAT --to 192
       <tags>
         <tag>linux</tag>
         <tag>iptables</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux nat</title>
-    <url>//2016/08/15/Linux-NAT.html</url>
-    <content><![CDATA[<h1 id="2016-08-15-Linux-NAT"><a href="#2016-08-15-Linux-NAT" class="headerlink" title="2016-08-15-Linux-NAT"></a>2016-08-15-Linux-NAT</h1><!--
-create time: 2016-08-15 13:16:09
-Author: <TODO: 请写上你的名字>
-
-This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
-本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
--->
-
-<h2 id="设置-IPv4-转发"><a href="#设置-IPv4-转发" class="headerlink" title="设置 IPv4 转发"></a>设置 IPv4 转发</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line">设置</span><br><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line">生效</span><br><span class="line">sysctl -p</span><br><span class="line">显示所有系统参数</span><br><span class="line">sysctl -a</span><br></pre></td></tr></table></figure>
-
-<h2 id="sysctl"><a href="#sysctl" class="headerlink" title="sysctl"></a>sysctl</h2><p>sysctl 配置与显示在/proc/sys 目录中的内核参数．可以用 sysctl 来设置或重新设置联网功能，如 IP 转发、IP 碎片去除以及源路由检查等。用户只需要编辑/etc/sysctl.conf 文件，即可手工或自动执行由 sysctl 控制的功能。</p>
-<p>命令格式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sysctl [-n] [-e] -w variable&#x3D;value</span><br><span class="line"></span><br><span class="line">    sysctl [-n] [-e] -p &lt;filename&gt; (default &#x2F;etc&#x2F;sysctl.conf)</span><br><span class="line"></span><br><span class="line">    sysctl [-n] [-e] -a</span><br><span class="line"></span><br><span class="line">    常用参数的意义：</span><br><span class="line"></span><br><span class="line">    -w   临时改变某个指定参数的值，如</span><br><span class="line"></span><br><span class="line">         sysctl -w net.ipv4.ip_forward&#x3D;1</span><br><span class="line"></span><br><span class="line">    -a   显示所有的系统参数</span><br><span class="line"></span><br><span class="line">    -p   从指定的文件加载系统参数，如不指定即从&#x2F;etc&#x2F;sysctl.conf中加载</span><br></pre></td></tr></table></figure>
-
-<p>如果仅仅是想临时改变某个系统参数的值，可以用两种方法来实现,例如想启用 IP 路由转发功能：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo 1 &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward</span><br><span class="line"></span><br><span class="line">sysctl -w net.ipv4.ip_forward&#x3D;1</span><br></pre></td></tr></table></figure>
-
-<p>以上两种方法都可能立即开启路由功能，但如果系统重启，或执行了<code>service network restart</code>命令，所设置的值即会丢失，如果想永久保留配置，可以修改/etc/sysctl.conf 文件</p>
-<p>将 net.ipv4.ip_forward=0 改为 net.ipv4.ip_forward=1</p>
-<h2 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h2><p>详细链接：<a href="./iptables.html">iptables.html</a></p>
-<h3 id="查看-iptables-规则内容"><a href="#查看-iptables-规则内容" class="headerlink" title="查看 iptables 规则内容"></a>查看 iptables 规则内容</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service iptables status</span><br><span class="line">或者</span><br><span class="line">iptables -L</span><br><span class="line">更详细的信息</span><br><span class="line">iptables -L -v</span><br></pre></td></tr></table></figure>
-
-<h3 id="清空-iptables-规则"><a href="#清空-iptables-规则" class="headerlink" title="清空 iptables 规则"></a>清空 iptables 规则</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
-
-<h3 id="允许-192-168-10-0-0-16-连接-ssh"><a href="#允许-192-168-10-0-0-16-连接-ssh" class="headerlink" title="允许 192.168.10.0.0/16 连接 ssh"></a>允许 192.168.10.0.0/16 连接 ssh</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t filter -A INPUT -s 192.168.0.0&#x2F;16 -p tcp --dport 22 -j ACCEPT</span><br></pre></td></tr></table></figure>
-
-<h3 id="INPUT-默认策略改为-DROP"><a href="#INPUT-默认策略改为-DROP" class="headerlink" title="INPUT 默认策略改为 DROP"></a>INPUT 默认策略改为 DROP</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -P INPUT DROP</span><br></pre></td></tr></table></figure>
-
-<h3 id="OUTPUT-默认策略改为-ACCEPT"><a href="#OUTPUT-默认策略改为-ACCEPT" class="headerlink" title="OUTPUT 默认策略改为 ACCEPT"></a>OUTPUT 默认策略改为 ACCEPT</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -P OUTPUT ACCEPT</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加-SNAT"><a href="#添加-SNAT" class="headerlink" title="添加 SNAT"></a>添加 SNAT</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -s 192.168.0.0&#x2F;16 -o em1 -j MASQUERADE</span><br></pre></td></tr></table></figure>
-
-<p>不需要下面这条</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t nat -R POSTROUTING 2 -d 192.168.10.2 -p tcp --dport 8081 -j SNAT --to 172.10.2.201:80</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加-DNAT"><a href="#添加-DNAT" class="headerlink" title="添加 DNAT"></a>添加 DNAT</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -d 172.10.2.201 -p tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加-INPUT-允许"><a href="#添加-INPUT-允许" class="headerlink" title="添加 INPUT 允许"></a>添加 INPUT 允许</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -t filter -A INPUT -s 172.10.2.201&#x2F;32 -p tcp --dport 80 -j ACCEPT</span><br></pre></td></tr></table></figure>
-
-<h3 id="允许-PING"><a href="#允许-PING" class="headerlink" title="允许 PING"></a>允许 PING</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -A INPUT -p icmp -j ACCEPT</span><br></pre></td></tr></table></figure>
-
-<h3 id="临时添加多个公网-IP"><a href="#临时添加多个公网-IP" class="headerlink" title="临时添加多个公网 IP"></a>临时添加多个公网 IP</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip address add 172.10.2.203&#x2F;24 dev em1</span><br></pre></td></tr></table></figure>
-
-<h3 id="永久添加多个公网-IP"><a href="#永久添加多个公网-IP" class="headerlink" title="永久添加多个公网 IP"></a>永久添加多个公网 IP</h3><p>仿照/etc/sysconfig/network-scripts/ifcfg-em1 增加一文件根据网络虚拟接口的名字进行命名</p>
-<p>/etc/sysconfig/network-scripts 目录下复制 ifcfg-em1 到 ifcfg-em1:0</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp ifcfg-em1 ifcfg-em1:0</span><br></pre></td></tr></table></figure>
-
-<p>修改 ifcfg-em1:0 文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DEVICE&#x3D;em1:0</span><br><span class="line">TYPE&#x3D;Ethernet</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">NM_CONTROLLED&#x3D;yes</span><br><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line">IPADDR&#x3D;172.10.2.201</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">GATEWAY&#x3D;172.10.2.1</span><br></pre></td></tr></table></figure>
-
-<h4 id="ifconfig-em1-0-down"><a href="#ifconfig-em1-0-down" class="headerlink" title="ifconfig em1:0 down"></a>ifconfig em1:0 down</h4><p>关闭虚拟接口</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig eth*[:x] down(*代表的是网卡编号，x代表虚拟接口号0－255)</span><br></pre></td></tr></table></figure>
-
-<h4 id="ifconfig-em1-0-up"><a href="#ifconfig-em1-0-up" class="headerlink" title="ifconfig em1:0 up"></a>ifconfig em1:0 up</h4><p>启动虚拟网口出现错误</p>
-<p>SIOCSIFFLAGS: Cannot assign requested address</p>
-<p>出现以上错误的原因是把 em1:1 的信息写在了 ifcfg-em1:1 的配置文件里，本意是想，开机启动的时候自动加载，实现一块网卡双 IP。</p>
-<p>但当手动把 em1:1 设备 down（执行了：“ifconfig em1:1 down”），然后再启用的时候会报以上错误，主要是 mac 地址重复了</p>
-<p>解决办法：</p>
-<p>1、手动分配一个 mac 地址（不建议）</p>
-<p>2、手动执行添加 IP 的命令，把写在 ifcfg-eth0:1 里的信息配置上，如</p>
-<p>ifconfig eth0:1 192.168.1.2/24</p>
-<p>route add default gw 192.168.1.1 dev eth0:1</p>
-<h3 id="查看-IP"><a href="#查看-IP" class="headerlink" title="查看 IP"></a>查看 IP</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加默认网关"><a href="#添加默认网关" class="headerlink" title="添加默认网关"></a>添加默认网关</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">route add default gw 172.10.2.1</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>iptables -P INPUT DROP 后无法 ping 通 <code>www.baidu.com</code>（无法进行域名解析）</p>
-<p>使用 iptables -P INPUT ACCEPT 允许所有通过</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -A INPUT -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A INPUT -m state --state INVALID -j DROP</span><br></pre></td></tr></table></figure>
-
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>配置后内容</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@mysql ~]# vim &#x2F;etc&#x2F;sysconfig&#x2F;iptables</span><br><span class="line"></span><br><span class="line"># Generated by iptables-save v1.4.7 on Mon Aug 15 17:30:49 2016</span><br><span class="line">*nat</span><br><span class="line">:PREROUTING ACCEPT [20:3272]</span><br><span class="line">:POSTROUTING ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">-A PREROUTING -d 172.10.2.201&#x2F;32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.10.10:80</span><br><span class="line">-A POSTROUTING -s 192.168.0.0&#x2F;16 -o em1 -j MASQUERADE</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Aug 15 17:30:49 2016</span><br><span class="line"># Generated by iptables-save v1.4.7 on Mon Aug 15 17:30:49 2016</span><br><span class="line">*filter</span><br><span class="line">:INPUT ACCEPT [1368:118485]</span><br><span class="line">:FORWARD ACCEPT [21251:9829802]</span><br><span class="line">:OUTPUT ACCEPT [425:52772]</span><br><span class="line">-A INPUT -s 192.168.0.0&#x2F;16 -p tcp -m tcp --dport 22 -j ACCEPT</span><br><span class="line">-A INPUT -p icmp -j ACCEPT</span><br><span class="line">-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">-A INPUT -m state --state INVALID -j DROP</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Aug 15 17:30:49 2016</span><br></pre></td></tr></table></figure>
-
-<h1 id="IP-命令"><a href="#IP-命令" class="headerlink" title="IP 命令"></a>IP 命令</h1><p>链接：<a href="https://www.cnblogs.com/bamboo-talking/archive/2013/01/10/2855306.html">https://www.cnblogs.com/bamboo-talking/archive/2013/01/10/2855306.html</a></p>
-<h4 id="ip-link-set–改变设备的属性-缩写：set、s"><a href="#ip-link-set–改变设备的属性-缩写：set、s" class="headerlink" title="ip link set–改变设备的属性. 缩写：set、s"></a>ip link set–改变设备的属性. 缩写：set、s</h4><p>示例 1：up/down 起动／关闭设备。</p>
-<p>ip link set dev eth0 up</p>
-<p>这个等于传统的 ifconfig eth0 up(down)</p>
-<h4 id="ip-link-show–显示设备属性-缩写：show、list、lst、sh、ls、l"><a href="#ip-link-show–显示设备属性-缩写：show、list、lst、sh、ls、l" class="headerlink" title="ip link show–显示设备属性. 缩写：show、list、lst、sh、ls、l"></a>ip link show–显示设备属性. 缩写：show、list、lst、sh、ls、l</h4><p>-s 选项出现两次或者更多次，ip 会输出更为详细的错误信息统计。</p>
-<p>示例:</p>
-<p>ip -s -s link ls eth0</p>
-<p>eth0: mtu 1500 qdisc cbq qlen 100</p>
-<p>link/ether 00:a0:cc:66:18:78 brd ff:ff:ff:ff:ff:ff</p>
-<p>RX: bytes packets errors dropped overrun mcast</p>
-<p>2449949362 2786187 0 0 0 0</p>
-<p>RX errors: length crc frame fifo missed</p>
-<p>0 0 0 0 0</p>
-<p>TX: bytes packets errors dropped carrier collsns</p>
-<p>178558497 1783946 332 0 332 35172</p>
-<p>TX errors: aborted fifo window heartbeat</p>
-<p>0 0 0 332</p>
-<p>这个命令等于传统的 ifconfig eth0</p>
-<h4 id="ip-address-add–添加一个新的协议地址-缩写：add、a"><a href="#ip-address-add–添加一个新的协议地址-缩写：add、a" class="headerlink" title="ip address add–添加一个新的协议地址. 缩写：add、a"></a>ip address add–添加一个新的协议地址. 缩写：add、a</h4><p>示例 1：为每个地址设置一个字符串作为标签。为了和 Linux-2.0 的网络别名兼容，这个字符串必须以设备名开头，接着一个冒号，</p>
-<p>ip addr add local 192.168.4.1/28 brd + label eth0:1 dev eth0</p>
-<p>示例 2: 在以太网接口 eth0 上增加一个地址 192.168.20.0，掩码长度为 24 位(155.155.155.0)，标准广播地址，标签为 eth0:Alias：</p>
-<p>ip addr add 192.168.4.2/24 brd + dev eth1 label eth1:1</p>
-<p>这个命令等于传统的: ifconfig eth1:1 192.168.4.2</p>
-<h4 id="ip-address-delete–删除一个协议地址-缩写：delete、del、d"><a href="#ip-address-delete–删除一个协议地址-缩写：delete、del、d" class="headerlink" title="ip address delete–删除一个协议地址. 缩写：delete、del、d"></a>ip address delete–删除一个协议地址. 缩写：delete、del、d</h4><p>ip addr del 192.168.4.1/24 brd + dev eth0 label eth0:Alias1</p>
-<h4 id="ip-address-show–显示协议地址-缩写：show、list、lst、sh、ls、l"><a href="#ip-address-show–显示协议地址-缩写：show、list、lst、sh、ls、l" class="headerlink" title="ip address show–显示协议地址. 缩写：show、list、lst、sh、ls、l"></a>ip address show–显示协议地址. 缩写：show、list、lst、sh、ls、l</h4><p>ip addr ls eth0</p>
-<h4 id="ip-address-flush–清除协议地址-缩写：flush、f"><a href="#ip-address-flush–清除协议地址-缩写：flush、f" class="headerlink" title="ip address flush–清除协议地址. 缩写：flush、f"></a>ip address flush–清除协议地址. 缩写：flush、f</h4><p>示例 1 : 删除属于私网 10.0.0.0/8 的所有地址：</p>
-<p>ip -s -s a f to 10/8</p>
-<p>示例 2 : 取消所有以太网卡的 IP 地址</p>
-<p>ip -4 addr flush label “eth0”</p>
-<h4 id="ip-neighbour–neighbour-arp-表管理命令"><a href="#ip-neighbour–neighbour-arp-表管理命令" class="headerlink" title="ip neighbour–neighbour/arp 表管理命令"></a>ip neighbour–neighbour/arp 表管理命令</h4><p>缩写 neighbour、neighbor、neigh、n</p>
-<p>命令 add、change、replace、delete、fulsh、show(或者 list)</p>
-<h4 id="ip-neighbour-add-–-添加一个新的邻接条目"><a href="#ip-neighbour-add-–-添加一个新的邻接条目" class="headerlink" title="ip neighbour add – 添加一个新的邻接条目"></a>ip neighbour add – 添加一个新的邻接条目</h4><p>ip neighbour change–修改一个现有的条目</p>
-<p>ip neighbour replace–替换一个已有的条目</p>
-<p>缩写：add、a；change、chg；replace、repl</p>
-<p>示例 1: 在设备 eth0 上，为地址 10.0.0.3 添加一个 permanent ARP 条目：</p>
-<p>ip neigh add 10.0.0.3 lladdr 0:0:0:0:0:1 dev eth0 nud perm</p>
-<p>示例 2:把状态改为 reachable</p>
-<p>ip neigh chg 10.0.0.3 dev eth0 nud reachable</p>
-<h4 id="ip-neighbour-delete–删除一个邻接条目"><a href="#ip-neighbour-delete–删除一个邻接条目" class="headerlink" title="ip neighbour delete–删除一个邻接条目"></a>ip neighbour delete–删除一个邻接条目</h4><p>示例 1:删除设备 eth0 上的一个 ARP 条目 10.0.0.3</p>
-<p>ip neigh del 10.0.0.3 dev eth0</p>
-<h4 id="ip-neighbour-show–显示网络邻居的信息-缩写：show、list、sh、ls"><a href="#ip-neighbour-show–显示网络邻居的信息-缩写：show、list、sh、ls" class="headerlink" title="ip neighbour show–显示网络邻居的信息. 缩写：show、list、sh、ls"></a>ip neighbour show–显示网络邻居的信息. 缩写：show、list、sh、ls</h4><p>示例 1: ip -s n ls 193.233.7.254</p>
-<p>193.233.7.254. dev eth0 lladdr 00:00:0c:76:3f:85 ref 5 used 12/13/20 nud reachable</p>
-<h5 id="ip-neighbour-flush–清除邻接条目-缩写：flush、f"><a href="#ip-neighbour-flush–清除邻接条目-缩写：flush、f" class="headerlink" title="ip neighbour flush–清除邻接条目. 缩写：flush、f"></a>ip neighbour flush–清除邻接条目. 缩写：flush、f</h5><p>示例 1: (-s 可以显示详细信息)</p>
-<p>ip -s -s n f 193.233.7.254</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>nat</tag>
       </tags>
   </entry>
   <entry>
@@ -4482,86 +4482,6 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
       </tags>
   </entry>
   <entry>
-    <title>redis 3.0 3.2.5集群安装文档</title>
-    <url>//2016/05/06/redis3.0%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.html</url>
-    <content><![CDATA[<h1 id="redis3-0-3-2-5-集群安装文档"><a href="#redis3-0-3-2-5-集群安装文档" class="headerlink" title="redis3.0 3.2.5 集群安装文档"></a>redis3.0 3.2.5 集群安装文档</h1><!--
-create time: 2016-05-06 18:15:43
-Author: <段朝骞>
-
-This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
-本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
--->
-
-<p>要让集群正常工作至少需要 3 个主节点，在这里我们要创建 6 个 redis 节点，其中三个为主节点，三个为从节点，对应的 redis 节点的 ip 和端口对应关系如下<br>127.0.0.1:7001<br>127.0.0.1:7002<br>127.0.0.1:7003<br>127.0.0.1:8001<br>127.0.0.1:8002<br>127.0.0.1:8003</p>
-<h2 id="1-下载-redis"><a href="#1-下载-redis" class="headerlink" title="1. 下载 redis"></a>1. 下载 redis</h2><p>官网下载 3.0.0 版本，之前 2.几的版本不支持集群模式，下载地址：<a href="https://github.com/antirez/redis/archive/3.0.0-rc2.tar.gz">https://github.com/antirez/redis/archive/3.0.0-rc2.tar.gz</a><br>在两台服务器上分别执行以下 2-5 步骤：</p>
-<h2 id="2-上传服务器，解压，编译"><a href="#2-上传服务器，解压，编译" class="headerlink" title="2. 上传服务器，解压，编译"></a>2. 上传服务器，解压，编译</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake libtool make</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf redis-3.0.0-rc2.tar.gz</span><br><span class="line">mv redis-3.0.0-rc2.tar.gz redis3.0</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/redis3.0</span><br><span class="line">make MALLOC=libc</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-创建集群需要的目录"><a href="#3-创建集群需要的目录" class="headerlink" title="3. 创建集群需要的目录"></a>3. 创建集群需要的目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /opt/usr/redis/cluster</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster</span><br><span class="line">mkdir 7001</span><br><span class="line">mkdir 7002</span><br><span class="line">mkdir 7003</span><br><span class="line">mkdir 8001</span><br><span class="line">mkdir 8002</span><br><span class="line">mkdir 8003</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-修改配置文件-redis-conf"><a href="#4-修改配置文件-redis-conf" class="headerlink" title="4. 修改配置文件 redis.conf"></a>4. 修改配置文件 redis.conf</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /opt/usr/redis/redis3.0/redis.conf  /opt/usr/redis/cluster</span><br><span class="line">vi redis.conf</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改配置文件中的下面选项"><a href="#修改配置文件中的下面选项" class="headerlink" title="修改配置文件中的下面选项"></a>修改配置文件中的下面选项</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">port 7001</span><br><span class="line">daemonize yes</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">appendonly yes</span><br><span class="line">bind 127.0.0.1</span><br><span class="line">dir &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;7001</span><br></pre></td></tr></table></figure>
-
-<p>修改 dir 参数 bind 参数 port 参数</p>
-<h3 id="修改完-redis-conf-配置文件中的这些配置项之后把这个配置文件分别拷贝到-7001-7002-7003-8001-8002-8003-目录下面"><a href="#修改完-redis-conf-配置文件中的这些配置项之后把这个配置文件分别拷贝到-7001-7002-7003-8001-8002-8003-目录下面" class="headerlink" title="修改完 redis.conf 配置文件中的这些配置项之后把这个配置文件分别拷贝到 7001/7002/7003/8001/8002/8003 目录下面"></a>修改完 redis.conf 配置文件中的这些配置项之后把这个配置文件分别拷贝到 7001/7002/7003/8001/8002/8003 目录下面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /opt/usr/redis/cluster/redis.conf  /opt/usr/redis/cluster/7001</span><br><span class="line">cp /opt/usr/redis/cluster/redis.conf  /opt/usr/redis/cluster/7002</span><br><span class="line">cp /opt/usr/redis/cluster/redis.conf  /opt/usr/redis/cluster/7003</span><br></pre></td></tr></table></figure>
-
-<h3 id="拷贝完成之后要修改-7001-7002-目录下面-redis-conf-文件中的-port-参数，分别改为对应的文件夹的名称"><a href="#拷贝完成之后要修改-7001-7002-目录下面-redis-conf-文件中的-port-参数，分别改为对应的文件夹的名称" class="headerlink" title="拷贝完成之后要修改 7001/7002 目录下面 redis.conf 文件中的 port 参数，分别改为对应的文件夹的名称"></a>拷贝完成之后要修改 7001/7002 目录下面 redis.conf 文件中的 port 参数，分别改为对应的文件夹的名称</h3><h2 id="5-分别启动这-6-个-redis-实例"><a href="#5-分别启动这-6-个-redis-实例" class="headerlink" title="5. 分别启动这 6 个 redis 实例"></a>5. 分别启动这 6 个 redis 实例</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/7001</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/7002</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/7003</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/8001</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/8002</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/8003</span><br><span class="line">redis-server redis.conf</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动之后使用命令查看-redis-的启动情况-ps-ef-grep-redis"><a href="#启动之后使用命令查看-redis-的启动情况-ps-ef-grep-redis" class="headerlink" title="启动之后使用命令查看 redis 的启动情况 ps -ef|grep redis"></a>启动之后使用命令查看 redis 的启动情况 ps -ef|grep redis</h3><p>如下图显示则说明启动成功</p>
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r1.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r1.png"></p>
-<h2 id="安装-ruby-rubygems"><a href="#安装-ruby-rubygems" class="headerlink" title="安装 ruby rubygems"></a>安装 ruby rubygems</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y ruby rubygems</span><br></pre></td></tr></table></figure>
-
-<p>修改 gem sources</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gem sources remove https:&#x2F;&#x2F;rubygems.org&#x2F;</span><br><span class="line">gem sources -a https:&#x2F;&#x2F;ruby.taobao.org&#x2F;</span><br><span class="line">gem sources -l</span><br></pre></td></tr></table></figure>
-
-<p>gem 安装 redis</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis 3.2.5使用3.2.2版本</span><br><span class="line">gem install redis -v 3.2.2</span><br><span class="line">gem list</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-执行-redis-的创建集群命令创建集群（注意以下-IP-写实际-IP，禁止使用-127-0-0-1）"><a href="#6-执行-redis-的创建集群命令创建集群（注意以下-IP-写实际-IP，禁止使用-127-0-0-1）" class="headerlink" title="6. 执行 redis 的创建集群命令创建集群（注意以下 IP 写实际 IP，禁止使用 127.0.0.1）"></a>6. 执行 redis 的创建集群命令创建集群（注意以下 IP 写实际 IP，禁止使用 127.0.0.1）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/usr/redis/redis3.0/src</span><br><span class="line">./redis-trib.rb create --replicas 1 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:8001 127.0.0.1:8002 127.0.0.1:8003</span><br></pre></td></tr></table></figure>
-
-<h3 id="正常执行"><a href="#正常执行" class="headerlink" title="正常执行"></a>正常执行</h3><p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r2.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r2.png"></p>
-<p>输入 yes，然后配置完成。</p>
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r3.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r3.png"><br>至此 redis 集群即搭建成功！</p>
-<p><strong><em>使用 127.0.0.1 严重影响 cluster 性能</em></strong></p>
-<h2 id="使用-redis-cli-命令进入集群环境"><a href="#使用-redis-cli-命令进入集群环境" class="headerlink" title="使用 redis-cli 命令进入集群环境"></a>使用 redis-cli 命令进入集群环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">redis-cli -c -p 7001</span><br></pre></td></tr></table></figure>
-
-<p>run</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;7001</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;7002</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;7003</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;8001</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;8002</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;8003</span><br><span class="line">redis-server redis.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;redis-trib.rb check 127.0.0.1:7001</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><p>错误内容：/usr/bin/env: ruby: No such file or directory<br>所以需要安装 ruby 的环境，这里推荐使用 yum install ruby 安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install ruby</span><br></pre></td></tr></table></figure>
-
-<p>错误内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;redis-trib.rb:24:in &#96;require&#39;: no such file to load -- rubygems (LoadError)</span><br><span class="line">from .&#x2F;redis-trib.rb:24</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install rubygems</span><br></pre></td></tr></table></figure>
-
-<h3 id="提示不能加载-redis，是因为缺少-redis-和-ruby-的接口，使用-gem-安装"><a href="#提示不能加载-redis，是因为缺少-redis-和-ruby-的接口，使用-gem-安装" class="headerlink" title="提示不能加载 redis，是因为缺少 redis 和 ruby 的接口，使用 gem 安装"></a>提示不能加载 redis，是因为缺少 redis 和 ruby 的接口，使用 gem 安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gem install redis</span><br></pre></td></tr></table></figure>
-
-<p>gem install redis<br>这里可能无法安装,因为无法连接 gem 服务器：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@zw_22_90 src]# gem install redis --version 3.0.0</span><br><span class="line">ERROR:  Could not find a valid gem &#39;redis&#39; (&#x3D; 3.0.0) in any repository</span><br><span class="line">ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)</span><br></pre></td></tr></table></figure>
-
-<p>修改 gem sources 为 taobao.org 加快安装速度</p>
-<p><a href="https://blog.csdn.net/beyondlpf/article/details/51275106">https://blog.csdn.net/beyondlpf/article/details/51275106</a></p>
-<p>或者手工下载并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://rubygems.global.ssl.fastly.net/gems/redis-3.2.1.gem</span><br><span class="line">gem install -l ./redis-3.2.1.gem</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-5-提示无法链接"><a href="#3-2-5-提示无法链接" class="headerlink" title="3.2.5 提示无法链接"></a>3.2.5 提示无法链接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@redis159 redis-3.2.5]# src&#x2F;redis-trib.rb create --replicas 1 20.0.1.159:7001 20.0.1.159:7002 20.0.1.159:7003 20.0.1.159:7004 20.0.1.159:7005 20.0.1.159:7006</span><br><span class="line">&gt;&gt;&gt; Creating cluster</span><br><span class="line">[ERR] Sorry, can&#39;t connect to node 20.0.1.159:7001</span><br></pre></td></tr></table></figure>
-
-<p>修改配置文件设置 bind 参数即可</p>
-]]></content>
-      <categories>
-        <category>Database</category>
-      </categories>
-      <tags>
-        <tag>redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OpenVPN安装</title>
     <url>//2016/05/06/OpenVPN%E5%AE%89%E8%A3%85.html</url>
     <content><![CDATA[<h1 id="OpenVPN-安装"><a href="#OpenVPN-安装" class="headerlink" title="OpenVPN 安装"></a>OpenVPN 安装</h1><p><strong>安装 openvpn easy-rsa</strong></p>
@@ -4677,6 +4597,86 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
       </tags>
   </entry>
   <entry>
+    <title>redis 3.0 3.2.5集群安装文档</title>
+    <url>//2016/05/06/redis3.0%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.html</url>
+    <content><![CDATA[<h1 id="redis3-0-3-2-5-集群安装文档"><a href="#redis3-0-3-2-5-集群安装文档" class="headerlink" title="redis3.0 3.2.5 集群安装文档"></a>redis3.0 3.2.5 集群安装文档</h1><!--
+create time: 2016-05-06 18:15:43
+Author: <段朝骞>
+
+This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
+本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
+-->
+
+<p>要让集群正常工作至少需要 3 个主节点，在这里我们要创建 6 个 redis 节点，其中三个为主节点，三个为从节点，对应的 redis 节点的 ip 和端口对应关系如下<br>127.0.0.1:7001<br>127.0.0.1:7002<br>127.0.0.1:7003<br>127.0.0.1:8001<br>127.0.0.1:8002<br>127.0.0.1:8003</p>
+<h2 id="1-下载-redis"><a href="#1-下载-redis" class="headerlink" title="1. 下载 redis"></a>1. 下载 redis</h2><p>官网下载 3.0.0 版本，之前 2.几的版本不支持集群模式，下载地址：<a href="https://github.com/antirez/redis/archive/3.0.0-rc2.tar.gz">https://github.com/antirez/redis/archive/3.0.0-rc2.tar.gz</a><br>在两台服务器上分别执行以下 2-5 步骤：</p>
+<h2 id="2-上传服务器，解压，编译"><a href="#2-上传服务器，解压，编译" class="headerlink" title="2. 上传服务器，解压，编译"></a>2. 上传服务器，解压，编译</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake libtool make</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf redis-3.0.0-rc2.tar.gz</span><br><span class="line">mv redis-3.0.0-rc2.tar.gz redis3.0</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/redis3.0</span><br><span class="line">make MALLOC=libc</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-创建集群需要的目录"><a href="#3-创建集群需要的目录" class="headerlink" title="3. 创建集群需要的目录"></a>3. 创建集群需要的目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /opt/usr/redis/cluster</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster</span><br><span class="line">mkdir 7001</span><br><span class="line">mkdir 7002</span><br><span class="line">mkdir 7003</span><br><span class="line">mkdir 8001</span><br><span class="line">mkdir 8002</span><br><span class="line">mkdir 8003</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-修改配置文件-redis-conf"><a href="#4-修改配置文件-redis-conf" class="headerlink" title="4. 修改配置文件 redis.conf"></a>4. 修改配置文件 redis.conf</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /opt/usr/redis/redis3.0/redis.conf  /opt/usr/redis/cluster</span><br><span class="line">vi redis.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置文件中的下面选项"><a href="#修改配置文件中的下面选项" class="headerlink" title="修改配置文件中的下面选项"></a>修改配置文件中的下面选项</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">port 7001</span><br><span class="line">daemonize yes</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">appendonly yes</span><br><span class="line">bind 127.0.0.1</span><br><span class="line">dir &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;7001</span><br></pre></td></tr></table></figure>
+
+<p>修改 dir 参数 bind 参数 port 参数</p>
+<h3 id="修改完-redis-conf-配置文件中的这些配置项之后把这个配置文件分别拷贝到-7001-7002-7003-8001-8002-8003-目录下面"><a href="#修改完-redis-conf-配置文件中的这些配置项之后把这个配置文件分别拷贝到-7001-7002-7003-8001-8002-8003-目录下面" class="headerlink" title="修改完 redis.conf 配置文件中的这些配置项之后把这个配置文件分别拷贝到 7001/7002/7003/8001/8002/8003 目录下面"></a>修改完 redis.conf 配置文件中的这些配置项之后把这个配置文件分别拷贝到 7001/7002/7003/8001/8002/8003 目录下面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /opt/usr/redis/cluster/redis.conf  /opt/usr/redis/cluster/7001</span><br><span class="line">cp /opt/usr/redis/cluster/redis.conf  /opt/usr/redis/cluster/7002</span><br><span class="line">cp /opt/usr/redis/cluster/redis.conf  /opt/usr/redis/cluster/7003</span><br></pre></td></tr></table></figure>
+
+<h3 id="拷贝完成之后要修改-7001-7002-目录下面-redis-conf-文件中的-port-参数，分别改为对应的文件夹的名称"><a href="#拷贝完成之后要修改-7001-7002-目录下面-redis-conf-文件中的-port-参数，分别改为对应的文件夹的名称" class="headerlink" title="拷贝完成之后要修改 7001/7002 目录下面 redis.conf 文件中的 port 参数，分别改为对应的文件夹的名称"></a>拷贝完成之后要修改 7001/7002 目录下面 redis.conf 文件中的 port 参数，分别改为对应的文件夹的名称</h3><h2 id="5-分别启动这-6-个-redis-实例"><a href="#5-分别启动这-6-个-redis-实例" class="headerlink" title="5. 分别启动这 6 个 redis 实例"></a>5. 分别启动这 6 个 redis 实例</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/7001</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/7002</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/7003</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/8001</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/8002</span><br><span class="line">redis-server redis.conf</span><br><span class="line"><span class="built_in">cd</span> /opt/usr/redis/cluster/8003</span><br><span class="line">redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动之后使用命令查看-redis-的启动情况-ps-ef-grep-redis"><a href="#启动之后使用命令查看-redis-的启动情况-ps-ef-grep-redis" class="headerlink" title="启动之后使用命令查看 redis 的启动情况 ps -ef|grep redis"></a>启动之后使用命令查看 redis 的启动情况 ps -ef|grep redis</h3><p>如下图显示则说明启动成功</p>
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r1.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r1.png"></p>
+<h2 id="安装-ruby-rubygems"><a href="#安装-ruby-rubygems" class="headerlink" title="安装 ruby rubygems"></a>安装 ruby rubygems</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y ruby rubygems</span><br></pre></td></tr></table></figure>
+
+<p>修改 gem sources</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gem sources remove https:&#x2F;&#x2F;rubygems.org&#x2F;</span><br><span class="line">gem sources -a https:&#x2F;&#x2F;ruby.taobao.org&#x2F;</span><br><span class="line">gem sources -l</span><br></pre></td></tr></table></figure>
+
+<p>gem 安装 redis</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis 3.2.5使用3.2.2版本</span><br><span class="line">gem install redis -v 3.2.2</span><br><span class="line">gem list</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-执行-redis-的创建集群命令创建集群（注意以下-IP-写实际-IP，禁止使用-127-0-0-1）"><a href="#6-执行-redis-的创建集群命令创建集群（注意以下-IP-写实际-IP，禁止使用-127-0-0-1）" class="headerlink" title="6. 执行 redis 的创建集群命令创建集群（注意以下 IP 写实际 IP，禁止使用 127.0.0.1）"></a>6. 执行 redis 的创建集群命令创建集群（注意以下 IP 写实际 IP，禁止使用 127.0.0.1）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/usr/redis/redis3.0/src</span><br><span class="line">./redis-trib.rb create --replicas 1 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:8001 127.0.0.1:8002 127.0.0.1:8003</span><br></pre></td></tr></table></figure>
+
+<h3 id="正常执行"><a href="#正常执行" class="headerlink" title="正常执行"></a>正常执行</h3><p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r2.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r2.png"></p>
+<p>输入 yes，然后配置完成。</p>
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r3.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/redis/r3.png"><br>至此 redis 集群即搭建成功！</p>
+<p><strong><em>使用 127.0.0.1 严重影响 cluster 性能</em></strong></p>
+<h2 id="使用-redis-cli-命令进入集群环境"><a href="#使用-redis-cli-命令进入集群环境" class="headerlink" title="使用 redis-cli 命令进入集群环境"></a>使用 redis-cli 命令进入集群环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">redis-cli -c -p 7001</span><br></pre></td></tr></table></figure>
+
+<p>run</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;7001</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;7002</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;7003</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;8001</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;8002</span><br><span class="line">redis-server redis.conf</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;redis&#x2F;cluster&#x2F;8003</span><br><span class="line">redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;redis-trib.rb check 127.0.0.1:7001</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><p>错误内容：/usr/bin/env: ruby: No such file or directory<br>所以需要安装 ruby 的环境，这里推荐使用 yum install ruby 安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install ruby</span><br></pre></td></tr></table></figure>
+
+<p>错误内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;redis-trib.rb:24:in &#96;require&#39;: no such file to load -- rubygems (LoadError)</span><br><span class="line">from .&#x2F;redis-trib.rb:24</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install rubygems</span><br></pre></td></tr></table></figure>
+
+<h3 id="提示不能加载-redis，是因为缺少-redis-和-ruby-的接口，使用-gem-安装"><a href="#提示不能加载-redis，是因为缺少-redis-和-ruby-的接口，使用-gem-安装" class="headerlink" title="提示不能加载 redis，是因为缺少 redis 和 ruby 的接口，使用 gem 安装"></a>提示不能加载 redis，是因为缺少 redis 和 ruby 的接口，使用 gem 安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gem install redis</span><br></pre></td></tr></table></figure>
+
+<p>gem install redis<br>这里可能无法安装,因为无法连接 gem 服务器：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@zw_22_90 src]# gem install redis --version 3.0.0</span><br><span class="line">ERROR:  Could not find a valid gem &#39;redis&#39; (&#x3D; 3.0.0) in any repository</span><br><span class="line">ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)</span><br></pre></td></tr></table></figure>
+
+<p>修改 gem sources 为 taobao.org 加快安装速度</p>
+<p><a href="https://blog.csdn.net/beyondlpf/article/details/51275106">https://blog.csdn.net/beyondlpf/article/details/51275106</a></p>
+<p>或者手工下载并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://rubygems.global.ssl.fastly.net/gems/redis-3.2.1.gem</span><br><span class="line">gem install -l ./redis-3.2.1.gem</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-5-提示无法链接"><a href="#3-2-5-提示无法链接" class="headerlink" title="3.2.5 提示无法链接"></a>3.2.5 提示无法链接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@redis159 redis-3.2.5]# src&#x2F;redis-trib.rb create --replicas 1 20.0.1.159:7001 20.0.1.159:7002 20.0.1.159:7003 20.0.1.159:7004 20.0.1.159:7005 20.0.1.159:7006</span><br><span class="line">&gt;&gt;&gt; Creating cluster</span><br><span class="line">[ERR] Sorry, can&#39;t connect to node 20.0.1.159:7001</span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件设置 bind 参数即可</p>
+]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>zookeeper3.4.6集群安装</title>
     <url>//2016/05/06/zookeeper3.4.6-cluster-install.html</url>
     <content><![CDATA[<h1 id="zookeeper3-4-6-集群安装"><a href="#zookeeper3-4-6-集群安装" class="headerlink" title="zookeeper3.4.6 集群安装"></a>zookeeper3.4.6 集群安装</h1><!--
@@ -4730,6 +4730,110 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
       </categories>
       <tags>
         <tag>zookeeper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>solr5.3.1集群安装</title>
+    <url>//2016/05/06/solr5.3.1-cluster-install.html</url>
+    <content><![CDATA[<h1 id="solr5-3-1-集群安装"><a href="#solr5-3-1-集群安装" class="headerlink" title="solr5.3.1 集群安装"></a>solr5.3.1 集群安装</h1><!--
+create time: 2016-05-06 16:57:35
+Author: <段朝骞>
+
+This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
+本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
+-->
+
+<p>资料来源<a href="https://wiki.apache.org/solr/">https://wiki.apache.org/solr/</a><br>下载地址<a href="https://archive.apache.org/dist/lucene/solr/5.3.1/">https://archive.apache.org/dist/lucene/solr/5.3.1/</a><br>安装 jdk</p>
+<h2 id="使用-solr-脚本启动集群"><a href="#使用-solr-脚本启动集群" class="headerlink" title="使用 solr 脚本启动集群"></a>使用 solr 脚本启动集群</h2><ol>
+<li><p>解压</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -zxvf solr-5.3.1.tgz</span><br><span class="line">mkdir -p &#x2F;opt&#x2F;usr&#x2F;solr</span><br><span class="line">mv solr-5.3.1 &#x2F;opt&#x2F;usr&#x2F;solr&#x2F;</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;solr&#x2F;solr-5.3.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制 solr.xml 到 9010 9011 9012 9013 目录下</p>
+<p>创建目录 9010 9011 9012 9013<br>mkdir 9010 9011 9012 9013</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp server&#x2F;solr&#x2F;solr.xml 9010&#x2F;</span><br><span class="line">cp server&#x2F;solr&#x2F;solr.xml 9011&#x2F;</span><br><span class="line">cp server&#x2F;solr&#x2F;solr.xml 9012&#x2F;</span><br><span class="line">cp server&#x2F;solr&#x2F;solr.xml 9013&#x2F;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 solr</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin&#x2F;solr -c -p 9010 -s 9010 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin&#x2F;solr -c -p 9011 -s 9011 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin&#x2F;solr -c -p 9012 -s 9012 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin&#x2F;solr -c -p 9013 -s 9013 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启 solr</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin&#x2F;solr restart -c -p 9010 -s 9010 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line"></span><br><span class="line">bin&#x2F;solr restart -c -p 9011 -s 9011 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line"></span><br><span class="line">bin&#x2F;solr restart -c -p 9012 -s 9012 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line"></span><br><span class="line">bin&#x2F;solr restart -c -p 9013 -s 9013 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>停止 solr</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin&#x2F;solr stop -p 9010</span><br><span class="line">bin&#x2F;solr stop -p 9011</span><br><span class="line">bin&#x2F;solr stop -p 9012</span><br><span class="line">bin&#x2F;solr stop -p 9013</span><br><span class="line">或者</span><br><span class="line">bin&#x2F;solr stop -all 停止所有</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看 solr 运行状态</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin&#x2F;solr status</span><br></pre></td></tr></table></figure>
+
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s1.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s1.png"></p>
+</li>
+</ol>
+<h3 id="上传配置文件到-zookeeper"><a href="#上传配置文件到-zookeeper" class="headerlink" title="上传配置文件到 zookeeper"></a>上传配置文件到 zookeeper</h3><p><a href="https://cwiki.apache.org/confluence/display/solr/Using+ZooKeeper+to+Manage+Configuration+Files">https://cwiki.apache.org/confluence/display/solr/Using+ZooKeeper+to+Manage+Configuration+Files</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir production_conf</span><br><span class="line">cp -rf server&#x2F;solr&#x2F;configsets&#x2F;basic_configs&#x2F;conf&#x2F;* production_conf&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p><strong>上传整个目录</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#x2F;scripts&#x2F;cloud-scripts&#x2F;zkcli.sh -cmd upconfig -zkhost 127.0.0.1:2182 -confname production_conf -confdir production_conf&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>–配置文件在/configs 目录下</p>
+<p><strong>上传单个文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#x2F;scripts&#x2F;cloud-scripts&#x2F;zkcli.sh -cmd putfile &#x2F;configs&#x2F;production_conf&#x2F;schema.xml production_conf&#x2F;schema.xml -zkhost 127.0.0.1:2182</span><br></pre></td></tr></table></figure>
+
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s2.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s2.png"></p>
+<h3 id="使用配置文件创建-collection"><a href="#使用配置文件创建-collection" class="headerlink" title="使用配置文件创建 collection"></a>使用配置文件创建 collection</h3><p>相关 api<br><a href="https://cwiki.apache.org/confluence/display/solr/Collections+API">https://cwiki.apache.org/confluence/display/solr/Collections+API</a></p>
+<p>创建 collection</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;192.168.88.21:9010&#x2F;solr&#x2F;admin&#x2F;collections?action&#x3D;CREATE&amp;name&#x3D;production&amp;numShards&#x3D;2&amp;replicationFactor&#x3D;2&amp;maxShardsPerNode&#x3D;2&amp;collection.configName&#x3D;production_conf</span><br></pre></td></tr></table></figure>
+
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s3.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s3.png"></p>
+<p><strong><em>当前 collection 使用的 config</em></strong></p>
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s4.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s4.png"></p>
+<h3 id="Reload-Colletion-加载配置文件，不需要重启-solr"><a href="#Reload-Colletion-加载配置文件，不需要重启-solr" class="headerlink" title="Reload Colletion(加载配置文件，不需要重启 solr)"></a>Reload Colletion(加载配置文件，不需要重启 solr)</h3><p>/admin/collections?action=RELOAD&amp;name=production</p>
+<h4 id="查看-Cluster-Status"><a href="#查看-Cluster-Status" class="headerlink" title="查看 Cluster Status"></a>查看 Cluster Status</h4><p>/admin/collections?action=CLUSTERSTATUS</p>
+<h4 id="其它相关操作"><a href="#其它相关操作" class="headerlink" title="其它相关操作"></a>其它相关操作</h4><h5 id="添加删除-shard-replica-等"><a href="#添加删除-shard-replica-等" class="headerlink" title="添加删除 shard replica 等"></a>添加删除 shard replica 等</h5><p><a href="https://cwiki.apache.org/confluence/display/solr/Collections+API#CollectionsAPI-api18">https://cwiki.apache.org/confluence/display/solr/Collections+API#CollectionsAPI-api18</a></p>
+<h5 id="配置-IK-分词器"><a href="#配置-IK-分词器" class="headerlink" title="配置 IK 分词器"></a>配置 IK 分词器</h5><p>复制 IK 分词器到 server/solr-webapp/webapp/WEB-INF/lib<br>ik 分词器是自己修改编译的</p>
+<p>git 地址<br><a href="https://git.oschina.net/duanzhaoqian/IK-Analyzer-2012FF/tree/master">https://git.oschina.net/duanzhaoqian/IK-Analyzer-2012FF/tree/master</a><br>下载 dist 目录下的 IKAnalyzer-5.3.1.jar</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp ~&#x2F;soft&#x2F;IKAnalyzer-5.3.1.jar server&#x2F;solr-webapp&#x2F;webapp&#x2F;WEB-INF&#x2F;lib</span><br></pre></td></tr></table></figure>
+
+<p>修改 schema.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim production_conf&#x2F;schema.xml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;fieldType name&#x3D;&quot;text_ik&quot; class&#x3D;&quot;solr.TextField&quot;&gt;</span><br><span class="line">    &lt;analyzer type&#x3D;&quot;query&quot; class&#x3D;&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot; useSmart&#x3D;&quot;false&quot;&#x2F;&gt;</span><br><span class="line">    &lt;analyzer type&#x3D;&quot;index&quot; class&#x3D;&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot; useSmart&#x3D;&quot;true&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;fieldType&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s5.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s5.png"><br>上传修改完成的 schema.xml</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server/scripts/cloud-scripts/zkcli.sh -cmd putfile /configs/production_conf/schema.xml production_conf/schema.xml -zkhost 127.0.0.1:2182</span><br></pre></td></tr></table></figure>
+
+<h4 id="Reload-Collection"><a href="#Reload-Collection" class="headerlink" title="Reload Collection"></a>Reload Collection</h4><p>/admin/collections?action=RELOAD&amp;name=production</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s6.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s6.png"></p>
+<p>找到这三个文件上传到 zookeeper 就好</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp example/example-DIH/solr/solr/conf/admin-extra.* production_conf/</span><br></pre></td></tr></table></figure>
+
+<p>上传到 zookeeper</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server/scripts/cloud-scripts/zkcli.sh -cmd upconfig -zkhost 127.0.0.1:2182 -confname production_conf -confdir production_conf/</span><br></pre></td></tr></table></figure>
+
+<h2 id="重启-solr-集群"><a href="#重启-solr-集群" class="headerlink" title="重启 solr 集群"></a>重启 solr 集群</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin/solr restart -c -p 9010 -s 9010 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin/solr restart -c -p 9011 -s 9011 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin/solr restart -c -p 9012 -s 9012 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin/solr restart -c -p 9013 -s 9013 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br></pre></td></tr></table></figure>
+
+<h2 id="solrCloud-运行在-HDFS"><a href="#solrCloud-运行在-HDFS" class="headerlink" title="solrCloud 运行在 HDFS"></a>solrCloud 运行在 HDFS</h2><p>资料<a href="https://cwiki.apache.org/confluence/display/solr/Running+Solr+on+HDFS">https://cwiki.apache.org/confluence/display/solr/Running+Solr+on+HDFS</a></p>
+<ol>
+<li><p>添加启动参数（必须）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-Dsolr.lock.type&#x3D;hdfs</span><br></pre></td></tr></table></figure>
+
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s7.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s7.png"><br>或者设置配置文件也行</p>
+<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s8.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s8.png"></p>
+</li>
+<li><p>设置 hadoop 配置文件路径（HA 模式必须配置）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;str name&#x3D;&quot;solr.hdfs.confdir&quot;&gt;&#x2F;opt&#x2F;solr&#x2F;etc&#x2F;hadoop&lt;&#x2F;str&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 DirectoryFactory</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    	&lt;directoryFactory name&#x3D;&quot;DirectoryFactory&quot; class&#x3D;&quot;solr.HdfsDirectoryFactory&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;str name&#x3D;&quot;solr.hdfs.home&quot;&gt;hdfs:&#x2F;&#x2F;192.168.1.201:8020&#x2F;solr&lt;&#x2F;str&gt;</span><br><span class="line">&lt;bool name&#x3D;&quot;solr.hdfs.blockcache.enabled&quot;&gt;true&lt;&#x2F;bool&gt;</span><br><span class="line">&lt;int name&#x3D;&quot;solr.hdfs.blockcache.slab.count&quot;&gt;1&lt;&#x2F;int&gt;</span><br><span class="line">&lt;bool name&#x3D;&quot;solr.hdfs.blockcache.direct.memory.allocation&quot;&gt;true&lt;&#x2F;bool&gt;</span><br><span class="line">&lt;int name&#x3D;&quot;solr.hdfs.blockcache.blocksperbank&quot;&gt;16384&lt;&#x2F;int&gt;</span><br><span class="line">&lt;bool name&#x3D;&quot;solr.hdfs.blockcache.read.enabled&quot;&gt;true&lt;&#x2F;bool&gt;</span><br><span class="line">&lt;bool name&#x3D;&quot;solr.hdfs.nrtcachingdirectory.enable&quot;&gt;true&lt;&#x2F;bool&gt;</span><br><span class="line">&lt;int name&#x3D;&quot;solr.hdfs.nrtcachingdirectory.maxmergesizemb&quot;&gt;16&lt;&#x2F;int&gt;</span><br><span class="line">&lt;int name&#x3D;&quot;solr.hdfs.nrtcachingdirectory.maxcachedmb&quot;&gt;192&lt;&#x2F;int&gt;</span><br><span class="line">&lt;str name&#x3D;&quot;solr.hdfs.confdir&quot;&gt;&#x2F;opt&#x2F;solr&#x2F;etc&#x2F;hadoop&lt;&#x2F;str&gt;</span><br><span class="line">&lt;&#x2F;directoryFactory&gt;</span><br></pre></td></tr></table></figure></code></pre><p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s9.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s9.png"></p>
+</li>
+</ol>
+<h2 id="使用-tomcat-启动-solr-集群"><a href="#使用-tomcat-启动-solr-集群" class="headerlink" title="使用 tomcat 启动 solr 集群"></a>使用 tomcat 启动 solr 集群</h2><h2 id="solr-服务安装脚本"><a href="#solr-服务安装脚本" class="headerlink" title="solr 服务安装脚本"></a>solr 服务安装脚本</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">install_solr_service.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env bash</span><br><span class="line"># Licensed to the Apache Software Foundation (ASF) under one or more</span><br><span class="line"># contributor license agreements.  See the NOTICE file distributed with</span><br><span class="line"># this work for additional information regarding copyright ownership.</span><br><span class="line"># The ASF licenses this file to You under the Apache License, Version 2.0</span><br><span class="line"># (the &quot;License&quot;); you may not use this file except in compliance with</span><br><span class="line"># the License.  You may obtain a copy of the License at</span><br><span class="line">#</span><br><span class="line">#     https:&#x2F;&#x2F;www.apache.org&#x2F;licenses&#x2F;LICENSE-2.0</span><br><span class="line">#</span><br><span class="line"># Unless required by applicable law or agreed to in writing, software</span><br><span class="line"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line"># See the License for the specific language governing permissions and</span><br><span class="line"># limitations under the License.</span><br><span class="line"></span><br><span class="line">if [[ $EUID -ne 0 ]]; then</span><br><span class="line">  echo -e &quot;\nERROR: This script must be run as root\n&quot; 1&gt;&amp;2</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">print_usage() &#123;</span><br><span class="line">  ERROR_MSG&#x3D;&quot;$1&quot;</span><br><span class="line"></span><br><span class="line">  if [ &quot;$ERROR_MSG&quot; !&#x3D; &quot;&quot; ]; then</span><br><span class="line">    echo -e &quot;\nERROR: $ERROR_MSG\n&quot; 1&gt;&amp;2</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;Usage: install_solr_service.sh path_to_solr_distribution_archive OPTIONS&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;  The first argument to the script must be a path to a Solr distribution archive, such as solr-5.0.0.tgz&quot;</span><br><span class="line">  echo &quot;    (only .tgz or .zip are supported formats for the archive)&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;  Supported OPTIONS include:&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -d     Directory for live &#x2F; writable Solr files, such as logs, pid files, and index data; defaults to &#x2F;var&#x2F;solr&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -i     Directory to extract the Solr installation archive; defaults to &#x2F;opt&#x2F;&quot;</span><br><span class="line">  echo &quot;             The specified path must exist prior to using this script.&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -p     Port Solr should bind to; default is 8983&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -s     Service name; defaults to solr&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -u     User to own the Solr files and run the Solr process as; defaults to solr&quot;</span><br><span class="line">  echo &quot;             This script will create the specified user account if it does not exist.&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot; NOTE: Must be run as the root user&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">&#125; # end print_usage</span><br><span class="line"></span><br><span class="line">if [ -f &quot;&#x2F;proc&#x2F;version&quot; ]; then</span><br><span class="line">  proc_version&#x3D;&#96;cat &#x2F;proc&#x2F;version&#96;</span><br><span class="line">else</span><br><span class="line">  proc_version&#x3D;&#96;uname -a&#96;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [[ $proc_version &#x3D;&#x3D; *&quot;Debian&quot;* ]]; then</span><br><span class="line">  distro&#x3D;Debian</span><br><span class="line">elif [[ $proc_version &#x3D;&#x3D; *&quot;Red Hat&quot;* ]]; then</span><br><span class="line">  distro&#x3D;RedHat</span><br><span class="line">elif [[ $proc_version &#x3D;&#x3D; *&quot;Ubuntu&quot;* ]]; then</span><br><span class="line">  distro&#x3D;Ubuntu</span><br><span class="line">elif [[ $proc_version &#x3D;&#x3D; *&quot;SUSE&quot;* ]]; then</span><br><span class="line">  distro&#x3D;SUSE</span><br><span class="line">else</span><br><span class="line">  echo -e &quot;\nERROR: Your Linux distribution ($proc_version) not supported by this script!\nYou&#39;ll need to setup Solr as a service manually using the documentation provided in the Solr Reference Guide.\n&quot; 1&gt;&amp;2</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$1&quot; ]; then</span><br><span class="line">  print_usage &quot;Must specify the path to the Solr installation archive, such as solr-5.0.0.tgz&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">SOLR_ARCHIVE&#x3D;$1</span><br><span class="line">if [ ! -f &quot;$SOLR_ARCHIVE&quot; ]; then</span><br><span class="line">  print_usage &quot;Specified Solr installation archive $SOLR_ARCHIVE not found!&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># strip off path info</span><br><span class="line">SOLR_INSTALL_FILE&#x3D;$&#123;SOLR_ARCHIVE##*&#x2F;&#125;</span><br><span class="line">is_tar&#x3D;true</span><br><span class="line">if [ $&#123;SOLR_INSTALL_FILE: -4&#125; &#x3D;&#x3D; &quot;.tgz&quot; ]; then</span><br><span class="line">  SOLR_DIR&#x3D;$&#123;SOLR_INSTALL_FILE%.tgz&#125;</span><br><span class="line">elif [ $&#123;SOLR_INSTALL_FILE: -4&#125; &#x3D;&#x3D; &quot;.zip&quot; ]; then</span><br><span class="line">  SOLR_DIR&#x3D;$&#123;SOLR_INSTALL_FILE%.zip&#125;</span><br><span class="line">  is_tar&#x3D;false</span><br><span class="line">else</span><br><span class="line">  print_usage &quot;Solr installation archive $SOLR_ARCHIVE is invalid, expected a .tgz or .zip file!&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ $# -gt 1 ]; then</span><br><span class="line">  shift</span><br><span class="line">  while true; do</span><br><span class="line">    case $1 in</span><br><span class="line">        -i)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Directory path is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_EXTRACT_DIR&#x3D;$2</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -d)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Directory path is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_VAR_DIR&#x3D;&quot;$2&quot;</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -u)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Username is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_USER&#x3D;&quot;$2&quot;</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -s)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Service name is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_SERVICE&#x3D;&quot;$2&quot;</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -p)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Port is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_PORT&#x3D;&quot;$2&quot;</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -help|-usage)</span><br><span class="line">            print_usage &quot;&quot;</span><br><span class="line">            exit 0</span><br><span class="line">        ;;</span><br><span class="line">        --)</span><br><span class="line">            shift</span><br><span class="line">            break</span><br><span class="line">        ;;</span><br><span class="line">        *)</span><br><span class="line">            if [ &quot;$1&quot; !&#x3D; &quot;&quot; ]; then</span><br><span class="line">              print_usage &quot;Unrecognized or misplaced argument: $1!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            else</span><br><span class="line">              break # out-of-args, stop looping</span><br><span class="line">            fi</span><br><span class="line">        ;;</span><br><span class="line">    esac</span><br><span class="line">  done</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_EXTRACT_DIR&quot; ]; then</span><br><span class="line">  SOLR_EXTRACT_DIR&#x3D;&#x2F;opt</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ ! -d &quot;$SOLR_EXTRACT_DIR&quot; ]; then</span><br><span class="line">  print_usage &quot;Installation directory $SOLR_EXTRACT_DIR not found! Please create it before running this script.&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_SERVICE&quot; ]; then</span><br><span class="line">  SOLR_SERVICE&#x3D;solr</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_VAR_DIR&quot; ]; then</span><br><span class="line">  SOLR_VAR_DIR&#x3D;&#x2F;var&#x2F;$SOLR_SERVICE</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_USER&quot; ]; then</span><br><span class="line">  SOLR_USER&#x3D;solr</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_PORT&quot; ]; then</span><br><span class="line">  SOLR_PORT&#x3D;8983</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -f &quot;&#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE&quot; ]; then</span><br><span class="line">  echo -e &quot;\nERROR: &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE already exists! Perhaps Solr is already setup as a service on this host?\n&quot; 1&gt;&amp;2</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -e &quot;$SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE&quot; ]; then</span><br><span class="line">  print_usage &quot;$SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE already exists! Please move this directory &#x2F; link or choose a different service name using the -s option.&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">solr_uid&#x3D;&#96;id -u $SOLR_USER&#96;</span><br><span class="line">if [ $? -ne 0 ]; then</span><br><span class="line">  echo &quot;Creating new user: $SOLR_USER&quot;</span><br><span class="line">  if [ &quot;$distro&quot; &#x3D;&#x3D; &quot;RedHat&quot; ]; then</span><br><span class="line">    adduser $SOLR_USER</span><br><span class="line">  elif [ &quot;$distro&quot; &#x3D;&#x3D; &quot;SUSE&quot; ]; then</span><br><span class="line">    useradd -m $SOLR_USER</span><br><span class="line">  else</span><br><span class="line">    adduser --system --shell &#x2F;bin&#x2F;bash --group --disabled-password --home &#x2F;home&#x2F;$SOLR_USER $SOLR_USER</span><br><span class="line">  fi</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">SOLR_INSTALL_DIR&#x3D;$SOLR_EXTRACT_DIR&#x2F;$SOLR_DIR</span><br><span class="line">if [ ! -d &quot;$SOLR_INSTALL_DIR&quot; ]; then</span><br><span class="line"></span><br><span class="line">  echo &quot;Extracting $SOLR_ARCHIVE to $SOLR_EXTRACT_DIR&quot;</span><br><span class="line"></span><br><span class="line">  if $is_tar ; then</span><br><span class="line">    tar zxf $SOLR_ARCHIVE -C $SOLR_EXTRACT_DIR</span><br><span class="line">  else</span><br><span class="line">    unzip -q $SOLR_ARCHIVE -d $SOLR_EXTRACT_DIR</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  if [ ! -d &quot;$SOLR_INSTALL_DIR&quot; ]; then</span><br><span class="line">    echo -e &quot;\nERROR: Expected directory $SOLR_INSTALL_DIR not found after extracting $SOLR_ARCHIVE ... script fails.\n&quot; 1&gt;&amp;2</span><br><span class="line">    exit 1</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  chown -R $SOLR_USER: $SOLR_INSTALL_DIR</span><br><span class="line">else</span><br><span class="line">  echo -e &quot;\nWARNING: $SOLR_INSTALL_DIR already exists! Skipping extract ...\n&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># create a symlink for easier scripting</span><br><span class="line">ln -s $SOLR_INSTALL_DIR $SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE</span><br><span class="line">chown -h $SOLR_USER: $SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE</span><br><span class="line"></span><br><span class="line">mkdir -p $SOLR_VAR_DIR&#x2F;data</span><br><span class="line">mkdir -p $SOLR_VAR_DIR&#x2F;logs</span><br><span class="line">cp $SOLR_INSTALL_DIR&#x2F;server&#x2F;solr&#x2F;solr.xml $SOLR_VAR_DIR&#x2F;data&#x2F;</span><br><span class="line">cp $SOLR_INSTALL_DIR&#x2F;bin&#x2F;solr.in.sh $SOLR_VAR_DIR&#x2F;</span><br><span class="line">cp $SOLR_INSTALL_DIR&#x2F;server&#x2F;resources&#x2F;log4j.properties $SOLR_VAR_DIR&#x2F;log4j.properties</span><br><span class="line">sed_expr&#x3D;&quot;s#solr.log&#x3D;.*#solr.log&#x3D;\$&#123;solr.solr.home&#125;&#x2F;..&#x2F;logs#&quot;</span><br><span class="line">sed -i -e &quot;$sed_expr&quot; $SOLR_VAR_DIR&#x2F;log4j.properties</span><br><span class="line">chown -R $SOLR_USER: $SOLR_VAR_DIR</span><br><span class="line"></span><br><span class="line">echo &quot;SOLR_PID_DIR&#x3D;$SOLR_VAR_DIR</span><br><span class="line">SOLR_HOME&#x3D;$SOLR_VAR_DIR&#x2F;data</span><br><span class="line">LOG4J_PROPS&#x3D;$SOLR_VAR_DIR&#x2F;log4j.properties</span><br><span class="line">SOLR_LOGS_DIR&#x3D;$SOLR_VAR_DIR&#x2F;logs</span><br><span class="line">SOLR_PORT&#x3D;$SOLR_PORT</span><br><span class="line">&quot; &gt;&gt; $SOLR_VAR_DIR&#x2F;solr.in.sh</span><br><span class="line"></span><br><span class="line">echo &quot;Creating &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE script ...&quot;</span><br><span class="line">cp $SOLR_INSTALL_DIR&#x2F;bin&#x2F;init.d&#x2F;solr &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE</span><br><span class="line">chmod 744 &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE</span><br><span class="line">chown root:root &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE</span><br><span class="line"></span><br><span class="line"># do some basic variable substitution on the init.d script</span><br><span class="line">sed_expr1&#x3D;&quot;s#SOLR_INSTALL_DIR&#x3D;.*#SOLR_INSTALL_DIR&#x3D;$SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE#&quot;</span><br><span class="line">sed_expr2&#x3D;&quot;s#SOLR_ENV&#x3D;.*#SOLR_ENV&#x3D;$SOLR_VAR_DIR&#x2F;solr.in.sh#&quot;</span><br><span class="line">sed_expr3&#x3D;&quot;s#RUNAS&#x3D;.*#RUNAS&#x3D;$SOLR_USER#&quot;</span><br><span class="line">sed_expr4&#x3D;&quot;s#Provides:.*#Provides: $SOLR_SERVICE#&quot;</span><br><span class="line">sed -i -e &quot;$sed_expr1&quot; -e &quot;$sed_expr2&quot; -e &quot;$sed_expr3&quot; -e &quot;$sed_expr4&quot; &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE</span><br><span class="line"></span><br><span class="line">if [[ &quot;$distro&quot; &#x3D;&#x3D; &quot;RedHat&quot; || &quot;$distro&quot; &#x3D;&#x3D; &quot;SUSE&quot; ]]; then</span><br><span class="line">  chkconfig $SOLR_SERVICE on</span><br><span class="line">else</span><br><span class="line">  update-rc.d $SOLR_SERVICE defaults</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">service $SOLR_SERVICE start</span><br><span class="line">sleep 5</span><br><span class="line">service $SOLR_SERVICE status</span><br><span class="line"></span><br><span class="line">echo &quot;Service $SOLR_SERVICE installed.&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>solr</tag>
       </tags>
   </entry>
   <entry>
@@ -4874,110 +4978,6 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
       <tags>
         <tag>linux</tag>
         <tag>network</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>solr5.3.1集群安装</title>
-    <url>//2016/05/06/solr5.3.1-cluster-install.html</url>
-    <content><![CDATA[<h1 id="solr5-3-1-集群安装"><a href="#solr5-3-1-集群安装" class="headerlink" title="solr5.3.1 集群安装"></a>solr5.3.1 集群安装</h1><!--
-create time: 2016-05-06 16:57:35
-Author: <段朝骞>
-
-This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
-本文件由 Marboo<https://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
--->
-
-<p>资料来源<a href="https://wiki.apache.org/solr/">https://wiki.apache.org/solr/</a><br>下载地址<a href="https://archive.apache.org/dist/lucene/solr/5.3.1/">https://archive.apache.org/dist/lucene/solr/5.3.1/</a><br>安装 jdk</p>
-<h2 id="使用-solr-脚本启动集群"><a href="#使用-solr-脚本启动集群" class="headerlink" title="使用 solr 脚本启动集群"></a>使用 solr 脚本启动集群</h2><ol>
-<li><p>解压</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -zxvf solr-5.3.1.tgz</span><br><span class="line">mkdir -p &#x2F;opt&#x2F;usr&#x2F;solr</span><br><span class="line">mv solr-5.3.1 &#x2F;opt&#x2F;usr&#x2F;solr&#x2F;</span><br><span class="line">cd &#x2F;opt&#x2F;usr&#x2F;solr&#x2F;solr-5.3.1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>复制 solr.xml 到 9010 9011 9012 9013 目录下</p>
-<p>创建目录 9010 9011 9012 9013<br>mkdir 9010 9011 9012 9013</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp server&#x2F;solr&#x2F;solr.xml 9010&#x2F;</span><br><span class="line">cp server&#x2F;solr&#x2F;solr.xml 9011&#x2F;</span><br><span class="line">cp server&#x2F;solr&#x2F;solr.xml 9012&#x2F;</span><br><span class="line">cp server&#x2F;solr&#x2F;solr.xml 9013&#x2F;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动 solr</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin&#x2F;solr -c -p 9010 -s 9010 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin&#x2F;solr -c -p 9011 -s 9011 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin&#x2F;solr -c -p 9012 -s 9012 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin&#x2F;solr -c -p 9013 -s 9013 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重启 solr</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin&#x2F;solr restart -c -p 9010 -s 9010 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line"></span><br><span class="line">bin&#x2F;solr restart -c -p 9011 -s 9011 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line"></span><br><span class="line">bin&#x2F;solr restart -c -p 9012 -s 9012 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line"></span><br><span class="line">bin&#x2F;solr restart -c -p 9013 -s 9013 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>停止 solr</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin&#x2F;solr stop -p 9010</span><br><span class="line">bin&#x2F;solr stop -p 9011</span><br><span class="line">bin&#x2F;solr stop -p 9012</span><br><span class="line">bin&#x2F;solr stop -p 9013</span><br><span class="line">或者</span><br><span class="line">bin&#x2F;solr stop -all 停止所有</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看 solr 运行状态</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin&#x2F;solr status</span><br></pre></td></tr></table></figure>
-
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s1.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s1.png"></p>
-</li>
-</ol>
-<h3 id="上传配置文件到-zookeeper"><a href="#上传配置文件到-zookeeper" class="headerlink" title="上传配置文件到 zookeeper"></a>上传配置文件到 zookeeper</h3><p><a href="https://cwiki.apache.org/confluence/display/solr/Using+ZooKeeper+to+Manage+Configuration+Files">https://cwiki.apache.org/confluence/display/solr/Using+ZooKeeper+to+Manage+Configuration+Files</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir production_conf</span><br><span class="line">cp -rf server&#x2F;solr&#x2F;configsets&#x2F;basic_configs&#x2F;conf&#x2F;* production_conf&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p><strong>上传整个目录</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#x2F;scripts&#x2F;cloud-scripts&#x2F;zkcli.sh -cmd upconfig -zkhost 127.0.0.1:2182 -confname production_conf -confdir production_conf&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>–配置文件在/configs 目录下</p>
-<p><strong>上传单个文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#x2F;scripts&#x2F;cloud-scripts&#x2F;zkcli.sh -cmd putfile &#x2F;configs&#x2F;production_conf&#x2F;schema.xml production_conf&#x2F;schema.xml -zkhost 127.0.0.1:2182</span><br></pre></td></tr></table></figure>
-
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s2.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s2.png"></p>
-<h3 id="使用配置文件创建-collection"><a href="#使用配置文件创建-collection" class="headerlink" title="使用配置文件创建 collection"></a>使用配置文件创建 collection</h3><p>相关 api<br><a href="https://cwiki.apache.org/confluence/display/solr/Collections+API">https://cwiki.apache.org/confluence/display/solr/Collections+API</a></p>
-<p>创建 collection</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;192.168.88.21:9010&#x2F;solr&#x2F;admin&#x2F;collections?action&#x3D;CREATE&amp;name&#x3D;production&amp;numShards&#x3D;2&amp;replicationFactor&#x3D;2&amp;maxShardsPerNode&#x3D;2&amp;collection.configName&#x3D;production_conf</span><br></pre></td></tr></table></figure>
-
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s3.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s3.png"></p>
-<p><strong><em>当前 collection 使用的 config</em></strong></p>
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s4.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s4.png"></p>
-<h3 id="Reload-Colletion-加载配置文件，不需要重启-solr"><a href="#Reload-Colletion-加载配置文件，不需要重启-solr" class="headerlink" title="Reload Colletion(加载配置文件，不需要重启 solr)"></a>Reload Colletion(加载配置文件，不需要重启 solr)</h3><p>/admin/collections?action=RELOAD&amp;name=production</p>
-<h4 id="查看-Cluster-Status"><a href="#查看-Cluster-Status" class="headerlink" title="查看 Cluster Status"></a>查看 Cluster Status</h4><p>/admin/collections?action=CLUSTERSTATUS</p>
-<h4 id="其它相关操作"><a href="#其它相关操作" class="headerlink" title="其它相关操作"></a>其它相关操作</h4><h5 id="添加删除-shard-replica-等"><a href="#添加删除-shard-replica-等" class="headerlink" title="添加删除 shard replica 等"></a>添加删除 shard replica 等</h5><p><a href="https://cwiki.apache.org/confluence/display/solr/Collections+API#CollectionsAPI-api18">https://cwiki.apache.org/confluence/display/solr/Collections+API#CollectionsAPI-api18</a></p>
-<h5 id="配置-IK-分词器"><a href="#配置-IK-分词器" class="headerlink" title="配置 IK 分词器"></a>配置 IK 分词器</h5><p>复制 IK 分词器到 server/solr-webapp/webapp/WEB-INF/lib<br>ik 分词器是自己修改编译的</p>
-<p>git 地址<br><a href="https://git.oschina.net/duanzhaoqian/IK-Analyzer-2012FF/tree/master">https://git.oschina.net/duanzhaoqian/IK-Analyzer-2012FF/tree/master</a><br>下载 dist 目录下的 IKAnalyzer-5.3.1.jar</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp ~&#x2F;soft&#x2F;IKAnalyzer-5.3.1.jar server&#x2F;solr-webapp&#x2F;webapp&#x2F;WEB-INF&#x2F;lib</span><br></pre></td></tr></table></figure>
-
-<p>修改 schema.xml</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim production_conf&#x2F;schema.xml</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;fieldType name&#x3D;&quot;text_ik&quot; class&#x3D;&quot;solr.TextField&quot;&gt;</span><br><span class="line">    &lt;analyzer type&#x3D;&quot;query&quot; class&#x3D;&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot; useSmart&#x3D;&quot;false&quot;&#x2F;&gt;</span><br><span class="line">    &lt;analyzer type&#x3D;&quot;index&quot; class&#x3D;&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot; useSmart&#x3D;&quot;true&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;fieldType&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s5.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s5.png"><br>上传修改完成的 schema.xml</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server/scripts/cloud-scripts/zkcli.sh -cmd putfile /configs/production_conf/schema.xml production_conf/schema.xml -zkhost 127.0.0.1:2182</span><br></pre></td></tr></table></figure>
-
-<h4 id="Reload-Collection"><a href="#Reload-Collection" class="headerlink" title="Reload Collection"></a>Reload Collection</h4><p>/admin/collections?action=RELOAD&amp;name=production</p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s6.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s6.png"></p>
-<p>找到这三个文件上传到 zookeeper 就好</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp example/example-DIH/solr/solr/conf/admin-extra.* production_conf/</span><br></pre></td></tr></table></figure>
-
-<p>上传到 zookeeper</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server/scripts/cloud-scripts/zkcli.sh -cmd upconfig -zkhost 127.0.0.1:2182 -confname production_conf -confdir production_conf/</span><br></pre></td></tr></table></figure>
-
-<h2 id="重启-solr-集群"><a href="#重启-solr-集群" class="headerlink" title="重启 solr 集群"></a>重启 solr 集群</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin/solr restart -c -p 9010 -s 9010 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin/solr restart -c -p 9011 -s 9011 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin/solr restart -c -p 9012 -s 9012 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br><span class="line">bin/solr restart -c -p 9013 -s 9013 -z 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184</span><br></pre></td></tr></table></figure>
-
-<h2 id="solrCloud-运行在-HDFS"><a href="#solrCloud-运行在-HDFS" class="headerlink" title="solrCloud 运行在 HDFS"></a>solrCloud 运行在 HDFS</h2><p>资料<a href="https://cwiki.apache.org/confluence/display/solr/Running+Solr+on+HDFS">https://cwiki.apache.org/confluence/display/solr/Running+Solr+on+HDFS</a></p>
-<ol>
-<li><p>添加启动参数（必须）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-Dsolr.lock.type&#x3D;hdfs</span><br></pre></td></tr></table></figure>
-
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s7.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s7.png"><br>或者设置配置文件也行</p>
-<p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s8.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s8.png"></p>
-</li>
-<li><p>设置 hadoop 配置文件路径（HA 模式必须配置）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;str name&#x3D;&quot;solr.hdfs.confdir&quot;&gt;&#x2F;opt&#x2F;solr&#x2F;etc&#x2F;hadoop&lt;&#x2F;str&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改 DirectoryFactory</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    	&lt;directoryFactory name&#x3D;&quot;DirectoryFactory&quot; class&#x3D;&quot;solr.HdfsDirectoryFactory&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;str name&#x3D;&quot;solr.hdfs.home&quot;&gt;hdfs:&#x2F;&#x2F;192.168.1.201:8020&#x2F;solr&lt;&#x2F;str&gt;</span><br><span class="line">&lt;bool name&#x3D;&quot;solr.hdfs.blockcache.enabled&quot;&gt;true&lt;&#x2F;bool&gt;</span><br><span class="line">&lt;int name&#x3D;&quot;solr.hdfs.blockcache.slab.count&quot;&gt;1&lt;&#x2F;int&gt;</span><br><span class="line">&lt;bool name&#x3D;&quot;solr.hdfs.blockcache.direct.memory.allocation&quot;&gt;true&lt;&#x2F;bool&gt;</span><br><span class="line">&lt;int name&#x3D;&quot;solr.hdfs.blockcache.blocksperbank&quot;&gt;16384&lt;&#x2F;int&gt;</span><br><span class="line">&lt;bool name&#x3D;&quot;solr.hdfs.blockcache.read.enabled&quot;&gt;true&lt;&#x2F;bool&gt;</span><br><span class="line">&lt;bool name&#x3D;&quot;solr.hdfs.nrtcachingdirectory.enable&quot;&gt;true&lt;&#x2F;bool&gt;</span><br><span class="line">&lt;int name&#x3D;&quot;solr.hdfs.nrtcachingdirectory.maxmergesizemb&quot;&gt;16&lt;&#x2F;int&gt;</span><br><span class="line">&lt;int name&#x3D;&quot;solr.hdfs.nrtcachingdirectory.maxcachedmb&quot;&gt;192&lt;&#x2F;int&gt;</span><br><span class="line">&lt;str name&#x3D;&quot;solr.hdfs.confdir&quot;&gt;&#x2F;opt&#x2F;solr&#x2F;etc&#x2F;hadoop&lt;&#x2F;str&gt;</span><br><span class="line">&lt;&#x2F;directoryFactory&gt;</span><br></pre></td></tr></table></figure></code></pre><p><img loading="lazy" src="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s9.png" alt="https://raw.githubusercontent.com/duanzhaoqian/pic/master/solr/s9.png"></p>
-</li>
-</ol>
-<h2 id="使用-tomcat-启动-solr-集群"><a href="#使用-tomcat-启动-solr-集群" class="headerlink" title="使用 tomcat 启动 solr 集群"></a>使用 tomcat 启动 solr 集群</h2><h2 id="solr-服务安装脚本"><a href="#solr-服务安装脚本" class="headerlink" title="solr 服务安装脚本"></a>solr 服务安装脚本</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">install_solr_service.sh</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env bash</span><br><span class="line"># Licensed to the Apache Software Foundation (ASF) under one or more</span><br><span class="line"># contributor license agreements.  See the NOTICE file distributed with</span><br><span class="line"># this work for additional information regarding copyright ownership.</span><br><span class="line"># The ASF licenses this file to You under the Apache License, Version 2.0</span><br><span class="line"># (the &quot;License&quot;); you may not use this file except in compliance with</span><br><span class="line"># the License.  You may obtain a copy of the License at</span><br><span class="line">#</span><br><span class="line">#     https:&#x2F;&#x2F;www.apache.org&#x2F;licenses&#x2F;LICENSE-2.0</span><br><span class="line">#</span><br><span class="line"># Unless required by applicable law or agreed to in writing, software</span><br><span class="line"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line"># See the License for the specific language governing permissions and</span><br><span class="line"># limitations under the License.</span><br><span class="line"></span><br><span class="line">if [[ $EUID -ne 0 ]]; then</span><br><span class="line">  echo -e &quot;\nERROR: This script must be run as root\n&quot; 1&gt;&amp;2</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">print_usage() &#123;</span><br><span class="line">  ERROR_MSG&#x3D;&quot;$1&quot;</span><br><span class="line"></span><br><span class="line">  if [ &quot;$ERROR_MSG&quot; !&#x3D; &quot;&quot; ]; then</span><br><span class="line">    echo -e &quot;\nERROR: $ERROR_MSG\n&quot; 1&gt;&amp;2</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;Usage: install_solr_service.sh path_to_solr_distribution_archive OPTIONS&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;  The first argument to the script must be a path to a Solr distribution archive, such as solr-5.0.0.tgz&quot;</span><br><span class="line">  echo &quot;    (only .tgz or .zip are supported formats for the archive)&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;  Supported OPTIONS include:&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -d     Directory for live &#x2F; writable Solr files, such as logs, pid files, and index data; defaults to &#x2F;var&#x2F;solr&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -i     Directory to extract the Solr installation archive; defaults to &#x2F;opt&#x2F;&quot;</span><br><span class="line">  echo &quot;             The specified path must exist prior to using this script.&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -p     Port Solr should bind to; default is 8983&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -s     Service name; defaults to solr&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot;    -u     User to own the Solr files and run the Solr process as; defaults to solr&quot;</span><br><span class="line">  echo &quot;             This script will create the specified user account if it does not exist.&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">  echo &quot; NOTE: Must be run as the root user&quot;</span><br><span class="line">  echo &quot;&quot;</span><br><span class="line">&#125; # end print_usage</span><br><span class="line"></span><br><span class="line">if [ -f &quot;&#x2F;proc&#x2F;version&quot; ]; then</span><br><span class="line">  proc_version&#x3D;&#96;cat &#x2F;proc&#x2F;version&#96;</span><br><span class="line">else</span><br><span class="line">  proc_version&#x3D;&#96;uname -a&#96;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [[ $proc_version &#x3D;&#x3D; *&quot;Debian&quot;* ]]; then</span><br><span class="line">  distro&#x3D;Debian</span><br><span class="line">elif [[ $proc_version &#x3D;&#x3D; *&quot;Red Hat&quot;* ]]; then</span><br><span class="line">  distro&#x3D;RedHat</span><br><span class="line">elif [[ $proc_version &#x3D;&#x3D; *&quot;Ubuntu&quot;* ]]; then</span><br><span class="line">  distro&#x3D;Ubuntu</span><br><span class="line">elif [[ $proc_version &#x3D;&#x3D; *&quot;SUSE&quot;* ]]; then</span><br><span class="line">  distro&#x3D;SUSE</span><br><span class="line">else</span><br><span class="line">  echo -e &quot;\nERROR: Your Linux distribution ($proc_version) not supported by this script!\nYou&#39;ll need to setup Solr as a service manually using the documentation provided in the Solr Reference Guide.\n&quot; 1&gt;&amp;2</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$1&quot; ]; then</span><br><span class="line">  print_usage &quot;Must specify the path to the Solr installation archive, such as solr-5.0.0.tgz&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">SOLR_ARCHIVE&#x3D;$1</span><br><span class="line">if [ ! -f &quot;$SOLR_ARCHIVE&quot; ]; then</span><br><span class="line">  print_usage &quot;Specified Solr installation archive $SOLR_ARCHIVE not found!&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># strip off path info</span><br><span class="line">SOLR_INSTALL_FILE&#x3D;$&#123;SOLR_ARCHIVE##*&#x2F;&#125;</span><br><span class="line">is_tar&#x3D;true</span><br><span class="line">if [ $&#123;SOLR_INSTALL_FILE: -4&#125; &#x3D;&#x3D; &quot;.tgz&quot; ]; then</span><br><span class="line">  SOLR_DIR&#x3D;$&#123;SOLR_INSTALL_FILE%.tgz&#125;</span><br><span class="line">elif [ $&#123;SOLR_INSTALL_FILE: -4&#125; &#x3D;&#x3D; &quot;.zip&quot; ]; then</span><br><span class="line">  SOLR_DIR&#x3D;$&#123;SOLR_INSTALL_FILE%.zip&#125;</span><br><span class="line">  is_tar&#x3D;false</span><br><span class="line">else</span><br><span class="line">  print_usage &quot;Solr installation archive $SOLR_ARCHIVE is invalid, expected a .tgz or .zip file!&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ $# -gt 1 ]; then</span><br><span class="line">  shift</span><br><span class="line">  while true; do</span><br><span class="line">    case $1 in</span><br><span class="line">        -i)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Directory path is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_EXTRACT_DIR&#x3D;$2</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -d)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Directory path is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_VAR_DIR&#x3D;&quot;$2&quot;</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -u)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Username is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_USER&#x3D;&quot;$2&quot;</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -s)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Service name is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_SERVICE&#x3D;&quot;$2&quot;</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -p)</span><br><span class="line">            if [[ -z &quot;$2&quot; || &quot;$&#123;2:0:1&#125;&quot; &#x3D;&#x3D; &quot;-&quot; ]]; then</span><br><span class="line">              print_usage &quot;Port is required when using the $1 option!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            fi</span><br><span class="line">            SOLR_PORT&#x3D;&quot;$2&quot;</span><br><span class="line">            shift 2</span><br><span class="line">        ;;</span><br><span class="line">        -help|-usage)</span><br><span class="line">            print_usage &quot;&quot;</span><br><span class="line">            exit 0</span><br><span class="line">        ;;</span><br><span class="line">        --)</span><br><span class="line">            shift</span><br><span class="line">            break</span><br><span class="line">        ;;</span><br><span class="line">        *)</span><br><span class="line">            if [ &quot;$1&quot; !&#x3D; &quot;&quot; ]; then</span><br><span class="line">              print_usage &quot;Unrecognized or misplaced argument: $1!&quot;</span><br><span class="line">              exit 1</span><br><span class="line">            else</span><br><span class="line">              break # out-of-args, stop looping</span><br><span class="line">            fi</span><br><span class="line">        ;;</span><br><span class="line">    esac</span><br><span class="line">  done</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_EXTRACT_DIR&quot; ]; then</span><br><span class="line">  SOLR_EXTRACT_DIR&#x3D;&#x2F;opt</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ ! -d &quot;$SOLR_EXTRACT_DIR&quot; ]; then</span><br><span class="line">  print_usage &quot;Installation directory $SOLR_EXTRACT_DIR not found! Please create it before running this script.&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_SERVICE&quot; ]; then</span><br><span class="line">  SOLR_SERVICE&#x3D;solr</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_VAR_DIR&quot; ]; then</span><br><span class="line">  SOLR_VAR_DIR&#x3D;&#x2F;var&#x2F;$SOLR_SERVICE</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_USER&quot; ]; then</span><br><span class="line">  SOLR_USER&#x3D;solr</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -z &quot;$SOLR_PORT&quot; ]; then</span><br><span class="line">  SOLR_PORT&#x3D;8983</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -f &quot;&#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE&quot; ]; then</span><br><span class="line">  echo -e &quot;\nERROR: &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE already exists! Perhaps Solr is already setup as a service on this host?\n&quot; 1&gt;&amp;2</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -e &quot;$SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE&quot; ]; then</span><br><span class="line">  print_usage &quot;$SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE already exists! Please move this directory &#x2F; link or choose a different service name using the -s option.&quot;</span><br><span class="line">  exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">solr_uid&#x3D;&#96;id -u $SOLR_USER&#96;</span><br><span class="line">if [ $? -ne 0 ]; then</span><br><span class="line">  echo &quot;Creating new user: $SOLR_USER&quot;</span><br><span class="line">  if [ &quot;$distro&quot; &#x3D;&#x3D; &quot;RedHat&quot; ]; then</span><br><span class="line">    adduser $SOLR_USER</span><br><span class="line">  elif [ &quot;$distro&quot; &#x3D;&#x3D; &quot;SUSE&quot; ]; then</span><br><span class="line">    useradd -m $SOLR_USER</span><br><span class="line">  else</span><br><span class="line">    adduser --system --shell &#x2F;bin&#x2F;bash --group --disabled-password --home &#x2F;home&#x2F;$SOLR_USER $SOLR_USER</span><br><span class="line">  fi</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">SOLR_INSTALL_DIR&#x3D;$SOLR_EXTRACT_DIR&#x2F;$SOLR_DIR</span><br><span class="line">if [ ! -d &quot;$SOLR_INSTALL_DIR&quot; ]; then</span><br><span class="line"></span><br><span class="line">  echo &quot;Extracting $SOLR_ARCHIVE to $SOLR_EXTRACT_DIR&quot;</span><br><span class="line"></span><br><span class="line">  if $is_tar ; then</span><br><span class="line">    tar zxf $SOLR_ARCHIVE -C $SOLR_EXTRACT_DIR</span><br><span class="line">  else</span><br><span class="line">    unzip -q $SOLR_ARCHIVE -d $SOLR_EXTRACT_DIR</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  if [ ! -d &quot;$SOLR_INSTALL_DIR&quot; ]; then</span><br><span class="line">    echo -e &quot;\nERROR: Expected directory $SOLR_INSTALL_DIR not found after extracting $SOLR_ARCHIVE ... script fails.\n&quot; 1&gt;&amp;2</span><br><span class="line">    exit 1</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  chown -R $SOLR_USER: $SOLR_INSTALL_DIR</span><br><span class="line">else</span><br><span class="line">  echo -e &quot;\nWARNING: $SOLR_INSTALL_DIR already exists! Skipping extract ...\n&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># create a symlink for easier scripting</span><br><span class="line">ln -s $SOLR_INSTALL_DIR $SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE</span><br><span class="line">chown -h $SOLR_USER: $SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE</span><br><span class="line"></span><br><span class="line">mkdir -p $SOLR_VAR_DIR&#x2F;data</span><br><span class="line">mkdir -p $SOLR_VAR_DIR&#x2F;logs</span><br><span class="line">cp $SOLR_INSTALL_DIR&#x2F;server&#x2F;solr&#x2F;solr.xml $SOLR_VAR_DIR&#x2F;data&#x2F;</span><br><span class="line">cp $SOLR_INSTALL_DIR&#x2F;bin&#x2F;solr.in.sh $SOLR_VAR_DIR&#x2F;</span><br><span class="line">cp $SOLR_INSTALL_DIR&#x2F;server&#x2F;resources&#x2F;log4j.properties $SOLR_VAR_DIR&#x2F;log4j.properties</span><br><span class="line">sed_expr&#x3D;&quot;s#solr.log&#x3D;.*#solr.log&#x3D;\$&#123;solr.solr.home&#125;&#x2F;..&#x2F;logs#&quot;</span><br><span class="line">sed -i -e &quot;$sed_expr&quot; $SOLR_VAR_DIR&#x2F;log4j.properties</span><br><span class="line">chown -R $SOLR_USER: $SOLR_VAR_DIR</span><br><span class="line"></span><br><span class="line">echo &quot;SOLR_PID_DIR&#x3D;$SOLR_VAR_DIR</span><br><span class="line">SOLR_HOME&#x3D;$SOLR_VAR_DIR&#x2F;data</span><br><span class="line">LOG4J_PROPS&#x3D;$SOLR_VAR_DIR&#x2F;log4j.properties</span><br><span class="line">SOLR_LOGS_DIR&#x3D;$SOLR_VAR_DIR&#x2F;logs</span><br><span class="line">SOLR_PORT&#x3D;$SOLR_PORT</span><br><span class="line">&quot; &gt;&gt; $SOLR_VAR_DIR&#x2F;solr.in.sh</span><br><span class="line"></span><br><span class="line">echo &quot;Creating &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE script ...&quot;</span><br><span class="line">cp $SOLR_INSTALL_DIR&#x2F;bin&#x2F;init.d&#x2F;solr &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE</span><br><span class="line">chmod 744 &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE</span><br><span class="line">chown root:root &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE</span><br><span class="line"></span><br><span class="line"># do some basic variable substitution on the init.d script</span><br><span class="line">sed_expr1&#x3D;&quot;s#SOLR_INSTALL_DIR&#x3D;.*#SOLR_INSTALL_DIR&#x3D;$SOLR_EXTRACT_DIR&#x2F;$SOLR_SERVICE#&quot;</span><br><span class="line">sed_expr2&#x3D;&quot;s#SOLR_ENV&#x3D;.*#SOLR_ENV&#x3D;$SOLR_VAR_DIR&#x2F;solr.in.sh#&quot;</span><br><span class="line">sed_expr3&#x3D;&quot;s#RUNAS&#x3D;.*#RUNAS&#x3D;$SOLR_USER#&quot;</span><br><span class="line">sed_expr4&#x3D;&quot;s#Provides:.*#Provides: $SOLR_SERVICE#&quot;</span><br><span class="line">sed -i -e &quot;$sed_expr1&quot; -e &quot;$sed_expr2&quot; -e &quot;$sed_expr3&quot; -e &quot;$sed_expr4&quot; &#x2F;etc&#x2F;init.d&#x2F;$SOLR_SERVICE</span><br><span class="line"></span><br><span class="line">if [[ &quot;$distro&quot; &#x3D;&#x3D; &quot;RedHat&quot; || &quot;$distro&quot; &#x3D;&#x3D; &quot;SUSE&quot; ]]; then</span><br><span class="line">  chkconfig $SOLR_SERVICE on</span><br><span class="line">else</span><br><span class="line">  update-rc.d $SOLR_SERVICE defaults</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">service $SOLR_SERVICE start</span><br><span class="line">sleep 5</span><br><span class="line">service $SOLR_SERVICE status</span><br><span class="line"></span><br><span class="line">echo &quot;Service $SOLR_SERVICE installed.&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>solr</tag>
       </tags>
   </entry>
   <entry>
@@ -6135,6 +6135,37 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
       </tags>
   </entry>
   <entry>
+    <title>Top命令VIRT,RES,SHR,DATA的含义</title>
+    <url>//2015/02/02/Top_command-VIRT-RES-SHR-DATA.html</url>
+    <content><![CDATA[<h4 id="VIRT：virtual-memory-usage"><a href="#VIRT：virtual-memory-usage" class="headerlink" title="VIRT：virtual memory usage"></a>VIRT：virtual memory usage</h4><ol>
+<li>进程“需要的”虚拟内存大小，包括进程使用的库、代码、数据等</li>
+<li>假如进程申请 100m 的内存，但实际只使用了 10m，那么它会增长 100m，而不是实际的使用量</li>
+</ol>
+<h4 id="RES：resident-memory-usage-常驻内存"><a href="#RES：resident-memory-usage-常驻内存" class="headerlink" title="RES：resident memory usage 常驻内存"></a>RES：resident memory usage 常驻内存</h4><ol>
+<li>进程当前使用的内存大小，但不包括 swap out</li>
+<li>包含其他进程的共享</li>
+<li>如果申请 100m 的内存，实际使用 10m，它只增长 10m，与 VIRT 相反</li>
+<li>关于库占用内存的情况，它只统计加载的库文件所占内存大小</li>
+</ol>
+<h4 id="SHR：shared-memory"><a href="#SHR：shared-memory" class="headerlink" title="SHR：shared memory"></a>SHR：shared memory</h4><ol>
+<li>除了自身进程的共享内存，也包括其他进程的共享内存</li>
+<li>虽然进程只使用了几个共享库的函数，但它包含了整个共享库的大小</li>
+<li>计算某个进程所占的物理内存大小公式：RES – SHR</li>
+<li>swap out 后，它将会降下来</li>
+</ol>
+<h4 id="DATA"><a href="#DATA" class="headerlink" title="DATA"></a>DATA</h4><ol>
+<li>数据占用的内存。如果 top 没有显示，按 f 键可以显示出来。</li>
+<li>真正的该程序要求的数据空间，是真正在运行中要使用的。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>top</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ssh非root用户key认证登陆及忽略known_hosts</title>
     <url>//2015/02/02/ssh-key.html</url>
     <content><![CDATA[<p>有些时候，我们不能使用 root 用户在正式环境服务器操作，此时可以使用普通用户，root 用户的 key 认证登陆设置非常简单，普通用户的 key 认证登陆尝试好几次总算找到了原因，最终还是文件和文件夹权限的问题，下面简单说一下具体的 key 认证配置方法：（假设这里有两台服务器 A、B，A 服务器的 jack 用户要实现 key 认证登陆 B 服务器）</p>
@@ -6164,37 +6195,6 @@ This file is created by Marboo<https://marboo.io> template file $MARBOO_HOME/.me
       <tags>
         <tag>ssh</tag>
         <tag>key</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Top命令VIRT,RES,SHR,DATA的含义</title>
-    <url>//2015/02/02/Top_command-VIRT-RES-SHR-DATA.html</url>
-    <content><![CDATA[<h4 id="VIRT：virtual-memory-usage"><a href="#VIRT：virtual-memory-usage" class="headerlink" title="VIRT：virtual memory usage"></a>VIRT：virtual memory usage</h4><ol>
-<li>进程“需要的”虚拟内存大小，包括进程使用的库、代码、数据等</li>
-<li>假如进程申请 100m 的内存，但实际只使用了 10m，那么它会增长 100m，而不是实际的使用量</li>
-</ol>
-<h4 id="RES：resident-memory-usage-常驻内存"><a href="#RES：resident-memory-usage-常驻内存" class="headerlink" title="RES：resident memory usage 常驻内存"></a>RES：resident memory usage 常驻内存</h4><ol>
-<li>进程当前使用的内存大小，但不包括 swap out</li>
-<li>包含其他进程的共享</li>
-<li>如果申请 100m 的内存，实际使用 10m，它只增长 10m，与 VIRT 相反</li>
-<li>关于库占用内存的情况，它只统计加载的库文件所占内存大小</li>
-</ol>
-<h4 id="SHR：shared-memory"><a href="#SHR：shared-memory" class="headerlink" title="SHR：shared memory"></a>SHR：shared memory</h4><ol>
-<li>除了自身进程的共享内存，也包括其他进程的共享内存</li>
-<li>虽然进程只使用了几个共享库的函数，但它包含了整个共享库的大小</li>
-<li>计算某个进程所占的物理内存大小公式：RES – SHR</li>
-<li>swap out 后，它将会降下来</li>
-</ol>
-<h4 id="DATA"><a href="#DATA" class="headerlink" title="DATA"></a>DATA</h4><ol>
-<li>数据占用的内存。如果 top 没有显示，按 f 键可以显示出来。</li>
-<li>真正的该程序要求的数据空间，是真正在运行中要使用的。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>top</tag>
       </tags>
   </entry>
   <entry>
