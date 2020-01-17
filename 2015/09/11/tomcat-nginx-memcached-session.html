@@ -54,7 +54,7 @@
 <meta property="og:description" content="tomcat + memcached + nginx 实现session共享">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-09-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-01-04T12:09:11.228Z">
+<meta property="article:modified_time" content="2020-01-17T13:08:14.792Z">
 <meta property="article:author" content="Duan Zhao Qian">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="tomcat">
@@ -254,7 +254,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-04 20:09:11" itemprop="dateModified" datetime="2020-01-04T20:09:11+08:00">2020-01-04</time>
+                <time title="修改时间：2020-01-17 21:08:14" itemprop="dateModified" datetime="2020-01-17T21:08:14+08:00">2020-01-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,7 +288,7 @@
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>10 分钟</span>
             </span>
             <div class="post-description">tomcat + memcached + nginx 实现session共享</div>
 
@@ -309,7 +309,7 @@
 
 <p>上面这个 Header 会自动在浏览器端计算机的 Cookie 文件中添加一条记录。浏览器将变量名为“login”的 Cookie 赋值为“Michael Jordon”。注意，在实际传递过程中这个 Cookie 的值是经过了 URLEncode 方法的 URL 编码操作的。</p>
 <p>这个含有 Cookie 值的 HTTP Header 被保存到浏览器的 Cookie 文件后，Header 就通知浏览器将 Cookie 通过请求以忽略路径的方式返回到服务器，完成浏览器的认证操作。</p>
-<p>此外，我们使用了 Cookie 的一些属性来限定该 Cookie 的使用。例如 Domain 属性能够在浏览器端对 Cookie 发送进行限定，具体到上面的例子，该 Cookie 只能传到指定的服务器上，而决不会跑到其他的如 <a href="http://www.hp.com">www.hp.com</a> 的 Web 站点上去。Expires 属性则指定了该 Cookie 保存的时间期限，例如上面的 Cookie 在浏览器上只保存到 1999 年 3 月 1 日 1 秒。</p>
+<p>此外，我们使用了 Cookie 的一些属性来限定该 Cookie 的使用。例如 Domain 属性能够在浏览器端对 Cookie 发送进行限定，具体到上面的例子，该 Cookie 只能传到指定的服务器上，而决不会跑到其他的 Web 站点上去。Expires 属性则指定了该 Cookie 保存的时间期限，例如上面的 Cookie 在浏览器上只保存到 1999 年 3 月 1 日 1 秒。</p>
 <p>当然，如果浏览器上 Cookie 太多，超过了系统所允许的范围，浏览器将自动对它进行删除。至于属性 Path，用来指定 Cookie 将被发送到服务器的哪一个目录路径下。</p>
 <p>说明：浏览器创建了一个 Cookie 后，对于每一个针对该网站的请求，都会在 Header 中带着这个 Cookie；不过，对于其他网站的请求 Cookie 是绝对不会跟着发送的。而且浏览器会这样一直发送，直到 Cookie 过期为止。</p>
 <h5 id="session-又是如何工作的？"><a href="#session-又是如何工作的？" class="headerlink" title="session 又是如何工作的？"></a>session 又是如何工作的？</h5><p>由于 http 是无状态的协议，你访问了页面 A，然后在访问 B，http 无法确定这 2 个访问来自一个人，因此要用 cookie 或 session 来跟踪用户，根据授权和用户身份来显示不同的页面。比如用户 A 登陆了，那么能看到自己的个人信息，而 B 没登陆，无法看到个人信息。还有 A 可能在购物，把商品放入购物车，此时 B 也有这个过程，你无法确定 A，B 的身份和购物信息，所以需要一个 session ID 来维持这个过程。</p>
@@ -524,7 +524,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -571,12 +571,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">393k</span>
+    <span title="站点总字数">398k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:57</span>
+    <span title="站点阅读时长">6:02</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
@@ -681,7 +681,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       owner: 'duanzhaoqian',
       admin: ['duanzhaoqian'],
       id: '01c678bcf958ec96554cd1fb7d82adc1',
-        language: '',
+        language: 'zh-CN',
       distractionFreeMode: true
     });
     gitalk.render('gitalk-container');

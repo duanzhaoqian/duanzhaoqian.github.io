@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://duanzhaoqian.site/2016/08/15/Linux-NAT.html</loc>
+    
+    <lastmod>2020-01-17T13:08:14.799Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2016/05/07/hadoop%202.7.1.html</loc>
+    
+    <lastmod>2020-01-17T13:08:14.793Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2015/09/11/tomcat-nginx-memcached-session.html</loc>
+    
+    <lastmod>2020-01-17T13:08:14.792Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://duanzhaoqian.site/2020/01/17/golang.html</loc>
+    
+    <lastmod>2020-01-17T12:36:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://duanzhaoqian.site/2020/01/06/npm%E9%85%8D%E7%BD%AE.html</loc>
     
     <lastmod>2020-01-06T02:43:21.000Z</lastmod>
@@ -129,13 +157,6 @@
   
   <url>
     <loc>https://duanzhaoqian.site/2016/08/05/cisco-asa-5520.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.244Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://duanzhaoqian.site/2016/08/15/Linux-NAT.html</loc>
     
     <lastmod>2020-01-04T12:09:11.244Z</lastmod>
     
@@ -317,13 +338,6 @@
   </url>
   
   <url>
-    <loc>https://duanzhaoqian.site/2016/05/07/hadoop%202.7.1.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.233Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://duanzhaoqian.site/2016/05/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86.html</loc>
     
     <lastmod>2020-01-04T12:09:11.232Z</lastmod>
@@ -430,13 +444,6 @@
   
   <url>
     <loc>https://duanzhaoqian.site/2015/09/01/linux-mysql.html</loc>
-    
-    <lastmod>2020-01-04T12:09:11.228Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://duanzhaoqian.site/2015/09/11/tomcat-nginx-memcached-session.html</loc>
     
     <lastmod>2020-01-04T12:09:11.228Z</lastmod>
     

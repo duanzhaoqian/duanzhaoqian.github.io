@@ -1,3 +1,4 @@
+https://duanzhaoqian.site/2020/01/17/golang.html
 https://duanzhaoqian.site/2020/01/06/npm%E9%85%8D%E7%BD%AE.html
 https://duanzhaoqian.site/2020/01/05/mac-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7.html
 https://duanzhaoqian.site/2020/01/05/JAMStack.html
